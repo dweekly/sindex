@@ -129,7 +129,6 @@
     <!-- DNS Prefetch for all third-party domains -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://www.youtube.com">
     <link rel="dns-prefetch" href="https://open.spotify.com">
@@ -138,23 +137,20 @@
     <!-- Preconnect for critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
     <!-- ============================================= -->
-    <!-- FONT PRELOADING                              -->
-    <!-- Prevents Flash of Unstyled Text (FOUT)       -->
+    <!-- PRELOADING                                   -->
+    <!-- Preload critical resources                   -->
     <!-- ============================================= -->
+    <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" as="style">
-    <link rel="preload" href="https://fonts.gstatic.com/s/bebasneue/v14/JTUSjIg69CK48gW7PXoo9Wlhyw.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2" as="font" type="font/woff2" crossorigin>
     
     <!-- ============================================= -->
-    <!-- EXTERNAL STYLESHEETS                         -->
-    <!-- Tailwind CSS CDN for development             -->
-    <!-- TODO: Replace with production build          -->
+    <!-- STYLESHEETS                                  -->
+    <!-- Production optimized CSS                     -->
     <!-- ============================================= -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- ============================================= -->
@@ -458,7 +454,7 @@
 
 </head>
 
-<body class="bg-black text-white font-['Inter']">
+<body class="bg-black text-white font-sans">
     
     <!-- ============================================= -->
     <!-- ACCESSIBILITY: SKIP NAVIGATION               -->
