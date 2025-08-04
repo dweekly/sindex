@@ -16,15 +16,21 @@
     "build:force": "npm run convert-heic && npm run process-images:force && npm run build:html",
     "serve": "cd public && python3 -m http.server 8000 || python -m SimpleHTTPServer 8000",
     "dev": "npm run build && npm run serve",
-    "clean": "rm -rf public/images/* .image-cache.json"
+    "clean": "rm -rf public/images/* .image-cache.json",
+    "deploy": "npm run build:html && wrangler deploy",
+    "deploy:staging": "npm run build:html && wrangler deploy --env staging",
+    "preview": "npm run build:html && wrangler dev",
+    "worker:dev": "wrangler dev --local --persist"
   },
   "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.3.0",
     "chokidar": "^3.6.0",
     "glob": "^10.3.10",
     "sharp": "^0.33.2"
   },
   "devDependencies": {
-    "html-minifier-terser": "^7.2.0"
+    "html-minifier-terser": "^7.2.0",
+    "wrangler": "^3.0.0"
   },
   "author": "",
   "license": "MIT"
