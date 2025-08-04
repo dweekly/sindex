@@ -65,6 +65,44 @@
 .focus\:not-sr-only:focus {position:static;width:auto;height:auto;padding:inherit;margin:inherit;overflow:visible;clip:auto;white-space:normal;}.focus-visible\:ring-2:focus-visible {--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000);}
 .focus-visible\:ring-purple-400:focus-visible {--tw-ring-color:rgb(192 132 252);}
 .focus-visible\:outline-none:focus-visible {outline:2px solid transparent;outline-offset:2px;}</style>
+    
+    <!-- Gallery JavaScript - Define functions before they're used in HTML -->
+    <script>
+        // Gallery functionality - must be defined before gallery HTML
+        const galleryImages = [{"jpg":"images/large/IMG_2775_converted.jpg","webp":"images/large/IMG_2775_converted.webp","name":"IMG_2775_converted"},{"jpg":"images/large/IMG_2795_converted.jpg","webp":"images/large/IMG_2795_converted.webp","name":"IMG_2795_converted"},{"jpg":"images/large/sindex-full.jpg","webp":"images/large/sindex-full.webp","name":"sindex-full"},{"jpg":"images/large/sindex1.jpg","webp":"images/large/sindex1.webp","name":"sindex1"},{"jpg":"images/large/sindex2_converted.jpg","webp":"images/large/sindex2_converted.webp","name":"sindex2_converted"},{"jpg":"images/large/sindex3.jpg","webp":"images/large/sindex3.webp","name":"sindex3"}];
+        let currentImageIndex = 0;
+        
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-image');
+            const image = galleryImages[index];
+            
+            if (image) {
+                img.src = image.jpg;
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('flex');
+            }
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+        }
+        
+        function nextImage() {
+            if (galleryImages.length === 0) return;
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            document.getElementById('lightbox-image').src = galleryImages[currentImageIndex].jpg;
+        }
+        
+        function prevImage() {
+            if (galleryImages.length === 0) return;
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            document.getElementById('lightbox-image').src = galleryImages[currentImageIndex].jpg;
+        }
+    </script>
 
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
@@ -629,40 +667,32 @@
 
     <!-- JavaScript -->
     <script>
+        // Lightbox controls (functions defined in head)
+        if (document.getElementById('lightbox-close')) {
+            document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+            document.getElementById('lightbox-next').addEventListener('click', nextImage);
+            document.getElementById('lightbox-prev').addEventListener('click', prevImage);
+            document.getElementById('lightbox').addEventListener('click', (e) => {
+                if (e.target.id === 'lightbox') closeLightbox();
+            });
+        }
+        
+        // Keyboard controls for lightbox
+        document.addEventListener('keydown', (e) => {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox && !lightbox.classList.contains('hidden')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') prevImage();
+            }
+        });
+        
         // Mobile menu toggle
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
             const menu = document.getElementById('mobile-menu');
             const isHidden = menu.classList.toggle('hidden');
             this.setAttribute('aria-expanded', !isHidden);
         });
-    </script>
-</body>
-
-        // Add aria-current to active navigation
-        function updateActiveNav() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('nav a[href^="#"]');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.removeAttribute('aria-current');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.setAttribute('aria-current', 'page');
-                }
-            });
-        }
-        
-        window.addEventListener('scroll', updateActiveNav);
-        updateActiveNav();
-
         
         // Add aria-current to active navigation
         function updateActiveNav() {
@@ -688,7 +718,7 @@
         
         window.addEventListener('scroll', updateActiveNav);
         updateActiveNav();
-
+        
         // Close mobile menu on link click
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
@@ -756,61 +786,6 @@
                 nav.classList.remove('shadow-lg');
             }
         });
-
-        // Gallery functionality
-        
-      const galleryImages = [{"jpg":"images/large/IMG_2775_converted.jpg","webp":"images/large/IMG_2775_converted.webp","name":"IMG_2775_converted"},{"jpg":"images/large/IMG_2795_converted.jpg","webp":"images/large/IMG_2795_converted.webp","name":"IMG_2795_converted"},{"jpg":"images/large/sindex-full.jpg","webp":"images/large/sindex-full.webp","name":"sindex-full"},{"jpg":"images/large/sindex1.jpg","webp":"images/large/sindex1.webp","name":"sindex1"},{"jpg":"images/large/sindex2_converted.jpg","webp":"images/large/sindex2_converted.webp","name":"sindex2_converted"},{"jpg":"images/large/sindex3.jpg","webp":"images/large/sindex3.webp","name":"sindex3"}];
-      let currentImageIndex = 0;
-
-        function openLightbox(index) {
-            currentImageIndex = index;
-            const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-image');
-            const image = galleryImages[index];
-            
-            if (image) {
-                img.src = image.jpg;
-                lightbox.classList.remove('hidden');
-                lightbox.classList.add('flex');
-            }
-        }
-        
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.add('hidden');
-            lightbox.classList.remove('flex');
-        }
-        
-        function nextImage() {
-            if (galleryImages.length === 0) return;
-            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-            document.getElementById('lightbox-image').src = galleryImages[currentImageIndex].jpg;
-        }
-        
-        function prevImage() {
-            if (galleryImages.length === 0) return;
-            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-            document.getElementById('lightbox-image').src = galleryImages[currentImageIndex].jpg;
-        }
-        
-        // Lightbox controls
-        if (document.getElementById('lightbox-close')) {
-            document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
-            document.getElementById('lightbox-next').addEventListener('click', nextImage);
-            document.getElementById('lightbox-prev').addEventListener('click', prevImage);
-            document.getElementById('lightbox').addEventListener('click', (e) => {
-                if (e.target.id === 'lightbox') closeLightbox();
-            });
-        }
-        
-        // Keyboard controls for lightbox
-        document.addEventListener('keydown', (e) => {
-            const lightbox = document.getElementById('lightbox');
-            if (lightbox && !lightbox.classList.contains('hidden')) {
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowRight') nextImage();
-                if (e.key === 'ArrowLeft') prevImage();
-            }
-        });
-</html>
+    </script>
+</body>
 </html>
