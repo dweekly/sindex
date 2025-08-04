@@ -2,40 +2,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Sinister Dexter - The Right to Be Funky | San Francisco Soul & Funk Band</title>
+    <meta name="robots" content="index, follow">
     <meta name="description" content="Sinister Dexter is an 11-piece soul machine bringing the unique sound of great funk horn bands to the San Francisco Bay Area. Featuring vocalist Rebecca Lipon.">
     <meta name="keywords" content="Sinister Dexter, funk band, soul music, San Francisco, Bay Area, Rebecca Lipon, live music, horn section">
     <meta property="og:title" content="Sinister Dexter - The Right to Be Funky">
     <meta property="og:description" content="11-piece soul machine bringing high-energy funk to the Bay Area">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sinisterdexter.net">
+    <link rel="canonical" href="https://sinisterdexter.net/">
+    <meta property="og:image" content="https://sinisterdexter.net/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sindexband">
+    <meta name="twitter:title" content="Sinister Dexter - The Right to Be Funky">
+    <meta name="twitter:description" content="11-piece soul machine bringing high-energy funk to the Bay Area">
+    <meta name="twitter:image" content="https://sinisterdexter.net/twitter-card.jpg">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon-64x64.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="favicon-128x128.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#9333ea">
+    
+    <!-- Note: Tailwind CDN is used for development. For production, consider PostCSS or Tailwind CLI -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <style>
-        .bebas { font-family: 'Bebas Neue', cursive; }
-        .gradient-text {
-            background: linear-gradient(135deg, #9333ea 0%, #f59e0b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+    <style> .bebas {font-family:'Bebas Neue',cursive;}.gradient-text {background:linear-gradient(135deg,#9333ea 0%,#f59e0b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}.hero-overlay {background:linear-gradient(180deg,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.4) 50%,rgba(0,0,0,0.7) 100%);}html {scroll-behavior:smooth;}.nav-link {transition:all 0.3s ease;}.nav-link:hover {transform:translateY(-2px);}.social-icon {transition:all 0.3s ease;}.social-icon:hover {transform:scale(1.2) rotate(5deg);}.gallery-item {transition:all 0.3s ease;}.gallery-item:hover {transform:scale(1.05);}</style>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicGroup",
+      "name": "Sinister Dexter",
+      "description": "11-piece soul machine bringing the unique sound of great funk horn bands to the San Francisco Bay Area",
+      "url": "https://sinisterdexter.net",
+      "genre": ["Funk", "Soul", "R&B"],
+      "foundingDate": "1999",
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "San Francisco Bay Area, California"
+      },
+      "member": [
+        {
+          "@type": "Person",
+          "name": "Rebecca Lipon",
+          "roleName": "Lead Vocals"
         }
-        .hero-overlay {
-            background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%);
-        }
-        html { scroll-behavior: smooth; }
-        .nav-link { transition: all 0.3s ease; }
-        .nav-link:hover { transform: translateY(-2px); }
-        .social-icon { transition: all 0.3s ease; }
-        .social-icon:hover { transform: scale(1.2) rotate(5deg); }
-        .gallery-item { transition: all 0.3s ease; }
-        .gallery-item:hover { transform: scale(1.05); }
-    </style>
+      ],
+      "sameAs": [
+        "https://www.instagram.com/sindex_band",
+        "https://x.com/sindexband",
+        "https://facebook.com/SinDex.Band/",
+        "https://www.youtube.com/@SinDexBand",
+        "https://open.spotify.com/artist/06ZpJFLW4Kz4EAlUorzrFu",
+        "https://music.apple.com/us/artist/sinister-dexter/30663361"
+      ]
+    }
+    </script>
+
 </head>
 <body class="bg-black text-white font-['Inter']">
     
@@ -69,7 +112,13 @@
 
     <!-- Hero Section -->
     <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/50 to-amber-900/50"></div>
+        <!-- Band photo background -->
+        <picture class="absolute inset-0">
+            <source srcset="images/large/sindex-full.webp" type="image/webp">
+            <img src="images/large/sindex-full.jpg" alt="Sinister Dexter full band" 
+                 class="w-full h-full object-cover object-center">
+        </picture>
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/60 to-amber-900/60"></div>
         <div class="hero-overlay absolute inset-0"></div>
         <div class="relative z-10 text-center px-6">
             <h1 class="bebas text-6xl md:text-8xl lg:text-9xl mb-4">SINISTER DEXTER</h1>
@@ -96,17 +145,163 @@
         <div class="max-w-7xl mx-auto">
             <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text">UPCOMING SHOWS</h2>
             <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" id="shows-container">
-                <!-- Shows will be dynamically loaded here -->
-            </div>
-            <div id="shows-loading" class="text-center py-8">
-                <p class="text-gray-400">Loading shows...</p>
-            </div>
+                
+          <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30 ring-2 ring-purple-500">
+            <div class="text-xs text-purple-400 font-bold mb-2">FEATURED</div>
+            <div class="text-amber-500 font-bold mb-2">WED, AUG 19</div>
+            <h3 class="text-xl font-bold mb-2">Redwood City Music in the Park - Stafford Park</h3>
+            <p class="text-gray-400 mb-2">Redwood City, CA</p>
+            <p class="text-gray-300 mb-4">5:00 PM - 7:00 PM</p>
+            <p class="text-sm text-gray-400 mb-4">Free summer concert series at the corner of King St. & Hopkins Ave. Kid friendly!</p>
+            <span class="text-purple-400">Free Event!</span>
+          </div>
+          <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30 ring-2 ring-purple-500">
+            <div class="text-xs text-purple-400 font-bold mb-2">FEATURED</div>
+            <div class="text-amber-500 font-bold mb-2">THU, SEP 10</div>
+            <h3 class="text-xl font-bold mb-2">Valencia LIVE! at Blondie's Bar</h3>
+            <p class="text-gray-400 mb-2">San Francisco, CA</p>
+            <p class="text-gray-300 mb-4">5:00 PM - 8:00 PM</p>
+            <p class="text-sm text-gray-400 mb-4">Big night market on Valencia St with food, drink, entertainment, and FUNK!</p>
+            <span class="text-purple-400">Free Event!</span>
+          </div>
+          <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30">
             
+            <div class="text-amber-500 font-bold mb-2">SUN, SEP 28</div>
+            <h3 class="text-xl font-bold mb-2">Fiesta on the Hill</h3>
+            <p class="text-gray-400 mb-2">Bernal Heights, San Francisco, CA</p>
+            <p class="text-gray-300 mb-4">2:00 PM - 4:00 PM</p>
+            <p class="text-sm text-gray-400 mb-4">Annual street fair on Cortland Ave with family-friendly atmosphere</p>
+            <span class="text-purple-400">Free Event!</span>
+          </div>
+            </div>
+
             <!-- Past Shows -->
             <div class="mt-16">
                 <h3 class="bebas text-3xl text-center mb-8 text-purple-400">PAST SHOWS</h3>
                 <div id="past-shows-container" class="max-w-4xl mx-auto bg-gray-900/30 rounded-lg p-6">
-                    <!-- Past shows will be dynamically loaded here -->
+                    <div class="space-y-3">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
+            <div class="flex-1">
+              <span class="text-amber-500 text-sm font-semibold">JUN 26, 2024</span>
+              <span class="text-gray-400 mx-2">•</span>
+              <span class="text-gray-300">Los Altos Summer Concert Series</span>
+              <span class="text-gray-500 text-sm ml-2">Grant Park, Los Altos</span>
+              
+            </div>
+            <div class="text-gray-500 text-sm mt-1 sm:mt-0">6:00 PM - 8:00 PM</div>
+          </div>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
+            <div class="flex-1">
+              <span class="text-amber-500 text-sm font-semibold">APR 26, 2024</span>
+              <span class="text-gray-400 mx-2">•</span>
+              <span class="text-gray-300">Mount Carmel Wild West Days Festival</span>
+              <span class="text-gray-500 text-sm ml-2">Redwood City</span>
+              
+            </div>
+            <div class="text-gray-500 text-sm mt-1 sm:mt-0">3:00 PM - 5:00 PM</div>
+          </div>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
+            <div class="flex-1">
+              <span class="text-amber-500 text-sm font-semibold">MAR 22, 2024</span>
+              <span class="text-gray-400 mx-2">•</span>
+              <span class="text-gray-300">Ireland's 32</span>
+              <span class="text-gray-500 text-sm ml-2">San Francisco</span>
+              <span class="text-purple-400 text-sm ml-2">(21+)</span>
+            </div>
+            <div class="text-gray-500 text-sm mt-1 sm:mt-0">8:00 PM - 11:00 PM</div>
+          </div>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
+            <div class="flex-1">
+              <span class="text-amber-500 text-sm font-semibold">FEB 9, 2024</span>
+              <span class="text-gray-400 mx-2">•</span>
+              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors">
+                  Blue Oak Brewing Company <i class="fas fa-external-link-alt text-xs ml-1"></i>
+                </a>
+              <span class="text-gray-500 text-sm ml-2">San Carlos</span>
+              
+            </div>
+            <div class="text-gray-500 text-sm mt-1 sm:mt-0">3:00 PM - 6:00 PM</div>
+          </div>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
+            <div class="flex-1">
+              <span class="text-amber-500 text-sm font-semibold">FEB 1, 2024</span>
+              <span class="text-gray-400 mx-2">•</span>
+              <a href="https://www.clubfoxrwc.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors">
+                  Club Fox - 25 Year Reunion Show <i class="fas fa-external-link-alt text-xs ml-1"></i>
+                </a>
+              <span class="text-gray-500 text-sm ml-2">Redwood City</span>
+              
+            </div>
+            <div class="text-gray-500 text-sm mt-1 sm:mt-0">7:00 PM - 10:00 PM</div>
+          </div>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
+            <div class="flex-1">
+              <span class="text-amber-500 text-sm font-semibold">NOV 3, 2023</span>
+              <span class="text-gray-400 mx-2">•</span>
+              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors">
+                  Blue Oak Brewing Company <i class="fas fa-external-link-alt text-xs ml-1"></i>
+                </a>
+              <span class="text-gray-500 text-sm ml-2">San Carlos</span>
+              
+            </div>
+            <div class="text-gray-500 text-sm mt-1 sm:mt-0">3:00 PM - 6:00 PM</div>
+          </div>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
+            <div class="flex-1">
+              <span class="text-amber-500 text-sm font-semibold">OCT 18, 2023</span>
+              <span class="text-gray-400 mx-2">•</span>
+              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors">
+                  Blue Oak Brewing with TGIFunk <i class="fas fa-external-link-alt text-xs ml-1"></i>
+                </a>
+              <span class="text-gray-500 text-sm ml-2">San Carlos</span>
+              
+            </div>
+            <div class="text-gray-500 text-sm mt-1 sm:mt-0">3:00 PM - 6:00 PM</div>
+          </div>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
+            <div class="flex-1">
+              <span class="text-amber-500 text-sm font-semibold">SEP 28, 2023</span>
+              <span class="text-gray-400 mx-2">•</span>
+              <span class="text-gray-300">Fiesta on the Hill</span>
+              <span class="text-gray-500 text-sm ml-2">Bernal Heights, San Francisco</span>
+              
+            </div>
+            <div class="text-gray-500 text-sm mt-1 sm:mt-0">2:00 PM - 4:00 PM</div>
+          </div>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
+            <div class="flex-1">
+              <span class="text-amber-500 text-sm font-semibold">AUG 30, 2023</span>
+              <span class="text-gray-400 mx-2">•</span>
+              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors">
+                  Blue Oak Brewing Company <i class="fas fa-external-link-alt text-xs ml-1"></i>
+                </a>
+              <span class="text-gray-500 text-sm ml-2">San Carlos</span>
+              
+            </div>
+            <div class="text-gray-500 text-sm mt-1 sm:mt-0">3:00 PM - 6:00 PM</div>
+          </div>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
+            <div class="flex-1">
+              <span class="text-amber-500 text-sm font-semibold">AUG 15, 2023</span>
+              <span class="text-gray-400 mx-2">•</span>
+              <span class="text-gray-300">Redwood City Music in the Park</span>
+              <span class="text-gray-500 text-sm ml-2">Stafford Park, Redwood City</span>
+              
+            </div>
+            <div class="text-gray-500 text-sm mt-1 sm:mt-0">5:00 PM - 7:00 PM</div>
+          </div>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
+            <div class="flex-1">
+              <span class="text-amber-500 text-sm font-semibold">JUN 16, 2023</span>
+              <span class="text-gray-400 mx-2">•</span>
+              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors">
+                  Blue Oak Brewing Company <i class="fas fa-external-link-alt text-xs ml-1"></i>
+                </a>
+              <span class="text-gray-500 text-sm ml-2">San Carlos</span>
+              
+            </div>
+            <div class="text-gray-500 text-sm mt-1 sm:mt-0">3:00 PM - 6:00 PM</div>
+          </div></div>
                 </div>
             </div>
         </div>
@@ -165,8 +360,8 @@
                 <!-- Video 1 -->
                 <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30">
                     <div class="aspect-video">
-                        <iframe src="https://www.youtube.com/embed/G_AchkgGsaI" 
-                                title="Sinister Dexter Performance" 
+                        <iframe src="https://www.youtube.com/embed/D9gIdE7IJsY" 
+                                title="Son of a Preacher Man - Sinister Dexter" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                                 allowfullscreen
@@ -174,7 +369,8 @@
                         </iframe>
                     </div>
                     <div class="p-4">
-                        <h3 class="text-lg font-semibold text-purple-400">Live at Club Fox</h3>
+                        <h3 class="text-lg font-semibold text-purple-400">Son of a Preacher Man</h3>
+                        <p class="text-sm text-gray-400">Redwood City Music In The Park, 2012</p>
                     </div>
                 </div>
                 
@@ -182,7 +378,7 @@
                 <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30">
                     <div class="aspect-video">
                         <iframe src="https://www.youtube.com/embed/vWRJUqNdnX0" 
-                                title="Sinister Dexter Performance" 
+                                title="I Can't Stand The Rain - Sinister Dexter" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                                 allowfullscreen
@@ -190,7 +386,8 @@
                         </iframe>
                     </div>
                     <div class="p-4">
-                        <h3 class="text-lg font-semibold text-purple-400">Festival Performance</h3>
+                        <h3 class="text-lg font-semibold text-purple-400">I Can't Stand The Rain</h3>
+                        <p class="text-sm text-gray-400">Redwood City Music In The Park, 2012</p>
                     </div>
                 </div>
                 
@@ -198,7 +395,7 @@
                 <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30">
                     <div class="aspect-video">
                         <iframe src="https://www.youtube.com/embed/buwFWtEuOyQ" 
-                                title="Sinister Dexter Performance" 
+                                title="Broadband Connection - Sinister Dexter" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                                 allowfullscreen
@@ -206,7 +403,8 @@
                         </iframe>
                     </div>
                     <div class="p-4">
-                        <h3 class="text-lg font-semibold text-purple-400">Soul Machine Live</h3>
+                        <h3 class="text-lg font-semibold text-purple-400">Broadband Connection</h3>
+                        <p class="text-sm text-gray-400">Redwood City Music In The Park, 2012</p>
                     </div>
                 </div>
             </div>
@@ -225,11 +423,51 @@
         <div class="max-w-7xl mx-auto">
             <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text">GALLERY</h2>
             <div id="gallery-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Images will be dynamically loaded here -->
+                
+          <div class="gallery-item aspect-square bg-gray-800 rounded-lg overflow-hidden cursor-pointer" 
+               onclick="openLightbox(0)">
+            <picture>
+              <source srcset="images/thumbnail/IMG_2775_converted.webp" type="image/webp">
+              <img src="images/thumbnail/IMG_2775_converted.jpg" alt="Sinister Dexter band photo" class="w-full h-full object-cover transition-transform hover:scale-110" loading="lazy" width="400" height="400">
+            </picture>
+          </div>
+          <div class="gallery-item aspect-square bg-gray-800 rounded-lg overflow-hidden cursor-pointer" 
+               onclick="openLightbox(1)">
+            <picture>
+              <source srcset="images/thumbnail/IMG_2795_converted.webp" type="image/webp">
+              <img src="images/thumbnail/IMG_2795_converted.jpg" alt="Sinister Dexter band photo" class="w-full h-full object-cover transition-transform hover:scale-110" loading="lazy" width="400" height="400">
+            </picture>
+          </div>
+          <div class="gallery-item aspect-square bg-gray-800 rounded-lg overflow-hidden cursor-pointer" 
+               onclick="openLightbox(2)">
+            <picture>
+              <source srcset="images/thumbnail/sindex-full.webp" type="image/webp">
+              <img src="images/thumbnail/sindex-full.jpg" alt="Sinister Dexter band photo" class="w-full h-full object-cover transition-transform hover:scale-110" loading="lazy" width="400" height="400">
+            </picture>
+          </div>
+          <div class="gallery-item aspect-square bg-gray-800 rounded-lg overflow-hidden cursor-pointer" 
+               onclick="openLightbox(3)">
+            <picture>
+              <source srcset="images/thumbnail/sindex1.webp" type="image/webp">
+              <img src="images/thumbnail/sindex1.jpg" alt="Sinister Dexter band photo" class="w-full h-full object-cover transition-transform hover:scale-110" loading="lazy" width="400" height="400">
+            </picture>
+          </div>
+          <div class="gallery-item aspect-square bg-gray-800 rounded-lg overflow-hidden cursor-pointer" 
+               onclick="openLightbox(4)">
+            <picture>
+              <source srcset="images/thumbnail/sindex2_converted.webp" type="image/webp">
+              <img src="images/thumbnail/sindex2_converted.jpg" alt="Sinister Dexter band photo" class="w-full h-full object-cover transition-transform hover:scale-110" loading="lazy" width="400" height="400">
+            </picture>
+          </div>
+          <div class="gallery-item aspect-square bg-gray-800 rounded-lg overflow-hidden cursor-pointer" 
+               onclick="openLightbox(5)">
+            <picture>
+              <source srcset="images/thumbnail/sindex3.webp" type="image/webp">
+              <img src="images/thumbnail/sindex3.jpg" alt="Sinister Dexter band photo" class="w-full h-full object-cover transition-transform hover:scale-110" loading="lazy" width="400" height="400">
+            </picture>
+          </div>
             </div>
-            <div id="gallery-loading" class="text-center py-8">
-                <p class="text-gray-400">Loading gallery...</p>
-            </div>
+            
         </div>
     </section>
     
@@ -370,6 +608,8 @@
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
+    </script>
+</body>
 
         // Close mobile menu on link click
         document.querySelectorAll('#mobile-menu a').forEach(link => {
@@ -440,53 +680,9 @@
         });
 
         // Gallery functionality
-        let galleryImages = [];
-        let currentImageIndex = 0;
-
-        async function loadGallery() {
-            try {
-                const response = await fetch('/images/manifest.json');
-                if (!response.ok) {
-                    throw new Error('No images processed yet');
-                }
-                
-                const manifest = await response.json();
-                const container = document.getElementById('gallery-container');
-                const loading = document.getElementById('gallery-loading');
-                
-                // Use thumbnail images for gallery grid
-                const images = manifest.thumbnail || [];
-                
-                if (images.length === 0) {
-                    loading.innerHTML = '<p class="text-gray-400">No images available. Add images to the photos/ directory and run: npm run process-images</p>';
-                    return;
-                }
-                
-                galleryImages = manifest.large || manifest.medium || images;
-                container.innerHTML = '';
-                
-                images.forEach((img, index) => {
-                    const item = document.createElement('div');
-                    item.className = 'gallery-item aspect-square bg-gray-800 rounded-lg overflow-hidden cursor-pointer';
-                    item.innerHTML = `
-                        <picture>
-                            <source srcset="${img.webp}" type="image/webp">
-                            <img src="${img.jpg}" alt="Sinister Dexter band photo" 
-                                 class="w-full h-full object-cover transition-transform hover:scale-110"
-                                 loading="lazy">
-                        </picture>
-                    `;
-                    item.addEventListener('click', () => openLightbox(index));
-                    container.appendChild(item);
-                });
-                
-                loading.style.display = 'none';
-            } catch (error) {
-                console.log('Gallery not ready:', error.message);
-                document.getElementById('gallery-loading').innerHTML = 
-                    '<p class="text-gray-400">Add images to photos/ directory and run:<br><code class="bg-gray-800 px-2 py-1 rounded">npm install && npm run process-images</code></p>';
-            }
-        }
+        
+      const galleryImages = [{"jpg":"images/large/IMG_2775_converted.jpg","webp":"images/large/IMG_2775_converted.webp","name":"IMG_2775_converted"},{"jpg":"images/large/IMG_2795_converted.jpg","webp":"images/large/IMG_2795_converted.webp","name":"IMG_2795_converted"},{"jpg":"images/large/sindex-full.jpg","webp":"images/large/sindex-full.webp","name":"sindex-full"},{"jpg":"images/large/sindex1.jpg","webp":"images/large/sindex1.webp","name":"sindex1"},{"jpg":"images/large/sindex2_converted.jpg","webp":"images/large/sindex2_converted.webp","name":"sindex2_converted"},{"jpg":"images/large/sindex3.jpg","webp":"images/large/sindex3.webp","name":"sindex3"}];
+      let currentImageIndex = 0;
 
         function openLightbox(index) {
             currentImageIndex = index;
@@ -494,136 +690,49 @@
             const img = document.getElementById('lightbox-image');
             const image = galleryImages[index];
             
-            // Use picture element for better format support
-            img.src = image.jpg;
-            lightbox.classList.remove('hidden');
-            lightbox.classList.add('flex');
+            if (image) {
+                img.src = image.jpg;
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('flex');
+            }
         }
-
+        
         function closeLightbox() {
             const lightbox = document.getElementById('lightbox');
             lightbox.classList.add('hidden');
             lightbox.classList.remove('flex');
         }
-
+        
         function nextImage() {
+            if (galleryImages.length === 0) return;
             currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
             document.getElementById('lightbox-image').src = galleryImages[currentImageIndex].jpg;
         }
-
+        
         function prevImage() {
+            if (galleryImages.length === 0) return;
             currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
             document.getElementById('lightbox-image').src = galleryImages[currentImageIndex].jpg;
         }
-
+        
         // Lightbox controls
-        document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
-        document.getElementById('lightbox-next').addEventListener('click', nextImage);
-        document.getElementById('lightbox-prev').addEventListener('click', prevImage);
-        document.getElementById('lightbox').addEventListener('click', (e) => {
-            if (e.target.id === 'lightbox') closeLightbox();
-        });
-
+        if (document.getElementById('lightbox-close')) {
+            document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+            document.getElementById('lightbox-next').addEventListener('click', nextImage);
+            document.getElementById('lightbox-prev').addEventListener('click', prevImage);
+            document.getElementById('lightbox').addEventListener('click', (e) => {
+                if (e.target.id === 'lightbox') closeLightbox();
+            });
+        }
+        
         // Keyboard controls for lightbox
         document.addEventListener('keydown', (e) => {
             const lightbox = document.getElementById('lightbox');
-            if (!lightbox.classList.contains('hidden')) {
+            if (lightbox && !lightbox.classList.contains('hidden')) {
                 if (e.key === 'Escape') closeLightbox();
                 if (e.key === 'ArrowRight') nextImage();
                 if (e.key === 'ArrowLeft') prevImage();
             }
         });
-
-        // Load shows dynamically
-        async function loadShows() {
-            try {
-                const response = await fetch('/data/shows.json');
-                if (!response.ok) {
-                    throw new Error('Could not load shows');
-                }
-                
-                const data = await response.json();
-                const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-                
-                // Load upcoming shows
-                const container = document.getElementById('shows-container');
-                const loading = document.getElementById('shows-loading');
-                
-                if (data.upcomingShows && data.upcomingShows.length > 0) {
-                    container.innerHTML = '';
-                    
-                    data.upcomingShows.forEach(show => {
-                        const showDate = new Date(show.date);
-                        const month = monthNames[showDate.getMonth()];
-                        const day = showDate.getDate();
-                        
-                        const showElement = document.createElement('div');
-                        showElement.className = 'bg-gray-900/50 rounded-lg p-6 border border-purple-500/30' + (show.featured ? ' ring-2 ring-purple-500' : '');
-                        showElement.innerHTML = `
-                            ${show.featured ? '<div class="text-xs text-purple-400 font-bold mb-2">FEATURED</div>' : ''}
-                            <div class="text-amber-500 font-bold mb-2">${show.dayOfWeek}, ${month} ${day}</div>
-                            <h3 class="text-xl font-bold mb-2">${show.venue}</h3>
-                            <p class="text-gray-400 mb-2">${show.city}</p>
-                            <p class="text-gray-300 mb-4">${show.time}</p>
-                            ${show.description ? `<p class="text-sm text-gray-400 mb-4">${show.description}</p>` : ''}
-                            ${show.ticketUrl !== '#' ? 
-                                `<a href="${show.ticketUrl}" target="_blank" class="text-purple-400 hover:text-purple-300">Get Tickets →</a>` : 
-                                '<span class="text-purple-400">Free Event!</span>'
-                            }
-                        `;
-                        container.appendChild(showElement);
-                    });
-                    
-                    loading.style.display = 'none';
-                } else {
-                    loading.innerHTML = '<p class="text-gray-400">No upcoming shows at this time. Check back soon!</p>';
-                }
-                
-                // Load past shows
-                const pastContainer = document.getElementById('past-shows-container');
-                if (data.pastShows && data.pastShows.length > 0) {
-                    pastContainer.innerHTML = '<div class="space-y-3">';
-                    
-                    data.pastShows.forEach(show => {
-                        const showDate = new Date(show.date);
-                        const month = monthNames[showDate.getMonth()];
-                        const day = showDate.getDate();
-                        const year = showDate.getFullYear();
-                        
-                        const showElement = document.createElement('div');
-                        showElement.className = 'flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0';
-                        showElement.innerHTML = `
-                            <div class="flex-1">
-                                <span class="text-amber-500 text-sm font-semibold">${month} ${day}, ${year}</span>
-                                <span class="text-gray-400 mx-2">•</span>
-                                ${show.link ? 
-                                    `<a href="${show.link}" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors">
-                                        ${show.venue} <i class="fas fa-external-link-alt text-xs ml-1"></i>
-                                    </a>` : 
-                                    `<span class="text-gray-300">${show.venue}</span>`
-                                }
-                                <span class="text-gray-500 text-sm ml-2">${show.city}</span>
-                                ${show.note ? `<span class="text-purple-400 text-sm ml-2">(${show.note})</span>` : ''}
-                            </div>
-                            <div class="text-gray-500 text-sm mt-1 sm:mt-0">${show.time}</div>
-                        `;
-                        pastContainer.appendChild(showElement);
-                    });
-                    
-                    pastContainer.innerHTML += '</div>';
-                } else {
-                    pastContainer.innerHTML = '<p class="text-gray-400 text-center">No past shows listed</p>';
-                }
-            } catch (error) {
-                console.error('Error loading shows:', error);
-                document.getElementById('shows-loading').innerHTML = 
-                    '<p class="text-gray-400">Error loading shows. Please refresh the page.</p>';
-            }
-        }
-
-        // Load data on page load
-        loadGallery();
-        loadShows();
-    </script>
-</body>
+</html>
 </html>

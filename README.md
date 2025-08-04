@@ -52,16 +52,32 @@ A modern, minimalist website for the San Francisco Bay Area funk & soul band Sin
 # Install dependencies
 npm install
 
-# Process all images and start local server
+# Build and serve the static site
 npm run dev
 
 # Or step by step:
-npm run convert-heic    # Convert HEIC files to JPG
-npm run process-images  # Process all images
+npm run build:images   # Convert HEIC and process all images
+npm run build:html     # Generate static HTML with all data inlined
 npm run serve          # Start local server
 
-# Watch for new images (auto-process when added)
-npm run watch-images
+# The site is now fully static - just open public/index.html in any browser!
+```
+
+## Weekly Updates (Automated)
+
+Set up a cron job to automatically rebuild the site weekly:
+```bash
+# Edit crontab
+crontab -e
+
+# Add this line (runs every Monday at 2 AM):
+0 2 * * 1 /path/to/sindex/update-site.sh --deploy
+```
+
+Or run manually:
+```bash
+./update-site.sh         # Just rebuild locally
+./update-site.sh --deploy # Rebuild and deploy to Cloudflare
 ```
 
 ## How to Update

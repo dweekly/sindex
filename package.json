@@ -7,8 +7,11 @@
     "process-images:force": "node process-images.js --force",
     "watch-images": "node process-images.js --watch",
     "convert-heic": "./convert-heic.sh",
-    "build": "npm run convert-heic && npm run process-images",
-    "build:force": "npm run convert-heic && npm run process-images:force",
+    "build:images": "npm run convert-heic && npm run process-images",
+    "build:html": "node build-static.js",
+    "optimize": "node optimize-html.js",
+    "build": "npm run build:images && npm run build:html && npm run optimize",
+    "build:force": "npm run convert-heic && npm run process-images:force && npm run build:html",
     "serve": "cd public && python3 -m http.server 8000 || python -m SimpleHTTPServer 8000",
     "dev": "npm run build && npm run serve",
     "clean": "rm -rf public/images/* .image-cache.json"
