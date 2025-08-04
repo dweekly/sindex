@@ -8,8 +8,8 @@ async function buildStaticSite() {
   console.log('🏗️  Building static site...\n');
   
   try {
-    // Read the template HTML (from src/template.html, NOT the output file!)
-    const templatePath = path.join(__dirname, 'src', 'template.html');
+    // Read the template HTML (from template/index.html, NOT the output file!)
+    const templatePath = path.join(__dirname, 'template', 'index.html');
     let html = await fs.readFile(templatePath, 'utf8');
     
     // Read shows data

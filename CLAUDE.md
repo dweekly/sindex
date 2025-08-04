@@ -12,8 +12,9 @@ Sinister Dexter band website - A static site generator for a San Francisco Bay A
 ```
 /
 ├── build-static.js      # Main build script 
-├── src/
-│   └── template.html   # HTML template (EDIT THIS for structure changes)
+├── template/
+│   └── index.html      # HTML template (EDIT THIS for structure changes)
+│                       # Future: CSS and JS can be separated here
 ├── public/
 │   ├── index.html      # GENERATED OUTPUT - DO NOT EDIT!
 │   ├── data/
@@ -39,7 +40,7 @@ Sinister Dexter band website - A static site generator for a San Francisco Bay A
 Edit `public/data/shows.json` then run `npm run build:html`
 
 ### Change Site Structure/Layout
-Edit `src/template.html` then run `npm run build:html`
+Edit `template/index.html` then run `npm run build:html`
 
 ### Add New Photos
 1. Add photos to `photos/` directory
@@ -47,7 +48,7 @@ Edit `src/template.html` then run `npm run build:html`
 3. Run `npm run build:html`
 
 ### Fix JavaScript Errors
-Edit the JavaScript in `src/template.html` (not in the generated public/index.html)
+Edit the JavaScript in `template/index.html` (not in the generated public/index.html)
 
 ## Current Tech Stack
 - Node.js build system
