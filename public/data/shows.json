@@ -1,5 +1,5 @@
 {
-  "shows": [
+  "upcomingShows": [
     {
       "date": "2024-08-20",
       "dayOfWeek": "WED",
@@ -29,6 +29,86 @@
       "ticketUrl": "#",
       "featured": false,
       "description": "Annual street fair on Cortland Ave with family-friendly atmosphere"
+    }
+  ],
+  "pastShows": [
+    {
+      "date": "2024-06-27",
+      "venue": "Los Altos Summer Concert Series",
+      "city": "Grant Park, Los Altos",
+      "time": "6:00 PM - 8:00 PM",
+      "link": null
+    },
+    {
+      "date": "2024-04-27",
+      "venue": "Mount Carmel Wild West Days Festival",
+      "city": "Redwood City",
+      "time": "3:00 PM - 5:00 PM",
+      "link": null
+    },
+    {
+      "date": "2024-03-23",
+      "venue": "Ireland's 32",
+      "city": "San Francisco",
+      "time": "8:00 PM - 11:00 PM",
+      "note": "21+",
+      "link": null
+    },
+    {
+      "date": "2024-02-10",
+      "venue": "Blue Oak Brewing Company",
+      "city": "San Carlos",
+      "time": "3:00 PM - 6:00 PM",
+      "link": "https://blueoakbrewing.com"
+    },
+    {
+      "date": "2024-02-02",
+      "venue": "Club Fox - 25 Year Reunion Show",
+      "city": "Redwood City",
+      "time": "7:00 PM - 10:00 PM",
+      "link": "https://www.clubfoxrwc.com"
+    },
+    {
+      "date": "2023-11-04",
+      "venue": "Blue Oak Brewing Company",
+      "city": "San Carlos",
+      "time": "3:00 PM - 6:00 PM",
+      "link": "https://blueoakbrewing.com"
+    },
+    {
+      "date": "2023-10-19",
+      "venue": "Blue Oak Brewing with TGIFunk",
+      "city": "San Carlos",
+      "time": "3:00 PM - 6:00 PM",
+      "link": "https://blueoakbrewing.com"
+    },
+    {
+      "date": "2023-09-29",
+      "venue": "Fiesta on the Hill",
+      "city": "Bernal Heights, San Francisco",
+      "time": "2:00 PM - 4:00 PM",
+      "link": null
+    },
+    {
+      "date": "2023-08-31",
+      "venue": "Blue Oak Brewing Company",
+      "city": "San Carlos",
+      "time": "3:00 PM - 6:00 PM",
+      "link": "https://blueoakbrewing.com"
+    },
+    {
+      "date": "2023-08-16",
+      "venue": "Redwood City Music in the Park",
+      "city": "Stafford Park, Redwood City",
+      "time": "5:00 PM - 7:00 PM",
+      "link": null
+    },
+    {
+      "date": "2023-06-17",
+      "venue": "Blue Oak Brewing Company",
+      "city": "San Carlos",
+      "time": "3:00 PM - 6:00 PM",
+      "link": "https://blueoakbrewing.com"
     }
   ]
 }

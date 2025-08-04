@@ -101,6 +101,14 @@
             <div id="shows-loading" class="text-center py-8">
                 <p class="text-gray-400">Loading shows...</p>
             </div>
+            
+            <!-- Past Shows -->
+            <div class="mt-16">
+                <h3 class="bebas text-3xl text-center mb-8 text-purple-400">PAST SHOWS</h3>
+                <div id="past-shows-container" class="max-w-4xl mx-auto bg-gray-900/30 rounded-lg p-6">
+                    <!-- Past shows will be dynamically loaded here -->
+                </div>
+            </div>
         </div>
     </section>
 
@@ -535,15 +543,17 @@
                 }
                 
                 const data = await response.json();
+                const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+                
+                // Load upcoming shows
                 const container = document.getElementById('shows-container');
                 const loading = document.getElementById('shows-loading');
                 
-                if (data.shows && data.shows.length > 0) {
+                if (data.upcomingShows && data.upcomingShows.length > 0) {
                     container.innerHTML = '';
                     
-                    data.shows.forEach(show => {
+                    data.upcomingShows.forEach(show => {
                         const showDate = new Date(show.date);
-                        const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
                         const month = monthNames[showDate.getMonth()];
                         const day = showDate.getDate();
                         
@@ -567,6 +577,42 @@
                     loading.style.display = 'none';
                 } else {
                     loading.innerHTML = '<p class="text-gray-400">No upcoming shows at this time. Check back soon!</p>';
+                }
+                
+                // Load past shows
+                const pastContainer = document.getElementById('past-shows-container');
+                if (data.pastShows && data.pastShows.length > 0) {
+                    pastContainer.innerHTML = '<div class="space-y-3">';
+                    
+                    data.pastShows.forEach(show => {
+                        const showDate = new Date(show.date);
+                        const month = monthNames[showDate.getMonth()];
+                        const day = showDate.getDate();
+                        const year = showDate.getFullYear();
+                        
+                        const showElement = document.createElement('div');
+                        showElement.className = 'flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0';
+                        showElement.innerHTML = `
+                            <div class="flex-1">
+                                <span class="text-amber-500 text-sm font-semibold">${month} ${day}, ${year}</span>
+                                <span class="text-gray-400 mx-2">•</span>
+                                ${show.link ? 
+                                    `<a href="${show.link}" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors">
+                                        ${show.venue} <i class="fas fa-external-link-alt text-xs ml-1"></i>
+                                    </a>` : 
+                                    `<span class="text-gray-300">${show.venue}</span>`
+                                }
+                                <span class="text-gray-500 text-sm ml-2">${show.city}</span>
+                                ${show.note ? `<span class="text-purple-400 text-sm ml-2">(${show.note})</span>` : ''}
+                            </div>
+                            <div class="text-gray-500 text-sm mt-1 sm:mt-0">${show.time}</div>
+                        `;
+                        pastContainer.appendChild(showElement);
+                    });
+                    
+                    pastContainer.innerHTML += '</div>';
+                } else {
+                    pastContainer.innerHTML = '<p class="text-gray-400 text-center">No past shows listed</p>';
                 }
             } catch (error) {
                 console.error('Error loading shows:', error);
