@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinister Dexter - The Right to Be Funky | San Francisco Soul & Funk Band</title>
+    <meta name="description" content="Sinister Dexter is an 11-piece soul machine bringing the unique sound of great funk horn bands to the San Francisco Bay Area. Featuring vocalist Rebecca Lipon.">
+    <meta name="keywords" content="Sinister Dexter, funk band, soul music, San Francisco, Bay Area, Rebecca Lipon, live music, horn section">
+    <meta property="og:title" content="Sinister Dexter - The Right to Be Funky">
+    <meta property="og:description" content="11-piece soul machine bringing high-energy funk to the Bay Area">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sinisterdexter.net">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .bebas { font-family: 'Bebas Neue', cursive; }
+        .gradient-text {
+            background: linear-gradient(135deg, #9333ea 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%);
+        }
+        html { scroll-behavior: smooth; }
+        .nav-link { transition: all 0.3s ease; }
+        .nav-link:hover { transform: translateY(-2px); }
+        .social-icon { transition: all 0.3s ease; }
+        .social-icon:hover { transform: scale(1.2) rotate(5deg); }
+        .gallery-item { transition: all 0.3s ease; }
+        .gallery-item:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body class="bg-black text-white font-['Inter']">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-md z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="bebas text-3xl gradient-text">SINISTER DEXTER</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#shows" class="nav-link hover:text-purple-400">Shows</a>
+                <a href="#music" class="nav-link hover:text-purple-400">Music</a>
+                <a href="#gallery" class="nav-link hover:text-purple-400">Gallery</a>
+                <a href="#about" class="nav-link hover:text-purple-400">About</a>
+                <a href="#connect" class="nav-link hover:text-purple-400">Connect</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+            <a href="#shows" class="block py-2 hover:text-purple-400">Shows</a>
+            <a href="#music" class="block py-2 hover:text-purple-400">Music</a>
+            <a href="#gallery" class="block py-2 hover:text-purple-400">Gallery</a>
+            <a href="#about" class="block py-2 hover:text-purple-400">About</a>
+            <a href="#connect" class="block py-2 hover:text-purple-400">Connect</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/50 to-amber-900/50"></div>
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="relative z-10 text-center px-6">
+            <h1 class="bebas text-6xl md:text-8xl lg:text-9xl mb-4">SINISTER DEXTER</h1>
+            <p class="text-xl md:text-3xl mb-2 gradient-text font-bold">THE RIGHT TO BE FUNKY</p>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+                11-piece soul machine bringing the unique sound of great funk horn bands to the San Francisco Bay Area
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#shows" class="px-8 py-3 bg-purple-600 hover:bg-purple-700 rounded-full font-semibold transition-all hover:scale-105">
+                    SEE UPCOMING SHOWS
+                </a>
+                <a href="#connect" class="px-8 py-3 border-2 border-amber-500 hover:bg-amber-500 hover:text-black rounded-full font-semibold transition-all hover:scale-105">
+                    JOIN MAILING LIST
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Shows Section -->
+    <section id="shows" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text">UPCOMING SHOWS</h2>
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" id="shows-container">
+                <!-- Shows will be dynamically loaded here -->
+            </div>
+            <div id="shows-loading" class="text-center py-8">
+                <p class="text-gray-400">Loading shows...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text">LISTEN TO OUR MUSIC</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Spotify Embed -->
+                <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fab fa-spotify text-green-500 mr-2"></i> Spotify
+                    </h3>
+                    <iframe src="https://open.spotify.com/embed/artist/06ZpJFLW4Kz4EAlUorzrFu?utm_source=generator&theme=0" 
+                            width="100%" height="352" frameBorder="0" allowfullscreen="" 
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                            loading="lazy"></iframe>
+                </div>
+                
+                <!-- Apple Music -->
+                <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fab fa-apple text-gray-300 mr-2"></i> Apple Music
+                    </h3>
+                    <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" 
+                            height="450" style="width:100%;overflow:hidden;border-radius:10px;" 
+                            sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" 
+                            src="https://embed.music.apple.com/us/artist/sinister-dexter/30663361"></iframe>
+                </div>
+            </div>
+            
+            <!-- Streaming Links -->
+            <div class="mt-8 flex flex-wrap justify-center gap-4">
+                <a href="https://open.spotify.com/artist/06ZpJFLW4Kz4EAlUorzrFu" target="_blank" 
+                   class="px-6 py-2 bg-green-600 hover:bg-green-700 rounded-full transition-all hover:scale-105">
+                    <i class="fab fa-spotify mr-2"></i> Spotify
+                </a>
+                <a href="https://music.apple.com/us/artist/sinister-dexter/30663361" target="_blank" 
+                   class="px-6 py-2 bg-gray-700 hover:bg-gray-600 rounded-full transition-all hover:scale-105">
+                    <i class="fab fa-apple mr-2"></i> Apple Music
+                </a>
+                <a href="#" class="px-6 py-2 bg-orange-600 hover:bg-orange-700 rounded-full transition-all hover:scale-105 opacity-50 cursor-not-allowed">
+                    <i class="fab fa-soundcloud mr-2"></i> SoundCloud (Coming Soon)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text">GALLERY</h2>
+            <div id="gallery-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Images will be dynamically loaded here -->
+            </div>
+            <div id="gallery-loading" class="text-center py-8">
+                <p class="text-gray-400">Loading gallery...</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 bg-black/95 z-[100] hidden items-center justify-center p-4">
+        <button id="lightbox-close" class="absolute top-4 right-4 text-white text-3xl hover:text-purple-400">
+            <i class="fas fa-times"></i>
+        </button>
+        <button id="lightbox-prev" class="absolute left-4 text-white text-3xl hover:text-purple-400">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button id="lightbox-next" class="absolute right-4 text-white text-3xl hover:text-purple-400">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <img id="lightbox-image" src="" alt="" class="max-w-full max-h-full object-contain">
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text">ABOUT THE BAND</h2>
+            <div class="bg-gray-900/50 rounded-lg p-8 border border-purple-500/30">
+                <p class="text-lg mb-6">
+                    For over 25 years, <span class="font-bold text-purple-400">Sinister Dexter</span> has been bringing 
+                    the unique sound of great funk horn bands to the San Francisco Bay Area. We're an 11-piece soul machine 
+                    that keeps audiences dancing all night long.
+                </p>
+                <p class="text-lg mb-6">
+                    Featuring our sensational vocalist <span class="font-bold text-amber-400">Rebecca Lipon</span>, 
+                    a hot six-piece horn section, and a tight rhythm section, we put on a high-energy show that's been 
+                    described as "Tower of Power, Ozomatli, and Joss Stone in a blender."
+                </p>
+                <p class="text-lg mb-6">
+                    Our sound combines the best of classic funk, soul, and R&B with a modern energy that gets every 
+                    generation on the dance floor. From weddings to festivals, clubs to private events, we bring 
+                    <span class="italic text-purple-400">the right to be funky</span> wherever we go.
+                </p>
+                <div class="mt-8 p-6 bg-purple-900/30 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-amber-400">The Band</h3>
+                    <ul class="grid md:grid-cols-2 gap-2">
+                        <li><span class="text-purple-400">•</span> Rebecca Lipon - Lead Vocals</li>
+                        <li><span class="text-purple-400">•</span> 6-Piece Horn Section</li>
+                        <li><span class="text-purple-400">•</span> Bass Guitar</li>
+                        <li><span class="text-purple-400">•</span> Drums</li>
+                        <li><span class="text-purple-400">•</span> Guitar</li>
+                        <li><span class="text-purple-400">•</span> Keyboards</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect Section -->
+    <section id="connect" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="bebas text-5xl md:text-6xl mb-12 gradient-text">STAY CONNECTED</h2>
+            
+            <!-- Social Media Links -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-6">Follow Us</h3>
+                <div class="flex justify-center gap-6">
+                    <a href="https://www.instagram.com/sindex_band" target="_blank" 
+                       class="social-icon text-4xl hover:text-purple-400">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/sindexband" target="_blank" 
+                       class="social-icon text-4xl hover:text-purple-400">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://facebook.com/SinDex.Band/" target="_blank" 
+                       class="social-icon text-4xl hover:text-purple-400">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="social-icon text-4xl hover:text-purple-400 opacity-50 cursor-not-allowed" 
+                       title="YouTube channel coming soon!">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Mailing List -->
+            <div class="bg-gray-900/50 rounded-lg p-8 border border-purple-500/30">
+                <h3 class="text-2xl font-bold mb-4">Join Our Mailing List</h3>
+                <p class="mb-6">Get updates on upcoming shows, new music, and exclusive content!</p>
+                <form id="mailing-list-form" class="max-w-md mx-auto">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <input type="email" placeholder="your@email.com" required
+                               class="flex-1 px-4 py-3 bg-black/50 border border-purple-500/30 rounded-lg focus:outline-none focus:border-purple-400">
+                        <button type="submit" 
+                                class="px-8 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold transition-all hover:scale-105">
+                            SUBSCRIBE
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Booking Info -->
+            <div class="mt-12">
+                <h3 class="text-xl font-bold mb-4">For Bookings & Inquiries</h3>
+                <a href="mailto:booking@sinisterdexter.net" class="text-purple-400 hover:text-purple-300 text-lg">
+                    booking@sinisterdexter.net
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Merch Section (Coming Soon) -->
+    <section id="merch" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="bebas text-5xl md:text-6xl mb-8 gradient-text">MERCHANDISE</h2>
+            <div class="bg-gray-900/50 rounded-lg p-12 border border-purple-500/30">
+                <i class="fas fa-tshirt text-6xl text-purple-400 mb-6"></i>
+                <h3 class="text-2xl font-bold mb-4">Coming Soon!</h3>
+                <p class="text-gray-400">
+                    Official Sinister Dexter merchandise including t-shirts, posters, and more will be available soon.
+                </p>
+                <p class="mt-4">
+                    <a href="#connect" class="text-purple-400 hover:text-purple-300">
+                        Join our mailing list to be notified when merch drops!
+                    </a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 bg-black border-t border-gray-800">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-gray-400 mb-2">© 2024 Sinister Dexter. All rights reserved.</p>
+            <p class="text-sm text-gray-500">The Right to Be Funky™</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Mailing list form handler
+        document.getElementById('mailing-list-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing! We\'ll keep you updated on all things Sinister Dexter.');
+            this.reset();
+        });
+
+        // Smooth scroll behavior for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+
+        // Gallery functionality
+        let galleryImages = [];
+        let currentImageIndex = 0;
+
+        async function loadGallery() {
+            try {
+                const response = await fetch('/images/manifest.json');
+                if (!response.ok) {
+                    throw new Error('No images processed yet');
+                }
+                
+                const manifest = await response.json();
+                const container = document.getElementById('gallery-container');
+                const loading = document.getElementById('gallery-loading');
+                
+                // Use thumbnail images for gallery grid
+                const images = manifest.thumbnail || [];
+                
+                if (images.length === 0) {
+                    loading.innerHTML = '<p class="text-gray-400">No images available. Add images to the photos/ directory and run: npm run process-images</p>';
+                    return;
+                }
+                
+                galleryImages = manifest.large || manifest.medium || images;
+                container.innerHTML = '';
+                
+                images.forEach((img, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'gallery-item aspect-square bg-gray-800 rounded-lg overflow-hidden cursor-pointer';
+                    item.innerHTML = `
+                        <picture>
+                            <source srcset="${img.webp}" type="image/webp">
+                            <img src="${img.jpg}" alt="Sinister Dexter band photo" 
+                                 class="w-full h-full object-cover transition-transform hover:scale-110"
+                                 loading="lazy">
+                        </picture>
+                    `;
+                    item.addEventListener('click', () => openLightbox(index));
+                    container.appendChild(item);
+                });
+                
+                loading.style.display = 'none';
+            } catch (error) {
+                console.log('Gallery not ready:', error.message);
+                document.getElementById('gallery-loading').innerHTML = 
+                    '<p class="text-gray-400">Add images to photos/ directory and run:<br><code class="bg-gray-800 px-2 py-1 rounded">npm install && npm run process-images</code></p>';
+            }
+        }
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-image');
+            const image = galleryImages[index];
+            
+            // Use picture element for better format support
+            img.src = image.jpg;
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            document.getElementById('lightbox-image').src = galleryImages[currentImageIndex].jpg;
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            document.getElementById('lightbox-image').src = galleryImages[currentImageIndex].jpg;
+        }
+
+        // Lightbox controls
+        document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+        document.getElementById('lightbox-next').addEventListener('click', nextImage);
+        document.getElementById('lightbox-prev').addEventListener('click', prevImage);
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') closeLightbox();
+        });
+
+        // Keyboard controls for lightbox
+        document.addEventListener('keydown', (e) => {
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox.classList.contains('hidden')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') prevImage();
+            }
+        });
+
+        // Load shows dynamically
+        async function loadShows() {
+            try {
+                const response = await fetch('/data/shows.json');
+                if (!response.ok) {
+                    throw new Error('Could not load shows');
+                }
+                
+                const data = await response.json();
+                const container = document.getElementById('shows-container');
+                const loading = document.getElementById('shows-loading');
+                
+                if (data.shows && data.shows.length > 0) {
+                    container.innerHTML = '';
+                    
+                    data.shows.forEach(show => {
+                        const showDate = new Date(show.date);
+                        const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+                        const month = monthNames[showDate.getMonth()];
+                        const day = showDate.getDate();
+                        
+                        const showElement = document.createElement('div');
+                        showElement.className = 'bg-gray-900/50 rounded-lg p-6 border border-purple-500/30';
+                        showElement.innerHTML = `
+                            <div class="text-amber-500 font-bold mb-2">${show.dayOfWeek}, ${month} ${day}</div>
+                            <h3 class="text-xl font-bold mb-2">${show.venue}</h3>
+                            <p class="text-gray-400 mb-4">${show.city} • ${show.time}</p>
+                            ${show.ticketUrl !== '#' ? 
+                                `<a href="${show.ticketUrl}" target="_blank" class="text-purple-400 hover:text-purple-300">Get Tickets →</a>` : 
+                                '<span class="text-gray-500">Tickets coming soon</span>'
+                            }
+                        `;
+                        container.appendChild(showElement);
+                    });
+                    
+                    loading.style.display = 'none';
+                } else {
+                    loading.innerHTML = '<p class="text-gray-400">No upcoming shows at this time. Check back soon!</p>';
+                }
+            } catch (error) {
+                console.error('Error loading shows:', error);
+                document.getElementById('shows-loading').innerHTML = 
+                    '<p class="text-gray-400">Error loading shows. Please refresh the page.</p>';
+            }
+        }
+
+        // Load data on page load
+        loadGallery();
+        loadShows();
+    </script>
+</body>
+</html>

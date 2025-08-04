@@ -1,0 +1,58 @@
+{
+  "shows": [
+    {
+      "date": "2024-03-15",
+      "dayOfWeek": "FRI",
+      "venue": "The Independent",
+      "city": "San Francisco, CA",
+      "time": "9:00 PM",
+      "ticketUrl": "https://www.theindependentsf.com",
+      "featured": true
+    },
+    {
+      "date": "2024-03-23",
+      "dayOfWeek": "SAT",
+      "venue": "Club Fox",
+      "city": "Redwood City, CA",
+      "time": "8:00 PM",
+      "ticketUrl": "https://www.clubfoxrwc.com",
+      "featured": false
+    },
+    {
+      "date": "2024-04-05",
+      "dayOfWeek": "FRI",
+      "venue": "The New Parish",
+      "city": "Oakland, CA",
+      "time": "9:30 PM",
+      "ticketUrl": "https://www.thenewparish.com",
+      "featured": false
+    },
+    {
+      "date": "2024-04-12",
+      "dayOfWeek": "FRI",
+      "venue": "Bottom of the Hill",
+      "city": "San Francisco, CA",
+      "time": "9:00 PM",
+      "ticketUrl": "#",
+      "featured": false
+    },
+    {
+      "date": "2024-04-20",
+      "dayOfWeek": "SAT",
+      "venue": "The Chapel",
+      "city": "San Francisco, CA",
+      "time": "8:30 PM",
+      "ticketUrl": "#",
+      "featured": true
+    },
+    {
+      "date": "2024-05-04",
+      "dayOfWeek": "SAT",
+      "venue": "Sweetwater Music Hall",
+      "city": "Mill Valley, CA",
+      "time": "8:00 PM",
+      "ticketUrl": "https://www.sweetwatermusichall.com",
+      "featured": false
+    }
+  ]
+}
