@@ -4,9 +4,6 @@ node_modules/
 # Processed images (generated from photos/)
 public/images/
 
-# Image processing cache
-.image-cache.json
-
 # Converted HEIC files (keep originals, ignore converted)
 photos/*_converted.jpg
 

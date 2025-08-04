@@ -3,11 +3,9 @@ const path = require('path');
 const fs = require('fs').promises;
 const { glob } = require('glob');
 const chokidar = require('chokidar');
-const crypto = require('crypto');
 
 const INPUT_DIR = './photos';
 const OUTPUT_DIR = './public/images';
-const CACHE_FILE = '.image-cache.json';
 
 const SIZES = {
   thumbnail: { width: 400, height: 400 },
@@ -19,56 +17,38 @@ const SIZES = {
 
 const FORMATS = ['webp', 'jpg'];
 
-// Load or initialize cache
-async function loadCache() {
+// Check if file needs processing based on modification times
+async function needsProcessing(sourcePath) {
   try {
-    const data = await fs.readFile(CACHE_FILE, 'utf8');
-    return JSON.parse(data);
-  } catch (error) {
-    return {};
-  }
-}
-
-// Save cache
-async function saveCache(cache) {
-  await fs.writeFile(CACHE_FILE, JSON.stringify(cache, null, 2));
-}
-
-// Get file hash to detect changes
-async function getFileHash(filePath) {
-  try {
-    const fileBuffer = await fs.readFile(filePath);
-    return crypto.createHash('md5').update(fileBuffer).digest('hex');
-  } catch (error) {
-    return null;
-  }
-}
-
-// Check if file needs processing
-async function needsProcessing(filePath, cache) {
-  const stats = await fs.stat(filePath);
-  const currentHash = await getFileHash(filePath);
-  const cacheEntry = cache[filePath];
-  
-  if (!cacheEntry) return true;
-  if (cacheEntry.hash !== currentHash) return true;
-  if (cacheEntry.size !== stats.size) return true;
-  if (new Date(cacheEntry.modified) < stats.mtime) return true;
-  
-  // Check if all output files exist
-  const nameWithoutExt = path.parse(path.basename(filePath)).name;
-  for (const [sizeName] of Object.entries(SIZES)) {
-    for (const format of FORMATS) {
-      const outputPath = path.join(OUTPUT_DIR, sizeName, `${nameWithoutExt}.${format}`);
-      try {
-        await fs.access(outputPath);
-      } catch {
-        return true; // Output file missing
+    const sourceStats = await fs.stat(sourcePath);
+    const sourceTime = sourceStats.mtime.getTime();
+    const nameWithoutExt = path.parse(path.basename(sourcePath)).name;
+    
+    // Check if ALL output files exist and are newer than source
+    for (const [sizeName] of Object.entries(SIZES)) {
+      for (const format of FORMATS) {
+        const outputPath = path.join(OUTPUT_DIR, sizeName, `${nameWithoutExt}.${format}`);
+        try {
+          const targetStats = await fs.stat(outputPath);
+          const targetTime = targetStats.mtime.getTime();
+          
+          // If target is older than source, needs processing
+          if (targetTime < sourceTime) {
+            return true;
+          }
+        } catch {
+          // Output file doesn't exist, needs processing
+          return true;
+        }
       }
     }
+    
+    // All targets exist and are newer than source
+    return false;
+  } catch (error) {
+    // Error checking source, assume needs processing
+    return true;
   }
-  
-  return false;
 }
 
 async function ensureDirectories() {
@@ -82,14 +62,13 @@ async function ensureDirectories() {
   }
 }
 
-async function processImage(imagePath, cache) {
+async function processImage(imagePath) {
   const filename = path.basename(imagePath);
   const nameWithoutExt = path.parse(filename).name;
   const ext = path.extname(filename).toLowerCase();
   
   // Skip HEIC files if sharp doesn't support them
   if (ext === '.heic' || ext === '.heif') {
-    // Check if sharp supports HEIC
     try {
       await sharp(imagePath).metadata();
     } catch (error) {
@@ -101,17 +80,18 @@ async function processImage(imagePath, cache) {
     }
   }
   
-  // Check if already processed
-  if (!await needsProcessing(imagePath, cache)) {
-    console.log(`✓ Skipping ${filename} (already processed)`);
+  // Check if processing is needed (target older than source)
+  const needs = await needsProcessing(imagePath);
+  if (!needs) {
+    console.log(`✓ Skipping ${filename} (up to date)`);
     return false;
   }
   
   console.log(`📸 Processing: ${filename}`);
   
   try {
-    const stats = await fs.stat(imagePath);
-    const hash = await getFileHash(imagePath);
+    // Process all sizes and formats
+    let processedCount = 0;
     
     for (const [sizeName, dimensions] of Object.entries(SIZES)) {
       for (const format of FORMATS) {
@@ -121,33 +101,41 @@ async function processImage(imagePath, cache) {
           `${nameWithoutExt}.${format}`
         );
         
-        let pipeline = sharp(imagePath)
-          .resize(dimensions.width, dimensions.height, {
-            fit: 'inside',
-            withoutEnlargement: true
-          })
-          .rotate(); // Auto-rotate based on EXIF
-        
-        if (format === 'webp') {
-          pipeline = pipeline.webp({ quality: 85 });
-        } else if (format === 'jpg') {
-          pipeline = pipeline.jpeg({ quality: 90, progressive: true });
+        // Check if this specific output needs updating
+        let needsUpdate = true;
+        try {
+          const sourceStats = await fs.stat(imagePath);
+          const targetStats = await fs.stat(outputPath);
+          needsUpdate = targetStats.mtime.getTime() < sourceStats.mtime.getTime();
+        } catch {
+          // Target doesn't exist, needs update
+          needsUpdate = true;
         }
         
-        await pipeline.toFile(outputPath);
+        if (needsUpdate) {
+          let pipeline = sharp(imagePath)
+            .resize(dimensions.width, dimensions.height, {
+              fit: 'inside',
+              withoutEnlargement: true
+            })
+            .rotate(); // Auto-rotate based on EXIF
+          
+          if (format === 'webp') {
+            pipeline = pipeline.webp({ quality: 85 });
+          } else if (format === 'jpg') {
+            pipeline = pipeline.jpeg({ quality: 90, progressive: true });
+          }
+          
+          await pipeline.toFile(outputPath);
+          processedCount++;
+        }
       }
     }
     
-    // Update cache
-    cache[imagePath] = {
-      hash,
-      size: stats.size,
-      modified: stats.mtime,
-      processed: new Date().toISOString()
-    };
-    
-    console.log(`✅ Processed ${filename} into ${Object.keys(SIZES).length * FORMATS.length} variants`);
-    return true;
+    if (processedCount > 0) {
+      console.log(`✅ Generated ${processedCount} image variants for ${filename}`);
+    }
+    return processedCount > 0;
   } catch (error) {
     console.error(`❌ Error processing ${filename}:`, error.message);
     return false;
@@ -157,15 +145,13 @@ async function processImage(imagePath, cache) {
 async function processAllImages() {
   await ensureDirectories();
   
-  const cache = await loadCache();
-  
   // Supported formats (excluding HEIC initially)
   const patterns = [
     '*.jpg', '*.JPG', '*.jpeg', '*.JPEG', 
     '*.png', '*.PNG', '*.webp', '*.WEBP'
   ];
   
-  // Check if we should try HEIC
+  // Check for HEIC files
   const heicPatterns = ['*.heic', '*.HEIC', '*.heif', '*.HEIF'];
   
   const files = [];
@@ -175,7 +161,7 @@ async function processAllImages() {
     files.push(...matches);
   }
   
-  // Try HEIC files separately
+  // Check for HEIC files separately
   const heicFiles = [];
   for (const pattern of heicPatterns) {
     const matches = await glob(path.join(INPUT_DIR, pattern));
@@ -198,7 +184,7 @@ async function processAllImages() {
   let skippedCount = 0;
   
   for (const file of files) {
-    const result = await processImage(file, cache);
+    const result = await processImage(file);
     if (result) {
       processedCount++;
     } else {
@@ -206,14 +192,11 @@ async function processAllImages() {
     }
   }
   
-  // Save updated cache
-  await saveCache(cache);
-  
   if (processedCount > 0) {
-    console.log(`\n✨ Processed ${processedCount} new/changed images!`);
+    console.log(`\n✨ Processed ${processedCount} images!`);
   }
   if (skippedCount > 0) {
-    console.log(`⏭️  Skipped ${skippedCount} unchanged images.`);
+    console.log(`⏭️  Skipped ${skippedCount} up-to-date images.`);
   }
   
   await generateImageManifest();
@@ -236,39 +219,28 @@ async function generateImageManifest() {
         }));
     }
     
-    await fs.writeFile(
-      path.join(OUTPUT_DIR, 'manifest.json'),
-      JSON.stringify(manifest, null, 2)
-    );
+    // Only update manifest if it has changed
+    const manifestPath = path.join(OUTPUT_DIR, 'manifest.json');
+    let existingManifest = {};
+    try {
+      const existing = await fs.readFile(manifestPath, 'utf8');
+      existingManifest = JSON.parse(existing);
+    } catch {
+      // No existing manifest
+    }
     
-    console.log(`📋 Image manifest updated (${manifest.thumbnail?.length || 0} images)`);
+    // Check if manifest has changed
+    if (JSON.stringify(manifest) !== JSON.stringify(existingManifest)) {
+      await fs.writeFile(manifestPath, JSON.stringify(manifest, null, 2));
+      console.log(`📋 Image manifest updated (${manifest.thumbnail?.length || 0} images)`);
+    }
   } catch (error) {
     console.error('Error generating manifest:', error);
   }
 }
 
-async function cleanupCache(cache) {
-  // Remove entries for files that no longer exist
-  const keysToDelete = [];
-  for (const filePath of Object.keys(cache)) {
-    try {
-      await fs.access(filePath);
-    } catch {
-      keysToDelete.push(filePath);
-    }
-  }
-  
-  if (keysToDelete.length > 0) {
-    console.log(`🧹 Cleaning ${keysToDelete.length} removed files from cache`);
-    keysToDelete.forEach(key => delete cache[key]);
-    await saveCache(cache);
-  }
-}
-
 async function watchImages() {
   console.log(`👁️  Watching ${INPUT_DIR} for changes...`);
-  
-  const cache = await loadCache();
   
   const watcher = chokidar.watch(INPUT_DIR, {
     ignored: /(^|[\/\\])\../,
@@ -279,20 +251,28 @@ async function watchImages() {
   watcher
     .on('add', async (filePath) => {
       console.log(`\n📎 New file detected: ${path.basename(filePath)}`);
-      await processImage(filePath, cache);
-      await saveCache(cache);
+      await processImage(filePath);
       await generateImageManifest();
     })
     .on('change', async (filePath) => {
       console.log(`\n✏️  File changed: ${path.basename(filePath)}`);
-      await processImage(filePath, cache);
-      await saveCache(cache);
+      await processImage(filePath);
       await generateImageManifest();
     })
     .on('unlink', async (filePath) => {
       console.log(`\n🗑️  File removed: ${path.basename(filePath)}`);
-      delete cache[filePath];
-      await saveCache(cache);
+      // Remove corresponding output files
+      const nameWithoutExt = path.parse(path.basename(filePath)).name;
+      for (const [sizeName] of Object.entries(SIZES)) {
+        for (const format of FORMATS) {
+          const outputPath = path.join(OUTPUT_DIR, sizeName, `${nameWithoutExt}.${format}`);
+          try {
+            await fs.unlink(outputPath);
+          } catch {
+            // File doesn't exist, ignore
+          }
+        }
+      }
       await generateImageManifest();
     });
 }
@@ -306,12 +286,20 @@ async function main() {
   console.log('===================================\n');
   
   if (forceMode) {
-    console.log('🔄 Force mode: Reprocessing all images...\n');
-    await fs.unlink(CACHE_FILE).catch(() => {});
+    console.log('🔄 Force mode: Clearing all processed images...\n');
+    // Remove all processed images to force regeneration
+    for (const size of Object.keys(SIZES)) {
+      const sizeDir = path.join(OUTPUT_DIR, size);
+      try {
+        const files = await fs.readdir(sizeDir);
+        for (const file of files) {
+          await fs.unlink(path.join(sizeDir, file));
+        }
+      } catch {
+        // Directory doesn't exist, ignore
+      }
+    }
   }
-  
-  const cache = await loadCache();
-  await cleanupCache(cache);
   
   await processAllImages();
   
