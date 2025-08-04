@@ -192,72 +192,10 @@ async function buildStaticSite() {
     html = html.replace(/\s*loadGallery\(\);/g, '');
     html = html.replace(/\s*loadShows\(\);/g, '');
     
-    // Replace the script section to remove fetch calls and add static data
-    const scriptStart = html.indexOf('// Gallery functionality');
-    const scriptEnd = html.indexOf('// Keyboard controls for lightbox');
-    
-    if (scriptStart !== -1 && scriptEnd !== -1) {
-      const beforeScript = html.substring(0, scriptStart);
-      // Find the end of the keyboard controls section - look for the closing }); of the event listener
-      const keyboardEnd = html.indexOf('});', scriptEnd);
-      const afterScript = keyboardEnd !== -1 ? html.substring(keyboardEnd + 3) : '';
-      
-      const newScript = `// Gallery functionality
-        ${galleryImagesScript}
-        
-        function openLightbox(index) {
-            currentImageIndex = index;
-            const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-image');
-            const image = galleryImages[index];
-            
-            if (image) {
-                img.src = image.jpg;
-                lightbox.classList.remove('hidden');
-                lightbox.classList.add('flex');
-            }
-        }
-        
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.add('hidden');
-            lightbox.classList.remove('flex');
-        }
-        
-        function nextImage() {
-            if (galleryImages.length === 0) return;
-            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-            document.getElementById('lightbox-image').src = galleryImages[currentImageIndex].jpg;
-        }
-        
-        function prevImage() {
-            if (galleryImages.length === 0) return;
-            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-            document.getElementById('lightbox-image').src = galleryImages[currentImageIndex].jpg;
-        }
-        
-        // Lightbox controls
-        if (document.getElementById('lightbox-close')) {
-            document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
-            document.getElementById('lightbox-next').addEventListener('click', nextImage);
-            document.getElementById('lightbox-prev').addEventListener('click', prevImage);
-            document.getElementById('lightbox').addEventListener('click', (e) => {
-                if (e.target.id === 'lightbox') closeLightbox();
-            });
-        }
-        
-        // Keyboard controls for lightbox
-        document.addEventListener('keydown', (e) => {
-            const lightbox = document.getElementById('lightbox');
-            if (lightbox && !lightbox.classList.contains('hidden')) {
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowRight') nextImage();
-                if (e.key === 'ArrowLeft') prevImage();
-            }
-        });`;
-      
-      html = beforeScript + newScript + afterScript;
-    }
+    // Update the gallery images array in the existing script
+    const scriptRegex = /const galleryImages = \[.*?\];/s;
+    const newGalleryArray = `const galleryImages = ${JSON.stringify(galleryImagesForScript)};`;
+    html = html.replace(scriptRegex, newGalleryArray);
     
     // Add comment about Tailwind CDN (only if not already present)
     if (!html.includes('<!-- Note: Tailwind CDN')) {
