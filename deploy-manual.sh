@@ -20,7 +20,8 @@ npm run build
 echo "☁️  Deploying to Cloudflare Pages..."
 npx wrangler pages deploy public \
     --project-name=sinister-dexter \
-    --branch=main
+    --branch=main \
+    --commit-dirty=true
 
 echo "✅ Deployment complete!"
 echo "Your site will be available at:"

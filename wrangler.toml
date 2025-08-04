@@ -1,15 +1,12 @@
 # Cloudflare Pages configuration
 name = "sinister-dexter"
 compatibility_date = "2024-08-03"
+pages_build_output_dir = "public"
 
 # Build configuration
 [build]
 command = "npm run build"
 build.watch_paths = ["photos/**/*", "public/**/*"]
-
-# Output directory
-[build.upload]
-directory = "public"
 
 # Environment variables (if needed for future features)
 [env.production]
