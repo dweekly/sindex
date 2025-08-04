@@ -5,16 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Sinister Dexter - The Right to Be Funky | San Francisco Soul & Funk Band</title>
     <!-- Critical inline CSS to prevent FOUT -->
-    <style>
-        /* Arial Narrow fallback - still some shift but much better than cursive! */
-        .bebas {
-            font-family: 'Bebas Neue', 'Arial Narrow', 'Helvetica Condensed', Arial, sans-serif;
-            font-weight: 700;
-            letter-spacing: 0.03em;
-            font-stretch: condensed;
-            text-transform: uppercase;
-        }
-    </style>
+    <style> /* Arial Narrow fallback - still some shift but much better than cursive! */ .bebas {font-family:'Bebas Neue','Arial Narrow','Helvetica Condensed',Arial,sans-serif;font-weight:700;letter-spacing:0.03em;font-stretch:condensed;text-transform:uppercase;}.sr-only {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;}
+.focus\:not-sr-only:focus {position:static;width:auto;height:auto;padding:inherit;margin:inherit;overflow:visible;clip:auto;white-space:normal;}.focus-visible\:ring-2:focus-visible {--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000);}
+.focus-visible\:ring-purple-400:focus-visible {--tw-ring-color:rgb(192 132 252);}
+.focus-visible\:outline-none:focus-visible {outline:2px solid transparent;outline-offset:2px;}</style>
     <meta name="robots" content="index, follow">
     <meta name="description" content="Sinister Dexter is an 11-piece soul machine bringing the unique sound of great funk horn bands to the San Francisco Bay Area. Featuring vocalist Rebecca Lipon.">
     <meta name="keywords" content="Sinister Dexter, funk band, soul music, San Francisco, Bay Area, Rebecca Lipon, live music, horn section">
@@ -23,7 +17,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sinisterdexter.net">
     <link rel="canonical" href="https://sinisterdexter.net/">
-    <meta property="og:image" content="https://sinisterdexter.net/og-image.jpg">
+    <meta property="og:image" content="https://main.sinister-dexter.pages.dev/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
@@ -32,7 +26,7 @@
     <meta name="twitter:site" content="@sindexband">
     <meta name="twitter:title" content="Sinister Dexter - The Right to Be Funky">
     <meta name="twitter:description" content="11-piece soul machine bringing high-energy funk to the Bay Area">
-    <meta name="twitter:image" content="https://sinisterdexter.net/twitter-card.jpg">
+    <meta name="twitter:image" content="https://main.sinister-dexter.pages.dev/twitter-card.jpg">
     
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -146,18 +140,22 @@
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-purple-600 text-white px-4 py-2 rounded-lg z-[60]">
         Skip to main content
     </a>
+    <!-- Skip Navigation for Screen Readers -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-purple-600 text-white px-4 py-2 rounded-lg z-[60]">
+        Skip to main content
+    </a>
     
     <!-- Navigation -->
     <nav role="navigation" aria-label="Main navigation" class="fixed top-0 w-full bg-black/90 backdrop-blur-md z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="#" class="bebas text-3xl gradient-text">SINISTER DEXTER</a>
             <div class="hidden md:flex space-x-8">
-                <a href="#shows" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Shows</a>
-                <a href="#music" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Music</a>
-                <a href="#videos" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Videos</a>
-                <a href="#gallery" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Gallery</a>
-                <a href="#about" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">About</a>
-                <a href="#connect" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Connect</a>
+                <a href="#shows" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Shows</a>
+                <a href="#music" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Music</a>
+                <a href="#videos" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Videos</a>
+                <a href="#gallery" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Gallery</a>
+                <a href="#about" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">About</a>
+                <a href="#connect" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Connect</a>
             </div>
             <button id="mobile-menu-btn" class="md:hidden" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
                 <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
@@ -166,16 +164,17 @@
         
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-            <a href="#shows" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Shows</a>
-            <a href="#music" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Music</a>
-            <a href="#videos" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Videos</a>
-            <a href="#gallery" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Gallery</a>
-            <a href="#about" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">About</a>
-            <a href="#connect" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Connect</a>
+            <a href="#shows" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Shows</a>
+            <a href="#music" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Music</a>
+            <a href="#videos" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Videos</a>
+            <a href="#gallery" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Gallery</a>
+            <a href="#about" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">About</a>
+            <a href="#connect" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Connect</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
+    <main id="main-content" role="main">
     <main id="main-content" role="main">
     <main id="main-content" role="main">
     <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
@@ -208,9 +207,9 @@
     </section>
 
     <!-- Shows Section -->
-    <section id="shows" aria-labelledby="shows-heading" aria-labelledby="shows-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+    <section id="shows" aria-labelledby="shows-heading" aria-labelledby="shows-heading" aria-labelledby="shows-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
         <div class="max-w-7xl mx-auto">
-            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="shows-heading" id="shows-heading">Upcoming Shows</h2>
+            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="shows-heading" id="shows-heading" id="shows-heading">Upcoming Shows</h2>
             <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" id="shows-container">
                 
           <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30 ring-2 ring-purple-500">
@@ -281,7 +280,7 @@
             <div class="flex-1">
               <span class="text-amber-500 text-sm font-semibold">FEB 9, 2024</span>
               <span class="text-gray-400 mx-2">•</span>
-              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
                   Blue Oak Brewing Company <i class="fas fa-external-link-alt text-xs ml-1" aria-hidden="true"></i>
                 </a>
               <span class="text-gray-500 text-sm ml-2">San Carlos</span>
@@ -293,7 +292,7 @@
             <div class="flex-1">
               <span class="text-amber-500 text-sm font-semibold">FEB 1, 2024</span>
               <span class="text-gray-400 mx-2">•</span>
-              <a href="https://www.clubfoxrwc.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+              <a href="https://www.clubfoxrwc.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
                   Club Fox - 25 Year Reunion Show <i class="fas fa-external-link-alt text-xs ml-1" aria-hidden="true"></i>
                 </a>
               <span class="text-gray-500 text-sm ml-2">Redwood City</span>
@@ -305,7 +304,7 @@
             <div class="flex-1">
               <span class="text-amber-500 text-sm font-semibold">NOV 3, 2023</span>
               <span class="text-gray-400 mx-2">•</span>
-              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
                   Blue Oak Brewing Company <i class="fas fa-external-link-alt text-xs ml-1" aria-hidden="true"></i>
                 </a>
               <span class="text-gray-500 text-sm ml-2">San Carlos</span>
@@ -317,7 +316,7 @@
             <div class="flex-1">
               <span class="text-amber-500 text-sm font-semibold">OCT 18, 2023</span>
               <span class="text-gray-400 mx-2">•</span>
-              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
                   Blue Oak Brewing with TGIFunk <i class="fas fa-external-link-alt text-xs ml-1" aria-hidden="true"></i>
                 </a>
               <span class="text-gray-500 text-sm ml-2">San Carlos</span>
@@ -339,7 +338,7 @@
             <div class="flex-1">
               <span class="text-amber-500 text-sm font-semibold">AUG 30, 2023</span>
               <span class="text-gray-400 mx-2">•</span>
-              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
                   Blue Oak Brewing Company <i class="fas fa-external-link-alt text-xs ml-1" aria-hidden="true"></i>
                 </a>
               <span class="text-gray-500 text-sm ml-2">San Carlos</span>
@@ -361,7 +360,7 @@
             <div class="flex-1">
               <span class="text-amber-500 text-sm font-semibold">JUN 16, 2023</span>
               <span class="text-gray-400 mx-2">•</span>
-              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
                   Blue Oak Brewing Company <i class="fas fa-external-link-alt text-xs ml-1" aria-hidden="true"></i>
                 </a>
               <span class="text-gray-500 text-sm ml-2">San Carlos</span>
@@ -375,7 +374,7 @@
     </section>
 
     <!-- Music Section -->
-    <section id="music" aria-labelledby="music-heading" aria-labelledby="music-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
+    <section id="music" aria-labelledby="music-heading" aria-labelledby="music-heading" aria-labelledby="music-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
         <div class="max-w-7xl mx-auto">
             <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="music-heading">Listen to Our Music</h2>
             <div class="grid md:grid-cols-2 gap-8">
@@ -417,7 +416,7 @@
     </section>
 
     <!-- Videos Section -->
-    <section id="videos" aria-labelledby="videos-heading" aria-labelledby="videos-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+    <section id="videos" aria-labelledby="videos-heading" aria-labelledby="videos-heading" aria-labelledby="videos-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
         <div class="max-w-7xl mx-auto">
             <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="videos-heading">Live Performances</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -483,7 +482,7 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" aria-labelledby="gallery-heading" aria-labelledby="gallery-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+    <section id="gallery" aria-labelledby="gallery-heading" aria-labelledby="gallery-heading" aria-labelledby="gallery-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
         <div class="max-w-7xl mx-auto">
             <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="gallery-heading">Gallery</h2>
             <div id="gallery-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -537,20 +536,20 @@
     
     <!-- Lightbox Modal -->
     <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" class="fixed inset-0 bg-black/95 z-[100] hidden items-center justify-center p-4">
-        <button id="lightbox-close" aria-label="Close image viewer" class="absolute top-4 right-4 text-white text-3xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+        <button id="lightbox-close" aria-label="Close image viewer" class="absolute top-4 right-4 text-white text-3xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
             <i class="fas fa-times" aria-hidden="true"></i>
         </button>
-        <button id="lightbox-prev" aria-label="Previous image" class="absolute left-4 text-white text-3xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+        <button id="lightbox-prev" aria-label="Previous image" class="absolute left-4 text-white text-3xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
             <i class="fas fa-chevron-left" aria-hidden="true"></i>
         </button>
-        <button id="lightbox-next" aria-label="Next image" class="absolute right-4 text-white text-3xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+        <button id="lightbox-next" aria-label="Next image" class="absolute right-4 text-white text-3xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
             <i class="fas fa-chevron-right" aria-hidden="true"></i>
         </button>
         <img id="lightbox-image" src="" alt="" class="max-w-full max-h-full object-contain">
     </div>
 
     <!-- About Section -->
-    <section id="about" aria-labelledby="about-heading" aria-labelledby="about-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
+    <section id="about" aria-labelledby="about-heading" aria-labelledby="about-heading" aria-labelledby="about-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
         <div class="max-w-4xl mx-auto">
             <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="about-heading">About the Band</h2>
             <div class="bg-gray-900/50 rounded-lg p-8 border border-purple-500/30">
@@ -585,7 +584,7 @@
     </section>
 
     <!-- Connect Section -->
-    <section id="connect" aria-labelledby="connect-heading" aria-labelledby="connect-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+    <section id="connect" aria-labelledby="connect-heading" aria-labelledby="connect-heading" aria-labelledby="connect-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="bebas text-5xl md:text-6xl mb-12 gradient-text" id="connect-heading">Stay Connected</h2>
             
@@ -593,16 +592,16 @@
             <div class="mb-12">
                 <h3 class="text-2xl font-bold mb-6">Follow Us</h3>
                 <div class="flex justify-center gap-6">
-                    <a href="https://www.instagram.com/sindex_band" target="_blank" aria-label="Follow Sinister Dexter on Instagram" class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                    <a href="https://www.instagram.com/sindex_band" target="_blank" aria-label="Follow Sinister Dexter on Instagram" class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
                         <i class="fab fa-instagram" aria-hidden="true"></i>
                     </a>
-                    <a href="https://x.com/sindexband" target="_blank" aria-label="Follow Sinister Dexter on X (Twitter)" class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                    <a href="https://x.com/sindexband" target="_blank" aria-label="Follow Sinister Dexter on X (Twitter)" class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
                         <i class="fab fa-x-twitter" aria-hidden="true"></i>
                     </a>
-                    <a href="https://facebook.com/SinDex.Band/" target="_blank" aria-label="Follow Sinister Dexter on Facebook" class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                    <a href="https://facebook.com/SinDex.Band/" target="_blank" aria-label="Follow Sinister Dexter on Facebook" class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
                         <i class="fab fa-facebook" aria-hidden="true"></i>
                     </a>
-                    <a href="https://www.youtube.com/@SinDexBand" target="_blank" aria-label="Subscribe to Sinister Dexter on YouTube" class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                    <a href="https://www.youtube.com/@SinDexBand" target="_blank" aria-label="Subscribe to Sinister Dexter on YouTube" class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
                         <i class="fab fa-youtube" aria-hidden="true"></i>
                     </a>
                 </div>
@@ -617,7 +616,7 @@
                         <label for="email-input" class="sr-only">Email address</label>
                         <input type="email" id="email-input" name="email" placeholder="your@email.com" aria-label="Email address" required
                                class="flex-1 px-4 py-3 bg-black/50 border border-purple-500/30 rounded-lg focus:outline-none focus:border-purple-400">
-                        <button type="submit" aria-label="Subscribe to mailing list" aria-label="Subscribe to mailing list" 
+                        <button type="submit" aria-label="Subscribe to mailing list" aria-label="Subscribe to mailing list" aria-label="Subscribe to mailing list" 
                                 class="px-8 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold transition-all hover:scale-105">
                             SUBSCRIBE
                         </button>
@@ -637,7 +636,7 @@
     </section>
 
     <!-- Merch Section (Coming Soon) -->
-    <section id="merch" aria-labelledby="merch-heading" aria-labelledby="merch-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
+    <section id="merch" aria-labelledby="merch-heading" aria-labelledby="merch-heading" aria-labelledby="merch-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="bebas text-5xl md:text-6xl mb-8 gradient-text" id="merch-heading">Merchandise</h2>
             <div class="bg-gray-900/50 rounded-lg p-12 border border-purple-500/30">
@@ -719,6 +718,32 @@
         window.addEventListener('scroll', updateActiveNav);
         updateActiveNav();
         
+        
+        // Add aria-current to active navigation
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.removeAttribute('aria-current');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav();
+
         // Close mobile menu on link click
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
@@ -788,4 +813,5 @@
         });
     </script>
 </body>
+</html>
 </html>
