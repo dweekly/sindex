@@ -1,0 +1,21 @@
+/* TEAM */
+Band: Sinister Dexter
+Lead Vocals: Rebecca Lipon
+Genre: Funk, Soul, R&B
+Location: San Francisco Bay Area, California
+Founded: 1999
+
+/* SITE */
+Last update: 2025
+Standards: HTML5, CSS3, JavaScript
+Components: Tailwind CSS, Font Awesome
+Software: Node.js, Sharp (image processing)
+Built with: Love, Funk, and Claude Code
+
+/* SPECIAL THANKS */
+To all our fans who keep the funk alive!
+To the venues that host us
+To the San Francisco Bay Area music scene
+
+/* THE RIGHT TO BE FUNKY */
+🎵 Bringing the unique sound of great funk horn bands since 1999 🎵

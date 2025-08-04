@@ -45,7 +45,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <style> .bebas {font-family:'Bebas Neue',cursive;}.gradient-text {background:linear-gradient(135deg,#9333ea 0%,#f59e0b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}.hero-overlay {background:linear-gradient(180deg,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.4) 50%,rgba(0,0,0,0.7) 100%);}html {scroll-behavior:smooth;}.nav-link {transition:all 0.3s ease;}.nav-link:hover {transform:translateY(-2px);}.social-icon {transition:all 0.3s ease;}.social-icon:hover {transform:scale(1.2) rotate(5deg);}.gallery-item {transition:all 0.3s ease;}.gallery-item:hover {transform:scale(1.05);}</style>
+    <style> .bebas {font-family:'Bebas Neue',cursive;}.gradient-text {background:linear-gradient(135deg,#9333ea 0%,#f59e0b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}.hero-overlay {background:linear-gradient(180deg,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.4) 50%,rgba(0,0,0,0.7) 100%);}html {scroll-behavior:smooth;}.nav-link {transition:all 0.3s ease;}.nav-link:hover {transform:translateY(-2px);}.social-icon {transition:all 0.3s ease;}.social-icon:hover {transform:scale(1.2) rotate(5deg);}.gallery-item {transition:all 0.3s ease;}.gallery-item:hover {transform:scale(1.05);}.sr-only {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;}.focus\:not-sr-only:focus {position:static;width:auto;height:auto;padding:inherit;margin:inherit;overflow:visible;clip:auto;white-space:normal;}.focus-visible\:ring-2:focus-visible {--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000);}.focus-visible\:ring-purple-400:focus-visible {--tw-ring-color:rgb(192 132 252);}.focus-visible\:outline-none:focus-visible {outline:2px solid transparent;outline-offset:2px;}.sr-only {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;}
+.focus\:not-sr-only:focus {position:static;width:auto;height:auto;padding:inherit;margin:inherit;overflow:visible;clip:auto;white-space:normal;}.focus-visible\:ring-2:focus-visible {--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000);}
+.focus-visible\:ring-purple-400:focus-visible {--tw-ring-color:rgb(192 132 252);}
+.focus-visible\:outline-none:focus-visible {outline:2px solid transparent;outline-offset:2px;}</style>
 
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
@@ -81,36 +84,46 @@
 
 </head>
 <body class="bg-black text-white font-['Inter']">
+    <!-- Skip Navigation for Screen Readers -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-purple-600 text-white px-4 py-2 rounded-lg z-[60]">
+        Skip to main content
+    </a>
+    <!-- Skip Navigation for Screen Readers -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-purple-600 text-white px-4 py-2 rounded-lg z-[60]">
+        Skip to main content
+    </a>
     
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-md z-50 px-6 py-4">
+    <nav role="navigation" aria-label="Main navigation" class="fixed top-0 w-full bg-black/90 backdrop-blur-md z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="#" class="bebas text-3xl gradient-text">SINISTER DEXTER</a>
             <div class="hidden md:flex space-x-8">
-                <a href="#shows" class="nav-link hover:text-purple-400">Shows</a>
-                <a href="#music" class="nav-link hover:text-purple-400">Music</a>
-                <a href="#videos" class="nav-link hover:text-purple-400">Videos</a>
-                <a href="#gallery" class="nav-link hover:text-purple-400">Gallery</a>
-                <a href="#about" class="nav-link hover:text-purple-400">About</a>
-                <a href="#connect" class="nav-link hover:text-purple-400">Connect</a>
+                <a href="#shows" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Shows</a>
+                <a href="#music" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Music</a>
+                <a href="#videos" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Videos</a>
+                <a href="#gallery" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Gallery</a>
+                <a href="#about" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">About</a>
+                <a href="#connect" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Connect</a>
             </div>
-            <button id="mobile-menu-btn" class="md:hidden">
-                <i class="fas fa-bars text-2xl"></i>
+            <button id="mobile-menu-btn" class="md:hidden" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+                <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
             </button>
         </div>
         
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-            <a href="#shows" class="block py-2 hover:text-purple-400">Shows</a>
-            <a href="#music" class="block py-2 hover:text-purple-400">Music</a>
-            <a href="#videos" class="block py-2 hover:text-purple-400">Videos</a>
-            <a href="#gallery" class="block py-2 hover:text-purple-400">Gallery</a>
-            <a href="#about" class="block py-2 hover:text-purple-400">About</a>
-            <a href="#connect" class="block py-2 hover:text-purple-400">Connect</a>
+            <a href="#shows" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Shows</a>
+            <a href="#music" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Music</a>
+            <a href="#videos" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Videos</a>
+            <a href="#gallery" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Gallery</a>
+            <a href="#about" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">About</a>
+            <a href="#connect" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Connect</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
+    <main id="main-content" role="main">
+    <main id="main-content" role="main">
     <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
         <!-- Band photo background -->
         <picture class="absolute inset-0">
@@ -136,14 +149,14 @@
             </div>
         </div>
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <i class="fas fa-chevron-down text-2xl"></i>
+            <i class="fas fa-chevron-down text-2xl" aria-hidden="true"></i>
         </div>
     </section>
 
     <!-- Shows Section -->
-    <section id="shows" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+    <section id="shows" aria-labelledby="shows-heading" aria-labelledby="shows-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
         <div class="max-w-7xl mx-auto">
-            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text">UPCOMING SHOWS</h2>
+            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="shows-heading" id="shows-heading">Upcoming Shows</h2>
             <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" id="shows-container">
                 
           <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30 ring-2 ring-purple-500">
@@ -214,8 +227,8 @@
             <div class="flex-1">
               <span class="text-amber-500 text-sm font-semibold">FEB 9, 2024</span>
               <span class="text-gray-400 mx-2">•</span>
-              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors">
-                  Blue Oak Brewing Company <i class="fas fa-external-link-alt text-xs ml-1"></i>
+              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                  Blue Oak Brewing Company <i class="fas fa-external-link-alt text-xs ml-1" aria-hidden="true"></i>
                 </a>
               <span class="text-gray-500 text-sm ml-2">San Carlos</span>
               
@@ -226,8 +239,8 @@
             <div class="flex-1">
               <span class="text-amber-500 text-sm font-semibold">FEB 1, 2024</span>
               <span class="text-gray-400 mx-2">•</span>
-              <a href="https://www.clubfoxrwc.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors">
-                  Club Fox - 25 Year Reunion Show <i class="fas fa-external-link-alt text-xs ml-1"></i>
+              <a href="https://www.clubfoxrwc.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                  Club Fox - 25 Year Reunion Show <i class="fas fa-external-link-alt text-xs ml-1" aria-hidden="true"></i>
                 </a>
               <span class="text-gray-500 text-sm ml-2">Redwood City</span>
               
@@ -238,8 +251,8 @@
             <div class="flex-1">
               <span class="text-amber-500 text-sm font-semibold">NOV 3, 2023</span>
               <span class="text-gray-400 mx-2">•</span>
-              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors">
-                  Blue Oak Brewing Company <i class="fas fa-external-link-alt text-xs ml-1"></i>
+              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                  Blue Oak Brewing Company <i class="fas fa-external-link-alt text-xs ml-1" aria-hidden="true"></i>
                 </a>
               <span class="text-gray-500 text-sm ml-2">San Carlos</span>
               
@@ -250,8 +263,8 @@
             <div class="flex-1">
               <span class="text-amber-500 text-sm font-semibold">OCT 18, 2023</span>
               <span class="text-gray-400 mx-2">•</span>
-              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors">
-                  Blue Oak Brewing with TGIFunk <i class="fas fa-external-link-alt text-xs ml-1"></i>
+              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                  Blue Oak Brewing with TGIFunk <i class="fas fa-external-link-alt text-xs ml-1" aria-hidden="true"></i>
                 </a>
               <span class="text-gray-500 text-sm ml-2">San Carlos</span>
               
@@ -272,8 +285,8 @@
             <div class="flex-1">
               <span class="text-amber-500 text-sm font-semibold">AUG 30, 2023</span>
               <span class="text-gray-400 mx-2">•</span>
-              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors">
-                  Blue Oak Brewing Company <i class="fas fa-external-link-alt text-xs ml-1"></i>
+              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                  Blue Oak Brewing Company <i class="fas fa-external-link-alt text-xs ml-1" aria-hidden="true"></i>
                 </a>
               <span class="text-gray-500 text-sm ml-2">San Carlos</span>
               
@@ -294,8 +307,8 @@
             <div class="flex-1">
               <span class="text-amber-500 text-sm font-semibold">JUN 16, 2023</span>
               <span class="text-gray-400 mx-2">•</span>
-              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors">
-                  Blue Oak Brewing Company <i class="fas fa-external-link-alt text-xs ml-1"></i>
+              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                  Blue Oak Brewing Company <i class="fas fa-external-link-alt text-xs ml-1" aria-hidden="true"></i>
                 </a>
               <span class="text-gray-500 text-sm ml-2">San Carlos</span>
               
@@ -308,16 +321,16 @@
     </section>
 
     <!-- Music Section -->
-    <section id="music" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
+    <section id="music" aria-labelledby="music-heading" aria-labelledby="music-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
         <div class="max-w-7xl mx-auto">
-            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text">LISTEN TO OUR MUSIC</h2>
+            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="music-heading">Listen to Our Music</h2>
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Spotify Embed -->
                 <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30">
                     <h3 class="text-xl font-bold mb-4 flex items-center">
-                        <i class="fab fa-spotify text-green-500 mr-2"></i> Spotify
+                        <i class="fab fa-spotify text-green-500 mr-2" aria-hidden="true"></i> Spotify
                     </h3>
-                    <iframe src="https://open.spotify.com/embed/artist/06ZpJFLW4Kz4EAlUorzrFu?utm_source=generator&theme=0" 
+                    <iframe lang="en" src="https://open.spotify.com/embed/artist/06ZpJFLW4Kz4EAlUorzrFu?utm_source=generator&theme=0" 
                             width="100%" height="352" frameBorder="0" allowfullscreen="" 
                             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
                             loading="lazy"></iframe>
@@ -326,9 +339,9 @@
                 <!-- Apple Music -->
                 <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30">
                     <h3 class="text-xl font-bold mb-4 flex items-center">
-                        <i class="fab fa-apple text-gray-300 mr-2"></i> Apple Music
+                        <i class="fab fa-apple text-gray-300 mr-2" aria-hidden="true"></i> Apple Music
                     </h3>
-                    <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" 
+                    <iframe lang="en" allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" 
                             height="450" style="width:100%;overflow:hidden;border-radius:10px;" 
                             sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" 
                             src="https://embed.music.apple.com/us/artist/sinister-dexter/30663361"></iframe>
@@ -337,31 +350,28 @@
             
             <!-- Streaming Links -->
             <div class="mt-8 flex flex-wrap justify-center gap-4">
-                <a href="https://open.spotify.com/artist/06ZpJFLW4Kz4EAlUorzrFu" target="_blank" 
-                   class="px-6 py-2 bg-green-600 hover:bg-green-700 rounded-full transition-all hover:scale-105">
-                    <i class="fab fa-spotify mr-2"></i> Spotify
+                <a href="https://open.spotify.com/artist/06ZpJFLW4Kz4EAlUorzrFu" target="_blank" aria-label="Listen to Sinister Dexter on Spotify" class="px-6 py-2 bg-green-600 hover:bg-green-700 rounded-full transition-all hover:scale-105">
+                    <i class="fab fa-spotify mr-2" aria-hidden="true"></i> <span>Spotify</span>
                 </a>
-                <a href="https://music.apple.com/us/artist/sinister-dexter/30663361" target="_blank" 
-                   class="px-6 py-2 bg-gray-700 hover:bg-gray-600 rounded-full transition-all hover:scale-105">
-                    <i class="fab fa-apple mr-2"></i> Apple Music
+                <a href="https://music.apple.com/us/artist/sinister-dexter/30663361" target="_blank" aria-label="Listen to Sinister Dexter on Apple Music" class="px-6 py-2 bg-gray-700 hover:bg-gray-600 rounded-full transition-all hover:scale-105">
+                    <i class="fab fa-apple mr-2" aria-hidden="true"></i> <span>Apple Music</span>
                 </a>
-                <a href="#" class="px-6 py-2 bg-orange-600 hover:bg-orange-700 rounded-full transition-all hover:scale-105 opacity-50 cursor-not-allowed">
-                    <i class="fab fa-soundcloud mr-2"></i> SoundCloud (Coming Soon)
-                </a>
+                <a href="#" aria-label="SoundCloud coming soon" aria-disabled="true" class="px-6 py-2 bg-orange-600 hover:bg-orange-700 rounded-full transition-all hover:scale-105 opacity-50 cursor-not-allowed">
+                    <i class="fab fa-soundcloud mr-2" aria-hidden="true"></i> <span>SoundCloud (Coming Soon)</span></a>
             </div>
         </div>
     </section>
 
     <!-- Videos Section -->
-    <section id="videos" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+    <section id="videos" aria-labelledby="videos-heading" aria-labelledby="videos-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
         <div class="max-w-7xl mx-auto">
-            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text">LIVE PERFORMANCES</h2>
+            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="videos-heading">Live Performances</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Video 1 -->
                 <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30">
                     <div class="aspect-video">
                         <iframe src="https://www.youtube.com/embed/D9gIdE7IJsY" 
-                                title="Son of a Preacher Man - Sinister Dexter" 
+                                title="YouTube video: Son of a Preacher Man - Live performance by Sinister Dexter" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                                 allowfullscreen
@@ -378,7 +388,7 @@
                 <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30">
                     <div class="aspect-video">
                         <iframe src="https://www.youtube.com/embed/vWRJUqNdnX0" 
-                                title="I Can't Stand The Rain - Sinister Dexter" 
+                                title="YouTube video: I Can't Stand The Rain - Live performance by Sinister Dexter" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                                 allowfullscreen
@@ -395,7 +405,7 @@
                 <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30">
                     <div class="aspect-video">
                         <iframe src="https://www.youtube.com/embed/buwFWtEuOyQ" 
-                                title="Broadband Connection - Sinister Dexter" 
+                                title="YouTube video: Broadband Connection - Live performance by Sinister Dexter" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                                 allowfullscreen
@@ -412,16 +422,16 @@
             <div class="mt-8 text-center">
                 <a href="https://www.youtube.com/@SinDexBand" target="_blank" 
                    class="inline-flex items-center px-6 py-3 bg-red-600 hover:bg-red-700 rounded-full transition-all hover:scale-105">
-                    <i class="fab fa-youtube mr-2"></i> Subscribe on YouTube
+                    <i class="fab fa-youtube mr-2" aria-hidden="true"></i> Subscribe on YouTube
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+    <section id="gallery" aria-labelledby="gallery-heading" aria-labelledby="gallery-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
         <div class="max-w-7xl mx-auto">
-            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text">GALLERY</h2>
+            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="gallery-heading">Gallery</h2>
             <div id="gallery-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 
           <div class="gallery-item aspect-square bg-gray-800 rounded-lg overflow-hidden cursor-pointer" 
@@ -472,23 +482,23 @@
     </section>
     
     <!-- Lightbox Modal -->
-    <div id="lightbox" class="fixed inset-0 bg-black/95 z-[100] hidden items-center justify-center p-4">
-        <button id="lightbox-close" class="absolute top-4 right-4 text-white text-3xl hover:text-purple-400">
-            <i class="fas fa-times"></i>
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" class="fixed inset-0 bg-black/95 z-[100] hidden items-center justify-center p-4">
+        <button id="lightbox-close" aria-label="Close image viewer" class="absolute top-4 right-4 text-white text-3xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+            <i class="fas fa-times" aria-hidden="true"></i>
         </button>
-        <button id="lightbox-prev" class="absolute left-4 text-white text-3xl hover:text-purple-400">
-            <i class="fas fa-chevron-left"></i>
+        <button id="lightbox-prev" aria-label="Previous image" class="absolute left-4 text-white text-3xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+            <i class="fas fa-chevron-left" aria-hidden="true"></i>
         </button>
-        <button id="lightbox-next" class="absolute right-4 text-white text-3xl hover:text-purple-400">
-            <i class="fas fa-chevron-right"></i>
+        <button id="lightbox-next" aria-label="Next image" class="absolute right-4 text-white text-3xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+            <i class="fas fa-chevron-right" aria-hidden="true"></i>
         </button>
         <img id="lightbox-image" src="" alt="" class="max-w-full max-h-full object-contain">
     </div>
 
     <!-- About Section -->
-    <section id="about" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
+    <section id="about" aria-labelledby="about-heading" aria-labelledby="about-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
         <div class="max-w-4xl mx-auto">
-            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text">ABOUT THE BAND</h2>
+            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="about-heading">About the Band</h2>
             <div class="bg-gray-900/50 rounded-lg p-8 border border-purple-500/30">
                 <p class="text-lg mb-6">
                     For over 25 years, <span class="font-bold text-purple-400">Sinister Dexter</span> has been bringing 
@@ -521,29 +531,25 @@
     </section>
 
     <!-- Connect Section -->
-    <section id="connect" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+    <section id="connect" aria-labelledby="connect-heading" aria-labelledby="connect-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="bebas text-5xl md:text-6xl mb-12 gradient-text">STAY CONNECTED</h2>
+            <h2 class="bebas text-5xl md:text-6xl mb-12 gradient-text" id="connect-heading">Stay Connected</h2>
             
             <!-- Social Media Links -->
             <div class="mb-12">
                 <h3 class="text-2xl font-bold mb-6">Follow Us</h3>
                 <div class="flex justify-center gap-6">
-                    <a href="https://www.instagram.com/sindex_band" target="_blank" 
-                       class="social-icon text-4xl hover:text-purple-400">
-                        <i class="fab fa-instagram"></i>
+                    <a href="https://www.instagram.com/sindex_band" target="_blank" aria-label="Follow Sinister Dexter on Instagram" class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
                     </a>
-                    <a href="https://x.com/sindexband" target="_blank" 
-                       class="social-icon text-4xl hover:text-purple-400">
-                        <i class="fab fa-x-twitter"></i>
+                    <a href="https://x.com/sindexband" target="_blank" aria-label="Follow Sinister Dexter on X (Twitter)" class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                        <i class="fab fa-x-twitter" aria-hidden="true"></i>
                     </a>
-                    <a href="https://facebook.com/SinDex.Band/" target="_blank" 
-                       class="social-icon text-4xl hover:text-purple-400">
-                        <i class="fab fa-facebook"></i>
+                    <a href="https://facebook.com/SinDex.Band/" target="_blank" aria-label="Follow Sinister Dexter on Facebook" class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                        <i class="fab fa-facebook" aria-hidden="true"></i>
                     </a>
-                    <a href="https://www.youtube.com/@SinDexBand" target="_blank" 
-                       class="social-icon text-4xl hover:text-purple-400">
-                        <i class="fab fa-youtube"></i>
+                    <a href="https://www.youtube.com/@SinDexBand" target="_blank" aria-label="Subscribe to Sinister Dexter on YouTube" class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                        <i class="fab fa-youtube" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
@@ -554,14 +560,15 @@
                 <p class="mb-6">Get updates on upcoming shows, new music, and exclusive content!</p>
                 <form id="mailing-list-form" class="max-w-md mx-auto" action="https://sinisterdexter.net/contact/email_list.php" method="POST">
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <input type="email" name="email" placeholder="your@email.com" required
+                        <label for="email-input" class="sr-only">Email address</label>
+                        <input type="email" id="email-input" name="email" placeholder="your@email.com" aria-label="Email address" required
                                class="flex-1 px-4 py-3 bg-black/50 border border-purple-500/30 rounded-lg focus:outline-none focus:border-purple-400">
-                        <button type="submit" 
+                        <button type="submit" aria-label="Subscribe to mailing list" aria-label="Subscribe to mailing list" 
                                 class="px-8 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold transition-all hover:scale-105">
                             SUBSCRIBE
                         </button>
                     </div>
-                    <div id="mailing-list-message" class="mt-4 text-sm hidden"></div>
+                    <div id="mailing-list-message" class="mt-4 text-sm hidden" role="alert" aria-live="polite"></div>
                 </form>
             </div>
             
@@ -576,11 +583,11 @@
     </section>
 
     <!-- Merch Section (Coming Soon) -->
-    <section id="merch" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
+    <section id="merch" aria-labelledby="merch-heading" aria-labelledby="merch-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="bebas text-5xl md:text-6xl mb-8 gradient-text">MERCHANDISE</h2>
+            <h2 class="bebas text-5xl md:text-6xl mb-8 gradient-text" id="merch-heading">Merchandise</h2>
             <div class="bg-gray-900/50 rounded-lg p-12 border border-purple-500/30">
-                <i class="fas fa-tshirt text-6xl text-purple-400 mb-6"></i>
+                <i class="fas fa-tshirt text-6xl text-purple-400 mb-6" aria-hidden="true"></i>
                 <h3 class="text-2xl font-bold mb-4">Coming Soon!</h3>
                 <p class="text-gray-400">
                     Official Sinister Dexter merchandise including t-shirts, posters, and more will be available soon.
@@ -595,6 +602,8 @@
     </section>
 
     <!-- Footer -->
+        </main>
+
     <footer class="py-8 px-6 bg-black border-t border-gray-800">
         <div class="max-w-7xl mx-auto text-center">
             <p class="text-gray-400 mb-2">© 2025 Sinister Dexter. All rights reserved.</p>
@@ -606,10 +615,63 @@
     <script>
         // Mobile menu toggle
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+            const menu = document.getElementById('mobile-menu');
+            const isHidden = menu.classList.toggle('hidden');
+            this.setAttribute('aria-expanded', !isHidden);
         });
     </script>
 </body>
+
+        // Add aria-current to active navigation
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.removeAttribute('aria-current');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav();
+
+        
+        // Add aria-current to active navigation
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.removeAttribute('aria-current');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav();
 
         // Close mobile menu on link click
         document.querySelectorAll('#mobile-menu a').forEach(link => {

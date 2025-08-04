@@ -1,0 +1,63 @@
+# Robots.txt for Sinister Dexter
+# https://sinisterdexter.net
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://sinisterdexter.net/sitemap.xml
+
+# Disallow access to any future admin or private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Allow search engines to index images
+User-agent: Googlebot-Image
+Allow: /images/
+
+# Allow search engines to access CSS and JS
+Allow: /*.css
+Allow: /*.js
+
+# Specific crawler instructions
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Block AI/GPT crawlers if you prefer (uncomment to activate)
+# User-agent: GPTBot
+# Disallow: /
+# 
+# User-agent: ChatGPT-User
+# Disallow: /
+# 
+# User-agent: CCBot
+# Disallow: /
+# 
+# User-agent: anthropic-ai
+# Disallow: /

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Sinister Dexter</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Let's get you back to the funk!">
+    <meta name="robots" content="noindex, follow">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .bebas { font-family: 'Bebas Neue', cursive; }
+        .gradient-text {
+            background: linear-gradient(135deg, #9333ea 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .funk-animation {
+            animation: funk 2s ease-in-out infinite;
+        }
+        @keyframes funk {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(-5deg); }
+            75% { transform: translateY(-10px) rotate(5deg); }
+        }
+        .record-spin {
+            animation: spin 3s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-['Inter'] min-h-screen flex items-center justify-center">
+    
+    <div class="text-center px-6 max-w-2xl mx-auto">
+        <!-- Animated 404 -->
+        <div class="mb-8">
+            <div class="relative inline-block">
+                <h1 class="bebas text-[150px] md:text-[200px] gradient-text funk-animation leading-none">404</h1>
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <i class="fas fa-compact-disc text-6xl md:text-8xl text-purple-500/30 record-spin"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Error Message -->
+        <h2 class="bebas text-4xl md:text-5xl mb-4 text-purple-400">
+            The Funk Has Left This Page
+        </h2>
+        
+        <p class="text-xl text-gray-300 mb-8">
+            Looks like this groove got lost in the mix. The page you're looking for doesn't exist, 
+            but the party's still going strong on the main stage!
+        </p>
+        
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <a href="/" 
+               class="px-8 py-3 bg-purple-600 hover:bg-purple-700 rounded-full font-semibold transition-all hover:scale-105 inline-flex items-center justify-center">
+                <i class="fas fa-home mr-2"></i>
+                Back to Home
+            </a>
+            <a href="/#shows" 
+               class="px-8 py-3 border-2 border-amber-500 hover:bg-amber-500 hover:text-black rounded-full font-semibold transition-all hover:scale-105 inline-flex items-center justify-center">
+                <i class="fas fa-calendar mr-2"></i>
+                See Upcoming Shows
+            </a>
+        </div>
+        
+        <!-- Fun 404 Message -->
+        <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30 mb-8">
+            <h3 class="text-xl font-bold mb-3 text-amber-400">While you're here...</h3>
+            <p class="text-gray-300 mb-4">
+                Why not check out our latest funky performances or join our mailing list 
+                to make sure you never miss a beat?
+            </p>
+            <div class="flex justify-center gap-6 mt-6">
+                <a href="https://www.instagram.com/sindex_band" 
+                   target="_blank" 
+                   aria-label="Follow Sinister Dexter on Instagram"
+                   class="text-3xl hover:text-purple-400 transition-all hover:scale-125">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/@SinDexBand" 
+                   target="_blank"
+                   aria-label="Subscribe to Sinister Dexter on YouTube" 
+                   class="text-3xl hover:text-purple-400 transition-all hover:scale-125">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://open.spotify.com/artist/06ZpJFLW4Kz4EAlUorzrFu" 
+                   target="_blank"
+                   aria-label="Listen to Sinister Dexter on Spotify" 
+                   class="text-3xl hover:text-purple-400 transition-all hover:scale-125">
+                    <i class="fab fa-spotify"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Search Suggestion -->
+        <div class="text-sm text-gray-500">
+            <p>Lost? Try these popular pages:</p>
+            <div class="mt-2 flex flex-wrap justify-center gap-3">
+                <a href="/#music" class="text-purple-400 hover:text-purple-300">Music</a>
+                <span class="text-gray-600">•</span>
+                <a href="/#videos" class="text-purple-400 hover:text-purple-300">Videos</a>
+                <span class="text-gray-600">•</span>
+                <a href="/#gallery" class="text-purple-400 hover:text-purple-300">Gallery</a>
+                <span class="text-gray-600">•</span>
+                <a href="/#about" class="text-purple-400 hover:text-purple-300">About</a>
+                <span class="text-gray-600">•</span>
+                <a href="/#connect" class="text-purple-400 hover:text-purple-300">Contact</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Background decoration -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="absolute top-20 left-10 text-purple-500/10">
+            <i class="fas fa-music text-[200px] transform rotate-12"></i>
+        </div>
+        <div class="absolute bottom-20 right-10 text-amber-500/10">
+            <i class="fas fa-guitar text-[200px] transform -rotate-12"></i>
+        </div>
+    </div>
+    
+    <script>
+        // Automatically redirect to home after 30 seconds
+        setTimeout(() => {
+            console.log('Redirecting to homepage...');
+            // Uncomment to enable auto-redirect
+            // window.location.href = '/';
+        }, 30000);
+        
+        // Track 404 errors if analytics is present
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                page_title: '404 Error',
+                page_location: window.location.href,
+                page_path: window.location.pathname
+            });
+        }
+    </script>
+</body>
+</html>

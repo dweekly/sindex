@@ -101,10 +101,15 @@ async function buildStaticSite() {
         
         galleryHtml += `
           <div class="gallery-item aspect-square bg-gray-800 rounded-lg overflow-hidden cursor-pointer" 
-               onclick="openLightbox(${index})">
+               onclick="openLightbox(${index})" 
+               role="button" 
+               tabindex="0" 
+               aria-label="View larger image ${index + 1} of ${thumbnails.length}"
+               onkeypress="if(event.key==='Enter' || event.key===' ') openLightbox(${index})">
             <picture>
               <source srcset="${thumbWebp}" type="image/webp">
-              <img src="${thumbPath}" alt="Sinister Dexter band photo" 
+              <img src="${thumbPath}" 
+                   alt="Sinister Dexter performing live - Image ${index + 1} of ${thumbnails.length}" 
                    class="w-full h-full object-cover transition-transform hover:scale-110"
                    loading="lazy">
             </picture>
