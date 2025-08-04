@@ -3,35 +3,9 @@ name = "sinister-dexter"
 compatibility_date = "2024-08-03"
 pages_build_output_dir = "public"
 
-# Build configuration
-[build]
-command = "npm run build"
-build.watch_paths = ["photos/**/*", "public/**/*"]
-
 # Environment variables (if needed for future features)
 [env.production]
 vars = { ENVIRONMENT = "production" }
 
 [env.preview]
 vars = { ENVIRONMENT = "preview" }
-
-# Headers for better performance
-[[headers]]
-for = "/images/*"
-[headers.values]
-Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-for = "/*.css"
-[headers.values]
-Cache-Control = "public, max-age=86400"
-
-[[headers]]
-for = "/*.js"
-[headers.values]
-Cache-Control = "public, max-age=86400"
-
-[[headers]]
-for = "/data/*.json"
-[headers.values]
-Cache-Control = "public, max-age=3600"
