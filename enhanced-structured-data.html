@@ -1,0 +1,354 @@
+<!-- Enhanced Structured Data for Music Band - Add to <head> section -->
+
+<!-- Complete MusicGroup Schema with all properties -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "@id": "https://sinisterdexter.net/#band",
+  "name": "Sinister Dexter",
+  "alternateName": "SinDex",
+  "description": "11-piece soul machine bringing the unique sound of great funk horn bands to the San Francisco Bay Area",
+  "url": "https://sinisterdexter.net",
+  "image": [
+    "https://main.sinister-dexter.pages.dev/images/large/sindex-full.jpg",
+    "https://main.sinister-dexter.pages.dev/images/large/sindex1.jpg",
+    "https://main.sinister-dexter.pages.dev/images/large/sindex2_converted.jpg"
+  ],
+  "logo": "https://main.sinister-dexter.pages.dev/favicon-512x512.png",
+  "genre": ["Funk", "Soul", "R&B", "Jazz-Funk", "Horn Band"],
+  "foundingDate": "1999",
+  "foundingLocation": {
+    "@type": "Place",
+    "name": "San Francisco Bay Area",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San Francisco",
+      "addressRegion": "CA",
+      "addressCountry": "US"
+    }
+  },
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 37.7749,
+      "longitude": -122.4194
+    },
+    "geoRadius": "50mi"
+  },
+  "member": [
+    {
+      "@type": "Person",
+      "name": "Rebecca Lipon",
+      "roleName": "Lead Vocals",
+      "performerIn": {"@id": "https://sinisterdexter.net/#band"}
+    }
+  ],
+  "numberOfEmployees": "11",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Booking",
+    "email": "booking@sinisterdexter.net",
+    "availableLanguage": "English"
+  },
+  "sameAs": [
+    "https://www.instagram.com/sindex_band",
+    "https://x.com/sindexband",
+    "https://facebook.com/SinDex.Band/",
+    "https://www.youtube.com/@SinDexBand",
+    "https://open.spotify.com/artist/06ZpJFLW4Kz4EAlUorzrFu",
+    "https://music.apple.com/us/artist/sinister-dexter/30663361"
+  ],
+  "potentialAction": [
+    {
+      "@type": "ListenAction",
+      "target": [
+        {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://open.spotify.com/artist/06ZpJFLW4Kz4EAlUorzrFu",
+          "actionPlatform": "https://schema.org/DesktopWebPlatform"
+        },
+        {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://music.apple.com/us/artist/sinister-dexter/30663361",
+          "actionPlatform": "https://schema.org/DesktopWebPlatform"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- Event Schema for Upcoming Shows -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Sinister Dexter Upcoming Shows",
+  "itemListElement": [
+    {
+      "@type": "MusicEvent",
+      "name": "Redwood City Music in the Park",
+      "startDate": "2025-08-19T17:00:00-07:00",
+      "endDate": "2025-08-19T19:00:00-07:00",
+      "location": {
+        "@type": "Place",
+        "name": "Stafford Park",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Corner of King St. & Hopkins Ave",
+          "addressLocality": "Redwood City",
+          "addressRegion": "CA",
+          "postalCode": "94063",
+          "addressCountry": "US"
+        }
+      },
+      "performer": {
+        "@id": "https://sinisterdexter.net/#band"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "description": "Free summer concert series at Stafford Park. Kid friendly!",
+      "isAccessibleForFree": true,
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+    },
+    {
+      "@type": "MusicEvent",
+      "name": "Valencia LIVE! at Blondie's Bar",
+      "startDate": "2025-09-10T17:00:00-07:00",
+      "endDate": "2025-09-10T20:00:00-07:00",
+      "location": {
+        "@type": "Place",
+        "name": "Blondie's Bar",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Valencia Street",
+          "addressLocality": "San Francisco",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        }
+      },
+      "performer": {
+        "@id": "https://sinisterdexter.net/#band"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "description": "Big night market on Valencia St with food, drink, entertainment, and FUNK!",
+      "isAccessibleForFree": true,
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+    },
+    {
+      "@type": "MusicEvent",
+      "name": "Fiesta on the Hill",
+      "startDate": "2025-09-28T14:00:00-07:00",
+      "endDate": "2025-09-28T16:00:00-07:00",
+      "location": {
+        "@type": "Place",
+        "name": "Cortland Avenue",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Cortland Avenue",
+          "addressLocality": "San Francisco",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        }
+      },
+      "performer": {
+        "@id": "https://sinisterdexter.net/#band"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "description": "Annual street fair on Cortland Ave with family-friendly atmosphere",
+      "isAccessibleForFree": true,
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+    }
+  ]
+}
+</script>
+
+<!-- VideoObject Schema for YouTube Videos -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Sinister Dexter Live Performance Videos",
+  "itemListElement": [
+    {
+      "@type": "VideoObject",
+      "name": "Son of a Preacher Man - Sinister Dexter Live",
+      "description": "Live performance at Redwood City Music In The Park, 2012",
+      "thumbnailUrl": "https://img.youtube.com/vi/D9gIdE7IJsY/maxresdefault.jpg",
+      "uploadDate": "2012-08-15",
+      "contentUrl": "https://www.youtube.com/watch?v=D9gIdE7IJsY",
+      "embedUrl": "https://www.youtube.com/embed/D9gIdE7IJsY",
+      "performer": {
+        "@id": "https://sinisterdexter.net/#band"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "name": "I Can't Stand The Rain - Sinister Dexter Live",
+      "description": "Live performance at Redwood City Music In The Park, 2012",
+      "thumbnailUrl": "https://img.youtube.com/vi/vWRJUqNdnX0/maxresdefault.jpg",
+      "uploadDate": "2012-08-15",
+      "contentUrl": "https://www.youtube.com/watch?v=vWRJUqNdnX0",
+      "embedUrl": "https://www.youtube.com/embed/vWRJUqNdnX0",
+      "performer": {
+        "@id": "https://sinisterdexter.net/#band"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "name": "Broadband Connection - Sinister Dexter Live",
+      "description": "Live performance at Redwood City Music In The Park, 2012",
+      "thumbnailUrl": "https://img.youtube.com/vi/buwFWtEuOyQ/maxresdefault.jpg",
+      "uploadDate": "2012-08-15",
+      "contentUrl": "https://www.youtube.com/watch?v=buwFWtEuOyQ",
+      "embedUrl": "https://www.youtube.com/embed/buwFWtEuOyQ",
+      "performer": {
+        "@id": "https://sinisterdexter.net/#band"
+      }
+    }
+  ]
+}
+</script>
+
+<!-- BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://sinisterdexter.net"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Shows",
+      "item": "https://sinisterdexter.net#shows"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Music",
+      "item": "https://sinisterdexter.net#music"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Videos",
+      "item": "https://sinisterdexter.net#videos"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Gallery",
+      "item": "https://sinisterdexter.net#gallery"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "About",
+      "item": "https://sinisterdexter.net#about"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "Connect",
+      "item": "https://sinisterdexter.net#connect"
+    }
+  ]
+}
+</script>
+
+<!-- WebSite Schema with SearchAction -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://sinisterdexter.net",
+  "name": "Sinister Dexter",
+  "description": "Official website of Sinister Dexter - San Francisco Bay Area funk and soul band",
+  "publisher": {
+    "@id": "https://sinisterdexter.net/#band"
+  }
+}
+</script>
+
+<!-- Additional Microformats for Music -->
+<!-- Add these as HTML attributes in the relevant sections -->
+
+<!-- For the band info section, use h-card microformat -->
+<div class="h-card">
+  <h1 class="p-name">Sinister Dexter</h1>
+  <p class="p-note">11-piece soul machine bringing funk to the Bay Area</p>
+  <a class="u-url" href="https://sinisterdexter.net">Official Website</a>
+  <span class="p-category">Funk Band</span>
+  <span class="p-category">Soul Music</span>
+  <span class="p-category">Horn Section</span>
+</div>
+
+<!-- For events, use h-event microformat -->
+<article class="h-event">
+  <h3 class="p-name">Redwood City Music in the Park</h3>
+  <time class="dt-start" datetime="2025-08-19T17:00:00-07:00">August 19, 2025 at 5:00 PM</time>
+  <time class="dt-end" datetime="2025-08-19T19:00:00-07:00">7:00 PM</time>
+  <div class="p-location h-card">
+    <span class="p-name">Stafford Park</span>
+    <span class="p-locality">Redwood City</span>
+    <span class="p-region">CA</span>
+  </div>
+  <p class="p-summary">Free summer concert series</p>
+</article>
+
+<!-- Music.onl microformat for band -->
+<div itemscope itemtype="https://schema.org/MusicGroup">
+  <meta itemprop="name" content="Sinister Dexter">
+  <meta itemprop="genre" content="Funk">
+  <meta itemprop="genre" content="Soul">
+  <link itemprop="sameAs" href="https://open.spotify.com/artist/06ZpJFLW4Kz4EAlUorzrFu">
+  <link itemprop="sameAs" href="https://music.apple.com/us/artist/sinister-dexter/30663361">
+</div>
+
+<!-- Additional Meta Tags for Music Discovery -->
+<meta property="music:musician" content="https://sinisterdexter.net">
+<meta property="music:genre" content="Funk">
+<meta property="music:genre" content="Soul">
+<meta property="music:genre" content="R&B">
+
+<!-- Apple Music Meta Tags -->
+<meta name="apple-music-app" content="app-id=1450989524, app-argument=https://music.apple.com/us/artist/sinister-dexter/30663361">
+
+<!-- Spotify Meta Tags -->
+<meta property="spotify:artist" content="06ZpJFLW4Kz4EAlUorzrFu">
+
+<!-- Dublin Core Metadata (for libraries and archives) -->
+<meta name="DC.Title" content="Sinister Dexter - The Right to Be Funky">
+<meta name="DC.Creator" content="Sinister Dexter">
+<meta name="DC.Subject" content="Funk Music">
+<meta name="DC.Subject" content="Soul Music">
+<meta name="DC.Description" content="11-piece soul machine bringing funk to the San Francisco Bay Area">
+<meta name="DC.Publisher" content="Sinister Dexter">
+<meta name="DC.Type" content="Interactive Resource">
+<meta name="DC.Format" content="text/html">
+<meta name="DC.Language" content="en-US">
