@@ -2,6 +2,7 @@
 
 const fs = require('fs').promises;
 const path = require('path');
+const { minify } = require('html-minifier-terser');
 
 async function buildStaticSite() {
   console.log('🏗️  Building static site...\n');
@@ -205,15 +206,48 @@ async function buildStaticSite() {
       );
     }
     
-    // Write the static HTML file
+    // Minify the HTML for production
+    console.log('🗜️  Minifying HTML...');
+    const minifiedHtml = await minify(html, {
+      collapseWhitespace: true,
+      removeComments: true,
+      removeRedundantAttributes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      useShortDoctype: true,
+      minifyCSS: true,
+      minifyJS: true,
+      // Keep important attributes
+      keepClosingSlash: true,
+      // Don't remove quotes from attributes (needed for some)
+      removeAttributeQuotes: false,
+      // Preserve line breaks in pre/textarea
+      preserveLineBreaks: false,
+      // Additional optimizations
+      sortAttributes: true,
+      sortClassName: true,
+      removeEmptyAttributes: true,
+      // Keep data attributes
+      customAttrSurround: [],
+      // Process conditional comments
+      processConditionalComments: true
+    });
+    
+    // Write the minified HTML file
     const outputPath = path.join(__dirname, 'public', 'index.html');
-    await fs.writeFile(outputPath, html);
+    await fs.writeFile(outputPath, minifiedHtml);
+    
+    // Calculate size reduction
+    const originalSize = Buffer.byteLength(html, 'utf8');
+    const minifiedSize = Buffer.byteLength(minifiedHtml, 'utf8');
+    const reduction = ((originalSize - minifiedSize) / originalSize * 100).toFixed(1);
     
     console.log('✅ Static HTML generated successfully!');
     console.log(`📄 Output: ${outputPath}`);
     console.log(`🎭 ${showsData.upcomingShows?.length || 0} upcoming shows`);
     console.log(`📜 ${showsData.pastShows?.length || 0} past shows`);
     console.log(`🖼️  ${thumbnails.length} gallery images`);
+    console.log(`📉 HTML minified: ${(originalSize / 1024).toFixed(1)}KB → ${(minifiedSize / 1024).toFixed(1)}KB (-${reduction}%)`);
     
   } catch (error) {
     console.error('❌ Error building static site:', error);

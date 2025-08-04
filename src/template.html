@@ -1,34 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- ============================================= -->
+    <!-- METADATA & CHARACTER ENCODING                -->
+    <!-- ============================================= -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <!-- ============================================= -->
+    <!-- PAGE TITLE - Appears in browser tab          -->
+    <!-- ============================================= -->
     <title>Sinister Dexter - The Right to Be Funky | San Francisco Soul & Funk Band</title>
-    <!-- Critical inline CSS to prevent FOUT -->
-    <style> /* Arial Narrow fallback - still some shift but much better than cursive! */ .bebas {font-family:'Bebas Neue','Arial Narrow','Helvetica Condensed',Arial,sans-serif;font-weight:700;letter-spacing:0.03em;font-stretch:condensed;text-transform:uppercase;}.sr-only {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;}.focus\:not-sr-only:focus {position:static;width:auto;height:auto;padding:inherit;margin:inherit;overflow:visible;clip:auto;white-space:normal;}.focus-visible\:ring-2:focus-visible {--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000);}.focus-visible\:ring-purple-400:focus-visible {--tw-ring-color:rgb(192 132 252);}.focus-visible\:outline-none:focus-visible {outline:2px solid transparent;outline-offset:2px;}.sr-only {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;}
-.focus\:not-sr-only:focus {position:static;width:auto;height:auto;padding:inherit;margin:inherit;overflow:visible;clip:auto;white-space:normal;}.focus-visible\:ring-2:focus-visible {--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000);}
-.focus-visible\:ring-purple-400:focus-visible {--tw-ring-color:rgb(192 132 252);}
-.focus-visible\:outline-none:focus-visible {outline:2px solid transparent;outline-offset:2px;}</style>
+    
+    <!-- ============================================= -->
+    <!-- CRITICAL INLINE CSS                          -->
+    <!-- This prevents Flash of Unstyled Text (FOUT)  -->
+    <!-- by defining font fallbacks immediately       -->
+    <!-- ============================================= -->
+    <style>
+        /* Bebas Neue font with proper fallback chain for condensed sans-serif */
+        .bebas {
+            font-family: 'Bebas Neue', 'Arial Narrow', 'Helvetica Condensed', Arial, sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            font-stretch: condensed;
+            text-transform: uppercase;
+        }
+        
+        /* Screen reader only content - visually hidden but accessible */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Make screen reader content visible when focused (for keyboard nav) */
+        .focus\:not-sr-only:focus {
+            position: static;
+            width: auto;
+            height: auto;
+            padding: inherit;
+            margin: inherit;
+            overflow: visible;
+            clip: auto;
+            white-space: normal;
+        }
+        
+        /* Focus ring styles for accessibility */
+        .focus-visible\:ring-2:focus-visible {
+            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+        }
+        
+        .focus-visible\:ring-purple-400:focus-visible {
+            --tw-ring-color: rgb(192 132 252);
+        }
+        
+        .focus-visible\:outline-none:focus-visible {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+        }
+    </style>
+    
+    <!-- ============================================= -->
+    <!-- SEO META TAGS                                -->
+    <!-- For search engine optimization               -->
+    <!-- ============================================= -->
     <meta name="robots" content="index, follow">
     <meta name="description" content="Sinister Dexter is an 11-piece soul machine bringing the unique sound of great funk horn bands to the San Francisco Bay Area. Featuring vocalist Rebecca Lipon.">
     <meta name="keywords" content="Sinister Dexter, funk band, soul music, San Francisco, Bay Area, Rebecca Lipon, live music, horn section">
+    <link rel="canonical" href="https://sinisterdexter.net/">
+    
+    <!-- ============================================= -->
+    <!-- OPEN GRAPH TAGS                              -->
+    <!-- For rich social media sharing (Facebook)     -->
+    <!-- ============================================= -->
     <meta property="og:title" content="Sinister Dexter - The Right to Be Funky">
     <meta property="og:description" content="11-piece soul machine bringing high-energy funk to the Bay Area">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sinisterdexter.net">
-    <link rel="canonical" href="https://sinisterdexter.net/">
     <meta property="og:image" content="https://main.sinister-dexter.pages.dev/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
-    <!-- Twitter Card -->
+    <!-- ============================================= -->
+    <!-- TWITTER CARD TAGS                            -->
+    <!-- For rich Twitter/X sharing                   -->
+    <!-- ============================================= -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@sindexband">
     <meta name="twitter:title" content="Sinister Dexter - The Right to Be Funky">
     <meta name="twitter:description" content="11-piece soul machine bringing high-energy funk to the Bay Area">
     <meta name="twitter:image" content="https://main.sinister-dexter.pages.dev/twitter-card.jpg">
     
-    <!-- Favicons -->
+    <!-- ============================================= -->
+    <!-- FAVICON CONFIGURATION                        -->
+    <!-- Icons for browser tabs and bookmarks         -->
+    <!-- ============================================= -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -39,33 +114,109 @@
     <link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     
-    <!-- Web App Manifest -->
+    <!-- ============================================= -->
+    <!-- WEB APP CONFIGURATION                        -->
+    <!-- Progressive Web App manifest and theme       -->
+    <!-- ============================================= -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#9333ea">
     
-    <!-- Preload critical fonts to prevent FOUT -->
+    <!-- ============================================= -->
+    <!-- FONT PRELOADING                              -->
+    <!-- Prevents Flash of Unstyled Text (FOUT)       -->
+    <!-- ============================================= -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" as="style">
     <link rel="preload" href="https://fonts.gstatic.com/s/bebasneue/v14/JTUSjIg69CK48gW7PXoo9Wlhyw.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2" as="font" type="font/woff2" crossorigin>
-
-    <!-- Note: Tailwind CDN is used for development. For production, use PostCSS or Tailwind CLI -->
+    
+    <!-- ============================================= -->
+    <!-- EXTERNAL STYLESHEETS                         -->
+    <!-- Tailwind CSS CDN for development             -->
+    <!-- TODO: Replace with production build          -->
+    <!-- ============================================= -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- ============================================= -->
+    <!-- FONT LOADING                                 -->
+    <!-- Google Fonts for typography                  -->
+    <!-- ============================================= -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <style> .bebas {font-family:'Bebas Neue','Arial Narrow','Helvetica Condensed',Arial,sans-serif;font-weight:700;letter-spacing:0.03em;font-stretch:condensed;text-transform:uppercase;}.gradient-text {background:linear-gradient(135deg,#9333ea 0%,#f59e0b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}.hero-overlay {background:linear-gradient(180deg,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.4) 50%,rgba(0,0,0,0.7) 100%);}html {scroll-behavior:smooth;}.nav-link {transition:all 0.3s ease;}.nav-link:hover {transform:translateY(-2px);}.social-icon {transition:all 0.3s ease;}.social-icon:hover {transform:scale(1.2) rotate(5deg);}.gallery-item {transition:all 0.3s ease;}.gallery-item:hover {transform:scale(1.05);}.sr-only {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;}.focus\:not-sr-only:focus {position:static;width:auto;height:auto;padding:inherit;margin:inherit;overflow:visible;clip:auto;white-space:normal;}.focus-visible\:ring-2:focus-visible {--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000);}.focus-visible\:ring-purple-400:focus-visible {--tw-ring-color:rgb(192 132 252);}.focus-visible\:outline-none:focus-visible {outline:2px solid transparent;outline-offset:2px;}.sr-only {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;}
-.focus\:not-sr-only:focus {position:static;width:auto;height:auto;padding:inherit;margin:inherit;overflow:visible;clip:auto;white-space:normal;}.focus-visible\:ring-2:focus-visible {--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000);}
-.focus-visible\:ring-purple-400:focus-visible {--tw-ring-color:rgb(192 132 252);}
-.focus-visible\:outline-none:focus-visible {outline:2px solid transparent;outline-offset:2px;}</style>
+    <!-- ============================================= -->
+    <!-- CUSTOM STYLES                                -->
+    <!-- Site-specific CSS not covered by Tailwind    -->
+    <!-- ============================================= -->
+    <style>
+        /* Typography styles */
+        .bebas {
+            font-family: 'Bebas Neue', 'Arial Narrow', 'Helvetica Condensed', Arial, sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            font-stretch: condensed;
+            text-transform: uppercase;
+        }
+        
+        /* Gradient text effect for headings */
+        .gradient-text {
+            background: linear-gradient(135deg, #9333ea 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Hero section overlay gradient */
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%);
+        }
+        
+        /* Smooth scrolling for the entire page */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Navigation link hover effects */
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Social media icon hover effects */
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.2) rotate(5deg);
+        }
+        
+        /* Gallery item hover effects */
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+    </style>
     
-    <!-- Gallery JavaScript - Define functions before they're used in HTML -->
+    <!-- ============================================= -->
+    <!-- GALLERY JAVASCRIPT                           -->
+    <!-- Must be in <head> since gallery HTML uses    -->
+    <!-- these functions inline (onclick handlers)    -->
+    <!-- ============================================= -->
     <script>
-        // Gallery functionality - must be defined before gallery HTML
+        // Gallery images array - will be populated by build script
+        // Format: [{jpg: "path", webp: "path", name: "filename"}, ...]
         const galleryImages = [{"jpg":"images/large/IMG_2775_converted.jpg","webp":"images/large/IMG_2775_converted.webp","name":"IMG_2775_converted"},{"jpg":"images/large/IMG_2795_converted.jpg","webp":"images/large/IMG_2795_converted.webp","name":"IMG_2795_converted"},{"jpg":"images/large/sindex-full.jpg","webp":"images/large/sindex-full.webp","name":"sindex-full"},{"jpg":"images/large/sindex1.jpg","webp":"images/large/sindex1.webp","name":"sindex1"},{"jpg":"images/large/sindex2_converted.jpg","webp":"images/large/sindex2_converted.webp","name":"sindex2_converted"},{"jpg":"images/large/sindex3.jpg","webp":"images/large/sindex3.webp","name":"sindex3"}];
         let currentImageIndex = 0;
         
+        /**
+         * Opens the lightbox modal with the specified image
+         * @param {number} index - Index of the image in galleryImages array
+         */
         function openLightbox(index) {
             currentImageIndex = index;
             const lightbox = document.getElementById('lightbox');
@@ -79,26 +230,40 @@
             }
         }
         
+        /**
+         * Closes the lightbox modal
+         */
         function closeLightbox() {
             const lightbox = document.getElementById('lightbox');
             lightbox.classList.add('hidden');
             lightbox.classList.remove('flex');
         }
         
+        /**
+         * Shows the next image in the lightbox
+         */
         function nextImage() {
             if (galleryImages.length === 0) return;
             currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
             document.getElementById('lightbox-image').src = galleryImages[currentImageIndex].jpg;
         }
         
+        /**
+         * Shows the previous image in the lightbox
+         */
         function prevImage() {
             if (galleryImages.length === 0) return;
             currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
             document.getElementById('lightbox-image').src = galleryImages[currentImageIndex].jpg;
         }
     </script>
-
-    <!-- Enhanced Structured Data for SEO -->
+    
+    <!-- ============================================= -->
+    <!-- STRUCTURED DATA FOR SEO                      -->
+    <!-- Schema.org JSON-LD for rich search results   -->
+    <!-- ============================================= -->
+    
+    <!-- MusicGroup Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -274,526 +439,470 @@
     </script>
 
 </head>
+
 <body class="bg-black text-white font-['Inter']">
-    <!-- Skip Navigation for Screen Readers -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-purple-600 text-white px-4 py-2 rounded-lg z-[60]">
-        Skip to main content
-    </a>
-    <!-- Skip Navigation for Screen Readers -->
+    
+    <!-- ============================================= -->
+    <!-- ACCESSIBILITY: SKIP NAVIGATION               -->
+    <!-- Hidden link for screen readers to skip nav   -->
+    <!-- ============================================= -->
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-purple-600 text-white px-4 py-2 rounded-lg z-[60]">
         Skip to main content
     </a>
     
-    <!-- Navigation -->
+    <!-- ============================================= -->
+    <!-- HEADER NAVIGATION BAR                        -->
+    <!-- Fixed position, appears on all scroll pos    -->
+    <!-- ============================================= -->
     <nav role="navigation" aria-label="Main navigation" class="fixed top-0 w-full bg-black/90 backdrop-blur-md z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
+            
+            <!-- Logo/Brand -->
             <a href="#" class="bebas text-3xl gradient-text">SINISTER DEXTER</a>
+            
+            <!-- Desktop Navigation Links -->
             <div class="hidden md:flex space-x-8">
-                <a href="#shows" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Shows</a>
-                <a href="#music" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Music</a>
-                <a href="#videos" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Videos</a>
-                <a href="#gallery" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Gallery</a>
-                <a href="#about" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">About</a>
-                <a href="#connect" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Connect</a>
+                <a href="#shows" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Shows</a>
+                <a href="#music" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Music</a>
+                <a href="#videos" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Videos</a>
+                <a href="#gallery" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Gallery</a>
+                <a href="#about" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">About</a>
+                <a href="#connect" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Connect</a>
             </div>
+            
+            <!-- Mobile Menu Toggle Button -->
             <button id="mobile-menu-btn" class="md:hidden" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
                 <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
             </button>
         </div>
         
-        <!-- Mobile Menu -->
+        <!-- Mobile Navigation Menu (Hidden by default) -->
         <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-            <a href="#shows" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Shows</a>
-            <a href="#music" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Music</a>
-            <a href="#videos" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Videos</a>
-            <a href="#gallery" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Gallery</a>
-            <a href="#about" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">About</a>
-            <a href="#connect" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Connect</a>
+            <a href="#shows" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Shows</a>
+            <a href="#music" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Music</a>
+            <a href="#videos" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Videos</a>
+            <a href="#gallery" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Gallery</a>
+            <a href="#about" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">About</a>
+            <a href="#connect" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">Connect</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ============================================= -->
+    <!-- MAIN CONTENT WRAPPER                         -->
+    <!-- ============================================= -->
     <main id="main-content" role="main">
-    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- Band photo background -->
-        <picture class="absolute inset-0">
-            <source srcset="images/large/sindex-full.webp" type="image/webp">
-            <img src="images/large/sindex-full.jpg" alt="Sinister Dexter full band" 
-                 class="w-full h-full object-cover object-center">
-        </picture>
-        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/60 to-amber-900/60"></div>
-        <div class="hero-overlay absolute inset-0"></div>
-        <div class="relative z-10 text-center px-6">
-            <h1 class="bebas text-6xl md:text-8xl lg:text-9xl mb-4">SINISTER DEXTER</h1>
-            <p class="text-xl md:text-3xl mb-2 gradient-text font-bold">THE RIGHT TO BE FUNKY</p>
-            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-                11-piece soul machine bringing the unique sound of great funk horn bands to the San Francisco Bay Area
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#shows" class="px-8 py-3 bg-purple-600 hover:bg-purple-700 rounded-full font-semibold transition-all hover:scale-105">
-                    SEE UPCOMING SHOWS
-                </a>
-                <a href="#connect" class="px-8 py-3 border-2 border-amber-500 hover:bg-amber-500 hover:text-black rounded-full font-semibold transition-all hover:scale-105">
-                    JOIN MAILING LIST
-                </a>
-            </div>
-        </div>
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <i class="fas fa-chevron-down text-2xl" aria-hidden="true"></i>
-        </div>
-    </section>
-
-    <!-- Shows Section -->
-    <section id="shows" aria-labelledby="shows-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="shows-heading">Upcoming Shows</h2>
-            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" id="shows-container">
-                
-          <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30 ring-2 ring-purple-500">
-            <div class="text-xs text-purple-400 font-bold mb-2">FEATURED</div>
-            <div class="text-amber-500 font-bold mb-2">WED, AUG 19</div>
-            <h3 class="text-xl font-bold mb-2">Redwood City Music in the Park - Stafford Park</h3>
-            <p class="text-gray-400 mb-2">Redwood City, CA</p>
-            <p class="text-gray-300 mb-4">5:00 PM - 7:00 PM</p>
-            <p class="text-sm text-gray-400 mb-4">Free summer concert series at the corner of King St. & Hopkins Ave. Kid friendly!</p>
-            <span class="text-purple-400">Free Event!</span>
-          </div>
-          <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30 ring-2 ring-purple-500">
-            <div class="text-xs text-purple-400 font-bold mb-2">FEATURED</div>
-            <div class="text-amber-500 font-bold mb-2">THU, SEP 10</div>
-            <h3 class="text-xl font-bold mb-2">Valencia LIVE! at Blondie's Bar</h3>
-            <p class="text-gray-400 mb-2">San Francisco, CA</p>
-            <p class="text-gray-300 mb-4">5:00 PM - 8:00 PM</p>
-            <p class="text-sm text-gray-400 mb-4">Big night market on Valencia St with food, drink, entertainment, and FUNK!</p>
-            <span class="text-purple-400">Free Event!</span>
-          </div>
-          <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30">
+        
+        <!-- ============================================= -->
+        <!-- HERO SECTION                                 -->
+        <!-- Full-screen landing area with band photo     -->
+        <!-- ============================================= -->
+        <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
             
-            <div class="text-amber-500 font-bold mb-2">SUN, SEP 28</div>
-            <h3 class="text-xl font-bold mb-2">Fiesta on the Hill</h3>
-            <p class="text-gray-400 mb-2">Bernal Heights, San Francisco, CA</p>
-            <p class="text-gray-300 mb-4">2:00 PM - 4:00 PM</p>
-            <p class="text-sm text-gray-400 mb-4">Annual street fair on Cortland Ave with family-friendly atmosphere</p>
-            <span class="text-purple-400">Free Event!</span>
-          </div>
-            </div>
-
-            <!-- Past Shows -->
-            <div class="mt-16">
-                <h3 class="bebas text-3xl text-center mb-8 text-purple-400">PAST SHOWS</h3>
-                <div id="past-shows-container" class="max-w-4xl mx-auto bg-gray-900/30 rounded-lg p-6">
-                    <div class="space-y-3">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
-            <div class="flex-1">
-              <span class="text-amber-500 text-sm font-semibold">JUN 26, 2024</span>
-              <span class="text-gray-400 mx-2">•</span>
-              <span class="text-gray-300">Los Altos Summer Concert Series</span>
-              <span class="text-gray-500 text-sm ml-2">Grant Park, Los Altos</span>
-              
-            </div>
-            <div class="text-gray-500 text-sm mt-1 sm:mt-0">6:00 PM - 8:00 PM</div>
-          </div>
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
-            <div class="flex-1">
-              <span class="text-amber-500 text-sm font-semibold">APR 26, 2024</span>
-              <span class="text-gray-400 mx-2">•</span>
-              <span class="text-gray-300">Mount Carmel Wild West Days Festival</span>
-              <span class="text-gray-500 text-sm ml-2">Redwood City</span>
-              
-            </div>
-            <div class="text-gray-500 text-sm mt-1 sm:mt-0">3:00 PM - 5:00 PM</div>
-          </div>
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
-            <div class="flex-1">
-              <span class="text-amber-500 text-sm font-semibold">MAR 22, 2024</span>
-              <span class="text-gray-400 mx-2">•</span>
-              <span class="text-gray-300">Ireland's 32</span>
-              <span class="text-gray-500 text-sm ml-2">San Francisco</span>
-              <span class="text-purple-400 text-sm ml-2">(21+)</span>
-            </div>
-            <div class="text-gray-500 text-sm mt-1 sm:mt-0">8:00 PM - 11:00 PM</div>
-          </div>
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
-            <div class="flex-1">
-              <span class="text-amber-500 text-sm font-semibold">FEB 9, 2024</span>
-              <span class="text-gray-400 mx-2">•</span>
-              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
-                  Blue Oak Brewing Company <i class="fas fa-external-link-alt text-xs ml-1" aria-hidden="true"></i>
-                </a>
-              <span class="text-gray-500 text-sm ml-2">San Carlos</span>
-              
-            </div>
-            <div class="text-gray-500 text-sm mt-1 sm:mt-0">3:00 PM - 6:00 PM</div>
-          </div>
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
-            <div class="flex-1">
-              <span class="text-amber-500 text-sm font-semibold">FEB 1, 2024</span>
-              <span class="text-gray-400 mx-2">•</span>
-              <a href="https://www.clubfoxrwc.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
-                  Club Fox - 25 Year Reunion Show <i class="fas fa-external-link-alt text-xs ml-1" aria-hidden="true"></i>
-                </a>
-              <span class="text-gray-500 text-sm ml-2">Redwood City</span>
-              
-            </div>
-            <div class="text-gray-500 text-sm mt-1 sm:mt-0">7:00 PM - 10:00 PM</div>
-          </div>
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
-            <div class="flex-1">
-              <span class="text-amber-500 text-sm font-semibold">NOV 3, 2023</span>
-              <span class="text-gray-400 mx-2">•</span>
-              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
-                  Blue Oak Brewing Company <i class="fas fa-external-link-alt text-xs ml-1" aria-hidden="true"></i>
-                </a>
-              <span class="text-gray-500 text-sm ml-2">San Carlos</span>
-              
-            </div>
-            <div class="text-gray-500 text-sm mt-1 sm:mt-0">3:00 PM - 6:00 PM</div>
-          </div>
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
-            <div class="flex-1">
-              <span class="text-amber-500 text-sm font-semibold">OCT 18, 2023</span>
-              <span class="text-gray-400 mx-2">•</span>
-              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
-                  Blue Oak Brewing with TGIFunk <i class="fas fa-external-link-alt text-xs ml-1" aria-hidden="true"></i>
-                </a>
-              <span class="text-gray-500 text-sm ml-2">San Carlos</span>
-              
-            </div>
-            <div class="text-gray-500 text-sm mt-1 sm:mt-0">3:00 PM - 6:00 PM</div>
-          </div>
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
-            <div class="flex-1">
-              <span class="text-amber-500 text-sm font-semibold">SEP 28, 2023</span>
-              <span class="text-gray-400 mx-2">•</span>
-              <span class="text-gray-300">Fiesta on the Hill</span>
-              <span class="text-gray-500 text-sm ml-2">Bernal Heights, San Francisco</span>
-              
-            </div>
-            <div class="text-gray-500 text-sm mt-1 sm:mt-0">2:00 PM - 4:00 PM</div>
-          </div>
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
-            <div class="flex-1">
-              <span class="text-amber-500 text-sm font-semibold">AUG 30, 2023</span>
-              <span class="text-gray-400 mx-2">•</span>
-              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
-                  Blue Oak Brewing Company <i class="fas fa-external-link-alt text-xs ml-1" aria-hidden="true"></i>
-                </a>
-              <span class="text-gray-500 text-sm ml-2">San Carlos</span>
-              
-            </div>
-            <div class="text-gray-500 text-sm mt-1 sm:mt-0">3:00 PM - 6:00 PM</div>
-          </div>
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
-            <div class="flex-1">
-              <span class="text-amber-500 text-sm font-semibold">AUG 15, 2023</span>
-              <span class="text-gray-400 mx-2">•</span>
-              <span class="text-gray-300">Redwood City Music in the Park</span>
-              <span class="text-gray-500 text-sm ml-2">Stafford Park, Redwood City</span>
-              
-            </div>
-            <div class="text-gray-500 text-sm mt-1 sm:mt-0">5:00 PM - 7:00 PM</div>
-          </div>
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
-            <div class="flex-1">
-              <span class="text-amber-500 text-sm font-semibold">JUN 16, 2023</span>
-              <span class="text-gray-400 mx-2">•</span>
-              <a href="https://blueoakbrewing.com" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
-                  Blue Oak Brewing Company <i class="fas fa-external-link-alt text-xs ml-1" aria-hidden="true"></i>
-                </a>
-              <span class="text-gray-500 text-sm ml-2">San Carlos</span>
-              
-            </div>
-            <div class="text-gray-500 text-sm mt-1 sm:mt-0">3:00 PM - 6:00 PM</div>
-          </div></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Music Section -->
-    <section id="music" aria-labelledby="music-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="music-heading">Listen to Our Music</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Spotify Embed -->
-                <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30">
-                    <h3 class="text-xl font-bold mb-4 flex items-center">
-                        <i class="fab fa-spotify text-green-500 mr-2" aria-hidden="true"></i> Spotify
-                    </h3>
-                    <iframe lang="en" src="https://open.spotify.com/embed/artist/06ZpJFLW4Kz4EAlUorzrFu?utm_source=generator&theme=0" 
-                            width="100%" height="352" frameBorder="0" allowfullscreen="" 
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                            loading="lazy"></iframe>
-                </div>
+            <!-- Background Image with WebP fallback -->
+            <picture class="absolute inset-0">
+                <source srcset="images/large/sindex-full.webp" type="image/webp">
+                <img src="images/large/sindex-full.jpg" 
+                     alt="Sinister Dexter full band" 
+                     class="w-full h-full object-cover object-center">
+            </picture>
+            
+            <!-- Gradient Overlay for text contrast -->
+            <div class="absolute inset-0 bg-gradient-to-br from-purple-900/60 to-amber-900/60"></div>
+            <div class="hero-overlay absolute inset-0"></div>
+            
+            <!-- Hero Content -->
+            <div class="relative z-10 text-center px-6">
+                <h1 class="bebas text-6xl md:text-8xl lg:text-9xl mb-4">SINISTER DEXTER</h1>
+                <p class="text-xl md:text-3xl mb-2 gradient-text font-bold">THE RIGHT TO BE FUNKY</p>
+                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+                    11-piece soul machine bringing the unique sound of great funk horn bands to the San Francisco Bay Area
+                </p>
                 
-                <!-- Apple Music -->
-                <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30">
-                    <h3 class="text-xl font-bold mb-4 flex items-center">
-                        <i class="fab fa-apple text-gray-300 mr-2" aria-hidden="true"></i> Apple Music
-                    </h3>
-                    <iframe lang="en" allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" 
-                            height="450" style="width:100%;overflow:hidden;border-radius:10px;" 
-                            sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" 
-                            src="https://embed.music.apple.com/us/artist/sinister-dexter/30663361"></iframe>
+                <!-- Call-to-Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#shows" class="px-8 py-3 bg-purple-600 hover:bg-purple-700 rounded-full font-semibold transition-all hover:scale-105">
+                        SEE UPCOMING SHOWS
+                    </a>
+                    <a href="#connect" class="px-8 py-3 border-2 border-amber-500 hover:bg-amber-500 hover:text-black rounded-full font-semibold transition-all hover:scale-105">
+                        JOIN MAILING LIST
+                    </a>
                 </div>
             </div>
             
-            <!-- Streaming Links -->
-            <div class="mt-8 flex flex-wrap justify-center gap-4">
-                <a href="https://open.spotify.com/artist/06ZpJFLW4Kz4EAlUorzrFu" target="_blank" aria-label="Listen to Sinister Dexter on Spotify" class="px-6 py-2 bg-green-600 hover:bg-green-700 rounded-full transition-all hover:scale-105">
-                    <i class="fab fa-spotify mr-2" aria-hidden="true"></i> <span>Spotify</span>
-                </a>
-                <a href="https://music.apple.com/us/artist/sinister-dexter/30663361" target="_blank" aria-label="Listen to Sinister Dexter on Apple Music" class="px-6 py-2 bg-gray-700 hover:bg-gray-600 rounded-full transition-all hover:scale-105">
-                    <i class="fab fa-apple mr-2" aria-hidden="true"></i> <span>Apple Music</span>
-                </a>
-                <a href="#" aria-label="SoundCloud coming soon" aria-disabled="true" class="px-6 py-2 bg-orange-600 hover:bg-orange-700 rounded-full transition-all hover:scale-105 opacity-50 cursor-not-allowed">
-                    <i class="fab fa-soundcloud mr-2" aria-hidden="true"></i> <span>SoundCloud (Coming Soon)</span></a>
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <i class="fas fa-chevron-down text-2xl" aria-hidden="true"></i>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Videos Section -->
-    <section id="videos" aria-labelledby="videos-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="videos-heading">Live Performances</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Video 1 -->
-                <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30">
-                    <div class="aspect-video">
-                        <iframe src="https://www.youtube.com/embed/D9gIdE7IJsY" 
-                                title="YouTube video: Son of a Preacher Man - Live performance by Sinister Dexter" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                allowfullscreen
-                                class="w-full h-full">
+        <!-- ============================================= -->
+        <!-- SHOWS SECTION                                -->
+        <!-- Upcoming and past performance dates          -->
+        <!-- ============================================= -->
+        <section id="shows" aria-labelledby="shows-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="shows-heading">Upcoming Shows</h2>
+                
+                <!-- ==================================== -->
+                <!-- UPCOMING SHOWS CONTAINER             -->
+                <!-- Dynamically populated by build script -->
+                <!-- ==================================== -->
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" id="shows-container">
+                    <!-- Shows will be dynamically loaded here -->
+                </div>
+
+                <!-- ==================================== -->
+                <!-- PAST SHOWS SECTION                   -->
+                <!-- Historical performance archive        -->
+                <!-- ==================================== -->
+                <div class="mt-16">
+                    <h3 class="bebas text-3xl text-center mb-8 text-purple-400">PAST SHOWS</h3>
+                    <div id="past-shows-container" class="max-w-4xl mx-auto bg-gray-900/30 rounded-lg p-6">
+                        <!-- Past shows will be dynamically loaded here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================= -->
+        <!-- MUSIC SECTION                                -->
+        <!-- Spotify and Apple Music embeds               -->
+        <!-- ============================================= -->
+        <section id="music" aria-labelledby="music-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="music-heading">Listen to Our Music</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    
+                    <!-- Spotify Embed -->
+                    <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fab fa-spotify text-green-500 mr-2" aria-hidden="true"></i> Spotify
+                        </h3>
+                        <iframe lang="en" 
+                                src="https://open.spotify.com/embed/artist/06ZpJFLW4Kz4EAlUorzrFu?utm_source=generator&theme=0" 
+                                width="100%" 
+                                height="352" 
+                                frameBorder="0" 
+                                allowfullscreen="" 
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                loading="lazy">
                         </iframe>
                     </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold text-purple-400">Son of a Preacher Man</h3>
-                        <p class="text-sm text-gray-400">Redwood City Music In The Park, 2012</p>
-                    </div>
-                </div>
-                
-                <!-- Video 2 -->
-                <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30">
-                    <div class="aspect-video">
-                        <iframe src="https://www.youtube.com/embed/vWRJUqNdnX0" 
-                                title="YouTube video: I Can't Stand The Rain - Live performance by Sinister Dexter" 
+                    
+                    <!-- Apple Music Embed -->
+                    <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fab fa-apple text-gray-300 mr-2" aria-hidden="true"></i> Apple Music
+                        </h3>
+                        <iframe lang="en" 
+                                allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" 
                                 frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                allowfullscreen
-                                class="w-full h-full">
+                                height="450" 
+                                style="width:100%;overflow:hidden;border-radius:10px;" 
+                                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" 
+                                src="https://embed.music.apple.com/us/artist/sinister-dexter/30663361">
                         </iframe>
                     </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold text-purple-400">I Can't Stand The Rain</h3>
-                        <p class="text-sm text-gray-400">Redwood City Music In The Park, 2012</p>
+                </div>
+                
+                <!-- Streaming Platform Links -->
+                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <a href="https://open.spotify.com/artist/06ZpJFLW4Kz4EAlUorzrFu" 
+                       target="_blank" 
+                       aria-label="Listen to Sinister Dexter on Spotify" 
+                       class="px-6 py-2 bg-green-600 hover:bg-green-700 rounded-full transition-all hover:scale-105">
+                        <i class="fab fa-spotify mr-2" aria-hidden="true"></i> 
+                        <span>Spotify</span>
+                    </a>
+                    <a href="https://music.apple.com/us/artist/sinister-dexter/30663361" 
+                       target="_blank" 
+                       aria-label="Listen to Sinister Dexter on Apple Music" 
+                       class="px-6 py-2 bg-gray-700 hover:bg-gray-600 rounded-full transition-all hover:scale-105">
+                        <i class="fab fa-apple mr-2" aria-hidden="true"></i> 
+                        <span>Apple Music</span>
+                    </a>
+                    <a href="#" 
+                       aria-label="SoundCloud coming soon" 
+                       aria-disabled="true" 
+                       class="px-6 py-2 bg-orange-600 hover:bg-orange-700 rounded-full transition-all hover:scale-105 opacity-50 cursor-not-allowed">
+                        <i class="fab fa-soundcloud mr-2" aria-hidden="true"></i> 
+                        <span>SoundCloud (Coming Soon)</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================= -->
+        <!-- VIDEOS SECTION                               -->
+        <!-- YouTube performance videos                   -->
+        <!-- ============================================= -->
+        <section id="videos" aria-labelledby="videos-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="videos-heading">Live Performances</h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Video 1: Son of a Preacher Man -->
+                    <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30">
+                        <div class="aspect-video">
+                            <iframe src="https://www.youtube.com/embed/D9gIdE7IJsY" 
+                                    title="YouTube video: Son of a Preacher Man - Live performance by Sinister Dexter" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen
+                                    class="w-full h-full">
+                            </iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-purple-400">Son of a Preacher Man</h3>
+                            <p class="text-sm text-gray-400">Redwood City Music In The Park, 2012</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 2: I Can't Stand The Rain -->
+                    <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30">
+                        <div class="aspect-video">
+                            <iframe src="https://www.youtube.com/embed/vWRJUqNdnX0" 
+                                    title="YouTube video: I Can't Stand The Rain - Live performance by Sinister Dexter" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen
+                                    class="w-full h-full">
+                            </iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-purple-400">I Can't Stand The Rain</h3>
+                            <p class="text-sm text-gray-400">Redwood City Music In The Park, 2012</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 3: Broadband Connection -->
+                    <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30">
+                        <div class="aspect-video">
+                            <iframe src="https://www.youtube.com/embed/buwFWtEuOyQ" 
+                                    title="YouTube video: Broadband Connection - Live performance by Sinister Dexter" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen
+                                    class="w-full h-full">
+                            </iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-purple-400">Broadband Connection</h3>
+                            <p class="text-sm text-gray-400">Redwood City Music In The Park, 2012</p>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Video 3 -->
-                <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30">
-                    <div class="aspect-video">
-                        <iframe src="https://www.youtube.com/embed/buwFWtEuOyQ" 
-                                title="YouTube video: Broadband Connection - Live performance by Sinister Dexter" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                allowfullscreen
-                                class="w-full h-full">
-                        </iframe>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold text-purple-400">Broadband Connection</h3>
-                        <p class="text-sm text-gray-400">Redwood City Music In The Park, 2012</p>
-                    </div>
+                <!-- YouTube Subscribe Button -->
+                <div class="mt-8 text-center">
+                    <a href="https://www.youtube.com/@SinDexBand" 
+                       target="_blank" 
+                       class="inline-flex items-center px-6 py-3 bg-red-600 hover:bg-red-700 rounded-full transition-all hover:scale-105">
+                        <i class="fab fa-youtube mr-2" aria-hidden="true"></i> Subscribe on YouTube
+                    </a>
                 </div>
             </div>
-            
-            <div class="mt-8 text-center">
-                <a href="https://www.youtube.com/@SinDexBand" target="_blank" 
-                   class="inline-flex items-center px-6 py-3 bg-red-600 hover:bg-red-700 rounded-full transition-all hover:scale-105">
-                    <i class="fab fa-youtube mr-2" aria-hidden="true"></i> Subscribe on YouTube
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" aria-labelledby="gallery-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="gallery-heading">Gallery</h2>
-            <div id="gallery-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <!-- ============================================= -->
+        <!-- GALLERY SECTION                              -->
+        <!-- Photo gallery with lightbox                  -->
+        <!-- ============================================= -->
+        <section id="gallery" aria-labelledby="gallery-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="gallery-heading">Gallery</h2>
                 
-          <div class="gallery-item aspect-square bg-gray-800 rounded-lg overflow-hidden cursor-pointer" 
-               onclick="openLightbox(0)">
-            <picture>
-              <source srcset="images/thumbnail/IMG_2775_converted.webp" type="image/webp">
-              <img src="images/thumbnail/IMG_2775_converted.jpg" alt="Sinister Dexter band photo" class="w-full h-full object-cover transition-transform hover:scale-110" loading="lazy" width="400" height="400">
-            </picture>
-          </div>
-          <div class="gallery-item aspect-square bg-gray-800 rounded-lg overflow-hidden cursor-pointer" 
-               onclick="openLightbox(1)">
-            <picture>
-              <source srcset="images/thumbnail/IMG_2795_converted.webp" type="image/webp">
-              <img src="images/thumbnail/IMG_2795_converted.jpg" alt="Sinister Dexter band photo" class="w-full h-full object-cover transition-transform hover:scale-110" loading="lazy" width="400" height="400">
-            </picture>
-          </div>
-          <div class="gallery-item aspect-square bg-gray-800 rounded-lg overflow-hidden cursor-pointer" 
-               onclick="openLightbox(2)">
-            <picture>
-              <source srcset="images/thumbnail/sindex-full.webp" type="image/webp">
-              <img src="images/thumbnail/sindex-full.jpg" alt="Sinister Dexter band photo" class="w-full h-full object-cover transition-transform hover:scale-110" loading="lazy" width="400" height="400">
-            </picture>
-          </div>
-          <div class="gallery-item aspect-square bg-gray-800 rounded-lg overflow-hidden cursor-pointer" 
-               onclick="openLightbox(3)">
-            <picture>
-              <source srcset="images/thumbnail/sindex1.webp" type="image/webp">
-              <img src="images/thumbnail/sindex1.jpg" alt="Sinister Dexter band photo" class="w-full h-full object-cover transition-transform hover:scale-110" loading="lazy" width="400" height="400">
-            </picture>
-          </div>
-          <div class="gallery-item aspect-square bg-gray-800 rounded-lg overflow-hidden cursor-pointer" 
-               onclick="openLightbox(4)">
-            <picture>
-              <source srcset="images/thumbnail/sindex2_converted.webp" type="image/webp">
-              <img src="images/thumbnail/sindex2_converted.jpg" alt="Sinister Dexter band photo" class="w-full h-full object-cover transition-transform hover:scale-110" loading="lazy" width="400" height="400">
-            </picture>
-          </div>
-          <div class="gallery-item aspect-square bg-gray-800 rounded-lg overflow-hidden cursor-pointer" 
-               onclick="openLightbox(5)">
-            <picture>
-              <source srcset="images/thumbnail/sindex3.webp" type="image/webp">
-              <img src="images/thumbnail/sindex3.jpg" alt="Sinister Dexter band photo" class="w-full h-full object-cover transition-transform hover:scale-110" loading="lazy" width="400" height="400">
-            </picture>
-          </div>
-            </div>
-            
-        </div>
-    </section>
-    
-    <!-- Lightbox Modal -->
-    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" class="fixed inset-0 bg-black/95 z-[100] hidden items-center justify-center p-4">
-        <button id="lightbox-close" aria-label="Close image viewer" class="absolute top-4 right-4 text-white text-3xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
-            <i class="fas fa-times" aria-hidden="true"></i>
-        </button>
-        <button id="lightbox-prev" aria-label="Previous image" class="absolute left-4 text-white text-3xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
-            <i class="fas fa-chevron-left" aria-hidden="true"></i>
-        </button>
-        <button id="lightbox-next" aria-label="Next image" class="absolute right-4 text-white text-3xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
-            <i class="fas fa-chevron-right" aria-hidden="true"></i>
-        </button>
-        <img id="lightbox-image" src="" alt="" class="max-w-full max-h-full object-contain">
-    </div>
-
-    <!-- About Section -->
-    <section id="about" aria-labelledby="about-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="about-heading">About the Band</h2>
-            <div class="bg-gray-900/50 rounded-lg p-8 border border-purple-500/30">
-                <p class="text-lg mb-6">
-                    For over 25 years, <span class="font-bold text-purple-400">Sinister Dexter</span> has been bringing 
-                    the unique sound of great funk horn bands to the San Francisco Bay Area. We're an 11-piece soul machine 
-                    that keeps audiences dancing all night long.
-                </p>
-                <p class="text-lg mb-6">
-                    Featuring our sensational vocalist <span class="font-bold text-amber-400">Rebecca Lipon</span>, 
-                    a hot six-piece horn section, and a tight rhythm section, we put on a high-energy show that's been 
-                    described as "Tower of Power, Ozomatli, and Joss Stone in a blender."
-                </p>
-                <p class="text-lg mb-6">
-                    Our sound combines the best of classic funk, soul, and R&B with a modern energy that gets every 
-                    generation on the dance floor. From weddings to festivals, clubs to private events, we bring 
-                    <span class="italic text-purple-400">the right to be funky</span> wherever we go.
-                </p>
-                <div class="mt-8 p-6 bg-purple-900/30 rounded-lg">
-                    <h3 class="text-xl font-bold mb-4 text-amber-400">The Band</h3>
-                    <ul class="grid md:grid-cols-2 gap-2">
-                        <li><span class="text-purple-400">•</span> Rebecca Lipon - Lead Vocals</li>
-                        <li><span class="text-purple-400">•</span> 6-Piece Horn Section</li>
-                        <li><span class="text-purple-400">•</span> Bass Guitar</li>
-                        <li><span class="text-purple-400">•</span> Drums</li>
-                        <li><span class="text-purple-400">•</span> Guitar</li>
-                        <li><span class="text-purple-400">•</span> Keyboards</li>
-                    </ul>
+                <!-- ==================================== -->
+                <!-- GALLERY GRID                         -->
+                <!-- Dynamically populated by build script -->
+                <!-- ==================================== -->
+                <div id="gallery-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Images will be dynamically loaded here -->
                 </div>
             </div>
+        </section>
+        
+        <!-- ============================================= -->
+        <!-- LIGHTBOX MODAL                               -->
+        <!-- Hidden by default, shown when image clicked  -->
+        <!-- ============================================= -->
+        <div id="lightbox" 
+             role="dialog" 
+             aria-modal="true" 
+             aria-label="Image viewer" 
+             class="fixed inset-0 bg-black/95 z-[100] hidden items-center justify-center p-4">
+            
+            <!-- Close Button -->
+            <button id="lightbox-close" 
+                    aria-label="Close image viewer" 
+                    class="absolute top-4 right-4 text-white text-3xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+            
+            <!-- Previous Button -->
+            <button id="lightbox-prev" 
+                    aria-label="Previous image" 
+                    class="absolute left-4 text-white text-3xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            
+            <!-- Next Button -->
+            <button id="lightbox-next" 
+                    aria-label="Next image" 
+                    class="absolute right-4 text-white text-3xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+            </button>
+            
+            <!-- Lightbox Image -->
+            <img id="lightbox-image" src="" alt="" class="max-w-full max-h-full object-contain">
         </div>
-    </section>
 
-    <!-- Connect Section -->
-    <section id="connect" aria-labelledby="connect-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="bebas text-5xl md:text-6xl mb-12 gradient-text" id="connect-heading">Stay Connected</h2>
-            
-            <!-- Social Media Links -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-6">Follow Us</h3>
-                <div class="flex justify-center gap-6">
-                    <a href="https://www.instagram.com/sindex_band" target="_blank" aria-label="Follow Sinister Dexter on Instagram" class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
-                        <i class="fab fa-instagram" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://x.com/sindexband" target="_blank" aria-label="Follow Sinister Dexter on X (Twitter)" class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
-                        <i class="fab fa-x-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://facebook.com/SinDex.Band/" target="_blank" aria-label="Follow Sinister Dexter on Facebook" class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
-                        <i class="fab fa-facebook" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@SinDexBand" target="_blank" aria-label="Subscribe to Sinister Dexter on YouTube" class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
-                        <i class="fab fa-youtube" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Mailing List -->
-            <div class="bg-gray-900/50 rounded-lg p-8 border border-purple-500/30">
-                <h3 class="text-2xl font-bold mb-4">Join Our Mailing List</h3>
-                <p class="mb-6">Get updates on upcoming shows, new music, and exclusive content!</p>
-                <form id="mailing-list-form" class="max-w-md mx-auto" action="https://sinisterdexter.net/contact/email_list.php" method="POST">
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <label for="email-input" class="sr-only">Email address</label>
-                        <input type="email" id="email-input" name="email" placeholder="your@email.com" aria-label="Email address" required
-                               class="flex-1 px-4 py-3 bg-black/50 border border-purple-500/30 rounded-lg focus:outline-none focus:border-purple-400">
-                        <button type="submit" aria-label="Subscribe to mailing list" aria-label="Subscribe to mailing list" aria-label="Subscribe to mailing list" aria-label="Subscribe to mailing list" 
-                                class="px-8 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold transition-all hover:scale-105">
-                            SUBSCRIBE
-                        </button>
+        <!-- ============================================= -->
+        <!-- ABOUT SECTION                                -->
+        <!-- Band information and history                 -->
+        <!-- ============================================= -->
+        <section id="about" aria-labelledby="about-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="about-heading">About the Band</h2>
+                
+                <div class="bg-gray-900/50 rounded-lg p-8 border border-purple-500/30">
+                    <p class="text-lg mb-6">
+                        For over 25 years, <span class="font-bold text-purple-400">Sinister Dexter</span> has been bringing 
+                        the unique sound of great funk horn bands to the San Francisco Bay Area. We're an 11-piece soul machine 
+                        that keeps audiences dancing all night long.
+                    </p>
+                    <p class="text-lg mb-6">
+                        Featuring our sensational vocalist <span class="font-bold text-amber-400">Rebecca Lipon</span>, 
+                        a hot six-piece horn section, and a tight rhythm section, we put on a high-energy show that's been 
+                        described as "Tower of Power, Ozomatli, and Joss Stone in a blender."
+                    </p>
+                    <p class="text-lg mb-6">
+                        Our sound combines the best of classic funk, soul, and R&B with a modern energy that gets every 
+                        generation on the dance floor. From weddings to festivals, clubs to private events, we bring 
+                        <span class="italic text-purple-400">the right to be funky</span> wherever we go.
+                    </p>
+                    
+                    <!-- Band Members List -->
+                    <div class="mt-8 p-6 bg-purple-900/30 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4 text-amber-400">The Band</h3>
+                        <ul class="grid md:grid-cols-2 gap-2">
+                            <li><span class="text-purple-400">•</span> Rebecca Lipon - Lead Vocals</li>
+                            <li><span class="text-purple-400">•</span> 6-Piece Horn Section</li>
+                            <li><span class="text-purple-400">•</span> Bass Guitar</li>
+                            <li><span class="text-purple-400">•</span> Drums</li>
+                            <li><span class="text-purple-400">•</span> Guitar</li>
+                            <li><span class="text-purple-400">•</span> Keyboards</li>
+                        </ul>
                     </div>
-                    <div id="mailing-list-message" class="mt-4 text-sm hidden" role="alert" aria-live="polite"></div>
-                </form>
+                </div>
             </div>
-            
-            <!-- Booking Info -->
-            <div class="mt-12">
-                <h3 class="text-xl font-bold mb-4">For Bookings & Inquiries</h3>
-                <a href="mailto:booking@sinisterdexter.net" class="text-purple-400 hover:text-purple-300 text-lg">
-                    booking@sinisterdexter.net
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Merch Section (Coming Soon) -->
-    <section id="merch" aria-labelledby="merch-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="bebas text-5xl md:text-6xl mb-8 gradient-text" id="merch-heading">Merchandise</h2>
-            <div class="bg-gray-900/50 rounded-lg p-12 border border-purple-500/30">
-                <i class="fas fa-tshirt text-6xl text-purple-400 mb-6" aria-hidden="true"></i>
-                <h3 class="text-2xl font-bold mb-4">Coming Soon!</h3>
-                <p class="text-gray-400">
-                    Official Sinister Dexter merchandise including t-shirts, posters, and more will be available soon.
-                </p>
-                <p class="mt-4">
-                    <a href="#connect" class="text-purple-400 hover:text-purple-300">
-                        Join our mailing list to be notified when merch drops!
+        <!-- ============================================= -->
+        <!-- CONNECT SECTION                              -->
+        <!-- Social media links and mailing list          -->
+        <!-- ============================================= -->
+        <section id="connect" aria-labelledby="connect-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="bebas text-5xl md:text-6xl mb-12 gradient-text" id="connect-heading">Stay Connected</h2>
+                
+                <!-- Social Media Links -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-6">Follow Us</h3>
+                    <div class="flex justify-center gap-6">
+                        <a href="https://www.instagram.com/sindex_band" 
+                           target="_blank" 
+                           aria-label="Follow Sinister Dexter on Instagram" 
+                           class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://x.com/sindexband" 
+                           target="_blank" 
+                           aria-label="Follow Sinister Dexter on X (Twitter)" 
+                           class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                            <i class="fab fa-x-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://facebook.com/SinDex.Band/" 
+                           target="_blank" 
+                           aria-label="Follow Sinister Dexter on Facebook" 
+                           class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                            <i class="fab fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@SinDexBand" 
+                           target="_blank" 
+                           aria-label="Subscribe to Sinister Dexter on YouTube" 
+                           class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                            <i class="fab fa-youtube" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Mailing List Signup Form -->
+                <div class="bg-gray-900/50 rounded-lg p-8 border border-purple-500/30">
+                    <h3 class="text-2xl font-bold mb-4">Join Our Mailing List</h3>
+                    <p class="mb-6">Get updates on upcoming shows, new music, and exclusive content!</p>
+                    
+                    <form id="mailing-list-form" class="max-w-md mx-auto" action="https://sinisterdexter.net/contact/email_list.php" method="POST">
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <label for="email-input" class="sr-only">Email address</label>
+                            <input type="email" 
+                                   id="email-input" 
+                                   name="email" 
+                                   placeholder="your@email.com" 
+                                   aria-label="Email address" 
+                                   required
+                                   class="flex-1 px-4 py-3 bg-black/50 border border-purple-500/30 rounded-lg focus:outline-none focus:border-purple-400">
+                            <button type="submit" 
+                                    aria-label="Subscribe to mailing list" 
+                                    class="px-8 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold transition-all hover:scale-105">
+                                SUBSCRIBE
+                            </button>
+                        </div>
+                        <div id="mailing-list-message" class="mt-4 text-sm hidden" role="alert" aria-live="polite"></div>
+                    </form>
+                </div>
+                
+                <!-- Booking Contact -->
+                <div class="mt-12">
+                    <h3 class="text-xl font-bold mb-4">For Bookings & Inquiries</h3>
+                    <a href="mailto:booking@sinisterdexter.net" class="text-purple-400 hover:text-purple-300 text-lg">
+                        booking@sinisterdexter.net
                     </a>
-                </p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-        </main>
+        <!-- ============================================= -->
+        <!-- MERCHANDISE SECTION                          -->
+        <!-- Coming soon placeholder                      -->
+        <!-- ============================================= -->
+        <section id="merch" aria-labelledby="merch-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="bebas text-5xl md:text-6xl mb-8 gradient-text" id="merch-heading">Merchandise</h2>
+                
+                <div class="bg-gray-900/50 rounded-lg p-12 border border-purple-500/30">
+                    <i class="fas fa-tshirt text-6xl text-purple-400 mb-6" aria-hidden="true"></i>
+                    <h3 class="text-2xl font-bold mb-4">Coming Soon!</h3>
+                    <p class="text-gray-400">
+                        Official Sinister Dexter merchandise including t-shirts, posters, and more will be available soon.
+                    </p>
+                    <p class="mt-4">
+                        <a href="#connect" class="text-purple-400 hover:text-purple-300">
+                            Join our mailing list to be notified when merch drops!
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </section>
 
+    </main>
+
+    <!-- ============================================= -->
+    <!-- FOOTER                                       -->
+    <!-- Copyright and legal information              -->
+    <!-- ============================================= -->
     <footer class="py-8 px-6 bg-black border-t border-gray-800">
         <div class="max-w-7xl mx-auto text-center">
             <p class="text-gray-400 mb-2">© 2025 Sinister Dexter. All rights reserved.</p>
@@ -801,9 +910,15 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- ============================================= -->
+    <!-- JAVASCRIPT                                   -->
+    <!-- Page interactivity and dynamic behavior      -->
+    <!-- ============================================= -->
     <script>
-        // Lightbox controls (functions defined in head)
+        // =========================================
+        // LIGHTBOX CONTROLS
+        // Event listeners for image gallery modal
+        // =========================================
         if (document.getElementById('lightbox-close')) {
             document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
             document.getElementById('lightbox-next').addEventListener('click', nextImage);
@@ -813,7 +928,7 @@
             });
         }
         
-        // Keyboard controls for lightbox
+        // Keyboard navigation for lightbox
         document.addEventListener('keydown', (e) => {
             const lightbox = document.getElementById('lightbox');
             if (lightbox && !lightbox.classList.contains('hidden')) {
@@ -823,14 +938,20 @@
             }
         });
         
-        // Mobile menu toggle
+        // =========================================
+        // MOBILE MENU TOGGLE
+        // Hamburger menu functionality
+        // =========================================
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
             const menu = document.getElementById('mobile-menu');
             const isHidden = menu.classList.toggle('hidden');
             this.setAttribute('aria-expanded', !isHidden);
         });
         
-        // Add aria-current to active navigation
+        // =========================================
+        // ACTIVE NAVIGATION HIGHLIGHTING
+        // Updates nav links based on scroll position
+        // =========================================
         function updateActiveNav() {
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('nav a[href^="#"]');
@@ -855,14 +976,20 @@
         window.addEventListener('scroll', updateActiveNav);
         updateActiveNav();
 
-        // Close mobile menu on link click
+        // =========================================
+        // MOBILE MENU AUTO-CLOSE
+        // Closes menu when a link is clicked
+        // =========================================
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 document.getElementById('mobile-menu').classList.add('hidden');
             });
         });
 
-        // Mailing list form handler
+        // =========================================
+        // MAILING LIST FORM HANDLER
+        // Submits email signup via AJAX
+        // =========================================
         document.getElementById('mailing-list-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -902,7 +1029,10 @@
             }
         });
 
-        // Smooth scroll behavior for navigation links
+        // =========================================
+        // SMOOTH SCROLL FOR NAVIGATION
+        // Overrides default anchor behavior
+        // =========================================
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -913,7 +1043,10 @@
             });
         });
 
-        // Add scroll effect to navigation
+        // =========================================
+        // NAVIGATION BAR SHADOW ON SCROLL
+        // Adds shadow when scrolled down
+        // =========================================
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
             if (window.scrollY > 100) {
@@ -923,5 +1056,6 @@
             }
         });
     </script>
+
 </body>
 </html>

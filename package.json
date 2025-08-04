@@ -19,11 +19,13 @@
     "clean": "rm -rf public/images/* .image-cache.json"
   },
   "dependencies": {
-    "sharp": "^0.33.2",
     "chokidar": "^3.6.0",
-    "glob": "^10.3.10"
+    "glob": "^10.3.10",
+    "sharp": "^0.33.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "html-minifier-terser": "^7.2.0"
+  },
   "author": "",
   "license": "MIT"
 }
