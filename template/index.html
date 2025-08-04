@@ -490,7 +490,8 @@
     <!-- ============================================= -->
     <!-- MAIN CONTENT WRAPPER                         -->
     <!-- ============================================= -->
-    <main id="main-content" role="main">
+    <main id="main-content" role="main" itemscope itemtype="https://schema.org/MusicGroup">
+        <meta itemprop="url" content="https://sinisterdexter.net/">
         
         <!-- ============================================= -->
         <!-- HERO SECTION                                 -->
@@ -503,7 +504,8 @@
                 <source srcset="images/large/sindex-full.webp" type="image/webp">
                 <img src="images/large/sindex-full.jpg" 
                      alt="Sinister Dexter full band" 
-                     class="w-full h-full object-cover object-center">
+                     class="w-full h-full object-cover object-center"
+                     itemprop="image">
             </picture>
             
             <!-- Gradient Overlay for text contrast -->
@@ -512,9 +514,9 @@
             
             <!-- Hero Content -->
             <div class="relative z-10 text-center px-6">
-                <h1 class="bebas text-6xl md:text-8xl lg:text-9xl mb-4">SINISTER DEXTER</h1>
-                <p class="text-xl md:text-3xl mb-2 gradient-text font-bold">THE RIGHT TO BE FUNKY</p>
-                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+                <h1 class="bebas text-6xl md:text-8xl lg:text-9xl mb-4" itemprop="name">SINISTER DEXTER</h1>
+                <p class="text-xl md:text-3xl mb-2 gradient-text font-bold" itemprop="slogan">THE RIGHT TO BE FUNKY</p>
+                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto" itemprop="description">
                     11-piece soul machine bringing the unique sound of great funk horn bands to the San Francisco Bay Area
                 </p>
                 
@@ -539,7 +541,7 @@
         <!-- SHOWS SECTION                                -->
         <!-- Upcoming and past performance dates          -->
         <!-- ============================================= -->
-        <section id="shows" aria-labelledby="shows-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+        <section id="shows" aria-labelledby="shows-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30" itemscope itemtype="https://schema.org/EventSeries">
             <div class="max-w-7xl mx-auto">
                 <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="shows-heading">Upcoming Shows</h2>
                 
@@ -568,7 +570,7 @@
         <!-- MUSIC SECTION                                -->
         <!-- Spotify and Apple Music embeds               -->
         <!-- ============================================= -->
-        <section id="music" aria-labelledby="music-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
+        <section id="music" aria-labelledby="music-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black" itemprop="track" itemscope itemtype="https://schema.org/MusicRecording">
             <div class="max-w-7xl mx-auto">
                 <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="music-heading">Listen to Our Music</h2>
                 
@@ -637,14 +639,14 @@
         <!-- VIDEOS SECTION                               -->
         <!-- YouTube performance videos                   -->
         <!-- ============================================= -->
-        <section id="videos" aria-labelledby="videos-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+        <section id="videos" aria-labelledby="videos-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30" itemscope itemtype="https://schema.org/ItemList">
             <div class="max-w-7xl mx-auto">
                 <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="videos-heading">Live Performances</h2>
                 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
                     <!-- Video 1: Son of a Preacher Man -->
-                    <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30">
+                    <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30" itemprop="itemListElement" itemscope itemtype="https://schema.org/VideoObject">
                         <div class="aspect-video">
                             <iframe src="https://www.youtube.com/embed/D9gIdE7IJsY" 
                                     title="YouTube video: Son of a Preacher Man - Live performance by Sinister Dexter" 
@@ -655,13 +657,15 @@
                             </iframe>
                         </div>
                         <div class="p-4">
-                            <h3 class="text-lg font-semibold text-purple-400">Son of a Preacher Man</h3>
-                            <p class="text-sm text-gray-400">Redwood City Music In The Park, 2012</p>
+                            <h3 class="text-lg font-semibold text-purple-400" itemprop="name">Son of a Preacher Man</h3>
+                            <p class="text-sm text-gray-400" itemprop="description">Redwood City Music In The Park, 2012</p>
+                            <meta itemprop="uploadDate" content="2012-08-15">
+                            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/D9gIdE7IJsY">
                         </div>
                     </div>
                     
                     <!-- Video 2: I Can't Stand The Rain -->
-                    <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30">
+                    <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30" itemprop="itemListElement" itemscope itemtype="https://schema.org/VideoObject">
                         <div class="aspect-video">
                             <iframe src="https://www.youtube.com/embed/vWRJUqNdnX0" 
                                     title="YouTube video: I Can't Stand The Rain - Live performance by Sinister Dexter" 
@@ -672,13 +676,15 @@
                             </iframe>
                         </div>
                         <div class="p-4">
-                            <h3 class="text-lg font-semibold text-purple-400">I Can't Stand The Rain</h3>
-                            <p class="text-sm text-gray-400">Redwood City Music In The Park, 2012</p>
+                            <h3 class="text-lg font-semibold text-purple-400" itemprop="name">I Can't Stand The Rain</h3>
+                            <p class="text-sm text-gray-400" itemprop="description">Redwood City Music In The Park, 2012</p>
+                            <meta itemprop="uploadDate" content="2012-08-15">
+                            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/vWRJUqNdnX0">
                         </div>
                     </div>
                     
                     <!-- Video 3: Broadband Connection -->
-                    <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30">
+                    <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30" itemprop="itemListElement" itemscope itemtype="https://schema.org/VideoObject">
                         <div class="aspect-video">
                             <iframe src="https://www.youtube.com/embed/buwFWtEuOyQ" 
                                     title="YouTube video: Broadband Connection - Live performance by Sinister Dexter" 
@@ -689,8 +695,10 @@
                             </iframe>
                         </div>
                         <div class="p-4">
-                            <h3 class="text-lg font-semibold text-purple-400">Broadband Connection</h3>
-                            <p class="text-sm text-gray-400">Redwood City Music In The Park, 2012</p>
+                            <h3 class="text-lg font-semibold text-purple-400" itemprop="name">Broadband Connection</h3>
+                            <p class="text-sm text-gray-400" itemprop="description">Redwood City Music In The Park, 2012</p>
+                            <meta itemprop="uploadDate" content="2012-08-15">
+                            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/buwFWtEuOyQ">
                         </div>
                     </div>
                 </div>
@@ -768,13 +776,13 @@
                 <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="about-heading">About the Band</h2>
                 
                 <div class="bg-gray-900/50 rounded-lg p-8 border border-purple-500/30">
-                    <p class="text-lg mb-6">
-                        For over 25 years, <span class="font-bold text-purple-400">Sinister Dexter</span> has been bringing 
+                    <p class="text-lg mb-6" itemprop="foundingDate" content="1999">
+                        For over 25 years, <span class="font-bold text-purple-400" itemprop="alternateName">Sinister Dexter</span> has been bringing 
                         the unique sound of great funk horn bands to the San Francisco Bay Area. We're an 11-piece soul machine 
                         that keeps audiences dancing all night long.
                     </p>
                     <p class="text-lg mb-6">
-                        Featuring our sensational vocalist <span class="font-bold text-amber-400">Rebecca Lipon</span>, 
+                        Featuring our sensational vocalist <span class="font-bold text-amber-400" itemprop="member" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Rebecca Lipon</span></span>, 
                         a hot six-piece horn section, and a tight rhythm section, we put on a high-energy show that's been 
                         described as "Tower of Power, Ozomatli, and Joss Stone in a blender."
                     </p>
@@ -783,13 +791,23 @@
                         generation on the dance floor. From weddings to festivals, clubs to private events, we bring 
                         <span class="italic text-purple-400">the right to be funky</span> wherever we go.
                     </p>
+                    <meta itemprop="genre" content="Funk">
+                    <meta itemprop="genre" content="Soul">
+                    <meta itemprop="genre" content="R&B">
+                    <div itemprop="foundingLocation" itemscope itemtype="https://schema.org/Place">
+                        <meta itemprop="name" content="San Francisco Bay Area">
+                        <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                            <meta itemprop="addressRegion" content="CA">
+                            <meta itemprop="addressCountry" content="US">
+                        </div>
+                    </div>
                     
                     <!-- Band Members List -->
                     <div class="mt-8 p-6 bg-purple-900/30 rounded-lg">
                         <h3 class="text-xl font-bold mb-4 text-amber-400">The Band</h3>
                         <ul class="grid md:grid-cols-2 gap-2">
-                            <li><span class="text-purple-400">•</span> Rebecca Lipon - Lead Vocals</li>
-                            <li><span class="text-purple-400">•</span> 6-Piece Horn Section</li>
+                            <li itemprop="member" itemscope itemtype="https://schema.org/Person"><span class="text-purple-400">•</span> <span itemprop="name">Rebecca Lipon</span> - <span itemprop="roleName">Lead Vocals</span></li>
+                            <li><span class="text-purple-400">•</span> <span itemprop="numberOfEmployees" content="6">6-Piece Horn Section</span></li>
                             <li><span class="text-purple-400">•</span> Bass Guitar</li>
                             <li><span class="text-purple-400">•</span> Drums</li>
                             <li><span class="text-purple-400">•</span> Guitar</li>
@@ -815,25 +833,29 @@
                         <a href="https://www.instagram.com/sindex_band" 
                            target="_blank" 
                            aria-label="Follow Sinister Dexter on Instagram" 
-                           class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                           class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded"
+                           itemprop="sameAs">
                             <i class="fab fa-instagram" aria-hidden="true"></i>
                         </a>
                         <a href="https://x.com/sindexband" 
                            target="_blank" 
                            aria-label="Follow Sinister Dexter on X (Twitter)" 
-                           class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                           class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded"
+                           itemprop="sameAs">
                             <i class="fab fa-x-twitter" aria-hidden="true"></i>
                         </a>
                         <a href="https://facebook.com/SinDex.Band/" 
                            target="_blank" 
                            aria-label="Follow Sinister Dexter on Facebook" 
-                           class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                           class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded"
+                           itemprop="sameAs">
                             <i class="fab fa-facebook" aria-hidden="true"></i>
                         </a>
                         <a href="https://www.youtube.com/@SinDexBand" 
                            target="_blank" 
                            aria-label="Subscribe to Sinister Dexter on YouTube" 
-                           class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
+                           class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded"
+                           itemprop="sameAs">
                             <i class="fab fa-youtube" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -867,7 +889,7 @@
                 <!-- Booking Contact -->
                 <div class="mt-12">
                     <h3 class="text-xl font-bold mb-4">For Bookings & Inquiries</h3>
-                    <a href="mailto:booking@sinisterdexter.net" class="text-purple-400 hover:text-purple-300 text-lg">
+                    <a href="mailto:booking@sinisterdexter.net" class="text-purple-400 hover:text-purple-300 text-lg" itemprop="email">
                         booking@sinisterdexter.net
                     </a>
                 </div>
