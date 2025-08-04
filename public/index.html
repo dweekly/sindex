@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Sinister Dexter - The Right to Be Funky | San Francisco Soul & Funk Band</title>
+    <!-- Critical inline CSS to prevent FOUT -->
+    <style>
+        /* Arial Narrow fallback - still some shift but much better than cursive! */
+        .bebas {
+            font-family: 'Bebas Neue', 'Arial Narrow', 'Helvetica Condensed', Arial, sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            font-stretch: condensed;
+            text-transform: uppercase;
+        }
+    </style>
     <meta name="robots" content="index, follow">
     <meta name="description" content="Sinister Dexter is an 11-piece soul machine bringing the unique sound of great funk horn bands to the San Francisco Bay Area. Featuring vocalist Rebecca Lipon.">
     <meta name="keywords" content="Sinister Dexter, funk band, soul music, San Francisco, Bay Area, Rebecca Lipon, live music, horn section">
@@ -38,6 +49,11 @@
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#9333ea">
     
+    <!-- Preload critical fonts to prevent FOUT -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://fonts.gstatic.com/s/bebasneue/v14/JTUSjIg69CK48gW7PXoo9Wlhyw.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2" as="font" type="font/woff2" crossorigin>
+
     <!-- Note: Tailwind CDN is used for development. For production, consider PostCSS or Tailwind CLI -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -45,7 +61,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <style> .bebas {font-family:'Bebas Neue',cursive;}.gradient-text {background:linear-gradient(135deg,#9333ea 0%,#f59e0b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}.hero-overlay {background:linear-gradient(180deg,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.4) 50%,rgba(0,0,0,0.7) 100%);}html {scroll-behavior:smooth;}.nav-link {transition:all 0.3s ease;}.nav-link:hover {transform:translateY(-2px);}.social-icon {transition:all 0.3s ease;}.social-icon:hover {transform:scale(1.2) rotate(5deg);}.gallery-item {transition:all 0.3s ease;}.gallery-item:hover {transform:scale(1.05);}.sr-only {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;}.focus\:not-sr-only:focus {position:static;width:auto;height:auto;padding:inherit;margin:inherit;overflow:visible;clip:auto;white-space:normal;}.focus-visible\:ring-2:focus-visible {--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000);}.focus-visible\:ring-purple-400:focus-visible {--tw-ring-color:rgb(192 132 252);}.focus-visible\:outline-none:focus-visible {outline:2px solid transparent;outline-offset:2px;}.sr-only {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;}
+    <style> .bebas {font-family:'Bebas Neue','Arial Narrow','Helvetica Condensed',Arial,sans-serif;font-weight:700;letter-spacing:0.03em;font-stretch:condensed;text-transform:uppercase;}.gradient-text {background:linear-gradient(135deg,#9333ea 0%,#f59e0b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}.hero-overlay {background:linear-gradient(180deg,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.4) 50%,rgba(0,0,0,0.7) 100%);}html {scroll-behavior:smooth;}.nav-link {transition:all 0.3s ease;}.nav-link:hover {transform:translateY(-2px);}.social-icon {transition:all 0.3s ease;}.social-icon:hover {transform:scale(1.2) rotate(5deg);}.gallery-item {transition:all 0.3s ease;}.gallery-item:hover {transform:scale(1.05);}.sr-only {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;}.focus\:not-sr-only:focus {position:static;width:auto;height:auto;padding:inherit;margin:inherit;overflow:visible;clip:auto;white-space:normal;}.focus-visible\:ring-2:focus-visible {--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000);}.focus-visible\:ring-purple-400:focus-visible {--tw-ring-color:rgb(192 132 252);}.focus-visible\:outline-none:focus-visible {outline:2px solid transparent;outline-offset:2px;}.sr-only {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;}
 .focus\:not-sr-only:focus {position:static;width:auto;height:auto;padding:inherit;margin:inherit;overflow:visible;clip:auto;white-space:normal;}.focus-visible\:ring-2:focus-visible {--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000);}
 .focus-visible\:ring-purple-400:focus-visible {--tw-ring-color:rgb(192 132 252);}
 .focus-visible\:outline-none:focus-visible {outline:2px solid transparent;outline-offset:2px;}</style>

@@ -12,6 +12,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://fonts.gstatic.com/s/bebasneue/v14/JTUSjIg69CK48gW7PXoo9Wlhyw.woff2" as="font" type="font/woff2" crossorigin>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +23,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        .bebas { font-family: 'Bebas Neue', cursive; }
+        .bebas { 
+            font-family: 'Bebas Neue', Impact, Haettenschweiler, 'Franklin Gothic Bold', 'Arial Black', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
         .gradient-text {
             background: linear-gradient(135deg, #9333ea 0%, #f59e0b 100%);
             -webkit-background-clip: text;
