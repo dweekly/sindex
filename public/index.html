@@ -46,6 +46,7 @@
             <div class="hidden md:flex space-x-8">
                 <a href="#shows" class="nav-link hover:text-purple-400">Shows</a>
                 <a href="#music" class="nav-link hover:text-purple-400">Music</a>
+                <a href="#videos" class="nav-link hover:text-purple-400">Videos</a>
                 <a href="#gallery" class="nav-link hover:text-purple-400">Gallery</a>
                 <a href="#about" class="nav-link hover:text-purple-400">About</a>
                 <a href="#connect" class="nav-link hover:text-purple-400">Connect</a>
@@ -59,6 +60,7 @@
         <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
             <a href="#shows" class="block py-2 hover:text-purple-400">Shows</a>
             <a href="#music" class="block py-2 hover:text-purple-400">Music</a>
+            <a href="#videos" class="block py-2 hover:text-purple-400">Videos</a>
             <a href="#gallery" class="block py-2 hover:text-purple-400">Gallery</a>
             <a href="#about" class="block py-2 hover:text-purple-400">About</a>
             <a href="#connect" class="block py-2 hover:text-purple-400">Connect</a>
@@ -142,6 +144,69 @@
                 </a>
                 <a href="#" class="px-6 py-2 bg-orange-600 hover:bg-orange-700 rounded-full transition-all hover:scale-105 opacity-50 cursor-not-allowed">
                     <i class="fab fa-soundcloud mr-2"></i> SoundCloud (Coming Soon)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text">LIVE PERFORMANCES</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Video 1 -->
+                <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30">
+                    <div class="aspect-video">
+                        <iframe src="https://www.youtube.com/embed/G_AchkgGsaI" 
+                                title="Sinister Dexter Performance" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen
+                                class="w-full h-full">
+                        </iframe>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-purple-400">Live at Club Fox</h3>
+                    </div>
+                </div>
+                
+                <!-- Video 2 -->
+                <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30">
+                    <div class="aspect-video">
+                        <iframe src="https://www.youtube.com/embed/vWRJUqNdnX0" 
+                                title="Sinister Dexter Performance" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen
+                                class="w-full h-full">
+                        </iframe>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-purple-400">Festival Performance</h3>
+                    </div>
+                </div>
+                
+                <!-- Video 3 -->
+                <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30">
+                    <div class="aspect-video">
+                        <iframe src="https://www.youtube.com/embed/buwFWtEuOyQ" 
+                                title="Sinister Dexter Performance" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen
+                                class="w-full h-full">
+                        </iframe>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-purple-400">Soul Machine Live</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <a href="https://www.youtube.com/@sinisterdexter" target="_blank" 
+                   class="inline-flex items-center px-6 py-3 bg-red-600 hover:bg-red-700 rounded-full transition-all hover:scale-105">
+                    <i class="fab fa-youtube mr-2"></i> Subscribe on YouTube
                 </a>
             </div>
         </div>
@@ -449,14 +514,17 @@
                         const day = showDate.getDate();
                         
                         const showElement = document.createElement('div');
-                        showElement.className = 'bg-gray-900/50 rounded-lg p-6 border border-purple-500/30';
+                        showElement.className = 'bg-gray-900/50 rounded-lg p-6 border border-purple-500/30' + (show.featured ? ' ring-2 ring-purple-500' : '');
                         showElement.innerHTML = `
+                            ${show.featured ? '<div class="text-xs text-purple-400 font-bold mb-2">FEATURED</div>' : ''}
                             <div class="text-amber-500 font-bold mb-2">${show.dayOfWeek}, ${month} ${day}</div>
                             <h3 class="text-xl font-bold mb-2">${show.venue}</h3>
-                            <p class="text-gray-400 mb-4">${show.city} • ${show.time}</p>
+                            <p class="text-gray-400 mb-2">${show.city}</p>
+                            <p class="text-gray-300 mb-4">${show.time}</p>
+                            ${show.description ? `<p class="text-sm text-gray-400 mb-4">${show.description}</p>` : ''}
                             ${show.ticketUrl !== '#' ? 
                                 `<a href="${show.ticketUrl}" target="_blank" class="text-purple-400 hover:text-purple-300">Get Tickets →</a>` : 
-                                '<span class="text-gray-500">Tickets coming soon</span>'
+                                '<span class="text-purple-400">Free Event!</span>'
                             }
                         `;
                         container.appendChild(showElement);
