@@ -483,8 +483,8 @@
             
             <!-- Mobile Menu Toggle Button -->
             <button id="mobile-menu-btn" class="md:hidden" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M3 5h18v2H3V5zm0 6h18v2H3v-2zm0 6h18v2H3v-2z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </button>
         </div>
@@ -546,8 +546,8 @@
             
             <!-- Scroll Indicator -->
             <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-                <svg class="w-6 h-6 animate-bounce" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M7 10l5 5 5-5H7z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 animate-bounce" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                 </svg>
             </div>
         </section>
@@ -589,75 +589,259 @@
             <div class="max-w-7xl mx-auto">
                 <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="music-heading">Listen to Our Music</h2>
                 
-                <div class="grid md:grid-cols-2 gap-8">
+
+                <!-- Album History Section -->
+                <div class="mt-12 max-w-4xl mx-auto">
+                    <h3 class="bebas text-3xl text-center mb-8 text-purple-400">Our Recording History</h3>
                     
-                    <!-- Spotify Embed -->
-                    <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30">
-                        <h3 class="text-xl font-bold mb-4 flex items-center">
-                            <svg class="w-5 h-5 inline-block text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
-                            </svg>
-                            Spotify
-                        </h3>
-                        <iframe lang="en" 
-                                src="https://open.spotify.com/embed/artist/06ZpJFLW4Kz4EAlUorzrFu?utm_source=generator&theme=0" 
-                                width="100%" 
-                                height="352" 
-                                frameBorder="0" 
-                                allowfullscreen="" 
-                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                                loading="lazy">
-                        </iframe>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Dexterity Album -->
+                        <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30">
+                            <h4 class="text-xl font-bold mb-3 text-amber-400">Dexterity (2004)</h4>
+                            <p class="text-gray-300 mb-4">
+                                Our debut full-length album featuring 16 original tracks spanning funk, soul, blues, ska, and Latin jazz. 
+                                Self-produced and recorded at Studio Hibiki, this album captures the energy and versatility of our early years.
+                            </p>
+                            <p class="text-sm text-gray-400">
+                                Available on CD Baby, Amazon, and iTunes
+                            </p>
+                        </div>
+
+                        <!-- 2008 Demo -->
+                        <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30">
+                            <h4 class="text-xl font-bold mb-3 text-amber-400">2008 Demo</h4>
+                            <p class="text-gray-300 mb-4">
+                                Featuring Rebecca Lipon's powerful new vocals, this demo showcased our refined sound including 
+                                "Show Us How to Get Down," "Dream Come True," "The Letter," and "Son of a Preacher Man."
+                            </p>
+                            <p class="text-sm text-gray-400">
+                                Select tracks available on streaming platforms
+                            </p>
+                        </div>
                     </div>
-                    
-                    <!-- Apple Music Embed -->
-                    <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30">
-                        <h3 class="text-xl font-bold mb-4 flex items-center">
-                            <svg class="w-5 h-5 inline-block text-gray-300 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
-                            </svg>
-                            Apple Music
-                        </h3>
-                        <iframe lang="en" 
-                                allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" 
-                                frameborder="0" 
-                                height="450" 
-                                style="width:100%;overflow:hidden;border-radius:10px;" 
-                                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" 
-                                src="https://embed.music.apple.com/us/artist/sinister-dexter/30663361">
-                        </iframe>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================= -->
+        <!-- MUSIC LIBRARY SECTION                         -->
+        <!-- Track listing that triggers bottom player     -->
+        <!-- ============================================= -->
+        <section id="music-library" aria-labelledby="music-library-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="music-library-heading">Listen to Our Tracks</h2>
+                
+                <!-- Track Listing -->
+                <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30">
+                    <h3 class="text-xl font-bold mb-4 text-purple-400">Track Listing</h3>
+                    <p class="text-gray-400 mb-6">Click any track to play</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2" id="track-list">
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-01-Broadband_Connection.mp3" 
+                                data-title="Broadband Connection" 
+                                data-info="Original composition">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">1. Broadband Connection</span>
+                                <span class="text-xs text-gray-500">(3:01)</span>
+                            </div>
+                        </button>
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-02-Freeman.mp3" 
+                                data-title="Freeman" 
+                                data-info="Original composition">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">2. Freeman</span>
+                                <span class="text-xs text-gray-500">(3:03)</span>
+                            </div>
+                        </button>
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-02-Chasing_the_Clouds_Away.mp3" 
+                                data-title="Chasing the Clouds Away" 
+                                data-info="Original composition">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">3. Chasing the Clouds Away</span>
+                                <span class="text-xs text-gray-500">(3:12)</span>
+                            </div>
+                        </button>
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-03-Morenita.mp3" 
+                                data-title="Morenita" 
+                                data-info="Original composition">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">4. Morenita</span>
+                                <span class="text-xs text-gray-500">(3:26)</span>
+                            </div>
+                        </button>
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-03-One-Eyed_Jack.mp3" 
+                                data-title="One-Eyed Jack" 
+                                data-info="Original composition">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">5. One-Eyed Jack</span>
+                                <span class="text-xs text-gray-500">(4:15)</span>
+                            </div>
+                        </button>
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-04-Are_You_Ready_to_Dance.mp3" 
+                                data-title="Are You Ready to Dance" 
+                                data-info="Original composition">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">6. Are You Ready to Dance</span>
+                                <span class="text-xs text-gray-500">(3:26)</span>
+                            </div>
+                        </button>
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-04-Sinister_Dexter.mp3" 
+                                data-title="Sinister Dexter" 
+                                data-info="Original composition - Our theme song!">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">7. Sinister Dexter</span>
+                                <span class="text-xs text-gray-500">(3:26)</span>
+                            </div>
+                        </button>
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-05-Two_Before_Nine.mp3" 
+                                data-title="Two Before Nine" 
+                                data-info="Original composition">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">8. Two Before Nine</span>
+                                <span class="text-xs text-gray-500">(4:05)</span>
+                            </div>
+                        </button>
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-06-Cant_Take_My_Eyes_Off_You.mp3" 
+                                data-title="Can't Take My Eyes Off You" 
+                                data-info="Cover arrangement">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">9. Can't Take My Eyes Off You</span>
+                                <span class="text-xs text-gray-500">(4:42)</span>
+                            </div>
+                        </button>
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-09-Jack_in_the_Box.mp3" 
+                                data-title="Jack in the Box" 
+                                data-info="Original composition">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">10. Jack in the Box</span>
+                                <span class="text-xs text-gray-500">(2:35)</span>
+                            </div>
+                        </button>
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-10-Him_or_Me.mp3" 
+                                data-title="Him or Me" 
+                                data-info="Original composition">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">11. Him or Me</span>
+                                <span class="text-xs text-gray-500">(4:49)</span>
+                            </div>
+                        </button>
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-11-Swim_on_Over.mp3" 
+                                data-title="Swim on Over" 
+                                data-info="Original composition">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">12. Swim on Over</span>
+                                <span class="text-xs text-gray-500">(4:08)</span>
+                            </div>
+                        </button>
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-12-Better_Left_Unsaid.mp3" 
+                                data-title="Better Left Unsaid" 
+                                data-info="Original composition">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">13. Better Left Unsaid</span>
+                                <span class="text-xs text-gray-500">(4:25)</span>
+                            </div>
+                        </button>
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-13-Another_Drink.mp3" 
+                                data-title="Another Drink" 
+                                data-info="Original composition">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">14. Another Drink</span>
+                                <span class="text-xs text-gray-500">(3:04)</span>
+                            </div>
+                        </button>
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-01-Show_Us_How_to_Get_Down.mp3" 
+                                data-title="Show Us How to Get Down (Live)" 
+                                data-info="Original composition by Patrick Neschleba">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">15. Show Us How to Get Down (Live)</span>
+                                <span class="text-xs text-gray-500">(5:53)</span>
+                            </div>
+                        </button>
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-08-Show_Us_How_to_Get_Down.mp3" 
+                                data-title="Show Us How to Get Down (Studio)" 
+                                data-info="Original composition by Patrick Neschleba">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">16. Show Us How to Get Down (Studio)</span>
+                                <span class="text-xs text-gray-500">(5:58)</span>
+                            </div>
+                        </button>
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-Show_Us_How_to_Get_Down.mp3" 
+                                data-title="Show Us How to Get Down (Alt)" 
+                                data-info="Original composition by Patrick Neschleba">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">17. Show Us How to Get Down (Alt)</span>
+                                <span class="text-xs text-gray-500">(6:30)</span>
+                            </div>
+                        </button>
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-Son_of_a_Preacher_Man.mp3" 
+                                data-title="Son of a Preacher Man" 
+                                data-info="Originally by Dusty Springfield">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">18. Son of a Preacher Man</span>
+                                <span class="text-xs text-gray-500">(3:03)</span>
+                            </div>
+                        </button>
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-Dream_Come_True.mp3" 
+                                data-title="Dream Come True" 
+                                data-info="Originally by Brand New Heavies">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">19. Dream Come True</span>
+                                <span class="text-xs text-gray-500">(5:21)</span>
+                            </div>
+                        </button>
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-What_is_Hip.mp3" 
+                                data-title="What Is Hip" 
+                                data-info="Originally by Tower of Power">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">20. What is Hip</span>
+                                <span class="text-xs text-gray-500">(5:51)</span>
+                            </div>
+                        </button>
+                        <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all" 
+                                data-src="music/Sinister_Dexter-The_Letter.mp3" 
+                                data-title="The Letter" 
+                                data-info="Originally by Joe Cocker">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 font-medium">21. The Letter</span>
+                                <span class="text-xs text-gray-500">(3:58)</span>
+                            </div>
+                        </button>
                     </div>
                 </div>
                 
-                <!-- Streaming Platform Links -->
-                <div class="mt-8 flex flex-wrap justify-center gap-4">
-                    <a href="https://open.spotify.com/artist/06ZpJFLW4Kz4EAlUorzrFu" 
-                       target="_blank" 
-                       aria-label="Listen to Sinister Dexter on Spotify" 
-                       class="px-6 py-2 bg-green-600 hover:bg-green-700 rounded-full transition-all hover:scale-105">
-                        <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
-                        </svg> 
-                        <span>Spotify</span>
-                    </a>
-                    <a href="https://music.apple.com/us/artist/sinister-dexter/30663361" 
-                       target="_blank" 
-                       aria-label="Listen to Sinister Dexter on Apple Music" 
-                       class="px-6 py-2 bg-gray-700 hover:bg-gray-600 rounded-full transition-all hover:scale-105">
-                        <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
-                        </svg> 
-                        <span>Apple Music</span>
-                    </a>
-                    <a href="#" 
-                       aria-label="SoundCloud coming soon" 
-                       aria-disabled="true" 
-                       class="px-6 py-2 bg-orange-600 hover:bg-orange-700 rounded-full transition-all hover:scale-105 opacity-50 cursor-not-allowed">
-                        <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.105-.27-2.154c0-.057-.045-.1-.09-.1m-.899.828c-.06 0-.091.037-.104.094L0 14.479l.165 1.308c0 .055.045.094.09.094s.089-.045.104-.104l.21-1.319-.21-1.334c0-.061-.044-.09-.09-.09m1.83-1.229c-.061 0-.104.045-.104.104l-.21 2.563.225 2.458c0 .06.045.091.091.091.045 0 .09-.03.104-.091l.254-2.474-.254-2.548c0-.075-.045-.119-.09-.119m.959-.914c-.06 0-.105.044-.105.105l-.21 3.437.21 2.504c0 .06.045.105.105.105.061 0 .121-.045.121-.105l.254-2.504-.254-3.437c0-.061-.061-.105-.121-.105m.975-.779c-.09 0-.12.045-.135.135l-.193 4.201.21 2.563c0 .075.046.12.12.12.074 0 .12-.045.135-.12l.24-2.563-.24-4.201c-.015-.09-.061-.135-.135-.135m1.155.449c-.075 0-.135.06-.15.135l-.21 3.767.21 2.563c0 .075.074.135.15.135.074 0 .135-.061.15-.15l.225-2.563-.225-3.752c0-.09-.076-.135-.15-.135m1.005.061c-.089 0-.149.06-.149.149l-.225 3.307.21 2.563c0 .09.075.149.15.149.09 0 .165-.06.165-.149l.225-2.563-.225-3.307c0-.09-.074-.149-.15-.149m.988-.449c-.104 0-.179.075-.179.18l-.21 3.721.194 2.538c0 .105.091.18.194.18.105 0 .18-.075.195-.18l.225-2.538-.225-3.721c0-.105-.09-.18-.195-.18m.93-.554c-.105 0-.195.09-.195.195l-.18 4.274.18 2.523c0 .105.091.195.196.195.104 0 .194-.09.21-.195l.209-2.523-.209-4.274c-.016-.105-.105-.195-.21-.195m1.725.045c-.135 0-.225.09-.225.225l-.18 4.274.18 2.523c0 .12.09.225.225.225.12 0 .225-.105.225-.225l.195-2.523-.195-4.274c0-.135-.105-.225-.225-.225m.944-.089c-.135 0-.24.105-.24.239l-.165 4.274.165 2.493c0 .135.105.239.24.239s.239-.104.239-.239l.18-2.493-.18-4.274c0-.134-.104-.239-.239-.239M11.994.676c-.15 0-.264.12-.264.27l-.15 5.092.15 2.54c0 .148.12.27.27.27.148 0 .27-.12.284-.27l.165-2.54-.165-5.092c0-.15-.12-.27-.285-.27m1.05-.061c-.164 0-.284.135-.284.285l-.15 5.137.135 2.523c0 .15.135.285.285.285.165 0 .285-.135.3-.285l.15-2.523-.165-5.137c0-.15-.12-.285-.285-.285m1.456.344c-.18 0-.33.15-.33.33l-.12 4.458.135 2.478c.015.18.15.315.315.315.18 0 .33-.135.33-.314l.15-2.479-.15-4.458c0-.18-.15-.33-.33-.33m1.354.479c-.21 0-.375.165-.375.375l-.135 3.963.15 2.479c0 .195.165.36.36.36s.375-.165.375-.36l.135-2.479-.135-3.963c0-.21-.18-.375-.375-.375m.974.061c-.225 0-.419.194-.419.419l-.12 3.476.135 2.493c0 .21.18.404.404.404.225 0 .42-.194.42-.404l.12-2.493-.12-3.476c0-.225-.195-.419-.42-.419m1.469.674c-.255 0-.465.21-.465.465l-.09 2.786.09 2.418c0 .255.21.464.465.464.24 0 .449-.209.449-.464l.105-2.418-.105-2.786c0-.255-.209-.465-.449-.465m1.355.344c-.27 0-.494.225-.494.495l-.075 2.401.09 2.387c0 .271.224.495.495.495.27 0 .494-.224.494-.495l.09-2.387-.09-2.401c0-.27-.225-.495-.495-.495m1.064.06c-.285 0-.524.239-.524.524l-.061 2.016.075 2.358c0 .285.239.524.524.524.284 0 .524-.239.524-.524l.074-2.358-.074-2.016c0-.285-.239-.524-.524-.524m.99.089c-.299 0-.554.255-.554.555l-.045 1.926.06 2.343c0 .3.255.554.554.554.3 0 .555-.254.555-.554l.045-2.343-.045-1.926c0-.3-.255-.555-.555-.555m1.028.06c-.314 0-.584.27-.584.585l-.03 1.856.045 2.313c0 .315.27.585.585.585.314 0 .584-.27.584-.585l.03-2.313-.03-1.856c0-.315-.27-.585-.584-.585"/>
-                        </svg> 
-                        <span>SoundCloud (Coming Soon)</span>
-                    </a>
+                <!-- Audio Player - Hidden, using bottom player instead -->
+                <div class="mt-8 bg-gray-900/30 rounded-lg p-4" style="display: none;">
+                    <audio id="audio-player" controls class="w-full">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="mt-2 text-center">
+                        <p id="now-playing" class="text-sm text-gray-400">Select a track to play</p>
+                    </div>
+                </div>
+                
+                <!-- License Info -->
+                <div class="mt-6 text-center text-sm text-gray-400">
+                    <p>All original songs licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank" class="text-purple-400 hover:text-purple-300">Creative Commons BY-NC-SA 2.0</a></p>
                 </div>
             </div>
         </section>
@@ -673,59 +857,92 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
                     <!-- Video 1: Son of a Preacher Man -->
-                    <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30" itemprop="itemListElement" itemscope itemtype="https://schema.org/VideoObject">
-                        <div class="aspect-video">
-                            <iframe src="https://www.youtube.com/embed/D9gIdE7IJsY" 
-                                    title="YouTube video: Son of a Preacher Man - Live performance by Sinister Dexter" 
-                                    frameborder="0" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                    allowfullscreen
-                                    class="w-full h-full">
-                            </iframe>
-                        </div>
+                    <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30 hover:border-purple-400 transition-all" itemprop="itemListElement" itemscope itemtype="https://schema.org/VideoObject">
+                        <a href="https://www.youtube.com/watch?v=D9gIdE7IJsY" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="block group"
+                           aria-label="Watch Son of a Preacher Man on YouTube">
+                            <div class="aspect-video relative overflow-hidden">
+                                <img src="https://img.youtube.com/vi/D9gIdE7IJsY/maxresdefault.jpg" 
+                                     alt="Son of a Preacher Man - Live performance thumbnail"
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                     loading="lazy">
+                                <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/40 transition-colors">
+                                    <div class="bg-red-600 rounded-lg p-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                         <div class="p-4">
                             <h3 class="text-lg font-semibold text-purple-400" itemprop="name">Son of a Preacher Man</h3>
                             <p class="text-sm text-gray-400" itemprop="description">Redwood City Music In The Park, 2012</p>
                             <meta itemprop="uploadDate" content="2012-08-15">
-                            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/D9gIdE7IJsY">
+                            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/D9gIdE7IJsY/maxresdefault.jpg">
+                            <meta itemprop="contentUrl" content="https://www.youtube.com/watch?v=D9gIdE7IJsY">
                         </div>
                     </div>
                     
                     <!-- Video 2: I Can't Stand The Rain -->
-                    <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30" itemprop="itemListElement" itemscope itemtype="https://schema.org/VideoObject">
-                        <div class="aspect-video">
-                            <iframe src="https://www.youtube.com/embed/vWRJUqNdnX0" 
-                                    title="YouTube video: I Can't Stand The Rain - Live performance by Sinister Dexter" 
-                                    frameborder="0" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                    allowfullscreen
-                                    class="w-full h-full">
-                            </iframe>
-                        </div>
+                    <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30 hover:border-purple-400 transition-all" itemprop="itemListElement" itemscope itemtype="https://schema.org/VideoObject">
+                        <a href="https://www.youtube.com/watch?v=vWRJUqNdnX0" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="block group"
+                           aria-label="Watch I Can't Stand The Rain on YouTube">
+                            <div class="aspect-video relative overflow-hidden">
+                                <img src="https://img.youtube.com/vi/vWRJUqNdnX0/maxresdefault.jpg" 
+                                     alt="I Can't Stand The Rain - Live performance thumbnail"
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                     loading="lazy">
+                                <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/40 transition-colors">
+                                    <div class="bg-red-600 rounded-lg p-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                         <div class="p-4">
                             <h3 class="text-lg font-semibold text-purple-400" itemprop="name">I Can't Stand The Rain</h3>
                             <p class="text-sm text-gray-400" itemprop="description">Redwood City Music In The Park, 2012</p>
                             <meta itemprop="uploadDate" content="2012-08-15">
-                            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/vWRJUqNdnX0">
+                            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/vWRJUqNdnX0/maxresdefault.jpg">
+                            <meta itemprop="contentUrl" content="https://www.youtube.com/watch?v=vWRJUqNdnX0">
                         </div>
                     </div>
                     
                     <!-- Video 3: Broadband Connection -->
-                    <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30" itemprop="itemListElement" itemscope itemtype="https://schema.org/VideoObject">
-                        <div class="aspect-video">
-                            <iframe src="https://www.youtube.com/embed/buwFWtEuOyQ" 
-                                    title="YouTube video: Broadband Connection - Live performance by Sinister Dexter" 
-                                    frameborder="0" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                    allowfullscreen
-                                    class="w-full h-full">
-                            </iframe>
-                        </div>
+                    <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30 hover:border-purple-400 transition-all" itemprop="itemListElement" itemscope itemtype="https://schema.org/VideoObject">
+                        <a href="https://www.youtube.com/watch?v=buwFWtEuOyQ" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="block group"
+                           aria-label="Watch Broadband Connection on YouTube">
+                            <div class="aspect-video relative overflow-hidden">
+                                <img src="https://img.youtube.com/vi/buwFWtEuOyQ/maxresdefault.jpg" 
+                                     alt="Broadband Connection - Live performance thumbnail"
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                     loading="lazy">
+                                <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/40 transition-colors">
+                                    <div class="bg-red-600 rounded-lg p-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                         <div class="p-4">
                             <h3 class="text-lg font-semibold text-purple-400" itemprop="name">Broadband Connection</h3>
                             <p class="text-sm text-gray-400" itemprop="description">Redwood City Music In The Park, 2012</p>
                             <meta itemprop="uploadDate" content="2012-08-15">
-                            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/buwFWtEuOyQ">
+                            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/buwFWtEuOyQ/maxresdefault.jpg">
+                            <meta itemprop="contentUrl" content="https://www.youtube.com/watch?v=buwFWtEuOyQ">
                         </div>
                     </div>
                 </div>
@@ -776,8 +993,8 @@
             <button id="lightbox-close" 
                     aria-label="Close image viewer" 
                     class="absolute top-4 right-4 text-white text-3xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M18.3 5.7a1 1 0 00-1.4 0L12 10.6 7.1 5.7a1 1 0 10-1.4 1.4L10.6 12l-4.9 4.9a1 1 0 101.4 1.4L12 13.4l4.9 4.9a1 1 0 001.4-1.4L13.4 12l4.9-4.9a1 1 0 000-1.4z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
             </button>
             
@@ -785,8 +1002,8 @@
             <button id="lightbox-prev" 
                     aria-label="Previous image" 
                     class="absolute left-4 text-white text-3xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M14 7l-5 5 5 5V7z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                 </svg>
             </button>
             
@@ -794,8 +1011,8 @@
             <button id="lightbox-next" 
                     aria-label="Next image" 
                     class="absolute right-4 text-white text-3xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M10 7l5 5-5 5V7z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                 </svg>
             </button>
             
@@ -811,25 +1028,37 @@
             <div class="max-w-4xl mx-auto">
                 <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="about-heading">About the Band</h2>
                 
-                <div class="bg-gray-900/50 rounded-lg p-8 border border-purple-500/30">
-                    <p class="text-lg mb-6" itemprop="foundingDate" content="1999">
-                        For over 25 years, <span class="font-bold text-purple-400" itemprop="alternateName">Sinister Dexter</span> has been bringing 
-                        the unique sound of great funk horn bands to the San Francisco Bay Area. We're an 11-piece soul machine 
-                        that keeps audiences dancing all night long.
+                <div class="bg-gray-900/50 rounded-lg p-8 border border-purple-500/30 mb-8">
+                    <h3 class="bebas text-3xl text-purple-400 mb-4">Over 25 Years of Funk</h3>
+                    <p class="text-lg mb-6" itemprop="foundingDate" content="1998">
+                        Formed in the summer of 1998 by members of the Stanford Band, <span class="font-bold text-purple-400" itemprop="alternateName">Sinister Dexter</span> 
+                        was created to fill the need for a great local party band. Started by horn players, we put together a band that we wanted to go see – 
+                        which of course meant a horn-heavy sound and classic funk music inspired by Tower of Power and the Blues Brothers.
                     </p>
                     <p class="text-lg mb-6">
-                        Featuring our sensational vocalist <span class="font-bold text-amber-400" itemprop="member" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Rebecca Lipon</span></span>, 
-                        a hot six-piece horn section, and a tight rhythm section, we put on a high-energy show that's been 
-                        described as "Tower of Power, Ozomatli, and Joss Stone in a blender."
+                        We started by playing college parties and small Bay Area clubs like the Quarter Note in Sunnyvale and Blue Chalk Cafe in Palo Alto. 
+                        In May 2004, we got our first chance to play in San Francisco at the legendary Lost & Found Saloon, where we became regulars and played 
+                        a sold-out New Year's Eve show to close out 2004.
                     </p>
                     <p class="text-lg mb-6">
-                        Our sound combines the best of classic funk, soul, and R&B with a modern energy that gets every 
-                        generation on the dance floor. From weddings to festivals, clubs to private events, we bring 
-                        <span class="italic text-purple-400">the right to be funky</span> wherever we go.
+                        As the band matured, we expanded into blues, rock, ska, and Latin jazz – anything with a solid groove that we could put great horn parts to. 
+                        In 2004, we recorded and self-produced our debut CD, <span class="italic text-amber-400">Dexterity</span>, featuring 16 original tracks 
+                        spanning all the genres we'd explored over the years.
+                    </p>
+                    <p class="text-lg mb-6">
+                        In mid-2005, lightning struck when we recruited the incredible <span class="font-bold text-amber-400" itemprop="member" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Rebecca Lipon</span></span> 
+                        as our new lead vocalist. A founding member of the jazz quartet Off Beats with over 15 years of opera and musical theater training, 
+                        Rebecca forced us to take things to the next level. We refined our sound, trimmed the fat, and got back to our core concept as a funk and soul band.
+                    </p>
+                    <p class="text-lg">
+                        Today, we're an 11-piece soul machine featuring Rebecca's powerhouse vocals, a hot six-piece horn section, and a rock-solid rhythm section. 
+                        Our high-energy shows have been described as "Tower of Power, Ozomatli, and Joss Stone in a blender" – bringing 
+                        <span class="italic text-purple-400">the right to be funky</span> to venues throughout the Bay Area.
                     </p>
                     <meta itemprop="genre" content="Funk">
                     <meta itemprop="genre" content="Soul">
                     <meta itemprop="genre" content="R&B">
+                    <meta itemprop="genre" content="Jazz-Funk">
                     <div itemprop="foundingLocation" itemscope itemtype="https://schema.org/Place">
                         <meta itemprop="name" content="San Francisco Bay Area">
                         <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
@@ -837,19 +1066,74 @@
                             <meta itemprop="addressCountry" content="US">
                         </div>
                     </div>
+                </div>
+
+                <!-- Press Quote -->
+                <div class="bg-purple-900/30 rounded-lg p-6 mb-8">
+                    <blockquote class="text-xl italic text-purple-300">
+                        "Tower of Power, Ozomatli, and Joss Stone in a blender"
+                    </blockquote>
+                    <cite class="text-gray-400 text-sm mt-2 block">– Mountain View Voice</cite>
+                </div>
+
+                <!-- Band Members Section -->
+                <div class="bg-gray-900/50 rounded-lg p-8 border border-purple-500/30 mb-8">
+                    <h3 class="bebas text-3xl text-amber-400 mb-6">The Band</h3>
                     
-                    <!-- Band Members List -->
-                    <div class="mt-8 p-6 bg-purple-900/30 rounded-lg">
-                        <h3 class="text-xl font-bold mb-4 text-amber-400">The Band</h3>
-                        <ul class="grid md:grid-cols-2 gap-2">
-                            <li itemprop="member" itemscope itemtype="https://schema.org/Person"><span class="text-purple-400">•</span> <span itemprop="name">Rebecca Lipon</span> - <span itemprop="roleName">Lead Vocals</span></li>
-                            <li><span class="text-purple-400">•</span> <span itemprop="numberOfEmployees" content="6">6-Piece Horn Section</span></li>
-                            <li><span class="text-purple-400">•</span> Bass Guitar</li>
-                            <li><span class="text-purple-400">•</span> Drums</li>
-                            <li><span class="text-purple-400">•</span> Guitar</li>
-                            <li><span class="text-purple-400">•</span> Keyboards</li>
+                    <div class="mb-8">
+                        <h4 class="font-bold text-xl mb-4 text-purple-400">The Rhythm Section</h4>
+                        <ul class="space-y-3 text-lg">
+                            <li><span class="text-purple-400">•</span> <strong>Rebecca Lipon</strong> – Lead Vocals</li>
+                            <li><span class="text-purple-400">•</span> <strong>Daniel Walling</strong> – Keyboards & Backup Vocals</li>
+                            <li><span class="text-purple-400">•</span> <strong>David Mitby</strong> – Bass</li>
+                            <li><span class="text-purple-400">•</span> <strong>Matt Spitz</strong> – Guitar</li>
+                            <li><span class="text-purple-400">•</span> <strong>Jon Wagner</strong> – Drums</li>
                         </ul>
                     </div>
+
+                    <div>
+                        <h4 class="font-bold text-xl mb-4 text-purple-400">The Horn Section</h4>
+                        <ul class="space-y-3 text-lg">
+                            <li><span class="text-purple-400">•</span> <strong>Kevin Wooley</strong> – Tenor Sax (Founding Member)</li>
+                            <li><span class="text-purple-400">•</span> <strong>Don Hoffman</strong> – Lead Trombone (Founding Member)</li>
+                            <li><span class="text-purple-400">•</span> <strong>Josh Schiller</strong> – Bass Trombone</li>
+                            <li><span class="text-purple-400">•</span> <strong>Patrick Neschleba</strong> – Alto & Bari Sax</li>
+                            <li><span class="text-purple-400">•</span> <strong>Adam Elman</strong> – Trumpet (Founding Member)</li>
+                            <li><span class="text-purple-400">•</span> <strong>Stu Lovett</strong> – Trumpet</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Notable Venues -->
+                <div class="bg-gray-900/50 rounded-lg p-8 border border-purple-500/30">
+                    <h3 class="bebas text-3xl text-purple-400 mb-6">Notable Venues</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold text-amber-400 mb-3">San Francisco</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• Lost & Found Saloon</li>
+                                <li>• Grant & Green Saloon</li>
+                                <li>• Ireland's 32</li>
+                                <li>• Rockit Room</li>
+                                <li>• Hard Rock Cafe</li>
+                                <li>• Elbo Room</li>
+                                <li>• The Mighty</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-amber-400 mb-3">Bay Area & Beyond</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• Redwood City Music in the Park</li>
+                                <li>• Club Fox</li>
+                                <li>• Blue Oak Brewing Company</li>
+                                <li>• Belmont Save the Music Festival</li>
+                                <li>• Oakland Chinatown Street Fair</li>
+                                <li>• Stanford Coffee House</li>
+                                <li>• Los Altos Summer Concert Series</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </section>
@@ -871,8 +1155,8 @@
                            aria-label="Follow Sinister Dexter on Instagram" 
                            class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded"
                            itemprop="sameAs">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.405a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" aria-hidden="true">
+                                <path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/>
                             </svg>
                         </a>
                         <a href="https://x.com/sindexband" 
@@ -880,8 +1164,8 @@
                            aria-label="Follow Sinister Dexter on X (Twitter)" 
                            class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded"
                            itemprop="sameAs">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" aria-hidden="true">
+                                <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
                             </svg>
                         </a>
                         <a href="https://facebook.com/SinDex.Band/" 
@@ -889,8 +1173,8 @@
                            aria-label="Follow Sinister Dexter on Facebook" 
                            class="social-icon text-4xl hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded"
                            itemprop="sameAs">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" aria-hidden="true">
+                                <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 3.667h-3.533v7.98h2.959A15.999 15.999 0 0 0 24 12.073c0-8.838-7.162-16-16-16S-8 3.235-8 12.073c0 7.662 5.38 14.048 12.561 15.618"/>
                             </svg>
                         </a>
                         <a href="https://www.youtube.com/@SinDexBand" 
@@ -901,6 +1185,31 @@
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                             </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Stream Our Music Links -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-6">Stream Our Music</h3>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="https://open.spotify.com/artist/06ZpJFLW4Kz4EAlUorzrFu" 
+                           target="_blank" 
+                           aria-label="Listen to Sinister Dexter on Spotify" 
+                           class="flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 rounded-full transition-all hover:scale-105">
+                            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                            </svg> 
+                            <span class="text-lg font-semibold">Spotify</span>
+                        </a>
+                        <a href="https://music.apple.com/us/artist/sinister-dexter/30663361" 
+                           target="_blank" 
+                           aria-label="Listen to Sinister Dexter on Apple Music" 
+                           class="flex items-center justify-center px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded-full transition-all hover:scale-105">
+                            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
+                            </svg> 
+                            <span class="text-lg font-semibold">Apple Music</span>
                         </a>
                     </div>
                 </div>
@@ -950,8 +1259,8 @@
                 <h2 class="bebas text-5xl md:text-6xl mb-8 gradient-text" id="merch-heading">Merchandise</h2>
                 
                 <div class="bg-gray-900/50 rounded-lg p-12 border border-purple-500/30">
-                    <svg class="w-16 h-16 text-purple-400 mb-6 mx-auto" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M16.5 4l-1.5-1.5-3 2.25L9 2.5 7.5 4 4 7.5V10h3v10h10V10h3V7.5L16.5 4zM7 8H5.5l2-2L8 5.5 9 6v2H7zm10 0h-2V6l1-.5.5.5 2 2H17z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 text-purple-400 mb-6 mx-auto" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H4.5a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
                     </svg>
                     <h3 class="text-2xl font-bold mb-4">Coming Soon!</h3>
                     <p class="text-gray-400">
@@ -1011,11 +1320,14 @@
         // MOBILE MENU TOGGLE
         // Hamburger menu functionality
         // =========================================
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            const isHidden = menu.classList.toggle('hidden');
-            this.setAttribute('aria-expanded', !isHidden);
-        });
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                const menu = document.getElementById('mobile-menu');
+                const isHidden = menu.classList.toggle('hidden');
+                this.setAttribute('aria-expanded', !isHidden);
+            });
+        }
         
         // =========================================
         // ACTIVE NAVIGATION HIGHLIGHTING
@@ -1113,6 +1425,23 @@
         });
 
         // =========================================
+        // OLD INLINE PLAYER - DISABLED
+        // All playback now handled by bottom player
+        // =========================================
+
+        // =========================================
+        // PAUSE MUSIC WHEN YOUTUBE LINK IS CLICKED
+        // =========================================
+        const youtubeLinks = document.querySelectorAll('a[href*="youtube.com/watch"]');
+        youtubeLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (audioPlayer && !audioPlayer.paused) {
+                    audioPlayer.pause();
+                }
+            });
+        });
+
+        // =========================================
         // NAVIGATION BAR SHADOW ON SCROLL
         // Adds shadow when scrolled down
         // =========================================
@@ -1124,7 +1453,338 @@
                 nav.classList.remove('shadow-lg');
             }
         });
+
+        // =========================================
+        // BOTTOM MUSIC PLAYER FUNCTIONALITY
+        // =========================================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all tracks data (verified against actual files)
+            const musicTracks = [
+                { title: "Broadband Connection", artist: "Sinister Dexter", duration: "3:01", src: "music/Sinister_Dexter-01-Broadband_Connection.mp3" },
+                { title: "Freeman", artist: "Sinister Dexter", duration: "3:03", src: "music/Sinister_Dexter-02-Freeman.mp3" },
+                { title: "Chasing the Clouds Away", artist: "Sinister Dexter", duration: "3:12", src: "music/Sinister_Dexter-02-Chasing_the_Clouds_Away.mp3" },
+                { title: "Morenita", artist: "Sinister Dexter", duration: "3:26", src: "music/Sinister_Dexter-03-Morenita.mp3" },
+                { title: "One-Eyed Jack", artist: "Sinister Dexter", duration: "4:15", src: "music/Sinister_Dexter-03-One-Eyed_Jack.mp3" },
+                { title: "Are You Ready to Dance", artist: "Sinister Dexter", duration: "3:26", src: "music/Sinister_Dexter-04-Are_You_Ready_to_Dance.mp3" },
+                { title: "Sinister Dexter", artist: "Sinister Dexter", duration: "3:26", src: "music/Sinister_Dexter-04-Sinister_Dexter.mp3" },
+                { title: "Chasing the Clouds Away (Alt)", artist: "Sinister Dexter", duration: "3:11", src: "music/Sinister_Dexter-05-Chasing_the_Clouds_Away.mp3" },
+                { title: "Two Before Nine", artist: "Sinister Dexter", duration: "4:05", src: "music/Sinister_Dexter-05-Two_Before_Nine.mp3" },
+                { title: "Can't Take My Eyes Off You", artist: "Sinister Dexter", duration: "4:42", src: "music/Sinister_Dexter-06-Cant_Take_My_Eyes_Off_You.mp3" },
+                { title: "Show Us How to Get Down (Studio)", artist: "Sinister Dexter", duration: "5:58", src: "music/Sinister_Dexter-08-Show_Us_How_to_Get_Down.mp3" },
+                { title: "Jack in the Box", artist: "Sinister Dexter", duration: "2:35", src: "music/Sinister_Dexter-09-Jack_in_the_Box.mp3" },
+                { title: "Him or Me", artist: "Sinister Dexter", duration: "4:49", src: "music/Sinister_Dexter-10-Him_or_Me.mp3" },
+                { title: "Swim on Over", artist: "Sinister Dexter", duration: "4:08", src: "music/Sinister_Dexter-11-Swim_on_Over.mp3" },
+                { title: "Better Left Unsaid", artist: "Sinister Dexter", duration: "4:25", src: "music/Sinister_Dexter-12-Better_Left_Unsaid.mp3" },
+                { title: "Another Drink", artist: "Sinister Dexter", duration: "3:04", src: "music/Sinister_Dexter-13-Another_Drink.mp3" },
+                { title: "Show Us How to Get Down (Live)", artist: "Sinister Dexter", duration: "5:53", src: "music/Sinister_Dexter-01-Show_Us_How_to_Get_Down.mp3" },
+                { title: "Show Us How to Get Down (Alt)", artist: "Sinister Dexter", duration: "6:30", src: "music/Sinister_Dexter-Show_Us_How_to_Get_Down.mp3" },
+                { title: "Son of a Preacher Man", artist: "Sinister Dexter", duration: "3:03", src: "music/Sinister_Dexter-Son_of_a_Preacher_Man.mp3" },
+                { title: "Dream Come True", artist: "Sinister Dexter", duration: "5:21", src: "music/Sinister_Dexter-Dream_Come_True.mp3" },
+                { title: "What is Hip", artist: "Sinister Dexter", duration: "5:51", src: "music/Sinister_Dexter-What_is_Hip.mp3" },
+                { title: "The Letter", artist: "Sinister Dexter", duration: "3:58", src: "music/Sinister_Dexter-The_Letter.mp3" }
+            ];
+            
+            let currentTrackIndex = -1;
+            let isPlayerVisible = true; // Always visible
+            
+            // Player elements
+            const bottomPlayer = document.getElementById('bottom-player');
+            const audioElement = document.getElementById('bottom-audio-element');
+            const playPauseBtn = document.getElementById('play-pause-btn');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const playIcon = document.getElementById('play-icon');
+            const pauseIcon = document.getElementById('pause-icon');
+            const trackTitle = document.getElementById('track-title');
+            const trackSubtitle = document.getElementById('track-subtitle');
+            const currentTimeEl = document.getElementById('current-time');
+            const durationEl = document.getElementById('duration');
+            const progressBar = document.getElementById('progress-bar');
+            const progressContainer = document.getElementById('progress-container');
+            
+            // Check if critical elements exist
+            if (!audioElement || !bottomPlayer) {
+                console.warn('Bottom player elements not found - retrying in 100ms');
+                setTimeout(() => {
+                    window.location.reload();
+                }, 100);
+                return;
+            }
+            
+            // Format time helper
+            function formatTime(seconds) {
+                if (isNaN(seconds)) return '0:00';
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${mins}:${secs.toString().padStart(2, '0')}`;
+            }
+            
+            // Show player (no longer needed since always visible)
+            function showPlayer() {
+                // Player is always visible now
+            }
+            
+            // Hide player (no longer needed since always visible)
+            function hidePlayer() {
+                // Player is always visible now
+            }
+            
+            // Load track
+            function loadTrack(index) {
+                if (index >= 0 && index < musicTracks.length && audioElement) {
+                    // Always stop and reset current track
+                    audioElement.pause();
+                    audioElement.currentTime = 0;
+                    
+                    currentTrackIndex = index;
+                    const track = musicTracks[index];
+                    audioElement.src = track.src;
+                    audioElement.load(); // Force reload of the audio element
+                    
+                    if (trackTitle) trackTitle.textContent = track.title;
+                    if (trackSubtitle) trackSubtitle.textContent = `Track ${index + 1} of ${musicTracks.length}`;
+                    showPlayer();
+                }
+            }
+            
+            // Play track
+            function playTrack() {
+                if (audioElement) {
+                    // Ensure we're not already playing
+                    audioElement.pause();
+                    audioElement.currentTime = 0;
+                    
+                    // Now play the track
+                    audioElement.play().catch(e => {
+                        console.log('Play failed:', e);
+                    });
+                    
+                    if (playIcon) playIcon.classList.add('hidden');
+                    if (pauseIcon) pauseIcon.classList.remove('hidden');
+                }
+            }
+            
+            // Pause track
+            function pauseTrack() {
+                if (audioElement) {
+                    audioElement.pause();
+                    if (playIcon) playIcon.classList.remove('hidden');
+                    if (pauseIcon) pauseIcon.classList.add('hidden');
+                }
+            }
+            
+            // Play/Pause toggle
+            if (playPauseBtn) {
+                playPauseBtn.addEventListener('click', () => {
+                    if (!audioElement) {
+                        console.error('Audio element not found');
+                        return;
+                    }
+                    if (audioElement.paused) {
+                        if (currentTrackIndex === -1) {
+                            loadTrack(0);
+                        }
+                        playTrack();
+                    } else {
+                        pauseTrack();
+                    }
+                });
+            }
+            
+            // Previous track
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    // Always pause current track first
+                    if (audioElement && !audioElement.paused) {
+                        audioElement.pause();
+                    }
+                    
+                    if (currentTrackIndex > 0) {
+                        loadTrack(currentTrackIndex - 1);
+                        setTimeout(() => playTrack(), 100); // Small delay to ensure load completes
+                    } else if (musicTracks.length > 0) {
+                        loadTrack(musicTracks.length - 1);
+                        setTimeout(() => playTrack(), 100);
+                    }
+                });
+            }
+            
+            // Next track
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    // Always pause current track first
+                    if (audioElement && !audioElement.paused) {
+                        audioElement.pause();
+                    }
+                    
+                    if (currentTrackIndex < musicTracks.length - 1) {
+                        loadTrack(currentTrackIndex + 1);
+                        setTimeout(() => playTrack(), 100); // Small delay to ensure load completes
+                    } else if (musicTracks.length > 0) {
+                        loadTrack(0);
+                        setTimeout(() => playTrack(), 100);
+                    }
+                });
+            }
+            
+            // Update progress
+            if (audioElement) {
+                audioElement.addEventListener('timeupdate', () => {
+                    const current = audioElement.currentTime;
+                    const duration = audioElement.duration;
+                    
+                    if (!isNaN(duration) && progressBar && currentTimeEl && durationEl) {
+                        const percent = (current / duration) * 100;
+                        progressBar.style.width = percent + '%';
+                        currentTimeEl.textContent = formatTime(current);
+                        durationEl.textContent = formatTime(duration);
+                    }
+                });
+            }
+            
+            // Seek functionality
+            if (progressContainer) {
+                progressContainer.addEventListener('click', (e) => {
+                    if (!audioElement) return;
+                    const rect = progressContainer.getBoundingClientRect();
+                    const percent = (e.clientX - rect.left) / rect.width;
+                    if (!isNaN(audioElement.duration)) {
+                        audioElement.currentTime = percent * audioElement.duration;
+                    }
+                });
+            }
+            
+            // Auto play next track
+            if (audioElement) {
+                audioElement.addEventListener('ended', () => {
+                    if (currentTrackIndex < musicTracks.length - 1) {
+                        loadTrack(currentTrackIndex + 1);
+                        playTrack();
+                    }
+                });
+            }
+            
+            // Set initial volume
+            if (audioElement) {
+                audioElement.volume = 0.7;
+            }
+            
+            
+            // Integrate with existing track items if they exist
+            const existingTrackItems = document.querySelectorAll('.track-item');
+            existingTrackItems.forEach((item, index) => {
+                item.addEventListener('click', function(event) {
+                    // Override the old player behavior
+                    if (event) event.stopPropagation();
+                    
+                    // Load in bottom player instead
+                    const src = this.dataset.src;
+                    
+                    // Always stop any playing audio first
+                    if (audioElement && !audioElement.paused) {
+                        audioElement.pause();
+                        audioElement.currentTime = 0;
+                    }
+                    
+                    const matchingTrack = musicTracks.findIndex(t => 
+                        t.src === src || 
+                        t.src === src.replace(/^\//, '') || 
+                        '/' + t.src === src ||
+                        t.src === 'music/' + src.split('/').pop()
+                    );
+                    
+                    if (matchingTrack !== -1) {
+                        loadTrack(matchingTrack);
+                        setTimeout(() => playTrack(), 100);
+                    } else {
+                        // Fallback: create track from data attributes
+                        const title = this.dataset.title || 'Unknown Track';
+                        if (audioElement) {
+                            audioElement.src = src;
+                            audioElement.load();
+                            if (trackTitle) trackTitle.textContent = title;
+                            if (trackSubtitle) trackSubtitle.textContent = 'Custom Track';
+                            showPlayer();
+                            setTimeout(() => playTrack(), 100);
+                        }
+                    }
+                    
+                    // Update visual state
+                    existingTrackItems.forEach((track) => {
+                        track.classList.remove('bg-purple-900/50', 'border-l-4', 'border-amber-500');
+                    });
+                    this.classList.add('bg-purple-900/50', 'border-l-4', 'border-amber-500');
+                });
+            });
+            
+            // Override the old audio player if it exists
+            const oldAudioPlayer = document.getElementById('audio-player');
+            if (oldAudioPlayer) {
+                oldAudioPlayer.style.display = 'none';
+            }
+            
+            // Auto-load track 0 (Broadband Connection) on page load
+            setTimeout(() => {
+                if (musicTracks.length > 0) {
+                    loadTrack(0);
+                    showPlayer();
+                }
+            }, 1000); // Small delay to ensure all elements are ready
+        });
     </script>
+
+    <!-- Bottom Fixed Music Player -->
+    <div id="bottom-player" class="fixed bottom-0 left-0 right-0 z-50" style="padding-bottom: env(safe-area-inset-bottom); background: linear-gradient(to bottom, rgba(17, 24, 39, 0.85) 0%, rgba(17, 24, 39, 0.95) 30%, rgb(17, 24, 39) 100%); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 2px solid rgb(147, 51, 234); box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center gap-4">
+                <!-- Play/Pause Button -->
+                <button id="play-pause-btn" class="p-3 bg-gradient-to-r from-purple-600 to-purple-800 rounded-full hover:from-purple-700 hover:to-purple-900 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                    <svg id="play-icon" class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                    </svg>
+                    <svg id="pause-icon" class="w-6 h-6 text-white hidden" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M5.75 3a.75.75 0 00-.75.75v12.5c0 .414.336.75.75.75h1.5a.75.75 0 00.75-.75V3.75A.75.75 0 007.25 3h-1.5zM12.75 3a.75.75 0 00-.75.75v12.5c0 .414.336.75.75.75h1.5a.75.75 0 00.75-.75V3.75a.75.75 0 00-.75-.75h-1.5z"/>
+                    </svg>
+                </button>
+                
+                <!-- Previous Button -->
+                <button id="prev-btn" class="p-2 text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M8.445 14.832A1 1 0 0010 14v-2.798l5.445 3.63A1 1 0 0017 14V6a1 1 0 00-1.555-.832L10 8.798V6a1 1 0 00-1.555-.832l-6 4a1 1 0 000 1.664l6 4z"/>
+                    </svg>
+                </button>
+                
+                <!-- Next Button -->
+                <button id="next-btn" class="p-2 text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M4.555 5.168A1 1 0 003 6v8a1 1 0 001.555.832L10 11.202V14a1 1 0 001.555.832l6-4a1 1 0 000-1.664l-6-4A1 1 0 0010 6v2.798l-5.445-3.63z"/>
+                    </svg>
+                </button>
+                
+                <!-- Track Info -->
+                <div class="flex-1 min-w-0 px-3">
+                    <div id="track-title" class="text-white font-semibold text-lg">No track selected</div>
+                    <div id="track-subtitle" class="text-gray-400 text-sm">Click a track to play</div>
+                </div>
+                
+                <!-- Progress Bar -->
+                <div class="flex-1 flex items-center gap-3">
+                    <span id="current-time" class="text-xs text-gray-400 w-10 text-right">0:00</span>
+                    <div class="flex-1 bg-gray-700 rounded-full h-1.5 relative cursor-pointer" id="progress-container">
+                        <div id="progress-bar" class="absolute left-0 top-0 h-full bg-gradient-to-r from-purple-600 to-amber-500 rounded-full" style="width: 0%"></div>
+                    </div>
+                    <span id="duration" class="text-xs text-gray-400 w-10">0:00</span>
+                </div>
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- Hidden Audio Element (outside of bottom-player for accessibility) -->
+    <audio id="bottom-audio-element" preload="metadata"></audio>
+    
 
 </body>
 </html>

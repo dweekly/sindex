@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Music Player</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white p-8">
+    <h1 class="text-2xl mb-4">Music Player Debug Test</h1>
+    
+    <div class="mb-8">
+        <h2 class="text-xl mb-4">Test Tracks</h2>
+        <div class="space-y-2">
+            <button class="track-item bg-gray-800 p-4 rounded w-full text-left hover:bg-gray-700" 
+                    data-src="music/Sinister_Dexter-01-Broadband_Connection.mp3"
+                    data-title="Broadband Connection"
+                    data-info="Test track">
+                Click me - Broadband Connection
+            </button>
+            <button class="track-item bg-gray-800 p-4 rounded w-full text-left hover:bg-gray-700"
+                    data-src="music/Sinister_Dexter-02-Freeman.mp3"
+                    data-title="Freeman"
+                    data-info="Test track">
+                Click me - Freeman
+            </button>
+        </div>
+    </div>
+
+    <div id="debug-output" class="bg-black p-4 rounded font-mono text-sm"></div>
+
+    <!-- Simple bottom player -->
+    <div id="music-player" class="fixed bottom-0 left-0 right-0 bg-black p-4 border-t border-gray-700">
+        <div class="max-w-4xl mx-auto">
+            <audio id="audio-player" controls class="w-full"></audio>
+            <div id="now-playing" class="mt-2">Click a track to play</div>
+        </div>
+    </div>
+
+    <script>
+        const debug = document.getElementById('debug-output');
+        function log(msg) {
+            debug.innerHTML += msg + '<br>';
+            console.log(msg);
+        }
+
+        log('Script started');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            log('DOM loaded');
+            
+            const audioPlayer = document.getElementById('audio-player');
+            const nowPlaying = document.getElementById('now-playing');
+            const tracks = document.querySelectorAll('.track-item');
+            
+            log('Found ' + tracks.length + ' tracks');
+            log('Audio player found: ' + (audioPlayer ? 'YES' : 'NO'));
+            
+            tracks.forEach((track, index) => {
+                track.addEventListener('click', function() {
+                    log('Track ' + index + ' clicked');
+                    const src = this.dataset.src;
+                    const title = this.dataset.title;
+                    
+                    log('Loading: ' + src);
+                    audioPlayer.src = src;
+                    nowPlaying.textContent = 'Now playing: ' + title;
+                    
+                    audioPlayer.play().then(() => {
+                        log('Playing started');
+                    }).catch(err => {
+                        log('Play error: ' + err.message);
+                    });
+                });
+            });
+            
+            audioPlayer.addEventListener('error', function(e) {
+                log('Audio error: ' + e.target.error);
+            });
+        });
+    </script>
+</body>
+</html>
