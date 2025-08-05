@@ -27,12 +27,44 @@ async function buildStaticSite() {
       console.log('⚠️  No images manifest found, gallery will be empty');
     }
     
+    // Automatically categorize shows based on current date
+    // Shows remain in "upcoming" for 2 days after the event date
+    // This gives a grace period for recent shows
+    const now = new Date();
+    const twoDaysAgo = new Date(now);
+    twoDaysAgo.setDate(twoDaysAgo.getDate() - 2);
+    
+    // Combine all shows and sort by date
+    const allShows = [
+      ...(showsData.upcomingShows || []).map(show => ({...show, wasUpcoming: true})),
+      ...(showsData.pastShows || []).map(show => ({...show, wasUpcoming: false}))
+    ];
+    
+    // Separate into upcoming and past based on date
+    const categorizedShows = allShows.reduce((acc, show) => {
+      const [year, monthNum, dayNum] = show.date.split('-').map(Number);
+      const showDate = new Date(year, monthNum - 1, dayNum, 23, 59, 59); // End of show day
+      
+      if (showDate >= twoDaysAgo) {
+        acc.upcoming.push(show);
+      } else {
+        acc.past.push(show);
+      }
+      return acc;
+    }, { upcoming: [], past: [] });
+    
+    // Sort upcoming shows by date (ascending)
+    categorizedShows.upcoming.sort((a, b) => a.date.localeCompare(b.date));
+    
+    // Sort past shows by date (descending - most recent first)
+    categorizedShows.past.sort((a, b) => b.date.localeCompare(a.date));
+    
     // Generate upcoming shows HTML
     const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
     let upcomingShowsHtml = '';
     
-    if (showsData.upcomingShows && showsData.upcomingShows.length > 0) {
-      showsData.upcomingShows.forEach(show => {
+    if (categorizedShows.upcoming.length > 0) {
+      categorizedShows.upcoming.forEach(show => {
         // Parse date in Pacific Time (noon to avoid DST issues)
         const [year, monthNum, dayNum] = show.date.split('-').map(Number);
         const showDate = new Date(year, monthNum - 1, dayNum, 12, 0, 0);
@@ -42,14 +74,14 @@ async function buildStaticSite() {
         upcomingShowsHtml += `
           <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30${show.featured ? ' ring-2 ring-purple-500' : ''}">
             ${show.featured ? '<div class="text-xs text-purple-400 font-bold mb-2">FEATURED</div>' : ''}
-            <div class="text-amber-500 font-bold mb-2">${show.dayOfWeek}, ${month} ${day}</div>
+            <div class="text-amber-500 font-bold mb-2">${show.dayOfWeek || ''}, ${month} ${day}</div>
             <h3 class="text-xl font-bold mb-2">${show.venue}</h3>
-            <p class="text-gray-400 mb-2">${show.city}</p>
+            <p class="text-gray-400 mb-2">${show.city || ''}</p>
             <p class="text-gray-300 mb-4">${show.time}</p>
             ${show.description ? `<p class="text-sm text-gray-400 mb-4">${show.description}</p>` : ''}
-            ${show.ticketUrl !== '#' ? 
-              `<a href="${show.ticketUrl}" target="_blank" class="text-purple-400 hover:text-purple-300">Learn More →</a>` : 
-              '<span class="text-purple-400">Free Event!</span>'
+            ${show.link ? 
+              `<a href="${show.link}" target="_blank" class="text-purple-400 hover:text-purple-300">Learn More →</a>` : 
+              ''
             }
           </div>`;
       });
@@ -60,9 +92,9 @@ async function buildStaticSite() {
     // Generate past shows HTML - show only 3 initially
     let pastShowsHtml = '';
     
-    if (showsData.pastShows && showsData.pastShows.length > 0) {
-      const visibleShows = showsData.pastShows.slice(0, 3);
-      const hiddenShows = showsData.pastShows.slice(3);
+    if (categorizedShows.past.length > 0) {
+      const visibleShows = categorizedShows.past.slice(0, 3);
+      const hiddenShows = categorizedShows.past.slice(3);
       
       pastShowsHtml = '<div class="space-y-3">';
       
@@ -312,8 +344,8 @@ async function buildStaticSite() {
     
     console.log('✅ Static HTML generated successfully!');
     console.log(`📄 Output: ${outputPath}`);
-    console.log(`🎭 ${showsData.upcomingShows?.length || 0} upcoming shows`);
-    console.log(`📜 ${showsData.pastShows?.length || 0} past shows`);
+    console.log(`🎭 ${categorizedShows.upcoming.length} upcoming shows (auto-categorized)`);
+    console.log(`📜 ${categorizedShows.past.length} past shows (auto-categorized)`);
     console.log(`🖼️  ${thumbnails.length} gallery images`);
     console.log(`📉 HTML minified: ${(originalSize / 1024).toFixed(1)}KB → ${(minifiedSize / 1024).toFixed(1)}KB (-${reduction}%)`);
     

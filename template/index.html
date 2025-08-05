@@ -1299,30 +1299,19 @@
                     </div>
                 </div>
                 
-                <!-- Mailing List Signup Form -->
+                <!-- Mailing List Signup -->
                 <div class="bg-gray-900/50 rounded-lg p-8 border border-purple-500/30">
                     <h3 class="text-2xl font-bold mb-4">Join Our Mailing List</h3>
                     <p class="mb-6">Get updates on upcoming shows, new music, and exclusive content!</p>
                     
-                    <form id="mailing-list-form" class="max-w-md mx-auto" action="https://sinisterdexter.net/contact/email_list.php" method="POST">
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <label for="email-input" class="sr-only">Email address</label>
-                            <input type="email" 
-                                   id="email-input" 
-                                   name="email" 
-                                   placeholder="your@email.com" 
-                                   aria-label="Email address"
-                                   autocomplete="email" 
-                                   required
-                                   class="flex-1 px-4 py-3 bg-black/50 border border-purple-500/30 rounded-lg focus:outline-none focus:border-purple-400">
-                            <button type="submit" 
-                                    aria-label="Subscribe to mailing list" 
-                                    class="px-8 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold transition-all hover:scale-105">
-                                SUBSCRIBE
-                            </button>
-                        </div>
-                        <div id="mailing-list-message" class="mt-4 text-sm hidden" role="alert" aria-live="polite"></div>
-                    </form>
+                    <div class="max-w-md mx-auto text-center">
+                        <p class="mb-4 text-gray-300">Send an email to subscribe:</p>
+                        <a href="mailto:gigs-subscribe@sinisterdexter.net?subject=Subscribe&body=Please%20add%20me%20to%20the%20Sinister%20Dexter%20mailing%20list!" 
+                           class="inline-block px-8 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold transition-all hover:scale-105">
+                            SUBSCRIBE TO MAILING LIST
+                        </a>
+                        <p class="mt-4 text-sm text-gray-400">This will open your email app to send a subscription request</p>
+                    </div>
                 </div>
                 
                 <!-- Booking Contact -->
@@ -1452,48 +1441,6 @@
             });
         });
 
-        // =========================================
-        // MAILING LIST FORM HANDLER
-        // Submits email signup via AJAX
-        // =========================================
-        document.getElementById('mailing-list-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const form = e.target;
-            const messageDiv = document.getElementById('mailing-list-message');
-            const submitButton = form.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-            
-            // Show loading state
-            submitButton.disabled = true;
-            submitButton.textContent = 'SUBSCRIBING...';
-            messageDiv.classList.add('hidden');
-            
-            try {
-                const formData = new FormData(form);
-                const response = await fetch('https://sinisterdexter.net/contact/email_list.php', {
-                    method: 'POST',
-                    body: formData,
-                    mode: 'no-cors' // Since we're posting to a different domain
-                });
-                
-                // Since no-cors doesn't give us response data, assume success
-                messageDiv.innerHTML = '<span class="text-green-400">✓ Thank you for subscribing! We\'ll keep you updated on all things Sinister Dexter.</span>';
-                messageDiv.classList.remove('hidden');
-                form.reset();
-                
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    messageDiv.classList.add('hidden');
-                }, 5000);
-            } catch (error) {
-                messageDiv.innerHTML = '<span class="text-red-400">⚠ There was an error. Please try again or email us directly.</span>';
-                messageDiv.classList.remove('hidden');
-            } finally {
-                submitButton.disabled = false;
-                submitButton.textContent = originalText;
-            }
-        });
 
         // =========================================
         // SMOOTH SCROLL FOR NAVIGATION
