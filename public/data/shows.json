@@ -1,34 +1,44 @@
 {
   "upcomingShows": [
     {
-      "date": "2024-08-20",
+      "date": "2025-08-20",
       "dayOfWeek": "WED",
       "venue": "Redwood City Music in the Park - Stafford Park",
       "city": "Redwood City, CA",
       "time": "5:00 PM - 7:00 PM",
-      "ticketUrl": "#",
+      "ticketUrl": "https://www.redwoodcity.org/residents/redwood-city-events/music/music-in-the-park",
       "featured": true,
       "description": "Free summer concert series at the corner of King St. & Hopkins Ave. Kid friendly!"
     },
     {
-      "date": "2024-09-11",
+      "date": "2025-09-11",
       "dayOfWeek": "THU",
       "venue": "Valencia LIVE! at Blondie's Bar",
       "city": "San Francisco, CA",
       "time": "5:00 PM - 8:00 PM",
-      "ticketUrl": "#",
+      "ticketUrl": "https://blondiesbarsf.com/",
       "featured": true,
       "description": "Big night market on Valencia St with food, drink, entertainment, and FUNK!"
     },
     {
-      "date": "2024-09-29",
-      "dayOfWeek": "SUN",
+      "date": "2025-09-29",
+      "dayOfWeek": "MON",
       "venue": "Fiesta on the Hill",
       "city": "Bernal Heights, San Francisco, CA",
       "time": "2:00 PM - 4:00 PM",
-      "ticketUrl": "#",
+      "ticketUrl": "https://bernalfiesta.com/",
       "featured": false,
       "description": "Annual street fair on Cortland Ave with family-friendly atmosphere"
+    },
+    {
+      "date": "2025-11-14",
+      "dayOfWeek": "FRI",
+      "venue": "Club Fox",
+      "city": "Redwood City, CA",
+      "time": "6:00 PM - 10:00 PM",
+      "ticketUrl": "https://clubfoxrwc.com/",
+      "featured": false,
+      "description": "Friday night funk at the legendary Club Fox venue"
     }
   ],
   "pastShows": [

@@ -33,7 +33,9 @@ async function buildStaticSite() {
     
     if (showsData.upcomingShows && showsData.upcomingShows.length > 0) {
       showsData.upcomingShows.forEach(show => {
-        const showDate = new Date(show.date);
+        // Parse date in Pacific Time (noon to avoid DST issues)
+        const [year, monthNum, dayNum] = show.date.split('-').map(Number);
+        const showDate = new Date(year, monthNum - 1, dayNum, 12, 0, 0);
         const month = monthNames[showDate.getMonth()];
         const day = showDate.getDate();
         
@@ -46,7 +48,7 @@ async function buildStaticSite() {
             <p class="text-gray-300 mb-4">${show.time}</p>
             ${show.description ? `<p class="text-sm text-gray-400 mb-4">${show.description}</p>` : ''}
             ${show.ticketUrl !== '#' ? 
-              `<a href="${show.ticketUrl}" target="_blank" class="text-purple-400 hover:text-purple-300">Get Tickets →</a>` : 
+              `<a href="${show.ticketUrl}" target="_blank" class="text-purple-400 hover:text-purple-300">Learn More →</a>` : 
               '<span class="text-purple-400">Free Event!</span>'
             }
           </div>`;
@@ -55,17 +57,22 @@ async function buildStaticSite() {
       upcomingShowsHtml = '<div class="col-span-full text-center text-gray-400">No upcoming shows at this time. Check back soon!</div>';
     }
     
-    // Generate past shows HTML
+    // Generate past shows HTML - show only 3 initially
     let pastShowsHtml = '';
     
     if (showsData.pastShows && showsData.pastShows.length > 0) {
+      const visibleShows = showsData.pastShows.slice(0, 3);
+      const hiddenShows = showsData.pastShows.slice(3);
+      
       pastShowsHtml = '<div class="space-y-3">';
       
-      showsData.pastShows.forEach(show => {
-        const showDate = new Date(show.date);
+      // Visible shows
+      visibleShows.forEach(show => {
+        // Parse date in Pacific Time
+        const [year, monthNum, dayNum] = show.date.split('-').map(Number);
+        const showDate = new Date(year, monthNum - 1, dayNum, 12, 0, 0);
         const month = monthNames[showDate.getMonth()];
         const day = showDate.getDate();
-        const year = showDate.getFullYear();
         
         pastShowsHtml += `
           <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
@@ -84,6 +91,67 @@ async function buildStaticSite() {
             <div class="text-gray-500 text-sm mt-1 sm:mt-0">${show.time}</div>
           </div>`;
       });
+      
+      // Hidden shows (if any)
+      if (hiddenShows.length > 0) {
+        pastShowsHtml += `
+          <div id="hidden-past-shows" class="hidden space-y-3">`;
+        
+        hiddenShows.forEach(show => {
+          // Parse date in Pacific Time
+          const [year, monthNum, dayNum] = show.date.split('-').map(Number);
+          const showDate = new Date(year, monthNum - 1, dayNum, 12, 0, 0);
+          const month = monthNames[showDate.getMonth()];
+          const day = showDate.getDate();
+          
+          pastShowsHtml += `
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
+              <div class="flex-1">
+                <span class="text-amber-500 text-sm font-semibold">${month} ${day}, ${year}</span>
+                <span class="text-gray-400 mx-2">•</span>
+                ${show.link ? 
+                  `<a href="${show.link}" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors">
+                    ${show.venue} <i class="fas fa-external-link-alt text-xs ml-1"></i>
+                  </a>` : 
+                  `<span class="text-gray-300">${show.venue}</span>`
+                }
+                <span class="text-gray-500 text-sm ml-2">${show.city}</span>
+                ${show.note ? `<span class="text-purple-400 text-sm ml-2">(${show.note})</span>` : ''}
+              </div>
+              <div class="text-gray-500 text-sm mt-1 sm:mt-0">${show.time}</div>
+            </div>`;
+        });
+        
+        pastShowsHtml += '</div>';
+        
+        // Add expand/collapse button
+        pastShowsHtml += `
+          <button id="toggle-past-shows" 
+                  onclick="togglePastShows()" 
+                  class="mt-2 text-gray-600 hover:text-gray-500 transition-colors text-xs opacity-70 hover:opacity-100">
+            <span id="toggle-text" class="text-[10px] uppercase tracking-wider">${hiddenShows.length} more</span>
+            <svg id="toggle-icon" class="inline-block w-2.5 h-2.5 ml-0.5 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+            </svg>
+          </button>
+          <script>
+            function togglePastShows() {
+              const hiddenShows = document.getElementById('hidden-past-shows');
+              const toggleText = document.getElementById('toggle-text');
+              const toggleIcon = document.getElementById('toggle-icon');
+              
+              if (hiddenShows.classList.contains('hidden')) {
+                hiddenShows.classList.remove('hidden');
+                toggleText.textContent = 'less';
+                toggleIcon.style.transform = 'rotate(180deg)';
+              } else {
+                hiddenShows.classList.add('hidden');
+                toggleText.textContent = '${hiddenShows.length} more';
+                toggleIcon.style.transform = 'rotate(0deg)';
+              }
+            }
+          </script>`;
+      }
       
       pastShowsHtml += '</div>';
     } else {
