@@ -45,7 +45,11 @@ jobs:
       - name: Process images
         run: npm run process-images
 
-      - name: Deploy to Cloudflare Pages
+      - name: Build HTML
+        run: npm run build:html
+
+      - name: Deploy to Cloudflare Pages (Staging)
+        if: github.event_name == 'pull_request'
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -53,5 +57,35 @@ jobs:
           projectName: sinister-dexter
           directory: public
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref == 'refs/heads/main' && 'main' || github.head_ref }}
+          branch: preview-${{ github.event.pull_request.number }}
           wranglerVersion: '3'
+
+      - name: Deploy to Cloudflare Pages (Production)
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: sinister-dexter
+          directory: public
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          branch: production
+          wranglerVersion: '3'
+
+      - name: Comment PR with preview URL
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const comment = `🎸 **Sinister Dexter Preview Deployment**
+            
+            Your changes have been deployed to: https://preview-${{ github.event.pull_request.number }}.sinister-dexter.pages.dev/
+            
+            Please review the preview before merging to main.`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            })
