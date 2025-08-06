@@ -37,11 +37,16 @@ jobs:
 
       - name: Deploy to Cloudflare Pages (Staging)
         if: github.event_name == 'pull_request'
+        id: cloudflare-deploy
         run: |
-          npx wrangler@3 pages deploy public \
+          OUTPUT=$(npx wrangler@3 pages deploy public \
             --project-name=sinister-dexter \
             --branch=preview-${{ github.event.pull_request.number }} \
-            --commit-dirty=true
+            --commit-dirty=true 2>&1)
+          echo "$OUTPUT"
+          DEPLOYMENT_URL=$(echo "$OUTPUT" | grep -oP 'https://[a-z0-9]+\.sinister-dexter\.pages\.dev' | head -1)
+          echo "deployment-url=$DEPLOYMENT_URL" >> $GITHUB_OUTPUT
+          echo "Deployment URL: $DEPLOYMENT_URL"
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -58,16 +63,21 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
       - name: Comment PR with preview URL
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && steps.cloudflare-deploy.outputs.deployment-url
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            const deploymentUrl = '${{ steps.cloudflare-deploy.outputs.deployment-url }}';
+            const branchUrl = `https://preview-${{ github.event.pull_request.number }}.sinister-dexter.pages.dev/`;
             const comment = `🎸 **Sinister Dexter Preview Deployment**
             
-            Your changes have been deployed to: https://preview-${{ github.event.pull_request.number }}.sinister-dexter.pages.dev/
+            ✅ **This build**: ${deploymentUrl}
+            🔄 **Latest on PR**: ${branchUrl}
             
-            Please review the preview before merging to main.`;
+            Commit: \`${{ github.event.pull_request.head.sha.substring(0, 7) }}\`
+            
+            The first link shows this exact build, while the second always shows the latest changes on this PR.`;
             
             await github.rest.issues.createComment({
               issue_number: context.issue.number,
