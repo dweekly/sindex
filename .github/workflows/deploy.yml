@@ -21,29 +21,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Convert HEIC images (if any)
-        run: |
-          # Install ImageMagick for HEIC support on Linux
-          sudo apt-get update
-          sudo apt-get install -y imagemagick libheif-examples
-          
-          # Convert HEIC files to JPG
-          for file in photos/*.HEIC photos/*.heic; do
-            if [ -f "$file" ]; then
-              filename=$(basename "$file" | sed 's/\.[^.]*$//')
-              heif-convert "$file" "photos/${filename}_converted.jpg"
-            fi
-          done
-        continue-on-error: true
-
-      - name: Process images
-        run: npm run process-images
+      # Skip HEIC conversion and image processing in CI - images are pre-processed
+      # and committed to the repository. This saves ~2 minutes of build time.
 
       - name: Build HTML
         run: npm run build:html
