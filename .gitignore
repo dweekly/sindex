@@ -48,3 +48,8 @@ npm-debug.log*
 # Temporary files
 *.tmp
 .cache/
+# Wrangler local state
+.wrangler/
+
+# BFG cleanup reports
+.git.bfg-report/

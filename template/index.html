@@ -132,10 +132,12 @@
     <link rel="dns-prefetch" href="https://www.youtube.com">
     <link rel="dns-prefetch" href="https://open.spotify.com">
     <link rel="dns-prefetch" href="https://embed.music.apple.com">
+    <link rel="dns-prefetch" href="https://music.primapaper.co">
     
     <!-- Preconnect for critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://music.primapaper.co" crossorigin>
     
     <!-- ============================================= -->
     <!-- PRELOADING                                   -->
@@ -1492,28 +1494,28 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Get all tracks data (verified against actual files)
             const musicTracks = [
-                { title: "Broadband Connection", artist: "Sinister Dexter", duration: "3:01", src: "music/Sinister_Dexter-01-Broadband_Connection.mp3" },
-                { title: "Freeman", artist: "Sinister Dexter", duration: "3:03", src: "music/Sinister_Dexter-02-Freeman.mp3" },
-                { title: "Chasing the Clouds Away", artist: "Sinister Dexter", duration: "3:12", src: "music/Sinister_Dexter-02-Chasing_the_Clouds_Away.mp3" },
-                { title: "Morenita", artist: "Sinister Dexter", duration: "3:26", src: "music/Sinister_Dexter-03-Morenita.mp3" },
-                { title: "One-Eyed Jack", artist: "Sinister Dexter", duration: "4:15", src: "music/Sinister_Dexter-03-One-Eyed_Jack.mp3" },
-                { title: "Are You Ready to Dance", artist: "Sinister Dexter", duration: "3:26", src: "music/Sinister_Dexter-04-Are_You_Ready_to_Dance.mp3" },
-                { title: "Sinister Dexter", artist: "Sinister Dexter", duration: "3:26", src: "music/Sinister_Dexter-04-Sinister_Dexter.mp3" },
-                { title: "Chasing the Clouds Away (Alt)", artist: "Sinister Dexter", duration: "3:11", src: "music/Sinister_Dexter-05-Chasing_the_Clouds_Away.mp3" },
-                { title: "Two Before Nine", artist: "Sinister Dexter", duration: "4:05", src: "music/Sinister_Dexter-05-Two_Before_Nine.mp3" },
-                { title: "Can't Take My Eyes Off You", artist: "Sinister Dexter", duration: "4:42", src: "music/Sinister_Dexter-06-Cant_Take_My_Eyes_Off_You.mp3" },
-                { title: "Show Us How to Get Down (Studio)", artist: "Sinister Dexter", duration: "5:58", src: "music/Sinister_Dexter-08-Show_Us_How_to_Get_Down.mp3" },
-                { title: "Jack in the Box", artist: "Sinister Dexter", duration: "2:35", src: "music/Sinister_Dexter-09-Jack_in_the_Box.mp3" },
-                { title: "Him or Me", artist: "Sinister Dexter", duration: "4:49", src: "music/Sinister_Dexter-10-Him_or_Me.mp3" },
-                { title: "Swim on Over", artist: "Sinister Dexter", duration: "4:08", src: "music/Sinister_Dexter-11-Swim_on_Over.mp3" },
-                { title: "Better Left Unsaid", artist: "Sinister Dexter", duration: "4:25", src: "music/Sinister_Dexter-12-Better_Left_Unsaid.mp3" },
-                { title: "Another Drink", artist: "Sinister Dexter", duration: "3:04", src: "music/Sinister_Dexter-13-Another_Drink.mp3" },
-                { title: "Show Us How to Get Down (Live)", artist: "Sinister Dexter", duration: "5:53", src: "music/Sinister_Dexter-01-Show_Us_How_to_Get_Down.mp3" },
-                { title: "Show Us How to Get Down (Alt)", artist: "Sinister Dexter", duration: "6:30", src: "music/Sinister_Dexter-Show_Us_How_to_Get_Down.mp3" },
-                { title: "Son of a Preacher Man", artist: "Sinister Dexter", duration: "3:03", src: "music/Sinister_Dexter-Son_of_a_Preacher_Man.mp3" },
-                { title: "Dream Come True", artist: "Sinister Dexter", duration: "5:21", src: "music/Sinister_Dexter-Dream_Come_True.mp3" },
-                { title: "What is Hip", artist: "Sinister Dexter", duration: "5:51", src: "music/Sinister_Dexter-What_is_Hip.mp3" },
-                { title: "The Letter", artist: "Sinister Dexter", duration: "3:58", src: "music/Sinister_Dexter-The_Letter.mp3" }
+                { title: "Broadband Connection", artist: "Sinister Dexter", duration: "3:01", src: "https://music.primapaper.co/music/Sinister_Dexter-01-Broadband_Connection.mp3" },
+                { title: "Freeman", artist: "Sinister Dexter", duration: "3:03", src: "https://music.primapaper.co/music/Sinister_Dexter-02-Freeman.mp3" },
+                { title: "Chasing the Clouds Away", artist: "Sinister Dexter", duration: "3:12", src: "https://music.primapaper.co/music/Sinister_Dexter-02-Chasing_the_Clouds_Away.mp3" },
+                { title: "Morenita", artist: "Sinister Dexter", duration: "3:26", src: "https://music.primapaper.co/music/Sinister_Dexter-03-Morenita.mp3" },
+                { title: "One-Eyed Jack", artist: "Sinister Dexter", duration: "4:15", src: "https://music.primapaper.co/music/Sinister_Dexter-03-One-Eyed_Jack.mp3" },
+                { title: "Are You Ready to Dance", artist: "Sinister Dexter", duration: "3:26", src: "https://music.primapaper.co/music/Sinister_Dexter-04-Are_You_Ready_to_Dance.mp3" },
+                { title: "Sinister Dexter", artist: "Sinister Dexter", duration: "3:26", src: "https://music.primapaper.co/music/Sinister_Dexter-04-Sinister_Dexter.mp3" },
+                { title: "Chasing the Clouds Away (Alt)", artist: "Sinister Dexter", duration: "3:11", src: "https://music.primapaper.co/music/Sinister_Dexter-05-Chasing_the_Clouds_Away.mp3" },
+                { title: "Two Before Nine", artist: "Sinister Dexter", duration: "4:05", src: "https://music.primapaper.co/music/Sinister_Dexter-05-Two_Before_Nine.mp3" },
+                { title: "Can't Take My Eyes Off You", artist: "Sinister Dexter", duration: "4:42", src: "https://music.primapaper.co/music/Sinister_Dexter-06-Cant_Take_My_Eyes_Off_You.mp3" },
+                { title: "Show Us How to Get Down (Studio)", artist: "Sinister Dexter", duration: "5:58", src: "https://music.primapaper.co/music/Sinister_Dexter-08-Show_Us_How_to_Get_Down.mp3" },
+                { title: "Jack in the Box", artist: "Sinister Dexter", duration: "2:35", src: "https://music.primapaper.co/music/Sinister_Dexter-09-Jack_in_the_Box.mp3" },
+                { title: "Him or Me", artist: "Sinister Dexter", duration: "4:49", src: "https://music.primapaper.co/music/Sinister_Dexter-10-Him_or_Me.mp3" },
+                { title: "Swim on Over", artist: "Sinister Dexter", duration: "4:08", src: "https://music.primapaper.co/music/Sinister_Dexter-11-Swim_on_Over.mp3" },
+                { title: "Better Left Unsaid", artist: "Sinister Dexter", duration: "4:25", src: "https://music.primapaper.co/music/Sinister_Dexter-12-Better_Left_Unsaid.mp3" },
+                { title: "Another Drink", artist: "Sinister Dexter", duration: "3:04", src: "https://music.primapaper.co/music/Sinister_Dexter-13-Another_Drink.mp3" },
+                { title: "Show Us How to Get Down (Live)", artist: "Sinister Dexter", duration: "5:53", src: "https://music.primapaper.co/music/Sinister_Dexter-01-Show_Us_How_to_Get_Down.mp3" },
+                { title: "Show Us How to Get Down (Alt)", artist: "Sinister Dexter", duration: "6:30", src: "https://music.primapaper.co/music/Sinister_Dexter-Show_Us_How_to_Get_Down.mp3" },
+                { title: "Son of a Preacher Man", artist: "Sinister Dexter", duration: "3:03", src: "https://music.primapaper.co/music/Sinister_Dexter-Son_of_a_Preacher_Man.mp3" },
+                { title: "Dream Come True", artist: "Sinister Dexter", duration: "5:21", src: "https://music.primapaper.co/music/Sinister_Dexter-Dream_Come_True.mp3" },
+                { title: "What is Hip", artist: "Sinister Dexter", duration: "5:51", src: "https://music.primapaper.co/music/Sinister_Dexter-What_is_Hip.mp3" },
+                { title: "The Letter", artist: "Sinister Dexter", duration: "3:58", src: "https://music.primapaper.co/music/Sinister_Dexter-The_Letter.mp3" }
             ];
             
             let currentTrackIndex = -1;
@@ -1590,7 +1592,7 @@
                             artist: 'Sinister Dexter',
                             album: 'Live Recordings',
                             artwork: [
-                                { src: '/images/large/sindex-full.jpg', sizes: '512x512', type: 'image/jpeg' }
+                                { src: 'https://music.primapaper.co/images/sindex-full.jpg', sizes: '512x512', type: 'image/jpeg' }
                             ]
                         });
                         
@@ -1772,6 +1774,7 @@
                     );
                     
                     if (matchingTrack !== -1) {
+                        currentTrackIndex = matchingTrack;
                         loadTrack(matchingTrack);
                         setTimeout(() => playTrack(), 100);
                     } else {
@@ -1781,7 +1784,14 @@
                             audioElement.src = src;
                             audioElement.load();
                             if (trackTitle) trackTitle.textContent = title;
-                            if (trackSubtitle) trackSubtitle.textContent = 'Custom Track';
+                            // Show track number if we can find it, otherwise leave empty
+                            if (trackSubtitle) {
+                                if (window.innerWidth >= 640 && currentTrackIndex >= 0) {
+                                    trackSubtitle.textContent = `Track ${currentTrackIndex + 1} of ${musicTracks.length}`;
+                                } else {
+                                    trackSubtitle.textContent = '';
+                                }
+                            }
                             showPlayer();
                             setTimeout(() => playTrack(), 100);
                         }
