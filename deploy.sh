@@ -78,4 +78,4 @@ esac
 
 echo ""
 echo "🎵 Deployment complete!"
-echo "📝 Note: MP3 files are served from R2 at https://music.primapaper.co/"
+echo "📝 Note: MP3 files are served from R2 at https://cdn.sinister-dexter.com/"

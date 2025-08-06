@@ -1,26 +1,11 @@
-# Cloudflare Workers configuration
+# Cloudflare Pages configuration
 name = "sinister-dexter"
-main = "src/index.js"
 compatibility_date = "2024-08-03"
-workers_dev = true
+pages_build_output_dir = "public"
 
-# Static assets configuration
-[site]
-bucket = "./public"
-
-# Routes (when deploying to custom domain)
-# route = { pattern = "sinisterdexter.net/*", zone_name = "sinisterdexter.net" }
-
-# Build configuration
-[build]
-command = "npm run build:html"
-
-# Environment variables
+# Environment variables for Pages
 [env.production]
 vars = { ENVIRONMENT = "production" }
-
-[env.staging]
-vars = { ENVIRONMENT = "staging" }
 
 [env.preview]
 vars = { ENVIRONMENT = "preview" }

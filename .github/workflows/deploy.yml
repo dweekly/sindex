@@ -13,6 +13,8 @@ jobs:
     permissions:
       contents: read
       deployments: write
+      pull-requests: write  # Required for PR comments
+      issues: write         # Required for issue comments
     
     steps:
       - name: Checkout code
@@ -21,37 +23,80 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Convert HEIC images (if any)
+      # Skip HEIC conversion and image processing in CI - images are pre-processed
+      # and committed to the repository. This saves ~2 minutes of build time.
+
+      - name: Build HTML
+        run: npm run build:html
+
+      - name: Deploy to Cloudflare Pages (Staging)
+        if: github.event_name == 'pull_request'
+        id: cloudflare-deploy
         run: |
-          # Install ImageMagick for HEIC support on Linux
-          sudo apt-get update
-          sudo apt-get install -y imagemagick libheif-examples
+          set +e  # Don't exit on error immediately
+          OUTPUT=$(npx wrangler@3 pages deploy public \
+            --project-name=sinister-dexter \
+            --branch=preview-${{ github.event.pull_request.number }} \
+            --commit-dirty=true 2>&1)
+          EXIT_CODE=$?
+          echo "Wrangler output:"
+          echo "$OUTPUT"
           
-          # Convert HEIC files to JPG
-          for file in photos/*.HEIC photos/*.heic; do
-            if [ -f "$file" ]; then
-              filename=$(basename "$file" | sed 's/\.[^.]*$//')
-              heif-convert "$file" "photos/${filename}_converted.jpg"
-            fi
-          done
-        continue-on-error: true
+          if [ $EXIT_CODE -ne 0 ]; then
+            echo "Deployment failed with exit code $EXIT_CODE"
+            exit $EXIT_CODE
+          fi
+          
+          # Try multiple patterns to find the deployment URL
+          DEPLOYMENT_URL=$(echo "$OUTPUT" | grep -oE 'https://[a-f0-9]+\.sinister-dexter\.pages\.dev' | head -1)
+          if [ -z "$DEPLOYMENT_URL" ]; then
+            # Try another pattern for the deployment URL
+            DEPLOYMENT_URL=$(echo "$OUTPUT" | grep -oE 'Take a peek over at https://[^ ]+' | sed 's/Take a peek over at //' | head -1)
+          fi
+          
+          echo "deployment-url=$DEPLOYMENT_URL" >> $GITHUB_OUTPUT
+          echo "Captured Deployment URL: $DEPLOYMENT_URL"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
-      - name: Process images
-        run: npm run process-images
+      - name: Deploy to Cloudflare Pages (Production)
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: |
+          npx wrangler@3 pages deploy public \
+            --project-name=sinister-dexter \
+            --branch=production \
+            --commit-dirty=true
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+      - name: Comment PR with preview URL
+        if: github.event_name == 'pull_request' && steps.cloudflare-deploy.outputs.deployment-url
+        uses: actions/github-script@v6
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: sinister-dexter
-          directory: public
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref == 'refs/heads/main' && 'main' || github.head_ref }}
-          wranglerVersion: '3'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const deploymentUrl = '${{ steps.cloudflare-deploy.outputs.deployment-url }}';
+            const branchUrl = `https://preview-${{ github.event.pull_request.number }}.sinister-dexter.pages.dev/`;
+            const comment = `🎸 **Sinister Dexter Preview Deployment**
+            
+            ✅ **This build**: ${deploymentUrl}
+            🔄 **Latest on PR**: ${branchUrl}
+            
+            Commit: \`${context.payload.pull_request.head.sha.substring(0, 7)}\`
+            
+            The first link shows this exact build, while the second always shows the latest changes on this PR.`;
+            
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            })
