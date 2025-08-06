@@ -35,27 +35,25 @@ jobs:
 
       - name: Deploy to Cloudflare Pages (Staging)
         if: github.event_name == 'pull_request'
-        uses: cloudflare/pages-action@v1
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: sinister-dexter
-          directory: public
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          branch: preview-${{ github.event.pull_request.number }}
-          wranglerVersion: '3'
+        run: |
+          npx wrangler@3 pages deploy public \
+            --project-name=sinister-dexter \
+            --branch=preview-${{ github.event.pull_request.number }} \
+            --commit-dirty=true
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
       - name: Deploy to Cloudflare Pages (Production)
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        uses: cloudflare/pages-action@v1
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: sinister-dexter
-          directory: public
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          branch: production
-          wranglerVersion: '3'
+        run: |
+          npx wrangler@3 pages deploy public \
+            --project-name=sinister-dexter \
+            --branch=production \
+            --commit-dirty=true
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
       - name: Comment PR with preview URL
         if: github.event_name == 'pull_request'
