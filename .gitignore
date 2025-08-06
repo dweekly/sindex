@@ -19,7 +19,8 @@ node_modules/
 /public/music/
 
 # Processed images (generated from photos/)
-public/images/
+# Commenting out - these need to be deployed with the site
+# public/images/
 
 # Converted HEIC files (keep originals, ignore converted)
 photos/*_converted.jpg
