@@ -28,6 +28,8 @@ Sinister Dexter band website - A static site generator for a San Francisco Bay A
 - `npm run build:images` - Process photos into web-optimized formats
 - `npm run optimize:images` - Further optimize existing images
 - `npm run serve` - Start local development server
+- `./deploy.sh staging` - Deploy to staging (https://main.sinister-dexter.pages.dev/)
+- `./deploy.sh prod` - Deploy to production (https://www-new.sinisterdexter.net/)
 
 ## Architecture
 1. **Static Site Generation**: build-static.js reads template HTML and injects data
@@ -64,16 +66,31 @@ Edit the JavaScript in `template/index.html` (not in the generated public/index.
 
 ## Important URLs
 - Staging: https://main.sinister-dexter.pages.dev/
-- Production: https://sinisterdexter.net/ (not yet deployed)
-- Email List API: https://sinisterdexter.net/contact/email_list.php
+- Production: https://www-new.sinisterdexter.net/
+- MP3 CDN: https://music.primapaper.co/
+- Email Subscription: mailto:gigs-subscribe@sinisterdexter.net
+
+## Deployment Best Practices
+⚠️ **ALWAYS TEST IN STAGING FIRST**
+1. Build locally: `npm run build:html`
+2. Deploy to staging: `./deploy.sh staging`
+3. Test at https://main.sinister-dexter.pages.dev/
+4. Only after verification, deploy to production: `./deploy.sh prod`
+
+## Music Player
+- 21 tracks hosted on Cloudflare R2 CDN
+- Track numbers are explicit in metadata (not array indices)
+- Bottom player with MediaSession API support
+- Tracks maintain consistent numbering (1-21) across all UI states
 
 ## Known Issues & Notes
 - Font flash issue has been addressed with preloading and proper fallbacks
 - CORS warnings for manifest.json only appear when opening file:// locally
 - Multiple duplicate elements were cleaned up in the template
+- MP3 files removed from git repo (now on R2 CDN)
 
 ## Contact
 For bookings: booking@sinisterdexter.net
 
 ---
-Last updated: 2025-08-04
+Last updated: 2025-08-06
