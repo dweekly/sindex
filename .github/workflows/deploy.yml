@@ -75,7 +75,7 @@ jobs:
             ✅ **This build**: ${deploymentUrl}
             🔄 **Latest on PR**: ${branchUrl}
             
-            Commit: \`${{ github.event.pull_request.head.sha.substring(0, 7) }}\`
+            Commit: \`${context.payload.pull_request.head.sha.substring(0, 7)}\`
             
             The first link shows this exact build, while the second always shows the latest changes on this PR.`;
             
