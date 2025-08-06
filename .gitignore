@@ -1,6 +1,23 @@
 # Dependencies
 node_modules/
 
+# IMPORTANT: Archive directory - old website backup (221MB!)
+/archive/
+
+# Large media files (should use Git LFS if needed)
+*.mp3
+*.wav
+*.wma
+*.mov
+*.mp4
+*.avi
+*.m4a
+*.flac
+*.aiff
+
+# Music directory - contains MP3s for web player
+/public/music/
+
 # Processed images (generated from photos/)
 public/images/
 
@@ -20,6 +37,9 @@ Thumbs.db
 # Environment files
 .env
 .env.local
+
+# FTP deployment script (contains credentials)
+deploy-ftp.sh
 
 # Logs
 *.log
