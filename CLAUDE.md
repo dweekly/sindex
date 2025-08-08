@@ -52,13 +52,17 @@ Sinister Dexter band website - A static site generator for a San Francisco Bay A
 {
   "date": "2025-03-15",
   "venue": "The Fillmore",
-  "location": "San Francisco, CA",
+  "city": "San Francisco, CA",
+  "dayOfWeek": "SAT",
   "time": "8:00 PM - 11:00 PM",
   "description": "Special St. Patrick's weekend show",
   "link": "https://thefillmore.com/",
+  "tickets": "https://www.ticketmaster.com/event/123456",
   "featured": true  // Optional: highlights the show
 }
 ```
+- `link` - Event info page (optional)
+- `tickets` - Ticket purchase page (optional, shows "Buy Tickets" button)
 3. Run `npm run build:html`
 4. Deploy: `./deploy.sh staging` then `./deploy.sh prod`
 
