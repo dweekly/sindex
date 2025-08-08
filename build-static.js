@@ -12,9 +12,17 @@ async function buildStaticSite() {
     const templatePath = path.join(__dirname, 'template', 'index.html');
     let html = await fs.readFile(templatePath, 'utf8');
     
-    // Read shows data
+    // Read all data files
     const showsData = JSON.parse(
       await fs.readFile(path.join(__dirname, 'public', 'data', 'shows.json'), 'utf8')
+    );
+    
+    const membersData = JSON.parse(
+      await fs.readFile(path.join(__dirname, 'public', 'data', 'members.json'), 'utf8')
+    );
+    
+    const tracksData = JSON.parse(
+      await fs.readFile(path.join(__dirname, 'public', 'data', 'tracks.json'), 'utf8')
     );
     
     // Read images manifest
@@ -298,6 +306,56 @@ async function buildStaticSite() {
     const newGalleryArray = `const galleryImages = ${JSON.stringify(galleryImagesForScript)};`;
     html = html.replace(scriptRegex, newGalleryArray);
     
+    // Generate band members HTML
+    let membersHtml = '';
+    membersData.sections.forEach(section => {
+      membersHtml += `
+        <div class="mb-12">
+          <h3 class="text-2xl font-bold text-purple-400 mb-6 text-center">${section.title}</h3>
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-${section.members.length <= 3 ? section.members.length : 4} gap-8 justify-items-center">
+            ${section.members.map(member => `
+              <div class="text-center">
+                <div class="mb-3 relative inline-block">
+                  <picture>
+                    <source srcset="images/members/${member.image}.webp" type="image/webp">
+                    <img src="images/members/${member.image}.jpg" 
+                         alt="${member.name}" 
+                         class="w-32 h-32 rounded-full mx-auto object-cover border-2 border-purple-500">
+                  </picture>
+                  ${member.founding ? `
+                  <div class="absolute top-0 right-0 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold border-2 border-white shadow-md cursor-help" title="Founding Member">
+                    <span>F</span>
+                  </div>` : ''}
+                </div>
+                <h4 class="font-bold text-lg">${member.name}</h4>
+                <p class="text-purple-400">${member.role}</p>
+                ${member.bio ? `<p class="text-sm text-gray-400 mt-2 max-w-xs mx-auto">${member.bio}</p>` : ''}
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    });
+    
+    // Replace band members section - find the band members grid
+    const bandMembersRegex = /<!-- Band Members Grid -->.*?<\/div>\s*<\/div>\s*<\/div>/s;
+    const bandMembersReplacement = `<!-- Band Members Grid -->\n${membersHtml}`;
+    html = html.replace(bandMembersRegex, bandMembersReplacement);
+    
+    // Generate tracks JavaScript array
+    const tracksArray = tracksData.tracks.map(track => ({
+      num: track.num,
+      title: track.title,
+      artist: track.artist,
+      duration: track.duration,
+      src: `${tracksData.cdnBaseUrl}${track.filename}`
+    }));
+    
+    // Replace tracks array in the JavaScript
+    const tracksRegex = /const musicTracks = \[.*?\];/s;
+    const newTracksArray = `const musicTracks = ${JSON.stringify(tracksArray, null, 16)};`;
+    html = html.replace(tracksRegex, newTracksArray);
+    
     // Add comment about Tailwind CDN (only if not already present)
     if (!html.includes('<!-- Note: Tailwind CDN')) {
       html = html.replace(
@@ -347,6 +405,8 @@ async function buildStaticSite() {
     console.log(`🎭 ${categorizedShows.upcoming.length} upcoming shows (auto-categorized)`);
     console.log(`📜 ${categorizedShows.past.length} past shows (auto-categorized)`);
     console.log(`🖼️  ${thumbnails.length} gallery images`);
+    console.log(`👥 ${membersData.sections.reduce((acc, s) => acc + s.members.length, 0)} band members`);
+    console.log(`🎵 ${tracksData.tracks.length} music tracks`);
     console.log(`📉 HTML minified: ${(originalSize / 1024).toFixed(1)}KB → ${(minifiedSize / 1024).toFixed(1)}KB (-${reduction}%)`);
     
   } catch (error) {
