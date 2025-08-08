@@ -27,6 +27,7 @@ All content is in simple JSON files that are easy to edit:
   "time": "8:00 PM - 11:00 PM",
   "description": "Special St. Patrick's weekend show",
   "link": "https://thefillmore.com/",
+  "tickets": "https://www.ticketmaster.com/event/1234567",
   "featured": true
 }
 ```
@@ -35,6 +36,9 @@ Tips:
 - Set `featured: true` to highlight important shows
 - Dates are YYYY-MM-DD format
 - Shows move to "past" automatically 2 days after the date
+- `link` is for event info page (optional)
+- `tickets` is for ticket purchase page (optional)
+- You can have both, either, or neither link
 
 ### 👥 Edit Band Members
 **File**: `public/data/members.json`
@@ -88,7 +92,8 @@ Tips:
   "dayOfWeek": "TUE",
   "time": "7:30 PM - 10:30 PM",
   "description": "April Fools funk explosion!",
-  "link": "https://gamh.com"
+  "link": "https://gamh.com",
+  "tickets": "https://www.eventbrite.com/e/sinister-dexter-tickets-123456"
 }
 ```
 5. Click "Commit changes..."

@@ -87,10 +87,16 @@ async function buildStaticSite() {
             <p class="text-gray-400 mb-2">${show.city || ''}</p>
             <p class="text-gray-300 mb-4">${show.time}</p>
             ${show.description ? `<p class="text-sm text-gray-400 mb-4">${show.description}</p>` : ''}
-            ${show.link ? 
-              `<a href="${show.link}" target="_blank" class="text-purple-400 hover:text-purple-300">Learn More →</a>` : 
-              ''
-            }
+            <div class="flex gap-4">
+              ${show.link ? 
+                `<a href="${show.link}" target="_blank" class="text-purple-400 hover:text-purple-300">Learn More →</a>` : 
+                ''
+              }
+              ${show.tickets ? 
+                `<a href="${show.tickets}" target="_blank" class="text-purple-400 hover:text-purple-300">Buy Tickets →</a>` : 
+                ''
+              }
+            </div>
           </div>`;
       });
     } else {
