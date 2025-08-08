@@ -306,41 +306,40 @@ async function buildStaticSite() {
     const newGalleryArray = `const galleryImages = ${JSON.stringify(galleryImagesForScript)};`;
     html = html.replace(scriptRegex, newGalleryArray);
     
-    // Generate band members HTML
-    let membersHtml = '';
-    membersData.sections.forEach(section => {
-      membersHtml += `
-        <div class="mb-12">
-          <h3 class="text-2xl font-bold text-purple-400 mb-6 text-center">${section.title}</h3>
-          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-${section.members.length <= 3 ? section.members.length : 4} gap-8 justify-items-center">
-            ${section.members.map(member => `
-              <div class="text-center">
-                <div class="mb-3 relative inline-block">
-                  <picture>
-                    <source srcset="images/members/${member.image}.webp" type="image/webp">
-                    <img src="images/members/${member.image}.jpg" 
-                         alt="${member.name}" 
-                         class="w-32 h-32 rounded-full mx-auto object-cover border-2 border-purple-500">
-                  </picture>
-                  ${member.founding ? `
-                  <div class="absolute top-0 right-0 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold border-2 border-white shadow-md cursor-help" title="Founding Member">
-                    <span>F</span>
-                  </div>` : ''}
-                </div>
-                <h4 class="font-bold text-lg">${member.name}</h4>
-                <p class="text-purple-400">${member.role}</p>
-                ${member.bio ? `<p class="text-sm text-gray-400 mt-2 max-w-xs mx-auto">${member.bio}</p>` : ''}
-              </div>
-            `).join('')}
+    // Generate band members HTML (flat structure)
+    const membersHtml = `
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        ${membersData.members.map(member => `
+          <div class="text-center">
+            <div class="mb-3 relative inline-block">
+              <picture>
+                <source srcset="images/members/${member.image}.webp" type="image/webp">
+                <img src="images/members/${member.image}.jpg" 
+                     alt="${member.name}" 
+                     class="w-32 h-32 rounded-full mx-auto object-cover border-2 border-purple-500">
+              </picture>
+              ${member.founding ? `
+              <div class="absolute top-0 right-0 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold border-2 border-white shadow-md cursor-help" title="Founding Member">
+                <span>F</span>
+              </div>` : ''}
+            </div>
+            <h4 class="font-bold text-white">${member.name}</h4>
+            <p class="text-purple-400 text-sm">${member.role}</p>
           </div>
-        </div>
-      `;
-    });
+        `).join('')}
+      </div>
+    `;
     
-    // Replace band members section - find the band members grid
-    const bandMembersRegex = /<!-- Band Members Grid -->.*?<\/div>\s*<\/div>\s*<\/div>/s;
-    const bandMembersReplacement = `<!-- Band Members Grid -->\n${membersHtml}`;
-    html = html.replace(bandMembersRegex, bandMembersReplacement);
+    // Replace band members section - find and replace the entire grid
+    // The grid starts with <!-- Band Members Grid --> and ends with the closing </div> of the grid
+    const bandMembersRegex = /<!-- Band Members Grid -->[\s\S]*?<\/div>[\s\n]*<\/div>(?=[\s\n]*<!-- Notable Venues -->)/s;
+    if (!bandMembersRegex.test(html)) {
+      // Fallback: try a simpler pattern
+      const simpleBandMembersRegex = /<!-- Band Members Grid -->[\s\S]*?(?=<!-- Notable Venues -->)/s;
+      html = html.replace(simpleBandMembersRegex, `<!-- Band Members Grid -->\n${membersHtml}\n                `);
+    } else {
+      html = html.replace(bandMembersRegex, `<!-- Band Members Grid -->\n${membersHtml}\n                </div>`);
+    }
     
     // Generate tracks JavaScript array
     const tracksArray = tracksData.tracks.map(track => ({
@@ -405,7 +404,7 @@ async function buildStaticSite() {
     console.log(`🎭 ${categorizedShows.upcoming.length} upcoming shows (auto-categorized)`);
     console.log(`📜 ${categorizedShows.past.length} past shows (auto-categorized)`);
     console.log(`🖼️  ${thumbnails.length} gallery images`);
-    console.log(`👥 ${membersData.sections.reduce((acc, s) => acc + s.members.length, 0)} band members`);
+    console.log(`👥 ${membersData.members.length} band members`);
     console.log(`🎵 ${tracksData.tracks.length} music tracks`);
     console.log(`📉 HTML minified: ${(originalSize / 1024).toFixed(1)}KB → ${(minifiedSize / 1024).toFixed(1)}KB (-${reduction}%)`);
     
