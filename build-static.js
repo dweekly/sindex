@@ -319,8 +319,11 @@ async function buildStaticSite() {
                      class="w-32 h-32 rounded-full mx-auto object-cover border-2 border-purple-500">
               </picture>
               ${member.founding ? `
-              <div class="absolute top-0 right-0 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold border-2 border-white shadow-md cursor-help" title="Founding Member">
-                <span>F</span>
+              <div class="absolute top-0 right-0 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold border-2 border-white shadow-md cursor-help group">
+                <span class="pointer-events-none">F</span>
+                <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 hidden group-hover:block bg-gray-900 text-white text-xs rounded px-2 py-1 whitespace-nowrap z-10 shadow-lg pointer-events-none">
+                  Founding member (25+ years)
+                </div>
               </div>` : ''}
             </div>
             <h4 class="font-bold text-white">${member.name}</h4>
