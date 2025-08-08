@@ -74,7 +74,8 @@
           "name": "Patrick Neschleba",
           "role": "Trombone",
           "image": "patrick",
-          "bio": "Funky trombone slides and powerful brass"
+          "bio": "Funky trombone slides and powerful brass",
+          "founding": true
         },
         {
           "name": "Adam Elman",
