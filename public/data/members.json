@@ -1,0 +1,76 @@
+{
+  "members": [
+    {
+      "name": "Rebecca Lipon",
+      "role": "Lead Vocals",
+      "image": "rebecca",
+      "bio": "Powerhouse vocalist bringing soul and energy to every performance"
+    },
+    {
+      "name": "Daniel Walling",
+      "role": "Bass",
+      "image": "walling",
+      "bio": "Laying down the funk foundation"
+    },
+    {
+      "name": "David Mitby",
+      "role": "Drums",
+      "image": "mitby",
+      "bio": "Keeping the groove tight and the beat unstoppable"
+    },
+    {
+      "name": "Matt Spitz",
+      "role": "Guitar",
+      "image": "spitz",
+      "bio": "Funk rhythm guitar master"
+    },
+    {
+      "name": "Jon Wagner",
+      "role": "Keys",
+      "image": "wagner",
+      "bio": "Hammond organ and electric piano wizardry",
+      "founding": true
+    },
+    {
+      "name": "Kevin Wooley",
+      "role": "Keys",
+      "image": "wooley",
+      "bio": "Synthesizers and keyboard grooves",
+      "founding": true
+    },
+    {
+      "name": "Don Hoffman",
+      "role": "Trumpet",
+      "image": "hoffman",
+      "bio": "Lead trumpet with screaming high notes",
+      "founding": true
+    },
+    {
+      "name": "Josh Schiller",
+      "role": "Trumpet",
+      "image": "schiller",
+      "bio": "Crisp trumpet lines and horn arrangements",
+      "founding": true
+    },
+    {
+      "name": "Patrick Neschleba",
+      "role": "Trombone",
+      "image": "patrick",
+      "bio": "Funky trombone slides and powerful brass",
+      "founding": true
+    },
+    {
+      "name": "Adam Elman",
+      "role": "Saxophone",
+      "image": "elman",
+      "bio": "Tenor sax bringing the soul",
+      "founding": true
+    },
+    {
+      "name": "Lori Karns",
+      "role": "Saxophone",
+      "image": "lori",
+      "bio": "Alto and baritone sax versatility"
+    }
+  ]
+}
