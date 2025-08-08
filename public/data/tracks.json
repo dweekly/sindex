@@ -1,0 +1,152 @@
+{
+  "tracks": [
+    {
+      "num": 1,
+      "title": "Broadband Connection",
+      "artist": "Sinister Dexter",
+      "duration": "3:01",
+      "filename": "Sinister_Dexter-01-Broadband_Connection.mp3"
+    },
+    {
+      "num": 2,
+      "title": "Freeman",
+      "artist": "Sinister Dexter",
+      "duration": "3:03",
+      "filename": "Sinister_Dexter-02-Freeman.mp3"
+    },
+    {
+      "num": 3,
+      "title": "Chasing the Clouds Away",
+      "artist": "Sinister Dexter",
+      "duration": "3:12",
+      "filename": "Sinister_Dexter-02-Chasing_the_Clouds_Away.mp3"
+    },
+    {
+      "num": 4,
+      "title": "Morenita",
+      "artist": "Sinister Dexter",
+      "duration": "3:26",
+      "filename": "Sinister_Dexter-03-Morenita.mp3"
+    },
+    {
+      "num": 5,
+      "title": "One-Eyed Jack",
+      "artist": "Sinister Dexter",
+      "duration": "4:15",
+      "filename": "Sinister_Dexter-03-One-Eyed_Jack.mp3"
+    },
+    {
+      "num": 6,
+      "title": "Are You Ready to Dance",
+      "artist": "Sinister Dexter",
+      "duration": "3:26",
+      "filename": "Sinister_Dexter-04-Are_You_Ready_to_Dance.mp3"
+    },
+    {
+      "num": 7,
+      "title": "Sinister Dexter",
+      "artist": "Sinister Dexter",
+      "duration": "3:26",
+      "filename": "Sinister_Dexter-04-Sinister_Dexter.mp3"
+    },
+    {
+      "num": 8,
+      "title": "Two Before Nine",
+      "artist": "Sinister Dexter",
+      "duration": "4:05",
+      "filename": "Sinister_Dexter-05-Two_Before_Nine.mp3"
+    },
+    {
+      "num": 9,
+      "title": "Can't Take My Eyes Off You",
+      "artist": "Sinister Dexter",
+      "duration": "4:42",
+      "filename": "Sinister_Dexter-06-Cant_Take_My_Eyes_Off_You.mp3"
+    },
+    {
+      "num": 10,
+      "title": "Jack in the Box",
+      "artist": "Sinister Dexter",
+      "duration": "2:35",
+      "filename": "Sinister_Dexter-09-Jack_in_the_Box.mp3"
+    },
+    {
+      "num": 11,
+      "title": "Him or Me",
+      "artist": "Sinister Dexter",
+      "duration": "4:49",
+      "filename": "Sinister_Dexter-10-Him_or_Me.mp3"
+    },
+    {
+      "num": 12,
+      "title": "Swim on Over",
+      "artist": "Sinister Dexter",
+      "duration": "4:08",
+      "filename": "Sinister_Dexter-11-Swim_on_Over.mp3"
+    },
+    {
+      "num": 13,
+      "title": "Better Left Unsaid",
+      "artist": "Sinister Dexter",
+      "duration": "4:25",
+      "filename": "Sinister_Dexter-12-Better_Left_Unsaid.mp3"
+    },
+    {
+      "num": 14,
+      "title": "Another Drink",
+      "artist": "Sinister Dexter",
+      "duration": "3:04",
+      "filename": "Sinister_Dexter-13-Another_Drink.mp3"
+    },
+    {
+      "num": 15,
+      "title": "Show Us How to Get Down (Live)",
+      "artist": "Sinister Dexter",
+      "duration": "5:53",
+      "filename": "Sinister_Dexter-01-Show_Us_How_to_Get_Down.mp3"
+    },
+    {
+      "num": 16,
+      "title": "Show Us How to Get Down (Studio)",
+      "artist": "Sinister Dexter",
+      "duration": "5:58",
+      "filename": "Sinister_Dexter-08-Show_Us_How_to_Get_Down.mp3"
+    },
+    {
+      "num": 17,
+      "title": "Show Us How to Get Down (Alt)",
+      "artist": "Sinister Dexter",
+      "duration": "6:30",
+      "filename": "Sinister_Dexter-Show_Us_How_to_Get_Down.mp3"
+    },
+    {
+      "num": 18,
+      "title": "Son of a Preacher Man",
+      "artist": "Sinister Dexter",
+      "duration": "3:03",
+      "filename": "Sinister_Dexter-Son_of_a_Preacher_Man.mp3"
+    },
+    {
+      "num": 19,
+      "title": "Dream Come True",
+      "artist": "Sinister Dexter",
+      "duration": "5:21",
+      "filename": "Sinister_Dexter-Dream_Come_True.mp3"
+    },
+    {
+      "num": 20,
+      "title": "What is Hip",
+      "artist": "Sinister Dexter",
+      "duration": "5:51",
+      "filename": "Sinister_Dexter-What_is_Hip.mp3"
+    },
+    {
+      "num": 21,
+      "title": "The Letter",
+      "artist": "Sinister Dexter",
+      "duration": "3:58",
+      "filename": "Sinister_Dexter-The_Letter.mp3"
+    }
+  ],
+  "cdnBaseUrl": "https://cdn.sinister-dexter.com/music/"
+}
