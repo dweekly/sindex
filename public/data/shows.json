@@ -1,4 +1,5 @@
 {
+  "comment": "Testing GitHub Actions FTP deployment",
   "upcomingShows": [
     {
       "date": "2025-08-20",
