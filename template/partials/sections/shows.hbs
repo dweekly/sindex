@@ -1,0 +1,257 @@
+<!-- ============================================= -->
+<!-- SHOWS SECTION                                -->
+<!-- Upcoming and past performance dates          -->
+<!-- ============================================= -->
+<section id="shows" aria-labelledby="shows-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30" 
+         itemscope itemtype="https://schema.org/EventSeries">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="shows-heading">Upcoming Shows</h2>
+        
+        <!-- ==================================== -->
+        <!-- UPCOMING SHOWS CONTAINER             -->
+        <!-- Dynamically populated with microdata -->
+        <!-- ==================================== -->
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" id="shows-container">
+            {{#if upcomingShows}}
+                {{#each upcomingShows}}
+                <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30{{#if this.featured}} ring-2 ring-purple-500{{/if}} hover:border-purple-400 transition-all"
+                     itemscope 
+                     itemtype="https://schema.org/MusicEvent"
+                     itemprop="event">
+                    
+                    <!-- Event ID -->
+                    <meta itemprop="@id" content="{{../site.url}}#event-{{this.id}}">
+                    
+                    <!-- Featured Badge -->
+                    {{#if this.featured}}
+                    <div class="text-xs text-purple-400 font-bold mb-2">FEATURED</div>
+                    {{/if}}
+                    
+                    <!-- Date and Time -->
+                    <div class="text-amber-500 font-bold mb-2">
+                        <time itemprop="startDate" datetime="{{this.date}}T{{this.startTime}}{{getTimezoneOffset this.timezone}}">
+                            {{this.dayOfWeek}}, {{formatDate this.date "MMM DD"}}
+                        </time>
+                    </div>
+                    
+                    <!-- Venue Information -->
+                    <div itemprop="location" itemscope itemtype="https://schema.org/Place">
+                        <h3 class="text-xl font-bold mb-2" itemprop="name">{{this.venue.name}}</h3>
+                        
+                        <!-- Address -->
+                        <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                            <p class="text-gray-400 mb-2">
+                                {{#if this.venue.address.streetAddress}}
+                                <span itemprop="streetAddress">{{this.venue.address.streetAddress}}</span><br>
+                                {{/if}}
+                                <span itemprop="addressLocality">{{this.venue.address.city}}</span>, 
+                                <span itemprop="addressRegion">{{this.venue.address.state}}</span>
+                                {{#if this.venue.address.postalCode}}
+                                <span itemprop="postalCode">{{this.venue.address.postalCode}}</span>
+                                {{/if}}
+                                <meta itemprop="addressCountry" content="{{this.venue.address.country}}">
+                            </p>
+                        </div>
+                        
+                        <!-- Geo Coordinates -->
+                        {{#if this.venue.geo}}
+                        <div itemprop="geo" itemscope itemtype="https://schema.org/GeoCoordinates" class="hidden">
+                            <meta itemprop="latitude" content="{{this.venue.geo.latitude}}">
+                            <meta itemprop="longitude" content="{{this.venue.geo.longitude}}">
+                        </div>
+                        {{/if}}
+                        
+                        <!-- Accessibility -->
+                        {{#if this.venue.accessibility.wheelchairAccessible}}
+                        <meta itemprop="isAccessibleForFree" content="true">
+                        {{/if}}
+                    </div>
+                    
+                    <!-- Time -->
+                    <p class="text-gray-300 mb-4">
+                        {{#if this.endTime}}
+                        <time datetime="{{this.date}}T{{this.startTime}}">{{formatTime this.startTime}}</time> - 
+                        <time itemprop="endDate" datetime="{{this.date}}T{{this.endTime}}">{{formatTime this.endTime}}</time>
+                        {{else}}
+                        {{this.time}}
+                        {{/if}}
+                    </p>
+                    
+                    <!-- Description -->
+                    {{#if this.description}}
+                    <p class="text-sm text-gray-400 mb-4" itemprop="description">{{this.description}}</p>
+                    {{/if}}
+                    
+                    <!-- Performer (hidden) -->
+                    <div itemprop="performer" itemscope itemtype="https://schema.org/MusicGroup" class="hidden">
+                        <meta itemprop="name" content="{{../site.title}}">
+                        <link itemprop="url" href="{{../site.url}}">
+                    </div>
+                    
+                    <!-- Ticketing Info -->
+                    {{#if this.ticketing}}
+                    <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                        <meta itemprop="price" content="{{extractPrice this.ticketing.admission}}">
+                        <meta itemprop="priceCurrency" content="USD">
+                        <meta itemprop="availability" content="https://schema.org/InStock">
+                        {{#if this.ticketing.ticketUrl}}
+                        <meta itemprop="url" content="{{this.ticketing.ticketUrl}}">
+                        {{/if}}
+                        
+                        <!-- Age Restriction -->
+                        {{#if this.ticketing.ageRestriction}}
+                        <p class="text-xs text-gray-500 mb-2">{{this.ticketing.ageRestriction}}</p>
+                        {{/if}}
+                    </div>
+                    {{/if}}
+                    
+                    <!-- Action Links -->
+                    <div class="flex gap-4">
+                        {{#if this.ticketing.link}}
+                        <a href="{{this.ticketing.link}}" 
+                           target="_blank" 
+                           class="text-purple-400 hover:text-purple-300"
+                           itemprop="url">
+                            Learn More →
+                        </a>
+                        {{/if}}
+                        {{#if this.ticketing.ticketUrl}}
+                        <a href="{{this.ticketing.ticketUrl}}" 
+                           target="_blank" 
+                           class="text-purple-400 hover:text-purple-300 font-bold">
+                            Buy Tickets →
+                        </a>
+                        {{/if}}
+                    </div>
+                    
+                    <!-- Special Notes -->
+                    {{#if this.specialNotes}}
+                    <p class="text-xs text-gray-500 mt-3 italic">{{this.specialNotes}}</p>
+                    {{/if}}
+                    
+                    <!-- Event Status (hidden) -->
+                    <meta itemprop="eventStatus" content="https://schema.org/EventScheduled">
+                    <meta itemprop="eventAttendanceMode" content="https://schema.org/OfflineEventAttendanceMode">
+                </div>
+                {{/each}}
+            {{else}}
+                <div class="col-span-full text-center text-gray-400">
+                    No upcoming shows at this time. Check back soon or join our mailing list for updates!
+                </div>
+            {{/if}}
+        </div>
+
+        <!-- ==================================== -->
+        <!-- PAST SHOWS SECTION                   -->
+        <!-- Historical performance archive        -->
+        <!-- ==================================== -->
+        <div class="mt-16">
+            <h3 class="bebas text-3xl text-center mb-8 text-purple-400">PAST SHOWS</h3>
+            <div id="past-shows-container" class="max-w-4xl mx-auto bg-gray-900/30 rounded-lg p-6">
+                {{#if pastShows}}
+                <div class="space-y-3">
+                    {{#each (limit pastShows 3)}}
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0"
+                         itemscope itemtype="https://schema.org/MusicEvent">
+                        <div class="flex-1">
+                            <time itemprop="startDate" datetime="{{this.date}}" class="text-amber-500 text-sm font-semibold">
+                                {{formatDate this.date "MMM DD, YYYY"}}
+                            </time>
+                            <span class="text-gray-400 mx-2">•</span>
+                            {{#if this.venue.link}}
+                            <a href="{{this.venue.link}}" 
+                               target="_blank" 
+                               class="text-gray-300 hover:text-purple-400 transition-colors"
+                               itemprop="url">
+                                <span itemprop="name">{{this.venue.name}}</span>
+                                <i class="fas fa-external-link-alt text-xs ml-1"></i>
+                            </a>
+                            {{else}}
+                            <span class="text-gray-300" itemprop="name">{{this.venue.name}}</span>
+                            {{/if}}
+                            <span class="text-gray-500 text-sm ml-2">
+                                <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+                                    <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                                        <span itemprop="addressLocality">{{this.venue.address.city}}</span>
+                                    </span>
+                                </span>
+                            </span>
+                            {{#if this.performanceNotes}}
+                            <span class="text-purple-400 text-sm ml-2">({{this.performanceNotes}})</span>
+                            {{/if}}
+                        </div>
+                        <div class="text-gray-500 text-sm mt-1 sm:mt-0">{{this.time}}</div>
+                    </div>
+                    {{/each}}
+                    
+                    {{#if (gt pastShows.length 3)}}
+                    <!-- Hidden shows -->
+                    <div id="hidden-past-shows" class="hidden space-y-3">
+                        {{#each (slice pastShows 3)}}
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0"
+                             itemscope itemtype="https://schema.org/MusicEvent">
+                            <div class="flex-1">
+                                <time itemprop="startDate" datetime="{{this.date}}" class="text-amber-500 text-sm font-semibold">
+                                    {{formatDate this.date "MMM DD, YYYY"}}
+                                </time>
+                                <span class="text-gray-400 mx-2">•</span>
+                                {{#if this.venue.link}}
+                                <a href="{{this.venue.link}}" 
+                                   target="_blank" 
+                                   class="text-gray-300 hover:text-purple-400 transition-colors"
+                                   itemprop="url">
+                                    <span itemprop="name">{{this.venue.name}}</span>
+                                    <i class="fas fa-external-link-alt text-xs ml-1"></i>
+                                </a>
+                                {{else}}
+                                <span class="text-gray-300" itemprop="name">{{this.venue.name}}</span>
+                                {{/if}}
+                                <span class="text-gray-500 text-sm ml-2">
+                                    <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+                                        <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                                            <span itemprop="addressLocality">{{this.venue.address.city}}</span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="text-gray-500 text-sm mt-1 sm:mt-0">{{this.time}}</div>
+                        </div>
+                        {{/each}}
+                    </div>
+                    
+                    <!-- Expand/Collapse button -->
+                    <button id="toggle-past-shows" 
+                            onclick="togglePastShows()" 
+                            class="mt-2 text-gray-600 hover:text-gray-500 transition-colors text-xs opacity-70 hover:opacity-100">
+                        <span id="toggle-text" class="text-[10px] uppercase tracking-wider">{{subtract pastShows.length 3}} more</span>
+                        <svg id="toggle-icon" class="inline-block w-2.5 h-2.5 ml-0.5 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                        </svg>
+                    </button>
+                    {{/if}}
+                </div>
+                {{else}}
+                <p class="text-gray-400 text-center">No past shows listed</p>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function togglePastShows() {
+    const hiddenShows = document.getElementById('hidden-past-shows');
+    const toggleText = document.getElementById('toggle-text');
+    const toggleIcon = document.getElementById('toggle-icon');
+    
+    if (hiddenShows.classList.contains('hidden')) {
+        hiddenShows.classList.remove('hidden');
+        toggleText.textContent = 'less';
+        toggleIcon.style.transform = 'rotate(180deg)';
+    } else {
+        hiddenShows.classList.add('hidden');
+        toggleText.textContent = '{{subtract pastShows.length 3}} more';
+        toggleIcon.style.transform = 'rotate(0deg)';
+    }
+}
+</script>

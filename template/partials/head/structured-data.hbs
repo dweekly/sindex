@@ -1,0 +1,194 @@
+<!-- ============================================= -->
+<!-- STRUCTURED DATA FOR SEO                      -->
+<!-- JSON-LD for search engines                   -->
+<!-- ============================================= -->
+
+<!-- Organization/Band Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "@id": "{{site.url}}#band",
+  "name": "{{site.title}}",
+  "url": "{{site.url}}",
+  "logo": "{{site.url}}/og-image.jpg",
+  "image": "{{site.url}}/images/large/sindex-full.jpg",
+  "description": "{{site.metaDescription}}",
+  "foundingDate": "{{band.foundingYear}}",
+  "foundingLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San Francisco",
+      "addressRegion": "CA",
+      "addressCountry": "US"
+    }
+  },
+  "genre": [{{#each band.genres}}"{{this}}"{{#unless @last}},{{/unless}}{{/each}}],
+  "member": [
+    {{#each members}}
+    {
+      "@type": "OrganizationRole",
+      "member": {
+        "@type": "Person",
+        "@id": "{{../site.url}}#{{this.id}}",
+        "name": "{{this.name}}",
+        "description": "{{this.bio}}",
+        "image": "{{../site.url}}/images/members/{{this.image}}.jpg",
+        "jobTitle": "{{this.role}}",
+        {{#if this.socialLinks.website}}"url": "{{this.socialLinks.website}}",{{/if}}
+        "sameAs": [
+          {{#if this.socialLinks.instagram}}"https://instagram.com/{{this.socialLinks.instagram}}",{{/if}}
+          {{#if this.socialLinks.facebook}}"https://facebook.com/{{this.socialLinks.facebook}}",{{/if}}
+          {{#if this.socialLinks.linkedin}}"https://linkedin.com/in/{{this.socialLinks.linkedin}}"{{/if}}
+        ].filter(Boolean)
+      },
+      "roleName": "{{this.role}}",
+      {{#if this.founding}}"startDate": "{{../band.foundingYear}}",{{else if this.yearsWithBand}}"startDate": "{{getStartYear this.yearsWithBand}}",{{/if}}
+      "memberOf": {
+        "@id": "{{../site.url}}#band"
+      }
+    }{{#unless @last}},{{/unless}}
+    {{/each}}
+  ],
+  "sameAs": [
+    "https://www.instagram.com/{{site.social.instagram}}",
+    "https://x.com/{{site.social.twitter}}",
+    "https://www.facebook.com/{{site.social.facebook}}",
+    "https://www.youtube.com/@{{site.social.youtube}}",
+    "https://open.spotify.com/artist/{{site.social.spotifyId}}",
+    "https://music.apple.com/us/artist/sinister-dexter/{{site.social.appleMusicId}}"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Booking",
+    "email": "{{site.bookingEmail}}"
+  }
+}
+</script>
+
+<!-- Upcoming Events Schema -->
+{{#if upcomingShows}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Upcoming Sinister Dexter Shows",
+  "numberOfItems": {{upcomingShows.length}},
+  "itemListElement": [
+    {{#each upcomingShows}}
+    {
+      "@type": "ListItem",
+      "position": {{math @index "+" 1}},
+      "item": {
+        "@type": "MusicEvent",
+        "@id": "{{../site.url}}#event-{{this.id}}",
+        "name": "{{../site.title}} at {{this.venue.name}}",
+        "description": "{{this.description}}",
+        "startDate": "{{this.date}}T{{this.startTime}}{{#if this.timezone}}-08:00{{/if}}",
+        {{#if this.endTime}}"endDate": "{{this.date}}T{{this.endTime}}-08:00",{{/if}}
+        "location": {
+          "@type": "Place",
+          "name": "{{this.venue.name}}",
+          "address": {
+            "@type": "PostalAddress",
+            {{#if this.venue.address.streetAddress}}"streetAddress": "{{this.venue.address.streetAddress}}",{{/if}}
+            "addressLocality": "{{this.venue.address.city}}",
+            "addressRegion": "{{this.venue.address.state}}",
+            {{#if this.venue.address.postalCode}}"postalCode": "{{this.venue.address.postalCode}}",{{/if}}
+            "addressCountry": "{{this.venue.address.country}}"
+          }{{#if this.venue.geo}},
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": {{this.venue.geo.latitude}},
+            "longitude": {{this.venue.geo.longitude}}
+          }{{/if}}
+        },
+        "performer": {
+          "@type": "MusicGroup",
+          "@id": "{{../site.url}}#band"
+        },
+        {{#if this.ticketing.ticketUrl}}
+        "offers": {
+          "@type": "Offer",
+          "url": "{{this.ticketing.ticketUrl}}",
+          "price": "{{extractPrice this.ticketing.admission}}",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        {{/if}}
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        {{#if this.venue.accessibility.wheelchairAccessible}}"isAccessibleForFree": true,{{/if}}
+        "url": "{{#if this.ticketing.link}}{{this.ticketing.link}}{{else}}{{../site.url}}#shows{{/if}}"
+      }
+    }{{#unless @last}},{{/unless}}
+    {{/each}}
+  ]
+}
+</script>
+{{/if}}
+
+<!-- Videos Schema -->
+{{#if videos}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Sinister Dexter Performance Videos",
+  "numberOfItems": {{videos.length}},
+  "itemListElement": [
+    {{#each videos}}
+    {
+      "@type": "ListItem",
+      "position": {{math @index "+" 1}},
+      "item": {
+        "@type": "VideoObject",
+        "name": "{{this.title}}",
+        "description": "{{this.description}}",
+        "thumbnailUrl": "{{this.thumbnail}}",
+        "uploadDate": "{{this.uploadDate}}",
+        "contentUrl": "{{this.url}}",
+        "embedUrl": "{{this.embedUrl}}",
+        "duration": "{{this.duration}}"
+      }
+    }{{#unless @last}},{{/unless}}
+    {{/each}}
+  ]
+}
+</script>
+{{/if}}
+
+<!-- BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{site.url}}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Shows",
+      "item": "{{site.url}}#shows"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Music",
+      "item": "{{site.url}}#music-library"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "About",
+      "item": "{{site.url}}#about"
+    }
+  ]
+}
+</script>

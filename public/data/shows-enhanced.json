@@ -1,0 +1,171 @@
+{
+  "upcomingShows": [
+    {
+      "id": "2025-08-20-redwood-city",
+      "date": "2025-08-20",
+      "dayOfWeek": "WED",
+      "startTime": "17:00:00",
+      "endTime": "19:00:00",
+      "timezone": "America/Los_Angeles",
+      "venue": {
+        "name": "Redwood City Music in the Park - Stafford Park",
+        "address": {
+          "streetAddress": "Corner of King St. & Hopkins Ave",
+          "city": "Redwood City",
+          "state": "CA",
+          "postalCode": "94061",
+          "country": "US"
+        },
+        "geo": {
+          "latitude": 37.4848,
+          "longitude": -122.2281
+        },
+        "capacity": 2000,
+        "type": "Outdoor Park",
+        "accessibility": {
+          "wheelchairAccessible": true,
+          "parkingAvailable": true,
+          "publicTransit": "Caltrain Redwood City Station (0.5 miles)"
+        }
+      },
+      "ticketing": {
+        "admission": "Free",
+        "link": "https://www.redwoodcity.org/residents/redwood-city-events/music/music-in-the-park",
+        "ageRestriction": "All Ages"
+      },
+      "featured": true,
+      "description": "Free summer concert series at the corner of King St. & Hopkins Ave. Kid friendly!",
+      "tags": ["outdoor", "free", "family-friendly", "summer-series"],
+      "setDuration": "2 hours",
+      "supportingActs": [],
+      "specialNotes": "Bring blankets and chairs. Food trucks on site."
+    },
+    {
+      "id": "2025-09-11-valencia-live",
+      "date": "2025-09-11",
+      "dayOfWeek": "THU",
+      "startTime": "17:00:00",
+      "endTime": "20:00:00",
+      "timezone": "America/Los_Angeles",
+      "venue": {
+        "name": "Valencia LIVE! at Blondie's Bar",
+        "address": {
+          "streetAddress": "540 Valencia St",
+          "city": "San Francisco",
+          "state": "CA",
+          "postalCode": "94110",
+          "country": "US"
+        },
+        "geo": {
+          "latitude": 37.7644,
+          "longitude": -122.4217
+        },
+        "capacity": 500,
+        "type": "Street Festival/Bar",
+        "accessibility": {
+          "wheelchairAccessible": true,
+          "parkingAvailable": false,
+          "publicTransit": "16th St Mission BART (0.2 miles)"
+        }
+      },
+      "ticketing": {
+        "admission": "Free",
+        "link": "https://blondiesbarsf.com/",
+        "ageRestriction": "21+ inside venue, All ages outside"
+      },
+      "featured": true,
+      "description": "Big night market on Valencia St with food, drink, entertainment, and FUNK!",
+      "tags": ["street-festival", "nightlife", "mission-district"],
+      "setDuration": "3 hours",
+      "supportingActs": ["Local DJs"],
+      "specialNotes": "Part of Valencia Street monthly night market"
+    },
+    {
+      "id": "2025-11-14-club-fox",
+      "date": "2025-11-14",
+      "dayOfWeek": "FRI",
+      "startTime": "18:00:00",
+      "endTime": "22:00:00",
+      "timezone": "America/Los_Angeles",
+      "venue": {
+        "name": "Club Fox",
+        "address": {
+          "streetAddress": "2209 Broadway",
+          "city": "Redwood City",
+          "state": "CA",
+          "postalCode": "94063",
+          "country": "US"
+        },
+        "geo": {
+          "latitude": 37.4866,
+          "longitude": -122.2284
+        },
+        "capacity": 300,
+        "type": "Live Music Venue",
+        "accessibility": {
+          "wheelchairAccessible": true,
+          "parkingAvailable": true,
+          "publicTransit": "Caltrain Redwood City Station (0.3 miles)"
+        }
+      },
+      "ticketing": {
+        "admission": "$25 advance / $30 door",
+        "link": "https://clubfoxrwc.com/",
+        "ticketUrl": "https://www.eventbrite.com/e/sinister-dexter-funk-soul-horns-tickets-1568339939979?aff=ebdssbdestsearch",
+        "ageRestriction": "21+"
+      },
+      "featured": false,
+      "description": "Friday night funk at the legendary Club Fox venue",
+      "tags": ["ticketed", "intimate-venue", "21-plus"],
+      "setDuration": "2 sets",
+      "supportingActs": [],
+      "specialNotes": "Full bar and food menu available"
+    }
+  ],
+  "pastShows": [
+    {
+      "id": "2024-09-29-fiesta-on-hill",
+      "date": "2024-09-29",
+      "venue": {
+        "name": "Fiesta on the Hill",
+        "address": {
+          "city": "Bernal Heights, San Francisco",
+          "state": "CA"
+        }
+      },
+      "time": "2:00 PM - 4:00 PM",
+      "link": "https://bernalfiesta.com/",
+      "performanceNotes": "Great crowd energy, perfect weather",
+      "attendance": 1500
+    },
+    {
+      "id": "2024-06-27-los-altos",
+      "date": "2024-06-27",
+      "venue": {
+        "name": "Los Altos Summer Concert Series",
+        "address": {
+          "streetAddress": "Grant Park",
+          "city": "Los Altos",
+          "state": "CA"
+        }
+      },
+      "time": "6:00 PM - 8:00 PM",
+      "performanceNotes": "Opening night of summer series",
+      "attendance": 800
+    }
+  ],
+  "recurringVenues": [
+    {
+      "id": "club-fox",
+      "name": "Club Fox",
+      "frequency": "3-4 times per year",
+      "relationship": "Regular headliner"
+    },
+    {
+      "id": "redwood-city-mitp",
+      "name": "Redwood City Music in the Park",
+      "frequency": "Annual summer performance",
+      "relationship": "Featured artist"
+    }
+  ]
+}

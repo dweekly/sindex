@@ -28,6 +28,7 @@
     "@cloudflare/kv-asset-handler": "^0.3.0",
     "chokidar": "^3.6.0",
     "glob": "^10.3.10",
+    "handlebars": "^4.7.8",
     "sharp": "^0.33.2"
   },
   "devDependencies": {
