@@ -47,8 +47,47 @@ deploy_production() {
 deploy_ftp() {
     echo ""
     echo "📡 Deploying to FTP server..."
-    echo "⚠️  FTP deployment not yet configured"
-    echo "   To set up: Add FTP credentials and lftp commands"
+    
+    # Load environment variables if .env exists
+    if [ -f .env ]; then
+        export $(grep -v '^#' .env | xargs)
+    else
+        echo "❌ Error: .env file not found"
+        echo "   Please create .env with FTP_HOST, FTP_USER, FTP_PASS, and FTP_REMOTE_DIR"
+        exit 1
+    fi
+    
+    # Check if required variables are set
+    if [ -z "$FTP_HOST" ] || [ -z "$FTP_USER" ] || [ -z "$FTP_PASS" ] || [ -z "$FTP_REMOTE_DIR" ]; then
+        echo "❌ Error: Missing FTP credentials in .env"
+        echo "   Required: FTP_HOST, FTP_USER, FTP_PASS, FTP_REMOTE_DIR"
+        exit 1
+    fi
+    
+    echo "   Host: $FTP_HOST"
+    echo "   Remote dir: $FTP_REMOTE_DIR"
+    echo ""
+    
+    # Use lftp to sync the public directory to FTP
+    echo "🔄 Syncing files..."
+    lftp -c "
+        set ssl:verify-certificate no
+        open -u $FTP_USER,$FTP_PASS $FTP_HOST
+        mirror --reverse --delete --verbose \
+               --exclude .DS_Store \
+               --exclude .git/ \
+               --exclude node_modules/ \
+               public/ $FTP_REMOTE_DIR
+        bye
+    "
+    
+    if [ $? -eq 0 ]; then
+        echo "✅ FTP deployment complete!"
+        echo "   Files uploaded to: $FTP_HOST/$FTP_REMOTE_DIR"
+    else
+        echo "❌ FTP deployment failed"
+        exit 1
+    fi
 }
 
 # Main deployment logic
