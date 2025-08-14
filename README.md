@@ -82,6 +82,11 @@ npm run serve          # Start local server
 ### Optimization & Enhancement
 - `npm run sitemap` - Generate sitemap.xml and sitemap.txt
 
+### Testing & Quality Assurance
+- `npm run test` - Run comprehensive site testing (HTML, SEO, accessibility, performance)
+- `npm run test:quick` - Run quick regex-based tests
+- `npm run build:test` - Build and test the site
+
 ### Development
 - `npm run serve` - Start local Python HTTP server on port 8000
 - `npm run dev` - Build everything and start local server
@@ -168,6 +173,51 @@ Update URLs in the Connect section as new profiles are created.
 - [ ] Add Google Analytics or similar
 - [ ] Set up custom domain
 - [ ] Design and add merchandise when available
+
+## Site Testing
+
+The project includes comprehensive testing tools to validate HTML, accessibility, SEO, and performance before deployment.
+
+### Quick Test
+```bash
+npm run test
+```
+
+This runs the advanced testing suite that checks:
+- **HTML Validation**: DOCTYPE, meta tags, canonical URLs, structured data
+- **Accessibility**: ARIA labels, landmarks, alt text, keyboard navigation
+- **SEO**: Robots meta, sitemap, heading structure, HTTPS resources
+- **Performance**: File size, minification, resource hints, modern formats
+- **Security**: Unique IDs, valid links, security practices
+
+### Test Results
+The test suite provides:
+- ✅ Detailed pass/fail for each check
+- 📊 Category scores (percentage passed)
+- 🏆 Overall site quality score
+- 💡 Recommendations for improvements
+
+### External Testing Tools
+For even more comprehensive testing, install these optional tools:
+
+```bash
+# W3C HTML Validator
+npm install -g html-validator-cli
+html-validator public/index.html
+
+# Accessibility Testing
+npm install -g pa11y
+pa11y public/index.html
+
+# Google Lighthouse
+npm install -g @lhci/cli
+lhci autorun
+```
+
+### Online Testing
+- [Google PageSpeed Insights](https://pagespeed.web.dev/)
+- [WAVE Accessibility](https://wave.webaim.org/)
+- [Schema.org Validator](https://validator.schema.org/)
 
 ## Deployment
 
