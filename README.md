@@ -221,19 +221,46 @@ lhci autorun
 
 ## Deployment
 
-The site is configured for **Cloudflare Pages** deployment:
+The site supports multiple deployment methods:
 
-### Quick Deploy
-```bash
-# One-time setup
-npm install -g wrangler
-wrangler login
+### Automated GitHub Actions Deployment
 
-# Deploy
-./deploy-manual.sh
+The site automatically deploys to FTP when pull requests are merged to the `main` branch.
+
+#### Required GitHub Secrets
+
+Go to your repository Settings → Secrets and variables → Actions, and add:
+
+```
+FTP_HOST=server298.com
+FTP_USER=your_ftp_username
+FTP_PASSWORD=your_ftp_password
+FTP_REMOTE_DIR=www/www-2025
 ```
 
-Your site will be live at: `https://sinister-dexter.pages.dev`
+When a PR is merged, the workflow will:
+1. Build and test the site
+2. Deploy to FTP
+3. Comment on the PR with deployment status
+
+### Manual Deployment
+
+#### Cloudflare Pages
+```bash
+# Deploy to staging
+./deploy.sh staging
+
+# Deploy to production
+./deploy.sh prod
+```
+
+#### FTP Deployment
+```bash
+# Deploy to FTP (uses .env file)
+./deploy.sh ftp
+```
+
+Your site will be live at: `https://sinisterdexter.net`
 
 See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions including:
 - GitHub auto-deployment setup
