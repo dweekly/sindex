@@ -63,6 +63,54 @@ npm run serve          # Start local server
 # The site is now fully static - just open public/index.html in any browser!
 ```
 
+## Available Scripts
+
+### Core Build Scripts
+- `npm run build:html` - Generate static HTML from templates and data files (creates both index.html and index.php)
+- `npm run build:css` - Build and minify Tailwind CSS
+- `npm run build:images` - Convert HEIC files and process all images
+- `npm run build` - Run full build pipeline (images, CSS, HTML, optimization, accessibility, sitemap)
+
+### Image Processing
+- `npm run process-images` - Process images with smart caching (only new/changed files)
+- `npm run process-images:force` - Force reprocess all images
+- `npm run watch-images` - Auto-process images on file changes
+- `npm run convert-heic` - Convert HEIC files to JPG (macOS only)
+- `node process-favicon.js` - Generate all favicon sizes from favicon-source.png
+- `node process-member-photos.js` - Process band member photos specifically
+
+### Optimization & Enhancement
+- `npm run sitemap` - Generate sitemap.xml and sitemap.txt
+
+### Testing & Quality Assurance
+- `npm run test` - Run comprehensive site testing (HTML, SEO, accessibility, performance)
+- `npm run test:quick` - Run quick regex-based tests
+- `npm run build:test` - Build and test the site
+
+### Development
+- `npm run serve` - Start local Python HTTP server on port 8000
+- `npm run dev` - Build everything and start local server
+- `npm run preview` - Preview with Wrangler (Cloudflare)
+- `npm run worker:dev` - Run Cloudflare Worker locally
+
+### Deployment
+- `./deploy.sh staging` - Deploy to Cloudflare Pages staging
+- `./deploy.sh prod` - Deploy to Cloudflare Pages production
+- `./deploy.sh ftp` - Deploy to FTP server (uses .env credentials)
+- `npm run deploy` - Deploy with Wrangler
+- `npm run deploy:staging` - Deploy to staging with Wrangler
+
+### Utility Scripts
+- `npm run clean` - Remove processed images and cache
+- `./convert-heic.sh` - Shell script for HEIC conversion
+
+### Standalone JavaScript Tools
+- `build-static.js` - Main static site generator
+- `process-images.js` - Image processing pipeline
+- `process-favicon.js` - Favicon generator
+- `process-member-photos.js` - Band member photo processor
+- `generate-sitemap.js` - Sitemap generator
+
 ## Weekly Updates (Automated)
 
 Set up a cron job to automatically rebuild the site weekly:
@@ -125,6 +173,51 @@ Update URLs in the Connect section as new profiles are created.
 - [ ] Add Google Analytics or similar
 - [ ] Set up custom domain
 - [ ] Design and add merchandise when available
+
+## Site Testing
+
+The project includes comprehensive testing tools to validate HTML, accessibility, SEO, and performance before deployment.
+
+### Quick Test
+```bash
+npm run test
+```
+
+This runs the advanced testing suite that checks:
+- **HTML Validation**: DOCTYPE, meta tags, canonical URLs, structured data
+- **Accessibility**: ARIA labels, landmarks, alt text, keyboard navigation
+- **SEO**: Robots meta, sitemap, heading structure, HTTPS resources
+- **Performance**: File size, minification, resource hints, modern formats
+- **Security**: Unique IDs, valid links, security practices
+
+### Test Results
+The test suite provides:
+- ✅ Detailed pass/fail for each check
+- 📊 Category scores (percentage passed)
+- 🏆 Overall site quality score
+- 💡 Recommendations for improvements
+
+### External Testing Tools
+For even more comprehensive testing, install these optional tools:
+
+```bash
+# W3C HTML Validator
+npm install -g html-validator-cli
+html-validator public/index.html
+
+# Accessibility Testing
+npm install -g pa11y
+pa11y public/index.html
+
+# Google Lighthouse
+npm install -g @lhci/cli
+lhci autorun
+```
+
+### Online Testing
+- [Google PageSpeed Insights](https://pagespeed.web.dev/)
+- [WAVE Accessibility](https://wave.webaim.org/)
+- [Schema.org Validator](https://validator.schema.org/)
 
 ## Deployment
 

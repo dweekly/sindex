@@ -333,7 +333,7 @@ async function buildStaticSite() {
               </div>` : ''}
             </div>
             <h4 class="font-bold text-white">${member.name}</h4>
-            <p class="text-purple-400 text-sm">${member.role}</p>
+            <p class="text-purple-400 text-sm">${member.emoji || ''} ${member.role}</p>
           </div>
         `).join('')}
       </div>
@@ -399,9 +399,14 @@ async function buildStaticSite() {
       processConditionalComments: true
     });
     
-    // Write the minified HTML file
-    const outputPath = path.join(__dirname, 'public', 'index.html');
-    await fs.writeFile(outputPath, minifiedHtml);
+    // Write the minified HTML to both index.html and index.php
+    const htmlPath = path.join(__dirname, 'public', 'index.html');
+    const phpPath = path.join(__dirname, 'public', 'index.php');
+    
+    await Promise.all([
+      fs.writeFile(htmlPath, minifiedHtml),
+      fs.writeFile(phpPath, minifiedHtml)
+    ]);
     
     // Calculate size reduction
     const originalSize = Buffer.byteLength(html, 'utf8');
@@ -409,7 +414,8 @@ async function buildStaticSite() {
     const reduction = ((originalSize - minifiedSize) / originalSize * 100).toFixed(1);
     
     console.log('✅ Static HTML generated successfully!');
-    console.log(`📄 Output: ${outputPath}`);
+    console.log(`📄 Output: ${htmlPath}`);
+    console.log(`📄 Output: ${phpPath}`);
     console.log(`🎭 ${categorizedShows.upcoming.length} upcoming shows (auto-categorized)`);
     console.log(`📜 ${categorizedShows.past.length} past shows (auto-categorized)`);
     console.log(`🖼️  ${thumbnails.length} gallery images`);

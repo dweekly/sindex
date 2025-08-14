@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NJQVBL6T');</script>
+    <!-- End Google Tag Manager -->
+    
     <!-- ============================================= -->
     <!-- METADATA & CHARACTER ENCODING                -->
     <!-- ============================================= -->
@@ -86,7 +94,7 @@
     <meta property="og:description" content="11-piece soul machine bringing high-energy funk to the Bay Area">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sinisterdexter.net">
-    <meta property="og:image" content="https://main.sinister-dexter.pages.dev/og-image.jpg">
+    <meta property="og:image" content="https://sinisterdexter.net/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
@@ -98,7 +106,7 @@
     <meta name="twitter:site" content="@sindexband">
     <meta name="twitter:title" content="Sinister Dexter - The Right to Be Funky">
     <meta name="twitter:description" content="11-piece soul machine bringing high-energy funk to the Bay Area">
-    <meta name="twitter:image" content="https://main.sinister-dexter.pages.dev/twitter-card.jpg">
+    <meta name="twitter:image" content="https://sinisterdexter.net/twitter-card.jpg">
     
     <!-- ============================================= -->
     <!-- FAVICON CONFIGURATION                        -->
@@ -138,6 +146,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.sinister-dexter.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
     <!-- ============================================= -->
     <!-- PRELOADING                                   -->
@@ -287,10 +297,10 @@
       "description": "11-piece soul machine bringing the unique sound of great funk horn bands to the San Francisco Bay Area",
       "url": "https://sinisterdexter.net",
       "image": [
-        "https://main.sinister-dexter.pages.dev/images/large/sindex-full.jpg",
-        "https://main.sinister-dexter.pages.dev/images/large/sindex1.jpg"
+        "https://sinisterdexter.net/images/large/sindex-full.jpg",
+        "https://sinisterdexter.net/images/large/sindex1.jpg"
       ],
-      "logo": "https://main.sinister-dexter.pages.dev/favicon-512x512.png",
+      "logo": "https://sinisterdexter.net/favicon-512x512.png",
       "genre": ["Funk", "Soul", "R&B", "Jazz-Funk"],
       "foundingDate": "1999",
       "foundingLocation": {
@@ -454,6 +464,10 @@
 </head>
 
 <body class="bg-black text-white font-sans">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJQVBL6T"
+    height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     
     <!-- ============================================= -->
     <!-- ACCESSIBILITY: SKIP NAVIGATION               -->
@@ -471,7 +485,7 @@
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             
             <!-- Logo/Brand -->
-            <a href="#" class="bebas text-3xl gradient-text">SINISTER DEXTER</a>
+            <a href="#hero" class="bebas text-3xl gradient-text">SINISTER DEXTER</a>
             
             <!-- Desktop Navigation Links -->
             <div class="hidden md:flex space-x-8">
@@ -822,7 +836,7 @@
                 
                 <!-- License Info -->
                 <div class="mt-6 text-center text-sm text-gray-400">
-                    <p>All original songs licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank" class="text-purple-400 hover:text-purple-300">Creative Commons BY-NC-SA 2.0</a></p>
+                    <p>All original songs licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank" class="text-purple-400 hover:text-purple-300">Creative Commons BY-NC-SA 2.0</a></p>
                 </div>
             </div>
         </section>
@@ -1869,7 +1883,7 @@
         <div class="container mx-auto px-3 md:px-4 py-3 md:py-4">
             <div class="flex items-center gap-2 md:gap-3">
                 <!-- Play/Pause Button -->
-                <button id="play-pause-btn" class="p-3 md:p-4 bg-gradient-to-r from-purple-600 to-purple-800 rounded-full hover:from-purple-700 hover:to-purple-900 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                <button id="play-pause-btn" aria-label="Play or pause music" class="p-3 md:p-4 bg-gradient-to-r from-purple-600 to-purple-800 rounded-full hover:from-purple-700 hover:to-purple-900 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
                     <svg id="play-icon" class="w-6 h-6 md:w-8 md:h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
                     </svg>
@@ -1879,14 +1893,14 @@
                 </button>
                 
                 <!-- Previous Button -->
-                <button id="prev-btn" class="p-2 text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">
+                <button id="prev-btn" aria-label="Previous track" class="p-2 text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M8.445 14.832A1 1 0 0010 14v-2.798l5.445 3.63A1 1 0 0017 14V6a1 1 0 00-1.555-.832L10 8.798V6a1 1 0 00-1.555-.832l-6 4a1 1 0 000 1.664l6 4z"/>
                     </svg>
                 </button>
                 
                 <!-- Next Button -->
-                <button id="next-btn" class="p-2 text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">
+                <button id="next-btn" aria-label="Next track" class="p-2 text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M4.555 5.168A1 1 0 003 6v8a1 1 0 001.555.832L10 11.202V14a1 1 0 001.555.832l6-4a1 1 0 000-1.664l-6-4A1 1 0 0010 6v2.798l-5.445-3.63z"/>
                     </svg>
