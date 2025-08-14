@@ -25,7 +25,7 @@ The repository includes a GitHub Actions workflow:
 | `FTP_HOST` | `server298.com` | Your FTP server hostname |
 | `FTP_USER` | `dew_ftp` | Your FTP username |
 | `FTP_PASSWORD` | `[your password]` | Your FTP password |
-| `FTP_REMOTE_DIR` | `www/www-2025` | Remote directory path |
+| `FTP_REMOTE_DIR` | `/www/www-2025/` | Remote directory path (must end with /) |
 
 ### Step 2: Test the Workflow
 
