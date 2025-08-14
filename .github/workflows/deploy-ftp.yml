@@ -1,0 +1,104 @@
+name: Deploy to FTP on PR Merge
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+
+jobs:
+  deploy-ftp:
+    # Only run when PR is actually merged (not just closed)
+    if: github.event.pull_request.merged == true
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Build site
+        run: |
+          echo "🏗️ Building static site..."
+          npm run build:html
+          
+      - name: Run tests
+        run: |
+          echo "🧪 Running quality tests..."
+          npm run test
+          
+      - name: Deploy to FTP
+        id: ftp-deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./public/
+          server-dir: ${{ secrets.FTP_REMOTE_DIR }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.DS_Store
+            
+      - name: Comment PR with deployment status - Success
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const prTitle = context.payload.pull_request.title;
+            const mergedBy = context.payload.pull_request.merged_by.login;
+            const sha = context.payload.pull_request.merge_commit_sha.substring(0, 7);
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body: `## ✅ FTP Deployment Successful!\n\n` +
+                    `**PR #${prNumber}:** ${prTitle}\n` +
+                    `**Merged by:** @${mergedBy}\n` +
+                    `**Commit:** \`${sha}\`\n\n` +
+                    `### Deployment Details\n` +
+                    `- **Server:** \`${{ secrets.FTP_HOST }}\`\n` +
+                    `- **Directory:** \`${{ secrets.FTP_REMOTE_DIR }}\`\n` +
+                    `- **Time:** ${new Date().toUTCString()}\n\n` +
+                    `🌐 **Live Site:** https://sinisterdexter.net/\n\n` +
+                    `All tests passed and the site has been successfully deployed to production.`
+            });
+            
+      - name: Comment PR with deployment status - Failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const prTitle = context.payload.pull_request.title;
+            const sha = context.payload.pull_request.merge_commit_sha.substring(0, 7);
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body: `## ❌ FTP Deployment Failed\n\n` +
+                    `**PR #${prNumber}:** ${prTitle}\n` +
+                    `**Commit:** \`${sha}\`\n\n` +
+                    `### Error Details\n` +
+                    `The deployment to FTP failed. Please check the [GitHub Actions logs](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}) for details.\n\n` +
+                    `**Common issues:**\n` +
+                    `- FTP credentials may be incorrect\n` +
+                    `- Server may be unreachable\n` +
+                    `- Build or test failures\n\n` +
+                    `Please investigate and create a new PR with fixes if needed.`
+            });
