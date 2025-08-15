@@ -47,7 +47,7 @@ async function checkDependency(command, packageName, installCmd) {
 async function validateHTML() {
   logSection('HTML VALIDATION');
   
-  const htmlPath = path.join(__dirname, 'public', 'index.html');
+  const htmlPath = path.join(__dirname, '..', 'public', 'index.html');
   
   // Check for common HTML issues
   try {
@@ -137,7 +137,7 @@ async function validateHTML() {
 async function testAccessibility() {
   logSection('ACCESSIBILITY TESTING');
   
-  const htmlPath = path.join(__dirname, 'public', 'index.html');
+  const htmlPath = path.join(__dirname, '..', 'public', 'index.html');
   
   try {
     const html = await fs.readFile(htmlPath, 'utf8');
@@ -248,7 +248,7 @@ async function testAccessibility() {
 async function testSEO() {
   logSection('SEO TESTING');
   
-  const htmlPath = path.join(__dirname, 'public', 'index.html');
+  const htmlPath = path.join(__dirname, '..', 'public', 'index.html');
   
   try {
     const html = await fs.readFile(htmlPath, 'utf8');
@@ -359,7 +359,7 @@ async function testSEO() {
 async function testPerformance() {
   logSection('PERFORMANCE TESTING');
   
-  const htmlPath = path.join(__dirname, 'public', 'index.html');
+  const htmlPath = path.join(__dirname, '..', 'public', 'index.html');
   
   try {
     const html = await fs.readFile(htmlPath, 'utf8');
@@ -488,11 +488,11 @@ async function runTests() {
   console.log('='.repeat(60));
   
   // Check if HTML file exists
-  const htmlPath = path.join(__dirname, 'public', 'index.html');
+  const htmlPath = path.join(__dirname, '..', 'public', 'index.html');
   try {
     await fs.access(htmlPath);
   } catch {
-    log('❌ Error: public/index.html not found. Run npm run build:html first.', 'red');
+    log('❌ Error: ../public/index.html not found. Run npm run build:html first.', 'red');
     process.exit(1);
   }
   

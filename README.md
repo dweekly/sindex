@@ -24,25 +24,48 @@ A modern, minimalist website for the San Francisco Bay Area funk & soul band Sin
 - Font Awesome icons
 - Google Fonts (Bebas Neue & Inter)
 
-## File Structure
+## Project Structure
 
 ```
 /sindex
-├── photos/             # Drop original images here (JPG, HEIC, PNG)
-├── public/             # All static website files
-│   ├── index.html      # Main website
-│   ├── data/
-│   │   └── shows.json  # Show data
-│   └── images/         # Auto-generated image sizes
-│       ├── thumbnail/  # 400x400
-│       ├── small/      # 640x480
-│       ├── medium/     # 1024x768
-│       ├── large/      # 1920x1080
-│       ├── original/   # 2560x1440
-│       └── manifest.json
-├── process-images.js   # Image processing script
-├── convert-heic.sh     # HEIC to JPG converter
-├── package.json        # Dependencies and scripts
+├── docs/               # Documentation
+│   ├── CLAUDE.md       # AI assistant context
+│   ├── DEPLOYMENT.md   # Deployment guide
+│   ├── SETUP.md        # Setup instructions
+│   └── ...             # Other documentation
+│
+├── scripts/            # Build and utility scripts
+│   ├── build.js        # Main build script
+│   ├── process-images.js # Image processing
+│   ├── test-site.js    # Testing suite
+│   └── ...             # Other scripts
+│
+├── template/           # Source templates and data
+│   ├── data/           # JSON data files
+│   │   ├── members.json    # Band members
+│   │   ├── shows.json      # Show listings
+│   │   ├── tracks.json     # Music tracks
+│   │   └── videos.json     # YouTube videos
+│   ├── partials/       # Handlebars templates
+│   │   ├── components/     # Reusable components
+│   │   ├── sections/       # Page sections
+│   │   └── head/           # HTML head elements
+│   └── styles.css      # Source Tailwind CSS
+│
+├── public/             # Generated output (DO NOT EDIT)
+│   ├── index.html      # Generated website
+│   ├── index.php       # PHP version
+│   ├── styles.css      # Compiled CSS
+│   └── images/         # Processed images
+│       ├── thumbnail/      # 400x400
+│       ├── small/          # 640x480
+│       ├── medium/         # 1024x768
+│       ├── large/          # 1920x1080
+│       └── manifest.json   # Image registry
+│
+├── photos/             # Source photos for processing
+├── package.json        # NPM configuration
+├── tailwind.config.js  # Tailwind configuration
 └── README.md           # This file
 ```
 
@@ -105,11 +128,12 @@ npm run serve          # Start local server
 - `./convert-heic.sh` - Shell script for HEIC conversion
 
 ### Standalone JavaScript Tools
-- `build-static.js` - Main static site generator
-- `process-images.js` - Image processing pipeline
-- `process-favicon.js` - Favicon generator
-- `process-member-photos.js` - Band member photo processor
-- `generate-sitemap.js` - Sitemap generator
+All tools are now in the `scripts/` directory:
+- `scripts/build.js` - Main static site generator
+- `scripts/process-images.js` - Image processing pipeline
+- `scripts/process-favicon.js` - Favicon generator
+- `scripts/process-members.js` - Band member photo processor
+- `scripts/generate-sitemap.js` - Sitemap generator
 
 ## Weekly Updates (Automated)
 
@@ -131,7 +155,7 @@ Or run manually:
 ## How to Update
 
 ### Shows/Events
-Edit `public/data/shows.json` to add or modify upcoming shows:
+Edit `template/data/shows.json` to add or modify upcoming shows:
 ```json
 {
   "date": "2024-03-15",

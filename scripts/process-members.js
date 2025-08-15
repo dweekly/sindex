@@ -3,8 +3,8 @@ const fs = require('fs').promises;
 const path = require('path');
 
 async function processMemberPhotos() {
-  const sourceDir = path.join(__dirname, 'photos', 'members');
-  const outputDir = path.join(__dirname, 'public', 'images', 'members');
+  const sourceDir = path.join(__dirname, '..', 'photos', 'members');
+  const outputDir = path.join(__dirname, '..', 'public', 'images', 'members');
 
   // Ensure output directory exists
   await fs.mkdir(outputDir, { recursive: true });
