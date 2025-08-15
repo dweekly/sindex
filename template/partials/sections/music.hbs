@@ -1,0 +1,41 @@
+<!-- ============================================= -->
+<!-- MUSIC LIBRARY SECTION                        -->
+<!-- Streaming music player with track listing    -->
+<!-- ============================================= -->
+<section id="music-library" aria-labelledby="music-library-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="music-library-heading">Listen to Our Tracks</h2>
+        
+        <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30">
+            <h3 class="text-xl font-bold mb-4 text-purple-400">Track Listing</h3>
+            
+            <!-- Track grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2" id="track-list">
+                {{#each tracks}}
+                <button class="track-item w-full text-left p-3 rounded-lg hover:bg-purple-900/30 transition-all"
+                        data-track-num="{{this.num}}"
+                        data-src="{{this.src}}"
+                        data-title="{{this.title}}"
+                        data-artist="{{this.artist}}"
+                        data-duration="{{this.duration}}"
+                        aria-label="Play {{this.title}}">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-300 font-medium">{{this.num}}. {{this.title}}</span>
+                        <span class="text-xs text-gray-500">({{this.duration}})</span>
+                    </div>
+                </button>
+                {{/each}}
+            </div>
+            
+            <div class="mt-6 pt-6 border-t border-gray-700">
+                <p class="text-sm text-gray-400 text-center">
+                    All original songs licensed under
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="text-purple-400 hover:text-purple-300 underline">Creative Commons BY-NC-SA 2.0</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

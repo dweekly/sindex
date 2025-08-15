@@ -3,12 +3,39 @@
 @tailwind utilities;
 
 /* Custom styles */
+@layer base {
+  /* Bebas Neue font face */
+  @font-face {
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/bebasneue/v2/JTUSjIg69CK48gW7PXoo9Wlhyw.woff2') format('woff2');
+  }
+}
+
 @layer components {
   .gradient-text {
-    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #dc2626 100%);
+    background: linear-gradient(135deg, #9333ea 0%, #f59e0b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+  
+  .bebas {
+    font-family: 'Bebas Neue', 'Arial Narrow', 'Helvetica Condensed', Arial, sans-serif;
+  }
+  
+  .hero-overlay {
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+  }
+  
+  .nav-link {
+    @apply transition-colors duration-200;
+  }
+  
+  .track-item.active {
+    @apply bg-purple-900/50 border-l-4 border-purple-400;
   }
   
   .animate-fade-in {

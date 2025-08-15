@@ -1,0 +1,81 @@
+<!-- ============================================= -->
+<!-- METADATA & CHARACTER ENCODING                -->
+<!-- ============================================= -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<!-- ============================================= -->
+<!-- PAGE TITLE - Appears in browser tab          -->
+<!-- ============================================= -->
+<title>{{site.title}} - {{site.tagline}} | {{site.description}}</title>
+
+<!-- ============================================= -->
+<!-- SEO META TAGS                                -->
+<!-- For search engine optimization               -->
+<!-- ============================================= -->
+<meta name="robots" content="index, follow">
+<meta name="description" content="{{site.metaDescription}}">
+<meta name="keywords" content="{{#each site.keywords}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}">
+<link rel="canonical" href="{{site.url}}">
+
+<!-- ============================================= -->
+<!-- OPEN GRAPH TAGS                              -->
+<!-- For rich social media sharing (Facebook)     -->
+<!-- ============================================= -->
+<meta property="og:title" content="{{site.title}} - {{site.tagline}}">
+<meta property="og:description" content="{{site.shortDescription}}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{site.url}}">
+<meta property="og:image" content="{{site.url}}/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- ============================================= -->
+<!-- TWITTER CARD TAGS                            -->
+<!-- For rich Twitter/X sharing                   -->
+<!-- ============================================= -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@{{site.social.twitter}}">
+<meta name="twitter:title" content="{{site.title}} - {{site.tagline}}">
+<meta name="twitter:description" content="{{site.shortDescription}}">
+<meta name="twitter:image" content="{{site.url}}/twitter-card.jpg">
+
+<!-- ============================================= -->
+<!-- FAVICON CONFIGURATION                        -->
+<!-- Multiple sizes for different devices          -->
+<!-- ============================================= -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="64x64" href="favicon-64x64.png">
+<link rel="icon" type="image/png" sizes="128x128" href="favicon-128x128.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png">
+
+<!-- ============================================= -->
+<!-- WEB APP CONFIGURATION                        -->
+<!-- ============================================= -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#9333ea">
+
+<!-- ============================================= -->
+<!-- RESOURCE HINTS                               -->
+<!-- DNS prefetch for faster domain resolution    -->
+<!-- ============================================= -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="https://img.youtube.com">
+<link rel="dns-prefetch" href="https://www.youtube.com">
+<link rel="dns-prefetch" href="https://cdn.sinister-dexter.com">
+
+<!-- ============================================= -->
+<!-- PRELOADING                                   -->
+<!-- Preload critical resources                   -->
+<!-- ============================================= -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" as="style">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

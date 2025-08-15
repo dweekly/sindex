@@ -9,7 +9,7 @@
     "convert-heic": "./convert-heic.sh",
     "build:images": "npm run convert-heic && npm run process-images",
     "build:css": "npx tailwindcss -i src/styles.css -o public/styles.css --minify",
-    "build:html": "node build-static.js",
+    "build:html": "node build.js",
     "sitemap": "node generate-sitemap.js",
     "test": "node test-site-advanced.js",
     "test:quick": "node test-site.js",
@@ -28,6 +28,7 @@
     "@cloudflare/kv-asset-handler": "^0.3.0",
     "chokidar": "^3.6.0",
     "glob": "^10.3.10",
+    "handlebars": "^4.7.8",
     "sharp": "^0.33.2"
   },
   "devDependencies": {

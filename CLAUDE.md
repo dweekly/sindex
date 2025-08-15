@@ -1,7 +1,7 @@
 # CLAUDE.md - Project Context for AI Assistants
 
 ## Project Overview
-Sinister Dexter band website - A static site generator for a San Francisco Bay Area funk/soul band.
+Sinister Dexter band website - A modular, data-driven static site generator for a San Francisco Bay Area funk/soul band using Handlebars templates and rich microformats.
 
 ## Domain & Infrastructure
 - **Domain**: sinister-dexter.com (registered by David Weekly on NameCheap.com)
@@ -12,20 +12,48 @@ Sinister Dexter band website - A static site generator for a San Francisco Bay A
 
 ## CRITICAL RULES
 ⚠️ **NEVER EDIT public/index.html DIRECTLY** - It is a generated file and will be overwritten!
-- Always edit the source files (build-static.js, templates, or data files)
-- Run `npm run build:html` to regenerate index.html after making changes
+- Always edit the source files (templates, partials, or data files)
+- Content updates should be made in JSON data files, not in templates
+- Run `npm run build:html` to regenerate HTML after making changes
+
+⚠️ **NEVER FABRICATE INFORMATION** - Do not make up data about the band, members, or events!
+- Only use information that exists in the source files or is explicitly provided by the user
+- Leave fields empty, use "TODO" comments, or placeholder text rather than inventing details
+- This especially applies to: band member bios, years with band, venues played, show dates, etc.
 
 ## Project Structure
 ```
 /
-├── build-static.js      # Main build script 
+├── build.js            # Modular Handlebars build system
 ├── template/
-│   └── index.html      # HTML template (EDIT THIS for structure changes)
-│                       # Future: CSS and JS can be separated here
+│   └── partials/       # Modular template components
+│       ├── head/
+│       │   ├── meta.hbs           # SEO and meta tags
+│       │   ├── styles.hbs         # CSS and font loading
+│       │   └── structured-data.hbs # JSON-LD structured data
+│       ├── sections/
+│       │   ├── hero.hbs          # Hero landing section
+│       │   ├── shows.hbs         # Events with microformats
+│       │   ├── members.hbs       # Band members with Person schema
+│       │   ├── music.hbs         # Track listing
+│       │   ├── videos.hbs        # YouTube videos
+│       │   ├── gallery.hbs       # Photo gallery
+│       │   ├── about.hbs         # Band history
+│       │   ├── pull-quote.hbs    # Press quote
+│       │   ├── venues.hbs        # Notable venues
+│       │   └── connect.hbs       # Social links & contact
+│       └── components/
+│           ├── navigation.hbs    # Main navigation
+│           ├── footer.hbs        # Page footer
+│           ├── music-player.hbs  # Bottom audio player
+│           └── scripts.hbs       # JavaScript
 ├── public/
 │   ├── index.html      # GENERATED OUTPUT - DO NOT EDIT!
-│   ├── data/
-│   │   └── shows.json  # Shows data (edit this for show updates)
+│   ├── index.php       # GENERATED OUTPUT - DO NOT EDIT!
+│   ├── data/           # Structured data (EDIT THESE for content)
+│   │   ├── shows.json            # Show/event data
+│   │   ├── members.json          # Band member profiles  
+│   │   └── tracks.json          # Music track data
 │   └── images/         # Processed images
 └── photos/             # Source photos for processing
 ```
@@ -39,9 +67,12 @@ Sinister Dexter band website - A static site generator for a San Francisco Bay A
 - `./deploy.sh prod` - Deploy to production (https://www-new.sinisterdexter.net/)
 
 ## Architecture
-1. **Static Site Generation**: build-static.js reads template HTML and injects data
-2. **Image Processing**: Automated WebP/JPEG generation with thumbnails
-3. **Data-Driven**: Shows and gallery pulled from JSON/manifest files
+1. **Template Engine**: Handlebars compiles modular templates with partials
+2. **Rich Microformats**: Automatic generation of Schema.org structured data
+3. **Component-Based**: Reusable template partials for maintainability
+4. **Data-Driven**: Content stored in JSON files, templates handle presentation
+5. **Image Processing**: Automated WebP/JPEG generation with thumbnails
+6. **HTML Minification**: Aggressive minification while preserving functionality
 
 ## Common Tasks
 
@@ -67,40 +98,44 @@ Sinister Dexter band website - A static site generator for a San Francisco Bay A
 4. Deploy: `./deploy.sh staging` then `./deploy.sh prod`
 
 ### 👥 Update Band Members
-1. Edit the band members section in `template/index.html` (search for "BAND MEMBERS SECTION")
-2. To add a member:
-   - Add their photo to `photos/` directory
-   - Run `npm run build:images` to process the photo
-   - Add member HTML in template:
-```html
-<div class="text-center">
-  <img src="images/member-name.jpg" alt="Member Name" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-  <h3 class="font-bold text-lg">Member Name</h3>
-  <p class="text-purple-400">Instrument</p>
-</div>
+1. Edit `public/data/members.json`
+2. Add member data:
+```json
+{
+  "id": "member-id",
+  "name": "Member Name",
+  "role": "Instrument",
+  "image": "filename",
+  "bio": "Full biography text here...",
+  "emoji": "🎸",
+  "founding": false,
+  "yearsWithBand": "2020-present"  // Optional, only if confirmed
+}
 ```
-3. Run `npm run build:html`
-4. Deploy changes
+3. Add photo to `photos/members/` directory
+4. Run `npm run build:images` to process photos
+5. Run `npm run build:html`
+6. Deploy changes
 
 ### 🎵 Manage Music Tracks
-1. Edit the tracks array in `template/index.html` (search for "tracks = [")
+1. Edit `public/data/tracks.json`
 2. To add a track:
    - Upload MP3 to Cloudflare R2 (cdn.sinister-dexter.com/music/)
-   - Add to tracks array:
-```javascript
+   - Add to tracks.json:
+```json
 { 
-  num: 22,  // Next number in sequence
-  title: "Song Title",
-  artist: "Sinister Dexter",
-  duration: "4:32",
-  src: "https://cdn.sinister-dexter.com/music/filename.mp3"
+  "num": 22,
+  "title": "Song Title",
+  "artist": "Sinister Dexter",
+  "duration": "4:32",
+  "filename": "filename.mp3"
 }
 ```
 3. To remove: Delete the track object from array
 4. Run `npm run build:html` and deploy
 
 ### 🎨 Change Site Structure/Layout
-Edit `template/index.html` then run `npm run build:html`
+Edit the appropriate template partial in `template/partials/` then run `npm run build:html`
 
 ### Add New Photos
 1. Add photos to `photos/` directory
@@ -108,19 +143,26 @@ Edit `template/index.html` then run `npm run build:html`
 3. Run `npm run build:html`
 
 ### Fix JavaScript Errors
-Edit the JavaScript in `template/index.html` (not in the generated public/index.html)
+Edit the JavaScript in `template/partials/components/scripts.hbs`
 
 ## Current Tech Stack
 - Node.js build system
+- **Handlebars** template engine (NEW)
 - Tailwind CSS (currently via CDN, production setup available)
 - Vanilla JavaScript
 - Sharp for image processing
-- Static HTML generation
+- Static HTML generation with minification
 
 ## SEO & Metadata
-- Schema.org structured data for MusicGroup, MusicEvent, VideoObject
+- **Enhanced Schema.org** structured data:
+  - MusicGroup with full member profiles
+  - MusicEvent with venue geo-coordinates
+  - Person schema for each band member
+  - VideoObject for performances
+  - BreadcrumbList for navigation
+- **Rich Microformats** embedded in HTML
 - Open Graph and Twitter Card meta tags
-- Accessibility features (ARIA labels, semantic HTML)
+- Accessibility features (ARIA labels, semantic HTML, skip navigation)
 
 ## Important URLs
 - Staging: https://main.sinister-dexter.pages.dev/
@@ -175,8 +217,8 @@ For bookings: booking@sinisterdexter.net
 ### Most Common Updates:
 1. **Add a show**: Edit `public/data/shows.json` → build → deploy
 2. **Update band photo**: Add to `photos/` → `npm run build:images` → build → deploy
-3. **Add/remove song**: Edit tracks array in `template/index.html` → build → deploy
-4. **Update band member**: Edit template/index.html → build → deploy
+3. **Add/remove song**: Edit `public/data/tracks.json` → build → deploy
+4. **Update band member**: Edit `public/data/members.json` → build → deploy
 
 ### Build & Deploy Commands:
 ```bash
@@ -192,5 +234,25 @@ npm run build:images  # Process new photos
 ./deploy.sh prod       # Deploy to production (with confirmation)
 ```
 
+## Modular Build System Benefits
+
+### For Developers
+- **Maintainability**: 15+ small files instead of 1 huge 1900+ line file
+- **Reusability**: Share components across pages
+- **Testing**: Test individual components
+- **Version Control**: Better diffs, easier reviews
+
+### For Content Editors
+- **Semantic Updates**: Edit JSON files, not HTML
+- **Rich Data**: Add social links, bios, venue details
+- **Validation**: JSON schema ensures data quality
+- **No HTML Knowledge Required**: Pure data editing
+
+### For SEO
+- **Rich Snippets**: Enhanced search results
+- **Event Cards**: Shows appear in Google Events
+- **Knowledge Graph**: Band and member profiles
+- **Local SEO**: Venue geo-coordinates
+
 ---
-Last updated: 2025-08-06
+Last updated: 2025-08-15

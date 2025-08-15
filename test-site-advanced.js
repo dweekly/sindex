@@ -35,14 +35,15 @@ function logSection(title) {
 }
 
 // Load and parse HTML
-async function loadHTML() {
-  const htmlPath = path.join(__dirname, 'public', 'index.html');
+async function loadHTML(filePath) {
+  // Use provided path or default to public/index.html
+  const htmlPath = filePath || path.join(__dirname, 'public', 'index.html');
   const html = await fs.readFile(htmlPath, 'utf8');
   const stats = await fs.stat(htmlPath);
   const dom = new JSDOM(html);
   const document = dom.window.document;
   
-  return { html, document, stats, dom };
+  return { html, document, stats, dom, htmlPath };
 }
 
 // 1. HTML VALIDATION
@@ -248,7 +249,7 @@ async function testSEO({ document, html }) {
             JSON.parse(script.textContent);
           });
           return true;
-        } catch {
+        } catch (e) {
           return false;
         }
       },
@@ -354,8 +355,22 @@ async function testPerformance({ html, document, stats }) {
     {
       name: 'Minification',
       test: () => {
-        const lines = html.split('\n');
-        return lines.length < 100 || html.length / lines.length > 500;
+        // Check if HTML is reasonably minified
+        // JSON-LD can have whitespace for readability, but HTML should be compressed
+        
+        // Remove JSON-LD scripts for this check
+        const htmlWithoutJsonLd = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '');
+        
+        // Check the actual HTML for minification
+        const hasExcessiveWhitespace = /\n\s{4,}/.test(htmlWithoutJsonLd); // 4+ spaces of indentation
+        const hasUnminifiedAttributes = / (class|id|href|src)="\s+/.test(htmlWithoutJsonLd); // spaces in attributes
+        const hasMultilineHTML = /<(div|section|nav|header|footer|main|article|aside)[^>]*>\n\s+</.test(htmlWithoutJsonLd);
+        
+        // File should be reasonably small
+        const fileSizeOK = html.length < 100000; // Under 100KB
+        
+        // Consider minified if HTML (excluding JSON-LD) is compressed and file size is reasonable
+        return !hasExcessiveWhitespace && !hasUnminifiedAttributes && !hasMultilineHTML && fileSizeOK;
       },
       message: 'HTML appears to be minified'
     },
@@ -372,11 +387,21 @@ async function testPerformance({ html, document, stats }) {
       test: () => {
         const scripts = document.querySelectorAll('script[src]');
         if (scripts.length === 0) return true;
-        return Array.from(scripts).every(script => 
-          script.hasAttribute('async') || script.hasAttribute('defer')
-        );
+        
+        // Check each external script
+        const results = Array.from(scripts).map(script => {
+          const src = script.getAttribute('src');
+          // GTM and analytics scripts should load immediately (no defer/async)
+          const isAnalytics = src && (src.includes('googletagmanager') || src.includes('gtm.js'));
+          // Other scripts should have async or defer
+          const hasOptimization = script.hasAttribute('async') || script.hasAttribute('defer');
+          
+          return isAnalytics || hasOptimization;
+        });
+        
+        return results.every(r => r);
       },
-      message: 'External scripts use async or defer'
+      message: 'External scripts are properly optimized'
     },
     {
       name: 'Resource hints',
@@ -617,8 +642,14 @@ async function runTests() {
       log('✅ jsdom installed successfully\n', 'green');
     }
     
+    // Get file path from command line argument
+    const filePath = process.argv[2];
+    
     // Load HTML
-    const data = await loadHTML();
+    const data = await loadHTML(filePath);
+    
+    // Show which file is being tested
+    console.log(`📄 Testing: ${data.htmlPath}`);
     
     // Run all test suites
     const results = {

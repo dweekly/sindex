@@ -1,0 +1,56 @@
+<!-- ============================================= -->
+<!-- HEADER NAVIGATION BAR                        -->
+<!-- Fixed position, appears on all scroll pos    -->
+<!-- ============================================= -->
+<nav role="navigation" aria-label="Main navigation" class="fixed top-0 w-full bg-black/90 backdrop-blur-md z-50 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        
+        <!-- Logo/Brand -->
+        <a href="#hero" class="bebas text-3xl gradient-text">{{site.title}}</a>
+        
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex space-x-8">
+            {{#each navigation.main}}
+            <a href="#{{this.anchor}}" class="nav-link hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">{{this.label}}</a>
+            {{/each}}
+        </div>
+        
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="md:hidden" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </button>
+    </div>
+    
+    <!-- Mobile Navigation Menu (Hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+        {{#each navigation.main}}
+        <a href="#{{this.anchor}}" class="block py-2 hover:text-purple-400 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none rounded">{{this.label}}</a>
+        {{/each}}
+    </div>
+</nav>
+
+<!-- Mobile menu toggle script -->
+<script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+        const menu = document.getElementById('mobile-menu');
+        const isOpen = !menu.classList.contains('hidden');
+        
+        if (isOpen) {
+            menu.classList.add('hidden');
+            this.setAttribute('aria-expanded', 'false');
+        } else {
+            menu.classList.remove('hidden');
+            this.setAttribute('aria-expanded', 'true');
+        }
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.add('hidden');
+            document.getElementById('mobile-menu-btn').setAttribute('aria-expanded', 'false');
+        });
+    });
+</script>

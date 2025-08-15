@@ -1,0 +1,152 @@
+<!-- ============================================= -->
+<!-- CRITICAL INLINE CSS                          -->
+<!-- This prevents Flash of Unstyled Text (FOUT)  -->
+<!-- by defining font fallbacks immediately       -->
+<!-- ============================================= -->
+<style>
+    /* Bebas Neue font with proper fallback chain for condensed sans-serif */
+    .bebas {
+        font-family: 'Bebas Neue', 'Arial Narrow', 'Helvetica Condensed', Arial, sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        font-stretch: condensed;
+        text-transform: uppercase;
+    }
+    
+    /* Screen reader only content - visually hidden but accessible */
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+    
+    /* Make screen reader content visible when focused (for keyboard nav) */
+    .focus\:not-sr-only:focus {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: inherit;
+        margin: inherit;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+    }
+    
+    /* Focus ring styles for accessibility */
+    .focus-visible\:ring-2:focus-visible {
+        --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+        --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+        box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+    }
+    
+    .focus-visible\:ring-purple-400:focus-visible {
+        --tw-ring-color: rgb(192 132 252);
+    }
+    
+    .focus-visible\:outline-none:focus-visible {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+    }
+    
+    /* Gradient text effect */
+    .gradient-text {
+        background: linear-gradient(135deg, #f59e0b 0%, #9333ea 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    /* Hero overlay gradient */
+    .hero-overlay {
+        background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+    }
+    
+    /* Gallery hover effects */
+    .gallery-item {
+        transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover {
+        transform: scale(1.05);
+    }
+    
+    /* Smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    /* Custom scrollbar for webkit browsers */
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: #9333ea;
+        border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: #7c3aed;
+    }
+    
+    /* Music player styles */
+    .track-item {
+        cursor: pointer;
+    }
+    
+    .track-item:hover {
+        background-color: rgba(147, 51, 234, 0.3);
+    }
+    
+    .track-item.active {
+        background-color: rgba(147, 51, 234, 0.5);
+        border-left: 3px solid #9333ea;
+    }
+    
+    /* Navigation link hover animation */
+    .nav-link {
+        position: relative;
+        transition: color 0.3s ease;
+    }
+    
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #9333ea;
+        transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+        width: 100%;
+    }
+</style>
+
+<!-- ============================================= -->
+<!-- STYLESHEETS                                  -->
+<!-- Production Tailwind CSS                      -->
+<!-- ============================================= -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- ============================================= -->
+<!-- FONT LOADING                                 -->
+<!-- Google Fonts for typography                  -->
+<!-- ============================================= -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

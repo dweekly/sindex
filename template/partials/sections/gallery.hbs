@@ -1,0 +1,94 @@
+<!-- ============================================= -->
+<!-- GALLERY SECTION                              -->
+<!-- Photo gallery with lightbox functionality    -->
+<!-- ============================================= -->
+<section id="gallery" aria-labelledby="gallery-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="gallery-heading">Gallery</h2>
+        
+        <!-- ==================================== -->
+        <!-- GALLERY GRID                         -->
+        <!-- Dynamically populated from manifest  -->
+        <!-- ==================================== -->
+        <div id="gallery-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {{#each images.thumbnail}}
+            <div class="gallery-item cursor-pointer relative overflow-hidden rounded-lg aspect-square bg-gray-800">
+                <picture>
+                    <source srcset="{{this.webp}}" type="image/webp">
+                    <img src="{{this.jpg}}" 
+                         alt="Sinister Dexter performance photo {{@index}}" 
+                         class="w-full h-full object-cover"
+                         loading="lazy"
+                         data-large-webp="{{lookup ../images.large @index 'webp'}}"
+                         data-large-jpg="{{lookup ../images.large @index 'jpg'}}">
+                </picture>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="hidden fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4">
+    <button id="lightbox-close" 
+            class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 z-[101]"
+            aria-label="Close lightbox">
+        &times;
+    </button>
+    <img id="lightbox-image" 
+         src="" 
+         alt="" 
+         class="max-w-full max-h-full object-contain">
+</div>
+
+<script>
+// Lightbox functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxClose = document.getElementById('lightbox-close');
+    
+    // Open lightbox
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const img = this.querySelector('img');
+            const largeWebp = img.dataset.largeWebp;
+            const largeJpg = img.dataset.largeJpg;
+            
+            // Try to use WebP if supported
+            const picture = document.createElement('picture');
+            if (largeWebp) {
+                const source = document.createElement('source');
+                source.srcset = largeWebp;
+                source.type = 'image/webp';
+                picture.appendChild(source);
+            }
+            
+            lightboxImage.src = largeJpg || img.src;
+            lightboxImage.alt = img.alt;
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    // Close lightbox
+    function closeLightbox() {
+        lightbox.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+    
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightbox?.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+    
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+            closeLightbox();
+        }
+    });
+});
+</script>

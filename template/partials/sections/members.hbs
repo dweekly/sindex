@@ -1,0 +1,104 @@
+<!-- ============================================= -->
+<!-- BAND MEMBERS SECTION                         -->
+<!-- Grid of band member profiles with microdata  -->
+<!-- ============================================= -->
+<section id="band-members" aria-labelledby="members-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="bebas text-5xl md:text-6xl text-center mb-4 gradient-text" id="members-heading">The Band</h2>
+        <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
+            {{bandMembersCount}} talented musicians bringing you the finest funk and soul
+        </p>
+        
+        <!-- Band Members Grid with Microdata -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {{#each members}}
+            <div class="text-center group" 
+                 itemscope 
+                 itemtype="https://schema.org/Person"
+                 itemprop="member">
+                
+                <!-- Member ID for linking -->
+                <meta itemprop="@id" content="{{../site.url}}#{{this.id}}">
+                
+                <!-- Affiliation with band -->
+                <meta itemprop="affiliation" content="{{../site.title}}">
+                
+                <!-- Member Photo -->
+                <div class="mb-3 relative inline-block">
+                    <picture>
+                        <source srcset="images/members/{{this.image}}.webp" type="image/webp">
+                        <img src="images/members/{{this.image}}.jpg" 
+                             alt="{{this.name}}" 
+                             class="w-32 h-32 rounded-full mx-auto object-cover border-2 border-purple-500 transition-all group-hover:border-purple-400 group-hover:scale-105"
+                             itemprop="image">
+                    </picture>
+                    
+                    <!-- Founding Member Badge -->
+                    {{#if this.founding}}
+                    <div class="absolute top-0 right-0 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold border-2 border-white shadow-md cursor-help group/badge">
+                        <span class="pointer-events-none">F</span>
+                        <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 hidden group-hover/badge:block bg-gray-900 text-white text-xs rounded px-2 py-1 whitespace-nowrap z-10 shadow-lg pointer-events-none">
+                            Founding member ({{../band.foundingYear}}-present)
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+                
+                <!-- Member Info -->
+                <h3 class="font-bold text-white" itemprop="name">{{this.name}}</h3>
+                <p class="text-purple-400 text-sm">
+                    <span class="inline-block mr-1">{{this.emoji}}</span>
+                    <span itemprop="jobTitle">{{this.role}}</span>
+                </p>
+                
+                <!-- Hidden structured data -->
+                <div class="hidden">
+                    <p itemprop="description">{{this.bio}}</p>
+                    {{#if this.yearsWithBand}}
+                    <meta itemprop="memberOf" content="{{../site.title}} ({{this.yearsWithBand}})">
+                    {{/if}}
+                    
+                    <!-- Social Links as sameAs -->
+                    {{#if this.socialLinks.website}}
+                    <link itemprop="url" href="{{this.socialLinks.website}}">
+                    {{/if}}
+                    {{#if this.socialLinks.instagram}}
+                    <link itemprop="sameAs" href="https://instagram.com/{{this.socialLinks.instagram}}">
+                    {{/if}}
+                    {{#if this.socialLinks.facebook}}
+                    <link itemprop="sameAs" href="https://facebook.com/{{this.socialLinks.facebook}}">
+                    {{/if}}
+                    {{#if this.socialLinks.linkedin}}
+                    <link itemprop="sameAs" href="https://linkedin.com/in/{{this.socialLinks.linkedin}}">
+                    {{/if}}
+                    
+                    <!-- Performance details -->
+                    {{#if this.instruments}}
+                    <meta itemprop="knowsAbout" content="{{#each this.instruments}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}">
+                    {{/if}}
+                    
+                    <!-- Professional highlights -->
+                    {{#if this.professionalHighlight}}
+                    <meta itemprop="award" content="{{this.professionalHighlight}}">
+                    {{/if}}
+                </div>
+                
+                <!-- Hover Card with More Info (only show if there's content) -->
+                {{#if this.bio}}
+                <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute left-1/2 transform -translate-x-1/2 mt-2 p-4 bg-gray-900 rounded-lg shadow-xl z-20 w-80 max-w-md pointer-events-none">
+                    <p class="text-sm text-gray-300 leading-relaxed">{{this.bio}}</p>
+                    {{#if this.yearsWithBand}}
+                    <p class="text-xs text-purple-400 mt-2">Since {{getStartYear this.yearsWithBand}}</p>
+                    {{/if}}
+                    {{#if this.instruments}}
+                    <p class="text-xs text-gray-400 mt-1">
+                        {{#each this.instruments}}{{this}}{{#unless @last}} • {{/unless}}{{/each}}
+                    </p>
+                    {{/if}}
+                </div>
+                {{/if}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
