@@ -69,6 +69,16 @@ ErrorDocument 404 /404.html
     # RewriteCond %{HTTPS} !=on
     # RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
     
+    # Redirect index.php to index.html
+    RewriteRule ^index\.php$ /index.html [L]
+    
+    # Redirect old site URLs to appropriate anchor points
+    RewriteRule ^about/?.*$ /#about [R=301,L,NE]
+    RewriteRule ^gallery/?.*$ /#gallery [R=301,L,NE]
+    RewriteRule ^gigs/?.*$ /#shows [R=301,L,NE]
+    RewriteRule ^music/?.*$ /#music-library [R=301,L,NE]
+    RewriteRule ^contact/?.*$ /#connect [R=301,L,NE]
+    
     # Remove trailing slash except for directories
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$

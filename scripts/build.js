@@ -433,23 +433,18 @@ async function buildModularSite() {
             continueOnParseError: true
         });
         
-        // Write output files
+        // Write output file
         const htmlPath = path.join(__dirname, '..', 'public', 'index.html');
-        const phpPath = path.join(__dirname, '..', 'public', 'index.php');
         
-        await Promise.all([
-            fs.writeFile(htmlPath, minifiedHtml),
-            fs.writeFile(phpPath, minifiedHtml)
-        ]);
+        await fs.writeFile(htmlPath, minifiedHtml);
         
         // Calculate size reduction
         const originalSize = Buffer.byteLength(html, 'utf8');
         const minifiedSize = Buffer.byteLength(minifiedHtml, 'utf8');
         const reduction = ((originalSize - minifiedSize) / originalSize * 100).toFixed(1);
         
-        console.log('\n✅ Modular site generated successfully!');
+        console.log('\n✅ Site generated successfully!');
         console.log(`📄 Output: ${htmlPath}`);
-        console.log(`📄 Output: ${phpPath}`);
         console.log(`📉 HTML minified: ${(originalSize / 1024).toFixed(1)}KB → ${(minifiedSize / 1024).toFixed(1)}KB (-${reduction}%)`);
         
     } catch (error) {
