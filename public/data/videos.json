@@ -1,0 +1,25 @@
+{
+  "videos": [
+    {
+      "id": "D9gIdE7IJsY",
+      "title": "Son of a Preacher Man",
+      "description": "Redwood City Music In The Park, 2012",
+      "uploadDate": "2012-08-15",
+      "duration": "PT3M30S"
+    },
+    {
+      "id": "vWRJUqNdnX0",
+      "title": "I Can't Stand The Rain",
+      "description": "Redwood City Music In The Park, 2012",
+      "uploadDate": "2012-08-15",
+      "duration": "PT4M15S"
+    },
+    {
+      "id": "buwFWtEuOyQ",
+      "title": "Broadband Connection",
+      "description": "Redwood City Music In The Park, 2012",
+      "uploadDate": "2012-08-15",
+      "duration": "PT3M01S"
+    }
+  ]
+}

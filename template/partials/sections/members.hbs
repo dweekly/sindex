@@ -83,11 +83,12 @@
                     {{/if}}
                 </div>
                 
-                <!-- Hover Card with More Info (optional enhancement) -->
-                <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute left-1/2 transform -translate-x-1/2 mt-2 p-3 bg-gray-900 rounded-lg shadow-xl z-20 w-64 pointer-events-none">
-                    <p class="text-xs text-gray-300 mb-2">{{truncate this.bio 100}}</p>
+                <!-- Hover Card with More Info (only show if there's content) -->
+                {{#if this.bio}}
+                <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute left-1/2 transform -translate-x-1/2 mt-2 p-4 bg-gray-900 rounded-lg shadow-xl z-20 w-80 max-w-md pointer-events-none">
+                    <p class="text-sm text-gray-300 leading-relaxed">{{this.bio}}</p>
                     {{#if this.yearsWithBand}}
-                    <p class="text-xs text-purple-400">Since {{getStartYear this.yearsWithBand}}</p>
+                    <p class="text-xs text-purple-400 mt-2">Since {{getStartYear this.yearsWithBand}}</p>
                     {{/if}}
                     {{#if this.instruments}}
                     <p class="text-xs text-gray-400 mt-1">
@@ -95,6 +96,7 @@
                     </p>
                     {{/if}}
                 </div>
+                {{/if}}
             </div>
             {{/each}}
         </div>

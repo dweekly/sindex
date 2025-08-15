@@ -122,7 +122,8 @@ async function loadData() {
     const dataFiles = {
         members: 'members.json',
         shows: 'shows.json',
-        tracks: 'tracks.json'
+        tracks: 'tracks.json',
+        videos: 'videos.json'
     };
     
     const data = {};
@@ -288,39 +289,16 @@ function prepareTemplateData(data) {
         members = data.members.members || data.members;
     }
     
-    // Videos data
-    const videos = [
-        {
-            id: 'D9gIdE7IJsY',
-            title: 'Son of a Preacher Man',
-            description: 'Redwood City Music In The Park, 2012',
-            thumbnail: 'https://img.youtube.com/vi/D9gIdE7IJsY/maxresdefault.jpg',
-            url: 'https://www.youtube.com/watch?v=D9gIdE7IJsY',
-            embedUrl: 'https://www.youtube.com/embed/D9gIdE7IJsY',
-            uploadDate: '2012-08-15',
-            duration: 'PT3M30S'
-        },
-        {
-            id: 'vWRJUqNdnX0',
-            title: 'I Can\'t Stand The Rain',
-            description: 'Redwood City Music In The Park, 2012',
-            thumbnail: 'https://img.youtube.com/vi/vWRJUqNdnX0/maxresdefault.jpg',
-            url: 'https://www.youtube.com/watch?v=vWRJUqNdnX0',
-            embedUrl: 'https://www.youtube.com/embed/vWRJUqNdnX0',
-            uploadDate: '2012-08-15',
-            duration: 'PT4M15S'
-        },
-        {
-            id: 'buwFWtEuOyQ',
-            title: 'Broadband Connection',
-            description: 'Redwood City Music In The Park, 2012',
-            thumbnail: 'https://img.youtube.com/vi/buwFWtEuOyQ/maxresdefault.jpg',
-            url: 'https://www.youtube.com/watch?v=buwFWtEuOyQ',
-            embedUrl: 'https://www.youtube.com/embed/buwFWtEuOyQ',
-            uploadDate: '2012-08-15',
-            duration: 'PT3M01S'
-        }
-    ];
+    // Process videos data - add computed YouTube URLs
+    let videos = [];
+    if (data.videos) {
+        videos = (data.videos.videos || data.videos).map(video => ({
+            ...video,
+            thumbnail: `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`,
+            url: `https://www.youtube.com/watch?v=${video.id}`,
+            embedUrl: `https://www.youtube.com/embed/${video.id}`
+        }));
+    }
     
     // Process tracks data - add full src URLs
     let tracks = [];

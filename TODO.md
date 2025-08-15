@@ -2,6 +2,7 @@
 
 ## Critical (Production Blockers)
 - [x] **Set up production Tailwind CSS build** - ✅ DONE: Using Tailwind CLI to generate production CSS (25KB minified)
+- [ ] **Fix hero text overlapping band members' faces** - Need to edit/crop the hero image file itself to provide more space for text placement
 - [ ] **Fill in missing band member bios** - Jon Wagner, Patrick Neschleba, Lori Karns, David Mitby have empty or placeholder bios
 
 ## High Priority (User Experience)
@@ -12,7 +13,7 @@
 - [ ] **Add loading states** - Show loading indicators while images/audio load
 
 ## Medium Priority (Enhancements)
-- [ ] **Create videos.json** - Move YouTube video configuration to data file
+- [x] **Create videos.json** - ✅ DONE: YouTube videos now in data file
 - [ ] **Add more photos to gallery** - Currently only 6 images
 - [ ] **Implement image lazy loading** - Improve page load performance
 - [ ] **Add Open Graph images** - Custom preview images for social media sharing
