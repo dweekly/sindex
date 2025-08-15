@@ -14,7 +14,7 @@ Sinister Dexter band website - A modular, data-driven static site generator for 
 ⚠️ **NEVER EDIT public/index.html DIRECTLY** - It is a generated file and will be overwritten!
 - Always edit the source files (templates, partials, or data files)
 - Content updates should be made in JSON data files, not in templates
-- Run `npm run build:html` or `node build-modular.js` to regenerate HTML after making changes
+- Run `npm run build:html` to regenerate HTML after making changes
 
 ⚠️ **NEVER FABRICATE INFORMATION** - Do not make up data about the band, members, or events!
 - Only use information that exists in the source files or is explicitly provided by the user
@@ -24,11 +24,9 @@ Sinister Dexter band website - A modular, data-driven static site generator for 
 ## Project Structure
 ```
 /
-├── build-static.js      # Legacy monolithic build script
-├── build-modular.js     # NEW: Modular Handlebars build system
+├── build.js            # Modular Handlebars build system
 ├── template/
-│   ├── index.html      # Legacy monolithic template
-│   └── partials/       # NEW: Modular template components
+│   └── partials/       # Modular template components
 │       ├── head/
 │       │   ├── meta.hbs           # SEO and meta tags
 │       │   ├── styles.hbs         # CSS and font loading
@@ -37,18 +35,24 @@ Sinister Dexter band website - A modular, data-driven static site generator for 
 │       │   ├── hero.hbs          # Hero landing section
 │       │   ├── shows.hbs         # Events with microformats
 │       │   ├── members.hbs       # Band members with Person schema
-│       │   └── ...               # Additional sections
+│       │   ├── music.hbs         # Track listing
+│       │   ├── videos.hbs        # YouTube videos
+│       │   ├── gallery.hbs       # Photo gallery
+│       │   ├── about.hbs         # Band history
+│       │   ├── pull-quote.hbs    # Press quote
+│       │   ├── venues.hbs        # Notable venues
+│       │   └── connect.hbs       # Social links & contact
 │       └── components/
 │           ├── navigation.hbs    # Main navigation
-│           └── ...              # Reusable components
+│           ├── footer.hbs        # Page footer
+│           ├── music-player.hbs  # Bottom audio player
+│           └── scripts.hbs       # JavaScript
 ├── public/
 │   ├── index.html      # GENERATED OUTPUT - DO NOT EDIT!
+│   ├── index.php       # GENERATED OUTPUT - DO NOT EDIT!
 │   ├── data/           # Structured data (EDIT THESE for content)
-│   │   ├── shows.json            # Legacy shows format
-│   │   ├── shows-enhanced.json  # NEW: Rich event data
-│   │   ├── members.json          # Legacy members format  
-│   │   ├── members-enhanced.json # NEW: Rich member profiles
-│   │   ├── venues.json          # NEW: Venue details
+│   │   ├── shows.json            # Show/event data
+│   │   ├── members.json          # Band member profiles  
 │   │   └── tracks.json          # Music track data
 │   └── images/         # Processed images
 └── photos/             # Source photos for processing
@@ -63,17 +67,12 @@ Sinister Dexter band website - A modular, data-driven static site generator for 
 - `./deploy.sh prod` - Deploy to production (https://www-new.sinisterdexter.net/)
 
 ## Architecture
-
-### Modular System (NEW - Recommended)
 1. **Template Engine**: Handlebars compiles modular templates with partials
 2. **Rich Microformats**: Automatic generation of Schema.org structured data
 3. **Component-Based**: Reusable template partials for maintainability
-4. **Enhanced Data**: Rich JSON schemas with social links, geo data, etc.
-
-### Legacy System (Still Supported)
-1. **Static Site Generation**: build-static.js reads template HTML and injects data
-2. **Image Processing**: Automated WebP/JPEG generation with thumbnails
-3. **Data-Driven**: Shows and gallery pulled from JSON/manifest files
+4. **Data-Driven**: Content stored in JSON files, templates handle presentation
+5. **Image Processing**: Automated WebP/JPEG generation with thumbnails
+6. **HTML Minification**: Aggressive minification while preserving functionality
 
 ## Common Tasks
 
@@ -99,55 +98,44 @@ Sinister Dexter band website - A modular, data-driven static site generator for 
 4. Deploy: `./deploy.sh staging` then `./deploy.sh prod`
 
 ### 👥 Update Band Members
-
-#### Modular System (Recommended)
-1. Edit `public/data/members-enhanced.json`
-2. Add member with rich data:
+1. Edit `public/data/members.json`
+2. Add member data:
 ```json
 {
   "id": "member-id",
   "name": "Member Name",
   "role": "Instrument",
   "image": "filename",
-  "bio": "Full biography...",
+  "bio": "Full biography text here...",
   "emoji": "🎸",
-  "yearsWithBand": "2020-present",
-  "instruments": ["Guitar", "Vocals"],
-  "socialLinks": {
-    "instagram": "handle",
-    "website": "https://..."
-  },
-  "founding": false
+  "founding": false,
+  "yearsWithBand": "2020-present"  // Optional, only if confirmed
 }
 ```
 3. Add photo to `photos/members/` directory
 4. Run `npm run build:images` to process photos
-5. Run `node build-modular.js`
+5. Run `npm run build:html`
 6. Deploy changes
 
-#### Legacy System
-1. Edit template/index.html directly
-2. Run `npm run build:html`
-
 ### 🎵 Manage Music Tracks
-1. Edit the tracks array in `template/index.html` (search for "tracks = [")
+1. Edit `public/data/tracks.json`
 2. To add a track:
    - Upload MP3 to Cloudflare R2 (cdn.sinister-dexter.com/music/)
-   - Add to tracks array:
-```javascript
+   - Add to tracks.json:
+```json
 { 
-  num: 22,  // Next number in sequence
-  title: "Song Title",
-  artist: "Sinister Dexter",
-  duration: "4:32",
-  src: "https://cdn.sinister-dexter.com/music/filename.mp3"
+  "num": 22,
+  "title": "Song Title",
+  "artist": "Sinister Dexter",
+  "duration": "4:32",
+  "filename": "filename.mp3"
 }
 ```
 3. To remove: Delete the track object from array
 4. Run `npm run build:html` and deploy
 
 ### 🎨 Change Site Structure/Layout
-Edit `template/index.html` then run `npm run build:html`
+Edit the appropriate template partial in `template/partials/` then run `npm run build:html`
 
 ### Add New Photos
 1. Add photos to `photos/` directory
@@ -155,7 +143,7 @@ Edit `template/index.html` then run `npm run build:html`
 3. Run `npm run build:html`
 
 ### Fix JavaScript Errors
-Edit the JavaScript in `template/index.html` (not in the generated public/index.html)
+Edit the JavaScript in `template/partials/components/scripts.hbs`
 
 ## Current Tech Stack
 - Node.js build system
@@ -229,8 +217,8 @@ For bookings: booking@sinisterdexter.net
 ### Most Common Updates:
 1. **Add a show**: Edit `public/data/shows.json` → build → deploy
 2. **Update band photo**: Add to `photos/` → `npm run build:images` → build → deploy
-3. **Add/remove song**: Edit tracks array in `template/index.html` → build → deploy
-4. **Update band member**: Edit template/index.html → build → deploy
+3. **Add/remove song**: Edit `public/data/tracks.json` → build → deploy
+4. **Update band member**: Edit `public/data/members.json` → build → deploy
 
 ### Build & Deploy Commands:
 ```bash

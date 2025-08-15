@@ -120,9 +120,8 @@ async function loadData() {
     console.log('📊 Loading data files...\n');
     
     const dataFiles = {
-        members: 'members-enhanced.json',
-        shows: 'shows.json',  // Use original shows.json which has all 12 past shows
-        venues: 'venues.json',
+        members: 'members.json',
+        shows: 'shows.json',
         tracks: 'tracks.json'
     };
     
@@ -135,15 +134,7 @@ async function loadData() {
             data[key] = JSON.parse(content);
             console.log(`  ✅ Loaded ${filename}`);
         } catch (error) {
-            // Fallback to original files if enhanced versions don't exist
-            try {
-                const fallbackPath = path.join(__dirname, 'public', 'data', filename.replace('-enhanced', ''));
-                const content = await fs.readFile(fallbackPath, 'utf8');
-                data[key] = JSON.parse(content);
-                console.log(`  ✅ Loaded ${filename.replace('-enhanced', '')} (fallback)`);
-            } catch (fallbackError) {
-                console.log(`  ⚠️  Could not load ${filename}: ${error.message}`);
-            }
+            console.log(`  ⚠️  Could not load ${filename}: ${error.message}`);
         }
     }
     
@@ -465,8 +456,8 @@ async function buildModularSite() {
         });
         
         // Write output files
-        const htmlPath = path.join(__dirname, 'public', 'index-modular.html');
-        const phpPath = path.join(__dirname, 'public', 'index-modular.php');
+        const htmlPath = path.join(__dirname, 'public', 'index.html');
+        const phpPath = path.join(__dirname, 'public', 'index.php');
         
         await Promise.all([
             fs.writeFile(htmlPath, minifiedHtml),

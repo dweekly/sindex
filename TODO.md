@@ -1,107 +1,67 @@
-# TODO
+# TODO - Sinister Dexter Website
 
-## Project Structure Improvements
+## Critical (Production Blockers)
+- [x] **Set up production Tailwind CSS build** - ✅ DONE: Using Tailwind CLI to generate production CSS (25KB minified)
+- [ ] **Fill in missing band member bios** - Jon Wagner, Patrick Neschleba, Lori Karns, David Mitby have empty or placeholder bios
 
-### Asset Organization
-- [ ] Move all source imagery out of root directory
-  - `favicon-source.png`
-  - `sindex-artist.png`
-  - Other source images
-  - Create `src/assets/images/` directory
+## High Priority (User Experience)
+- [ ] **Verify all band member data** - Confirm years with band, instruments, etc. are accurate
+- [ ] **Add real press quotes** - Replace or verify the Mountain View Voice quote
+- [ ] **Update venue list** - Verify which venues the band has actually played
+- [ ] **Test music player on mobile** - Ensure touch controls and MediaSession API work properly
+- [ ] **Add loading states** - Show loading indicators while images/audio load
 
-- [ ] Move all source sounds out of root directory
-  - Create `src/assets/audio/` if needed
+## Medium Priority (Enhancements)
+- [ ] **Create videos.json** - Move YouTube video configuration to data file
+- [ ] **Add more photos to gallery** - Currently only 6 images
+- [ ] **Implement image lazy loading** - Improve page load performance
+- [ ] **Add Open Graph images** - Custom preview images for social media sharing
+- [ ] **Create 404 page** - Custom error page
+- [ ] **Add sitemap.xml generation** - Improve SEO
+- [ ] **Implement search functionality** - Search shows, tracks, etc.
 
-- [ ] Move all icon sources out of root directory
-  - Create `src/assets/icons/` directory
+## Low Priority (Nice to Have)
+- [ ] **Create MP3 validation system** - Check that all tracks exist in Cloudflare R2 bucket
+- [ ] **Add show filtering** - Filter by date, venue, city
+- [ ] **Add track filtering** - Filter by album, year
+- [ ] **Implement dark/light mode toggle** - User preference for color scheme
+- [ ] **Add animation effects** - Subtle animations for better UX
+- [ ] **Create admin interface** - Web UI for updating JSON data files
+- [ ] **Add RSS feed for shows** - Allow users to subscribe to show updates
+- [ ] **Implement newsletter signup** - Integrate with email service
+- [ ] **Add Instagram feed integration** - Pull latest posts from Instagram
+- [ ] **Create EPK (Electronic Press Kit)** - Downloadable press materials
 
-### Data Architecture
-- [ ] Move source metadata out of public/ directory
-  - Move `public/data/*.json` to `src/data/`
-  - Make `public/` output-only (generated files only)
-  - Update build scripts to read from `src/data/` and output to `public/`
-  - Ensures clean separation between source and distribution
+## Technical Debt
+- [ ] **Add comprehensive test suite** - Unit tests for build system
+- [ ] **Set up CI/CD pipeline** - Automated testing and deployment
+- [ ] **Implement caching strategy** - CloudFlare cache rules
+- [ ] **Add performance monitoring** - Track Core Web Vitals
+- [ ] **Create development environment config** - Separate dev/staging/prod configs
+- [ ] **Document API endpoints** - If/when we add dynamic features
+- [ ] **Add TypeScript** - Type safety for build scripts
+- [ ] **Implement CSP headers** - Content Security Policy for better security
 
-### Data File Simplification
-- [ ] Rename `members-enhanced.json` back to `members.json`
-  - No need for separate enhanced version
-  - Single source of truth for member data
+## Content Updates (Ongoing)
+- [ ] **Keep shows current** - Remove past shows, add new ones
+- [ ] **Update band photos** - Fresh promotional photos
+- [ ] **Add new tracks** - As they're recorded
+- [ ] **Update member info** - As lineup changes
 
-- [ ] Rename `shows-enhanced.json` back to `shows.json`
-  - Consolidate into single shows data file
-  - Include all rich metadata in main file
+## Infrastructure
+- [ ] **Set up staging environment** - Separate testing environment
+- [ ] **Configure auto-deployment** - GitHub Actions to Cloudflare Pages
+- [ ] **Set up monitoring/alerts** - Uptime monitoring, error tracking
+- [ ] **Implement backup strategy** - Regular backups of data files
+- [ ] **Add analytics** - Privacy-respecting analytics (not Google Analytics)
 
-- [ ] Remove `venues.json` requirement
-  - Embed venue data directly in shows.json
-  - Avoid maintaining separate venue database
-  - Reduce data duplication and maintenance burden
+## Accessibility
+- [ ] **Full accessibility audit** - WCAG 2.1 AA compliance
+- [ ] **Keyboard navigation testing** - Ensure all interactive elements are keyboard accessible
+- [ ] **Screen reader testing** - Test with NVDA/JAWS/VoiceOver
+- [ ] **Add skip navigation links** - Already partially implemented, needs testing
+- [ ] **Improve color contrast** - Some text may not meet WCAG standards
 
-### Media Management
-
-#### YouTube Videos
-- [ ] Create `videos.json` configuration file
-  - Move hardcoded YouTube video data to JSON
-  - Include: video ID, title, description, upload date
-  - Make it easy to add/remove/reorder videos
-  - Structure:
-    ```json
-    {
-      "videos": [
-        {
-          "id": "D9gIdE7IJsY",
-          "title": "Son of a Preacher Man",
-          "description": "Redwood City Music In The Park, 2012",
-          "uploadDate": "2012-08-15",
-          "duration": "PT3M30S"
-        }
-      ]
-    }
-    ```
-
-#### MP3 Validation System
-- [ ] Create Cloudflare R2 bucket validation tool
-  - Pull list of MP3 files from R2 bucket
-  - Verify each file is accessible and streamable
-  - Check file sizes and metadata
-  - Validate against tracks.json
-  - Only update available songs after verification
-
-- [ ] Implement automated health checks for MP3s
-  - Regular validation of CDN availability
-  - Alert on missing or corrupted files
-  - Ensure all tracks in playlist are playable
-
-## Build System Enhancements
-
-- [ ] Update build scripts for new source structure
-  - Read from `src/` directories
-  - Output only to `public/`
-  - Clear separation of concerns
-
-- [ ] Create watch mode for development
-  - Auto-rebuild on source file changes
-  - Live reload capability
-
-## Future Enhancements
-
-- [ ] Consider moving to a static site generator
-  - Evaluate: Eleventy, Astro, or similar
-  - Maintain current performance metrics
-  - Improve developer experience
-
-- [ ] Add CMS integration
-  - Headless CMS for non-technical updates
-  - Netlify CMS or similar
-  - JSON file generation from CMS
-
-## Completed
-
-- [x] Create enhanced data schemas for members and events
-- [x] Set up template engine (Handlebars)
-- [x] Create modular template directory structure
-- [x] Extract head section into partials
-- [x] Extract main sections into partials
-- [x] Create component generators with microformats
-- [x] Update build script for modular system
-- [x] Test and validate output (100% quality score)
-- [x] Update documentation for modular system
+---
+Last updated: 2024-01-15
+Priority levels: Critical > High > Medium > Low

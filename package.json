@@ -9,7 +9,7 @@
     "convert-heic": "./convert-heic.sh",
     "build:images": "npm run convert-heic && npm run process-images",
     "build:css": "npx tailwindcss -i src/styles.css -o public/styles.css --minify",
-    "build:html": "node build-static.js",
+    "build:html": "node build.js",
     "sitemap": "node generate-sitemap.js",
     "test": "node test-site-advanced.js",
     "test:quick": "node test-site.js",
