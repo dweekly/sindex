@@ -52,7 +52,7 @@ async function generateSitemap() {
 </urlset>`;
   
   // Write sitemap to file
-  const sitemapPath = path.join(__dirname, 'public', 'sitemap.xml');
+  const sitemapPath = path.join(__dirname, '..', 'public', 'sitemap.xml');
   await fs.writeFile(sitemapPath, sitemap);
   
   console.log('✅ Sitemap generated successfully!');
@@ -61,7 +61,7 @@ async function generateSitemap() {
   
   // Also generate a simple text sitemap for compatibility
   const textSitemap = pages.map(page => `${baseUrl}${page.url}`).join('\n');
-  const textSitemapPath = path.join(__dirname, 'public', 'sitemap.txt');
+  const textSitemapPath = path.join(__dirname, '..', 'public', 'sitemap.txt');
   await fs.writeFile(textSitemapPath, textSitemap);
   
   console.log(`📄 Text sitemap: ${textSitemapPath}`);

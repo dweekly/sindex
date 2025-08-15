@@ -5,7 +5,7 @@ const fs = require('fs').promises;
 const FAVICON_SIZES = [16, 32, 48, 64, 128, 180, 192, 512];
 
 async function processFavicon() {
-  const inputPath = './favicon-source.png';
+  const inputPath = './template/favicon-source.png';
   const outputDir = './public';
   
   console.log('🎨 Processing favicon...');

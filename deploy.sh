@@ -77,6 +77,8 @@ deploy_ftp() {
                --exclude .DS_Store \
                --exclude .git/ \
                --exclude node_modules/ \
+               --exclude _headers \
+               --exclude _redirects \
                public/ $FTP_REMOTE_DIR
         bye
     "

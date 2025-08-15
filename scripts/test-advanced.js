@@ -37,7 +37,7 @@ function logSection(title) {
 // Load and parse HTML
 async function loadHTML(filePath) {
   // Use provided path or default to public/index.html
-  const htmlPath = filePath || path.join(__dirname, 'public', 'index.html');
+  const htmlPath = filePath || path.join(__dirname, '..', 'public', 'index.html');
   const html = await fs.readFile(htmlPath, 'utf8');
   const stats = await fs.stat(htmlPath);
   const dom = new JSDOM(html);

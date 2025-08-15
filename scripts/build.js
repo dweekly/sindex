@@ -93,7 +93,7 @@ Handlebars.registerHelper('extractPrice', (admission) => {
 });
 
 async function loadPartials() {
-    const partialsDir = path.join(__dirname, 'template', 'partials');
+    const partialsDir = path.join(__dirname, '..', 'template', 'partials');
     
     // Recursively load all .hbs files in partials directory
     async function loadPartialsFromDir(dir, prefix = '') {
@@ -130,7 +130,7 @@ async function loadData() {
     
     for (const [key, filename] of Object.entries(dataFiles)) {
         try {
-            const filePath = path.join(__dirname, 'public', 'data', filename);
+            const filePath = path.join(__dirname, '..', 'template', 'data', filename);
             const content = await fs.readFile(filePath, 'utf8');
             data[key] = JSON.parse(content);
             console.log(`  ✅ Loaded ${filename}`);
@@ -141,7 +141,7 @@ async function loadData() {
     
     // Load images manifest
     try {
-        const manifestPath = path.join(__dirname, 'public', 'images', 'manifest.json');
+        const manifestPath = path.join(__dirname, '..', 'public', 'images', 'manifest.json');
         const manifestContent = await fs.readFile(manifestPath, 'utf8');
         data.images = JSON.parse(manifestContent);
         console.log('  ✅ Loaded images manifest');
@@ -434,8 +434,8 @@ async function buildModularSite() {
         });
         
         // Write output files
-        const htmlPath = path.join(__dirname, 'public', 'index.html');
-        const phpPath = path.join(__dirname, 'public', 'index.php');
+        const htmlPath = path.join(__dirname, '..', 'public', 'index.html');
+        const phpPath = path.join(__dirname, '..', 'public', 'index.php');
         
         await Promise.all([
             fs.writeFile(htmlPath, minifiedHtml),
