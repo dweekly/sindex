@@ -6,7 +6,7 @@
     "process-images": "node scripts/process-images.js",
     "process-images:force": "node scripts/process-images.js --force",
     "watch-images": "node scripts/process-images.js --watch",
-    "convert-heic": "./convert-heic.sh",
+    "convert-heic": "./scripts/convert-heic.sh",
     "build:images": "npm run convert-heic && npm run process-images",
     "build:members": "node scripts/process-members.js",
     "build:css": "npx tailwindcss -i template/styles.css -o public/styles.css --minify",
