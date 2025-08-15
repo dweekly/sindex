@@ -2,7 +2,7 @@
 <!-- BAND MEMBERS SECTION                         -->
 <!-- Grid of band member profiles with microdata  -->
 <!-- ============================================= -->
-<section id="members" aria-labelledby="members-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
+<section id="band-members" aria-labelledby="members-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
     <div class="max-w-7xl mx-auto">
         <h2 class="bebas text-5xl md:text-6xl text-center mb-4 gradient-text" id="members-heading">The Band</h2>
         <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
@@ -97,16 +97,6 @@
                 </div>
             </div>
             {{/each}}
-        </div>
-        
-        <!-- Notable Performances -->
-        <div class="mt-16 text-center">
-            <h3 class="bebas text-3xl mb-4 text-purple-400">Notable Venues</h3>
-            <div class="flex flex-wrap justify-center gap-4 text-gray-400">
-                {{#each band.notableVenues}}
-                <span class="px-3 py-1 bg-gray-900/50 rounded-full text-sm">{{this}}</span>
-                {{/each}}
-            </div>
         </div>
     </div>
 </section>

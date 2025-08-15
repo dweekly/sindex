@@ -1,0 +1,51 @@
+<!-- ============================================= -->
+<!-- MUSIC PLAYER                                  -->
+<!-- Bottom fixed music player with controls      -->
+<!-- ============================================= -->
+<div id="bottom-player" class="fixed bottom-0 left-0 right-0 z-50" style="padding-bottom: env(safe-area-inset-bottom); background: linear-gradient(to bottom, rgba(17, 24, 39, 0.85) 0%, rgba(17, 24, 39, 0.95) 30%, rgb(17, 24, 39) 100%); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 2px solid rgb(147, 51, 234); box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);">
+    <div class="container mx-auto px-3 md:px-4 py-3 md:py-4">
+        <div class="flex items-center gap-2 md:gap-3">
+            <!-- Play/Pause Button -->
+            <button id="play-pause-btn" aria-label="Play or pause music" class="p-3 md:p-4 bg-gradient-to-r from-purple-600 to-purple-800 rounded-full hover:from-purple-700 hover:to-purple-900 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                <svg id="play-icon" class="w-6 h-6 md:w-8 md:h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                </svg>
+                <svg id="pause-icon" class="w-6 h-6 md:w-8 md:h-8 text-white hidden" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M5.75 3a.75.75 0 00-.75.75v12.5c0 .414.336.75.75.75h1.5a.75.75 0 00.75-.75V3.75A.75.75 0 007.25 3h-1.5zM12.75 3a.75.75 0 00-.75.75v12.5c0 .414.336.75.75.75h1.5a.75.75 0 00.75-.75V3.75a.75.75 0 00-.75-.75h-1.5z"/>
+                </svg>
+            </button>
+            
+            <!-- Previous Button -->
+            <button id="prev-btn" aria-label="Previous track" class="p-2 text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M8.445 14.832A1 1 0 0010 14v-2.798l5.445 3.63A1 1 0 0017 14V6a1 1 0 00-1.555-.832L10 8.798V6a1 1 0 00-1.555-.832l-6 4a1 1 0 000 1.664l6 4z"/>
+                </svg>
+            </button>
+            
+            <!-- Next Button -->
+            <button id="next-btn" aria-label="Next track" class="p-2 text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M4.555 5.168A1 1 0 003 6v8a1 1 0 001.555.832L10 11.202V14a1 1 0 001.555.832l6-4a1 1 0 000-1.664l-6-4A1 1 0 0010 6v2.798l-5.445-3.63z"/>
+                </svg>
+            </button>
+            
+            <!-- Track Info -->
+            <div class="flex-1 min-w-0 px-2 md:px-3 text-center">
+                <div id="track-title" class="text-white font-semibold text-base md:text-lg truncate">No track selected</div>
+                <div id="track-subtitle" class="text-gray-400 text-sm hidden sm:block">Click a track to play</div>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div class="flex-1 flex items-center gap-2 md:gap-3">
+                <span id="current-time" class="text-xs text-gray-400 w-10 text-right hidden md:block">0:00</span>
+                <div class="flex-1 bg-gray-700 rounded-full h-1.5 relative cursor-pointer" id="progress-container">
+                    <div id="progress-bar" class="absolute left-0 top-0 h-full bg-gradient-to-r from-purple-600 to-amber-500 rounded-full" style="width: 0%"></div>
+                </div>
+                <span id="duration" class="text-xs text-gray-400 w-10 hidden md:block">0:00</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Hidden Audio Element (outside of bottom-player for accessibility) -->
+<audio id="bottom-audio-element" preload="metadata"></audio>

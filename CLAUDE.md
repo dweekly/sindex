@@ -16,6 +16,11 @@ Sinister Dexter band website - A modular, data-driven static site generator for 
 - Content updates should be made in JSON data files, not in templates
 - Run `npm run build:html` or `node build-modular.js` to regenerate HTML after making changes
 
+⚠️ **NEVER FABRICATE INFORMATION** - Do not make up data about the band, members, or events!
+- Only use information that exists in the source files or is explicitly provided by the user
+- Leave fields empty, use "TODO" comments, or placeholder text rather than inventing details
+- This especially applies to: band member bios, years with band, venues played, show dates, etc.
+
 ## Project Structure
 ```
 /
@@ -262,4 +267,4 @@ npm run build:images  # Process new photos
 - **Local SEO**: Venue geo-coordinates
 
 ---
-Last updated: 2025-08-14
+Last updated: 2025-08-15

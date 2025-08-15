@@ -6,6 +6,9 @@ const Handlebars = require('handlebars');
 const { minify } = require('html-minifier-terser');
 
 // Register Handlebars helpers
+// Helper for current year
+Handlebars.registerHelper('currentYear', () => new Date().getFullYear());
+
 Handlebars.registerHelper('math', (a, operator, b) => {
     const ops = {
         '+': (x, y) => x + y,
@@ -27,6 +30,17 @@ Handlebars.registerHelper('slice', (array, start, end) => {
 });
 
 Handlebars.registerHelper('gt', (a, b) => a > b);
+
+// Helper to lookup nested array values
+Handlebars.registerHelper('lookup', (array, index, property) => {
+    if (!array || !array[index]) return '';
+    return property ? array[index][property] : array[index];
+});
+
+// Helper to output JSON
+Handlebars.registerHelper('json', (context) => {
+    return JSON.stringify(context);
+});
 
 Handlebars.registerHelper('truncate', (str, length) => {
     if (!str) return '';
@@ -107,7 +121,7 @@ async function loadData() {
     
     const dataFiles = {
         members: 'members-enhanced.json',
-        shows: 'shows-enhanced.json',
+        shows: 'shows.json',  // Use original shows.json which has all 12 past shows
         venues: 'venues.json',
         tracks: 'tracks.json'
     };
@@ -175,7 +189,7 @@ function prepareTemplateData(data) {
     const band = {
         foundingYear: '1998',
         genres: ['Funk', 'Soul', 'R&B', 'Blues'],
-        notableVenues: ['The Fillmore', 'Club Fox', 'The Independent', 'Yoshi\'s']
+        notableVenues: ['Club Fox', 'Lost & Found Saloon', 'Quarter Note', 'Blue Chalk Cafe']
     };
     
     // Navigation structure
@@ -186,6 +200,8 @@ function prepareTemplateData(data) {
             { label: 'Videos', anchor: 'videos' },
             { label: 'Gallery', anchor: 'gallery' },
             { label: 'About', anchor: 'about' },
+            { label: 'Band', anchor: 'band-members' },
+            { label: 'Venues', anchor: 'notable-venues' },
             { label: 'Connect', anchor: 'connect' }
         ]
     };
@@ -216,20 +232,59 @@ function prepareTemplateData(data) {
     let pastShows = [];
     
     if (data.shows) {
-        // Combine and categorize shows
-        const allShows = [
-            ...(data.shows.upcomingShows || []),
-            ...(data.shows.pastShows || [])
-        ];
+        // Process upcoming shows
+        if (data.shows.upcomingShows) {
+            data.shows.upcomingShows.forEach(show => {
+                const showDate = new Date(show.date);
+                // Convert simple show format to enhanced format for template
+                const enhancedShow = {
+                    ...show,
+                    id: show.date + '-' + (show.venue || '').toLowerCase().replace(/\s+/g, '-'),
+                    startTime: show.time ? show.time.split(' - ')[0] : '',
+                    endTime: show.time ? show.time.split(' - ')[1] : '',
+                    venue: {
+                        name: show.venue,
+                        address: {
+                            city: show.city,
+                            state: show.city ? show.city.split(', ')[1] : ''
+                        }
+                    },
+                    ticketing: {
+                        link: show.link,
+                        ticketUrl: show.tickets,
+                        admission: show.admission || (show.description && show.description.includes('Free') ? 'Free' : ''),
+                        ageRestriction: show.ageRestriction || show.note
+                    },
+                    specialNotes: show.specialNotes
+                };
+                
+                if (showDate >= twoDaysAgo) {
+                    upcomingShows.push(enhancedShow);
+                } else {
+                    pastShows.push(enhancedShow);
+                }
+            });
+        }
         
-        allShows.forEach(show => {
-            const showDate = new Date(show.date);
-            if (showDate >= twoDaysAgo) {
-                upcomingShows.push(show);
-            } else {
-                pastShows.push(show);
-            }
-        });
+        // Process past shows - keep all of them!
+        if (data.shows.pastShows) {
+            data.shows.pastShows.forEach(show => {
+                const enhancedShow = {
+                    ...show,
+                    id: show.date + '-' + (show.venue || '').toLowerCase().replace(/\s+/g, '-'),
+                    venue: {
+                        name: show.venue,
+                        link: show.link,
+                        address: {
+                            city: show.city
+                        }
+                    },
+                    time: show.time,
+                    performanceNotes: show.performanceNotes
+                };
+                pastShows.push(enhancedShow);
+            });
+        }
         
         // Sort shows
         upcomingShows.sort((a, b) => a.date.localeCompare(b.date));
@@ -276,10 +331,21 @@ function prepareTemplateData(data) {
         }
     ];
     
+    // Process tracks data - add full src URLs
+    let tracks = [];
+    if (data.tracks) {
+        const cdnBaseUrl = data.tracks.cdnBaseUrl || 'https://cdn.sinister-dexter.com/music/';
+        tracks = (data.tracks.tracks || data.tracks).map(track => ({
+            ...track,
+            src: track.src || `${cdnBaseUrl}${track.filename}`
+        }));
+    }
+    
     console.log(`  📅 ${upcomingShows.length} upcoming shows`);
     console.log(`  📜 ${pastShows.length} past shows`);
     console.log(`  👥 ${members.length} band members`);
     console.log(`  🎬 ${videos.length} videos`);
+    console.log(`  🎵 ${tracks.length} tracks`);
     console.log(`  🖼️  ${data.images.thumbnail ? data.images.thumbnail.length : 0} gallery images`);
     
     return {
@@ -292,8 +358,9 @@ function prepareTemplateData(data) {
         pastShows,
         videos,
         images: data.images,
-        tracks: data.tracks,
-        bandMembersCount: members.length
+        tracks,
+        bandMembersCount: members.length,
+        currentYear: new Date().getFullYear()
     };
 }
 
@@ -348,16 +415,21 @@ async function buildModularSite() {
         
         {{> sections/hero}}
         {{> sections/shows}}
+        {{> sections/music}}
+        {{> sections/videos}}
+        {{> sections/gallery}}
+        {{> sections/about}}
+        {{> sections/pull-quote}}
         {{> sections/members}}
+        {{> sections/venues}}
+        {{> sections/connect}}
     </main>
     
-    <!-- Footer will go here -->
-    <!-- Music player will go here -->
+    {{> components/footer}}
+    {{> components/music-player}}
     
     <!-- JavaScript -->
-    <script>
-        // Mobile menu, lightbox, and other interactive features
-    </script>
+    {{> components/scripts}}
 </body>
 </html>`;
         
@@ -365,10 +437,11 @@ async function buildModularSite() {
         const template = Handlebars.compile(mainTemplate);
         const html = template(templateData);
         
-        // Minify HTML
+        // Minify HTML - aggressive settings for single-line output
         console.log('\n🗜️  Minifying HTML...');
         const minifiedHtml = await minify(html, {
             collapseWhitespace: true,
+            conservativeCollapse: true, // Preserve at least one space between elements
             removeComments: true,
             removeRedundantAttributes: true,
             removeScriptTypeAttributes: true,
@@ -376,13 +449,19 @@ async function buildModularSite() {
             useShortDoctype: true,
             minifyCSS: true,
             minifyJS: true,
-            keepClosingSlash: true,
-            removeAttributeQuotes: false,
+            keepClosingSlash: false,
+            removeAttributeQuotes: false, // Keep quotes to avoid breaking selectors
             preserveLineBreaks: false,
             sortAttributes: true,
             sortClassName: true,
             removeEmptyAttributes: true,
-            processConditionalComments: true
+            processConditionalComments: true,
+            collapseInlineTagWhitespace: false, // Don't collapse whitespace around inline elements like <a>
+            collapseBooleanAttributes: true,
+            removeOptionalTags: false,
+            html5: true,
+            decodeEntities: true,
+            continueOnParseError: true
         });
         
         // Write output files

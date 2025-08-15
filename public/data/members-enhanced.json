@@ -7,15 +7,7 @@
       "image": "rebecca",
       "bio": "Rebecca's love of singing started with Sesame Street, much to her siblings' chagrin, and it never stopped. She was a founding member of the Off Beats, a Jazz quartet, in her late teens, studied opera and musical theater styles for over 15 years, and performed professionally with theater groups in Northern California, Boston and New York. She has been Sinister Dexter's lead singer since 2005, and loves the mix of soul, funk and blues music.",
       "emoji": "🎤",
-      "yearsWithBand": "2005-present",
-      "instruments": ["Vocals", "Percussion"],
-      "socialLinks": {
-        "instagram": null,
-        "facebook": null,
-        "website": null
-      },
-      "influences": ["Aretha Franklin", "Etta James", "Amy Winehouse"],
-      "favoritePerformance": "Club Fox 2023"
+      "yearsWithBand": "2005-present"
     },
     {
       "id": "daniel-walling",
@@ -24,41 +16,15 @@
       "image": "walling",
       "bio": "Daniel started playing piano like everyone else, because Mom made him take lessons. But then he got hooked, switching from classical to jazz in high school, playing in various jazz combos in college, and in 2004 switching again to funky tasty groovaliciousness with sindex. Critics have described his organ solos as \"really f*#$ing loud\".",
       "emoji": "🎹",
-      "yearsWithBand": "2004-present",
-      "instruments": ["Hammond B3 Organ", "Keyboards", "Piano"],
-      "gear": {
-        "primary": "Hammond B3 Organ",
-        "secondary": "Nord Stage 3",
-        "amplification": "Leslie 147"
-      },
-      "socialLinks": {
-        "instagram": null,
-        "facebook": null,
-        "website": null
-      },
-      "influences": ["Jimmy Smith", "Billy Preston", "Booker T. Jones"],
-      "favoritePerformance": "Redwood City Music in the Park 2023"
+      "yearsWithBand": "2004-present"
     },
     {
       "id": "david-mitby",
       "name": "David Mitby",
       "role": "Bass",
       "image": "mitby",
-      "bio": "Keeping the groove tight with thunderous bass lines that make you move. David brings decades of experience across funk, soul, and R&B.",
-      "emoji": "🎸",
-      "yearsWithBand": "2010-present",
-      "instruments": ["Electric Bass", "Upright Bass"],
-      "gear": {
-        "primary": "Fender Precision Bass",
-        "amplification": "Ampeg SVT"
-      },
-      "socialLinks": {
-        "instagram": null,
-        "facebook": null,
-        "website": null
-      },
-      "influences": ["James Jamerson", "Bootsy Collins", "Larry Graham"],
-      "favoritePerformance": null
+      "bio": "",
+      "emoji": "🎸"
     },
     {
       "id": "matt-spitz",
@@ -66,42 +32,16 @@
       "role": "Guitar",
       "image": "spitz",
       "bio": "Matt plays guitar, has performed in 38 states, and recently won a Grammy. As of this writing, at least one of those statements is correct. This is his second tour of duty with SinDex after a decade hiatus in New York City.",
-      "emoji": "🎸",
-      "yearsWithBand": "2000-2010, 2020-present",
-      "instruments": ["Electric Guitar", "Acoustic Guitar"],
-      "gear": {
-        "primary": "Fender Stratocaster",
-        "secondary": "Gibson ES-335"
-      },
-      "socialLinks": {
-        "instagram": null,
-        "facebook": null,
-        "website": null
-      },
-      "influences": ["Nile Rodgers", "Jimmy Nolen", "Curtis Mayfield"],
-      "favoritePerformance": "Return show at Club Fox 2020"
+      "emoji": "🎸"
     },
     {
       "id": "jon-wagner",
       "name": "Jon Wagner",
       "role": "Drums",
       "image": "wagner",
-      "bio": "Jon has been keeping the beat since the band's inception, bringing precision and power to every performance. His dynamic style ranges from subtle grooves to explosive fills.",
+      "bio": "",
       "emoji": "🥁",
-      "founding": true,
-      "yearsWithBand": "1998-present",
-      "instruments": ["Drums", "Percussion"],
-      "gear": {
-        "primary": "DW Drums",
-        "cymbals": "Zildjian"
-      },
-      "socialLinks": {
-        "instagram": null,
-        "facebook": null,
-        "website": null
-      },
-      "influences": ["David Garibaldi", "Clyde Stubblefield", "Bernard Purdie"],
-      "favoritePerformance": "First show at The Fillmore"
+      "founding": true
     },
     {
       "id": "kevin-wooley",
@@ -110,21 +50,7 @@
       "image": "wooley",
       "bio": "Kevin is a founding member of Sinister Dexter and the defacto manager. He's been playing tenor sax since he was 12 years old in jazz groups, symphonic orchestras, and marching bands. He also plays clarinet and soprano sax, but Kenny G ruined that instrument for everyone. Because of his love for music from the sixties and seventies (and disgust with music from the eighties and nineties), he often thinks he was born a couple of decades too late. By day, Kevin is an Oscar-winning engineer for Industrial Light & Magic.",
       "emoji": "🎷",
-      "founding": true,
-      "yearsWithBand": "1998-present",
-      "instruments": ["Tenor Saxophone", "Soprano Saxophone", "Clarinet"],
-      "gear": {
-        "primary": "Selmer Mark VI Tenor",
-        "mouthpiece": "Otto Link Super Tone Master"
-      },
-      "socialLinks": {
-        "instagram": null,
-        "linkedin": null,
-        "imdb": null
-      },
-      "influences": ["Maceo Parker", "King Curtis", "Junior Walker"],
-      "favoritePerformance": "20th Anniversary Show",
-      "professionalHighlight": "Oscar winner for Visual Effects at ILM"
+      "founding": true
     },
     {
       "id": "don-hoffman",
@@ -133,20 +59,7 @@
       "image": "hoffman",
       "bio": "Don's been playing for over 20 years, and his background covers everything from jazz to musical pit orchestras, and symphony to marching bands. He's one of the founding members of Sinister Dexter, and enjoys occasionally playing with other Bay Area bands including Foreverland, which he also helped start.",
       "emoji": "🎺",
-      "founding": true,
-      "yearsWithBand": "1998-present",
-      "instruments": ["Trombone"],
-      "gear": {
-        "primary": "Bach 42BO",
-        "mouthpiece": "Bach 5G"
-      },
-      "socialLinks": {
-        "instagram": null,
-        "facebook": null
-      },
-      "influences": ["Fred Wesley", "J.J. Johnson", "Curtis Fuller"],
-      "favoritePerformance": "Fiesta on the Hill 2024",
-      "otherBands": ["Foreverland"]
+      "founding": true
     },
     {
       "id": "josh-schiller",
@@ -155,41 +68,16 @@
       "image": "schiller",
       "bio": "Josh has been playing bone for a very long time. You could even say it pays him more than anything else he does, especially since he's currently enjoying a life of leisure.",
       "emoji": "🎺",
-      "founding": true,
-      "yearsWithBand": "1998-present",
-      "instruments": ["Bass Trombone"],
-      "gear": {
-        "primary": "Bach 50B",
-        "mouthpiece": "Schilke 60"
-      },
-      "socialLinks": {
-        "instagram": null,
-        "facebook": null
-      },
-      "influences": ["George Roberts", "Dave Taylor"],
-      "favoritePerformance": null
+      "founding": true
     },
     {
       "id": "patrick-neschleba",
       "name": "Patrick Neschleba",
       "role": "Alto & Bari Sax",
       "image": "patrick",
-      "bio": "Patrick brings the funk with both alto and baritone saxophones, switching seamlessly between the two to create the perfect horn section blend. Composer of the band's signature tune 'Show Us How to Get Down'.",
+      "bio": "",
       "emoji": "🎷",
-      "founding": true,
-      "yearsWithBand": "1998-present",
-      "instruments": ["Alto Saxophone", "Baritone Saxophone"],
-      "gear": {
-        "alto": "Yamaha YAS-62",
-        "bari": "Selmer Super Action 80"
-      },
-      "socialLinks": {
-        "instagram": null,
-        "facebook": null
-      },
-      "influences": ["David Sanborn", "Gerry Mulligan", "Leo P"],
-      "favoritePerformance": "Debut of 'Show Us How to Get Down'",
-      "compositions": ["Show Us How to Get Down"]
+      "founding": true
     },
     {
       "id": "adam-elman",
@@ -198,41 +86,15 @@
       "image": "elman",
       "bio": "Adam is a founding member of Sinister Dexter and is glad to be playing with them again after a brief 14-year hiatus. Starting as a trombone player in bands and orchestras in 9th grade, Adam picked up trumpet after college and decided to stick with it when SinDex began, both because the band already had two great trombone players and because it's way easier to carry a trumpet around. In the rare moments when he's not busy helping raise a kid or designing voice experiences for a large tech company, he likes to arrange and occasionally compose original music.",
       "emoji": "🎺",
-      "founding": true,
-      "yearsWithBand": "1998-2008, 2022-present",
-      "instruments": ["Trumpet", "Flugelhorn", "Trombone"],
-      "gear": {
-        "primary": "Bach Stradivarius 37",
-        "mouthpiece": "Bach 3C"
-      },
-      "socialLinks": {
-        "linkedin": null,
-        "website": null
-      },
-      "influences": ["Lee Morgan", "Freddie Hubbard", "Tower of Power Horn Section"],
-      "favoritePerformance": "Return to the band in 2022",
-      "professionalHighlight": "Voice UX Designer at major tech company",
-      "arrangements": ["Multiple original arrangements for the band"]
+      "founding": true
     },
     {
       "id": "lori-karns",
       "name": "Lori Karns",
       "role": "Trumpet",
       "image": "lori",
-      "bio": "Lori brings bright, powerful trumpet lines to the horn section with precision and soul. Her experience spans jazz ensembles, funk bands, and studio work throughout the Bay Area.",
-      "emoji": "🎺",
-      "yearsWithBand": "2018-present",
-      "instruments": ["Trumpet", "Flugelhorn"],
-      "gear": {
-        "primary": "Yamaha YTR-8335",
-        "mouthpiece": "Yamaha 14B4"
-      },
-      "socialLinks": {
-        "instagram": null,
-        "facebook": null
-      },
-      "influences": ["Ingrid Jensen", "Terell Stafford"],
-      "favoritePerformance": null
+      "bio": "",
+      "emoji": "🎺"
     }
   ]
 }

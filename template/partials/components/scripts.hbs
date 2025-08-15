@@ -1,0 +1,146 @@
+<script>
+// Track data
+const tracks = {{{json tracks}}};
+
+// Music Player Logic
+(function() {
+    let currentTrackIndex = -1;
+    let isPlaying = false;
+    const audioElement = document.getElementById('bottom-audio-element');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const playIcon = document.getElementById('play-icon');
+    const pauseIcon = document.getElementById('pause-icon');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const trackTitle = document.getElementById('track-title');
+    const trackSubtitle = document.getElementById('track-subtitle');
+    const currentTimeEl = document.getElementById('current-time');
+    const durationEl = document.getElementById('duration');
+    const progressBar = document.getElementById('progress-bar');
+    const progressContainer = document.getElementById('progress-container');
+    
+    // Format time
+    function formatTime(seconds) {
+        if (isNaN(seconds)) return '0:00';
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+    
+    // Load track
+    function loadTrack(index) {
+        if (index < 0 || index >= tracks.length) return;
+        
+        currentTrackIndex = index;
+        const track = tracks[index];
+        
+        audioElement.src = track.src;
+        trackTitle.textContent = track.title;
+        trackSubtitle.textContent = track.artist;
+        
+        // Update active state in track list
+        document.querySelectorAll('.track-item').forEach((item, i) => {
+            if (i === index) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+        
+        // Update MediaSession API
+        if ('mediaSession' in navigator) {
+            navigator.mediaSession.metadata = new MediaMetadata({
+                title: track.title,
+                artist: track.artist,
+                album: 'Sinister Dexter'
+            });
+        }
+    }
+    
+    // Play/Pause
+    function togglePlayPause() {
+        if (currentTrackIndex === -1) {
+            loadTrack(0);
+        }
+        
+        if (isPlaying) {
+            audioElement.pause();
+            isPlaying = false;
+            playIcon.classList.remove('hidden');
+            pauseIcon.classList.add('hidden');
+        } else {
+            audioElement.play();
+            isPlaying = true;
+            playIcon.classList.add('hidden');
+            pauseIcon.classList.remove('hidden');
+        }
+    }
+    
+    // Previous track
+    function prevTrack() {
+        if (currentTrackIndex > 0) {
+            loadTrack(currentTrackIndex - 1);
+            if (isPlaying) audioElement.play();
+        }
+    }
+    
+    // Next track
+    function nextTrack() {
+        if (currentTrackIndex < tracks.length - 1) {
+            loadTrack(currentTrackIndex + 1);
+            if (isPlaying) audioElement.play();
+        }
+    }
+    
+    // Event listeners
+    playPauseBtn?.addEventListener('click', togglePlayPause);
+    prevBtn?.addEventListener('click', prevTrack);
+    nextBtn?.addEventListener('click', nextTrack);
+    
+    // Track list click handlers
+    document.querySelectorAll('.track-item').forEach((item, index) => {
+        item.addEventListener('click', function() {
+            loadTrack(index);
+            audioElement.play();
+            isPlaying = true;
+            playIcon.classList.add('hidden');
+            pauseIcon.classList.remove('hidden');
+        });
+    });
+    
+    // Audio element events
+    audioElement?.addEventListener('timeupdate', () => {
+        const progress = (audioElement.currentTime / audioElement.duration) * 100;
+        progressBar.style.width = `${progress}%`;
+        currentTimeEl.textContent = formatTime(audioElement.currentTime);
+    });
+    
+    audioElement?.addEventListener('loadedmetadata', () => {
+        durationEl.textContent = formatTime(audioElement.duration);
+    });
+    
+    audioElement?.addEventListener('ended', () => {
+        nextTrack();
+    });
+    
+    // Progress bar click
+    progressContainer?.addEventListener('click', (e) => {
+        const rect = progressContainer.getBoundingClientRect();
+        const percent = (e.clientX - rect.left) / rect.width;
+        audioElement.currentTime = percent * audioElement.duration;
+    });
+    
+    // MediaSession API handlers
+    if ('mediaSession' in navigator) {
+        navigator.mediaSession.setActionHandler('play', togglePlayPause);
+        navigator.mediaSession.setActionHandler('pause', togglePlayPause);
+        navigator.mediaSession.setActionHandler('previoustrack', prevTrack);
+        navigator.mediaSession.setActionHandler('nexttrack', nextTrack);
+    }
+    
+    // Auto-load first track (Broadband Connection)
+    if (tracks.length > 0) {
+        loadTrack(0);
+    }
+})();
+</script>
