@@ -12,16 +12,6 @@
       "description": "Free summer concert series at the corner of King St. & Hopkins Ave. Kid friendly!"
     },
     {
-      "date": "2025-09-11",
-      "dayOfWeek": "THU",
-      "venue": "Valencia LIVE! at Blondie's Bar",
-      "city": "San Francisco, CA",
-      "time": "5:00 PM - 8:00 PM",
-      "link": "https://blondiesbarsf.com/",
-      "featured": true,
-      "description": "Big night market on Valencia St with food, drink, entertainment, and FUNK!"
-    },
-    {
       "date": "2025-11-14",
       "dayOfWeek": "FRI",
       "venue": "Club Fox",
