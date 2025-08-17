@@ -417,8 +417,7 @@ async function buildModularSite() {
     
     {{> components/navigation}}
     
-    <main id="main-content" role="main" itemscope itemtype="https://schema.org/MusicGroup">
-        <meta itemprop="url" content="{{site.url}}">
+    <main id="main-content" role="main">
         
         {{> sections/hero}}
         {{> sections/shows}}

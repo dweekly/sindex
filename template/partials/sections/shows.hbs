@@ -2,8 +2,7 @@
 <!-- SHOWS SECTION                                -->
 <!-- Upcoming and past performance dates          -->
 <!-- ============================================= -->
-<section id="shows" aria-labelledby="shows-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30" 
-         itemscope itemtype="https://schema.org/EventSeries">
+<section id="shows" aria-labelledby="shows-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
     <div class="max-w-7xl mx-auto">
         <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="shows-heading">Upcoming Shows</h2>
         
@@ -14,62 +13,44 @@
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" id="shows-container">
             {{#if upcomingShows}}
                 {{#each upcomingShows}}
-                <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30 hover:border-purple-400 transition-all"
-                     itemscope 
-                     itemtype="https://schema.org/MusicEvent"
-                     itemprop="event">
+                <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30 hover:border-purple-400 transition-all">
                     
-                    <!-- Event ID -->
-                    <meta itemprop="@id" content="{{../site.url}}#event-{{this.id}}">
                     
                     <!-- Date and Time -->
                     <div class="text-amber-500 font-bold mb-2">
-                        <time itemprop="startDate" datetime="{{this.date}}T{{this.startTime}}{{getTimezoneOffset this.timezone}}">
+                        <time datetime="{{this.date}}T{{this.startTime}}{{getTimezoneOffset this.timezone}}">
                             {{this.dayOfWeek}}, {{formatDate this.date "MMM DD"}}
                         </time>
                     </div>
                     
                     <!-- Venue Information -->
-                    <div itemprop="location" itemscope itemtype="https://schema.org/Place">
-                        <h3 class="text-xl font-bold mb-2" itemprop="name">{{this.venue.name}}</h3>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">{{this.venue.name}}</h3>
                         
                         <!-- Address -->
-                        <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                        <div>
                             <a href="https://maps.google.com/?q={{encodeURIComponent this.venue.address.streetAddress}}+{{encodeURIComponent this.venue.address.addressLocality}}+{{encodeURIComponent this.venue.address.addressRegion}}+{{encodeURIComponent this.venue.address.postalCode}}"
                                target="_blank"
                                class="text-gray-400 hover:text-purple-400 transition-colors inline-block mb-2">
                                 {{#if this.venue.address.streetAddress}}
-                                <span itemprop="streetAddress">{{this.venue.address.streetAddress}}</span><br>
+                                <span>{{this.venue.address.streetAddress}}</span><br>
                                 {{/if}}
-                                <span itemprop="addressLocality">{{this.venue.address.addressLocality}}</span>, 
-                                <span itemprop="addressRegion">{{this.venue.address.addressRegion}}</span>
+                                <span>{{this.venue.address.addressLocality}}</span>, 
+                                <span>{{this.venue.address.addressRegion}}</span>
                                 {{#if this.venue.address.postalCode}}
-                                <span itemprop="postalCode">{{this.venue.address.postalCode}}</span>
+                                <span>{{this.venue.address.postalCode}}</span>
                                 {{/if}}
                                 <i class="fas fa-map-marker-alt ml-1 text-xs"></i>
                             </a>
-                            <meta itemprop="addressCountry" content="{{this.venue.address.addressCountry}}">
                         </div>
                         
-                        <!-- Geo Coordinates -->
-                        {{#if this.venue.geo}}
-                        <div itemprop="geo" itemscope itemtype="https://schema.org/GeoCoordinates" class="hidden">
-                            <meta itemprop="latitude" content="{{this.venue.geo.latitude}}">
-                            <meta itemprop="longitude" content="{{this.venue.geo.longitude}}">
-                        </div>
-                        {{/if}}
-                        
-                        <!-- Accessibility -->
-                        {{#if this.venue.accessibility.wheelchairAccessible}}
-                        <meta itemprop="isAccessibleForFree" content="true">
-                        {{/if}}
                     </div>
                     
                     <!-- Time -->
                     <p class="text-gray-300 mb-4">
                         {{#if this.endTime}}
                         <time datetime="{{this.date}}T{{this.startTime}}">{{formatTime this.startTime}}</time> - 
-                        <time itemprop="endDate" datetime="{{this.date}}T{{this.endTime}}">{{formatTime this.endTime}}</time>
+                        <time datetime="{{this.date}}T{{this.endTime}}">{{formatTime this.endTime}}</time>
                         {{else}}
                         {{this.time}}
                         {{/if}}
@@ -77,36 +58,13 @@
                     
                     <!-- Description -->
                     {{#if this.description}}
-                    <p class="text-sm text-gray-400 mb-4" itemprop="description">{{this.description}}</p>
+                    <p class="text-sm text-gray-400 mb-4">{{this.description}}</p>
                     {{/if}}
                     
-                    <!-- Performer (hidden) -->
-                    <div itemprop="performer" itemscope itemtype="https://schema.org/MusicGroup" class="hidden">
-                        <meta itemprop="name" content="{{../site.title}}">
-                        <link itemprop="url" href="{{../site.url}}">
-                    </div>
                     
-                    <!-- Ticketing Info -->
-                    {{#if this.ticketing}}
-                    <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                        {{#if this.isFree}}
-                        <meta itemprop="isAccessibleForFree" content="true">
-                        {{else}}
-                        {{#if this.ticketing.price}}
-                        <meta itemprop="price" content="{{this.ticketing.price}}">
-                        <meta itemprop="priceCurrency" content="USD">
-                        {{/if}}
-                        {{/if}}
-                        <meta itemprop="availability" content="https://schema.org/InStock">
-                        {{#if this.ticketing.ticketUrl}}
-                        <meta itemprop="url" content="{{this.ticketing.ticketUrl}}">
-                        {{/if}}
-                        
-                        <!-- Age Restriction -->
-                        {{#if this.ticketing.ageRestriction}}
-                        <p class="text-xs text-gray-500 mb-2">{{this.ticketing.ageRestriction}}</p>
-                        {{/if}}
-                    </div>
+                    <!-- Age Restriction -->
+                    {{#if this.ticketing.ageRestriction}}
+                    <p class="text-xs text-gray-500 mb-2">{{this.ticketing.ageRestriction}}</p>
                     {{/if}}
                     
                     <!-- Action Links with Price -->
@@ -141,9 +99,6 @@
                     <p class="text-xs text-gray-500 mt-3 italic">{{this.specialNotes}}</p>
                     {{/if}}
                     
-                    <!-- Event Status (hidden) -->
-                    <meta itemprop="eventStatus" content="https://schema.org/EventScheduled">
-                    <meta itemprop="eventAttendanceMode" content="https://schema.org/OfflineEventAttendanceMode">
                 </div>
                 {{/each}}
             {{else}}
