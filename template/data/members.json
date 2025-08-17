@@ -7,7 +7,14 @@
       "image": "rebecca",
       "bio": "Rebecca's love of singing started with Sesame Street, much to her siblings' chagrin, and it never stopped. She was a founding member of the Off Beats, a Jazz quartet, in her late teens, studied opera and musical theater styles for over 15 years, and performed professionally with theater groups in Northern California, Boston and New York. She has been Sinister Dexter's lead singer since 2005, and loves the mix of soul, funk and blues music.",
       "emoji": "🎤",
-      "yearsWithBand": "2005-present"
+      "yearsWithBand": "2005-present",
+      "socialLinks": {
+        "website": "https://rebeccaweekly.com/",
+        "twitter": "rebeccalipon",
+        "instagram": "rebecca_weekly",
+        "facebook": "rebecca.lipon",
+        "linkedin": "rebecca-weekly-224778"
+      }
     },
     {
       "id": "daniel-walling",
@@ -16,7 +23,10 @@
       "image": "walling",
       "bio": "Daniel started playing piano like everyone else, because Mom made him take lessons. But then he got hooked, switching from classical to jazz in high school, playing in various jazz combos in college, and in 2004 switching again to funky tasty groovaliciousness with sindex. Critics have described his organ solos as \"really f*#$ing loud\".",
       "emoji": "🎹",
-      "yearsWithBand": "2004-present"
+      "yearsWithBand": "2004-present",
+      "socialLinks": {
+        "linkedin": "danielwalling"
+      }
     },
     {
       "id": "david-mitby",
@@ -24,7 +34,10 @@
       "role": "Bass",
       "image": "mitby",
       "bio": "",
-      "emoji": "🎸"
+      "emoji": "🎸",
+      "socialLinks": {
+        "linkedin": "mitby"
+      }
     },
     {
       "id": "matt-spitz",
@@ -32,7 +45,11 @@
       "role": "Guitar",
       "image": "spitz",
       "bio": "Matt plays guitar, has performed in 38 states, and recently won a Grammy. As of this writing, at least one of those statements is correct. This is his second tour of duty with SinDex after a decade hiatus in New York City.",
-      "emoji": "🎸"
+      "emoji": "🎸",
+      "socialLinks": {
+        "website": "https://mattspitz.me/",
+        "linkedin": "mattspitz"
+      }
     },
     {
       "id": "jon-wagner",
@@ -50,7 +67,10 @@
       "image": "wooley",
       "bio": "Kevin is a founding member of Sinister Dexter and the defacto manager. He's been playing tenor sax since he was 12 years old in jazz groups, symphonic orchestras, and marching bands. He also plays clarinet and soprano sax, but Kenny G ruined that instrument for everyone. Because of his love for music from the sixties and seventies (and disgust with music from the eighties and nineties), he often thinks he was born a couple of decades too late. By day, Kevin is an Oscar-winning engineer for Industrial Light & Magic.",
       "emoji": "🎷",
-      "founding": true
+      "founding": true,
+      "socialLinks": {
+        "linkedin": "kevin-wooley-926662"
+      }
     },
     {
       "id": "don-hoffman",
@@ -59,7 +79,10 @@
       "image": "hoffman",
       "bio": "Don's been playing for over 20 years, and his background covers everything from jazz to musical pit orchestras, and symphony to marching bands. He's one of the founding members of Sinister Dexter, and enjoys occasionally playing with other Bay Area bands including Foreverland, which he also helped start.",
       "emoji": "🎺",
-      "founding": true
+      "founding": true,
+      "socialLinks": {
+        "linkedin": "dhoffman"
+      }
     },
     {
       "id": "josh-schiller",
@@ -68,7 +91,10 @@
       "image": "schiller",
       "bio": "Josh has been playing bone for a very long time. You could even say it pays him more than anything else he does, especially since he's currently enjoying a life of leisure.",
       "emoji": "🎺",
-      "founding": true
+      "founding": true,
+      "socialLinks": {
+        "linkedin": "josh-schiller-958a582"
+      }
     },
     {
       "id": "patrick-neschleba",
@@ -77,7 +103,12 @@
       "image": "patrick",
       "bio": "",
       "emoji": "🎷",
-      "founding": true
+      "founding": true,
+      "socialLinks": {
+        "linkedin": "patrick-neschleba-b15a783",
+        "facebook": "patrick.neschleba",
+        "instagram": "neschleba"
+      }
     },
     {
       "id": "adam-elman",
@@ -86,7 +117,11 @@
       "image": "elman",
       "bio": "Adam is a founding member of Sinister Dexter and is glad to be playing with them again after a brief 14-year hiatus. Starting as a trombone player in bands and orchestras in 9th grade, Adam picked up trumpet after college and decided to stick with it when SinDex began, both because the band already had two great trombone players and because it's way easier to carry a trumpet around. In the rare moments when he's not busy helping raise a kid or designing voice experiences for a large tech company, he likes to arrange and occasionally compose original music.",
       "emoji": "🎺",
-      "founding": true
+      "founding": true,
+      "socialLinks": {
+        "linkedin": "vuiadam",
+        "twitter": "aelman"
+      }
     },
     {
       "id": "lori-karns",
@@ -94,7 +129,10 @@
       "role": "Trumpet",
       "image": "lori",
       "bio": "",
-      "emoji": "🎺"
+      "emoji": "🎺",
+      "socialLinks": {
+        "linkedin": "lkarns"
+      }
     }
   ]
 }

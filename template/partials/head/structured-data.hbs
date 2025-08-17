@@ -40,18 +40,17 @@
         "description": "{{this.bio}}",
         "image": "{{../site.url}}/images/members/{{this.image}}.jpg",
         "jobTitle": "{{this.role}}",
-        {{#if this.socialLinks.website}}"url": "{{this.socialLinks.website}}",{{/if}}
-        "sameAs": [{{#if this.socialLinks.instagram}}
-          "https://instagram.com/{{this.socialLinks.instagram}}"{{#if this.socialLinks.facebook}},{{else if this.socialLinks.linkedin}},{{/if}}{{/if}}{{#if this.socialLinks.facebook}}
+        "sameAs": [{{#if this.socialLinks.website}}
+          "{{this.socialLinks.website}}"{{#if this.socialLinks.instagram}},{{else if this.socialLinks.twitter}},{{else if this.socialLinks.facebook}},{{else if this.socialLinks.linkedin}},{{/if}}{{/if}}{{#if this.socialLinks.instagram}}
+          "https://instagram.com/{{this.socialLinks.instagram}}"{{#if this.socialLinks.twitter}},{{else if this.socialLinks.facebook}},{{else if this.socialLinks.linkedin}},{{/if}}{{/if}}{{#if this.socialLinks.twitter}}
+          "https://x.com/{{this.socialLinks.twitter}}"{{#if this.socialLinks.facebook}},{{else if this.socialLinks.linkedin}},{{/if}}{{/if}}{{#if this.socialLinks.facebook}}
           "https://facebook.com/{{this.socialLinks.facebook}}"{{#if this.socialLinks.linkedin}},{{/if}}{{/if}}{{#if this.socialLinks.linkedin}}
           "https://linkedin.com/in/{{this.socialLinks.linkedin}}"{{/if}}
         ]
       },
-      "roleName": "{{this.role}}",
-      {{#if this.founding}}"startDate": "{{../band.foundingYear}}",{{else if this.yearsWithBand}}"startDate": "{{getStartYear this.yearsWithBand}}",{{/if}}
-      "memberOf": {
-        "@id": "{{../site.url}}#band"
-      }
+      "roleName": "{{this.role}}"{{#if this.founding}},
+      "startDate": "{{../band.foundingYear}}"{{else if this.yearsWithBand}},
+      "startDate": "{{getStartYear this.yearsWithBand}}"{{/if}}
     }{{#unless @last}},{{/unless}}
     {{/each}}
   ],
