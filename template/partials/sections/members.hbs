@@ -12,16 +12,8 @@
         <!-- Band Members Grid with Microdata -->
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {{#each members}}
-            <div class="text-center group" 
-                 itemscope 
-                 itemtype="https://schema.org/Person"
-                 itemprop="member">
+            <div class="text-center group">
                 
-                <!-- Member ID for linking -->
-                <meta itemprop="@id" content="{{../site.url}}#{{this.id}}">
-                
-                <!-- Affiliation with band -->
-                <meta itemprop="affiliation" content="{{../site.title}}">
                 
                 <!-- Member Photo -->
                 <div class="mb-3 relative inline-block">
@@ -30,7 +22,7 @@
                         <img src="images/members/{{this.image}}.jpg" 
                              alt="{{this.name}}" 
                              class="w-32 h-32 rounded-full mx-auto object-cover border-2 border-purple-500 transition-all group-hover:border-purple-400 group-hover:scale-105"
-                             itemprop="image">
+>
                     </picture>
                     
                     <!-- Founding Member Badge -->
@@ -45,43 +37,12 @@
                 </div>
                 
                 <!-- Member Info -->
-                <h3 class="font-bold text-white" itemprop="name">{{this.name}}</h3>
+                <h3 class="font-bold text-white">{{this.name}}</h3>
                 <p class="text-purple-400 text-sm">
                     <span class="inline-block mr-1">{{this.emoji}}</span>
-                    <span itemprop="jobTitle">{{this.role}}</span>
+                    <span>{{this.role}}</span>
                 </p>
                 
-                <!-- Hidden structured data -->
-                <div class="hidden">
-                    <p itemprop="description">{{this.bio}}</p>
-                    {{#if this.yearsWithBand}}
-                    <meta itemprop="memberOf" content="{{../site.title}} ({{this.yearsWithBand}})">
-                    {{/if}}
-                    
-                    <!-- Social Links as sameAs -->
-                    {{#if this.socialLinks.website}}
-                    <link itemprop="url" href="{{this.socialLinks.website}}">
-                    {{/if}}
-                    {{#if this.socialLinks.instagram}}
-                    <link itemprop="sameAs" href="https://instagram.com/{{this.socialLinks.instagram}}">
-                    {{/if}}
-                    {{#if this.socialLinks.facebook}}
-                    <link itemprop="sameAs" href="https://facebook.com/{{this.socialLinks.facebook}}">
-                    {{/if}}
-                    {{#if this.socialLinks.linkedin}}
-                    <link itemprop="sameAs" href="https://linkedin.com/in/{{this.socialLinks.linkedin}}">
-                    {{/if}}
-                    
-                    <!-- Performance details -->
-                    {{#if this.instruments}}
-                    <meta itemprop="knowsAbout" content="{{#each this.instruments}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}">
-                    {{/if}}
-                    
-                    <!-- Professional highlights -->
-                    {{#if this.professionalHighlight}}
-                    <meta itemprop="award" content="{{this.professionalHighlight}}">
-                    {{/if}}
-                </div>
                 
                 <!-- Hover Card with More Info (only show if there's content) -->
                 {{#if this.bio}}

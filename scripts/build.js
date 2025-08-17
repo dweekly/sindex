@@ -86,10 +86,63 @@ Handlebars.registerHelper('getTimezoneOffset', (timezone) => {
 });
 
 Handlebars.registerHelper('extractPrice', (admission) => {
-    if (!admission) return '0';
-    if (admission.toLowerCase() === 'free') return '0';
+    if (!admission) return null;
+    if (admission.toLowerCase() === 'free') return null;
     const match = admission.match(/\$(\d+)/);
-    return match ? match[1] : '0';
+    return match ? match[1] : null;
+});
+
+// Helper function to parse address string into components
+function parseAddress(addressString) {
+    if (!addressString) {
+        return {
+            streetAddress: '',
+            addressLocality: '',
+            addressRegion: '',
+            postalCode: '',
+            addressCountry: 'US'
+        };
+    }
+    
+    // Handle object addresses (backwards compatibility)
+    if (typeof addressString === 'object') {
+        return {
+            streetAddress: addressString.streetAddress || '',
+            addressLocality: addressString.addressLocality || '',
+            addressRegion: addressString.addressRegion || '',
+            postalCode: addressString.postalCode || '',
+            addressCountry: addressString.addressCountry || 'US'
+        };
+    }
+    
+    // Parse string address format: "123 Main St, City, State ZIP"
+    const parts = addressString.split(',').map(p => p.trim());
+    
+    if (parts.length >= 3) {
+        // Extract state and zip from the last part
+        const stateZipMatch = parts[parts.length - 1].match(/([A-Z]{2})\s*(\d{5})?/);
+        
+        return {
+            streetAddress: parts[0] || '',
+            addressLocality: parts[1] || '',
+            addressRegion: stateZipMatch ? stateZipMatch[1] : parts[2] || '',
+            postalCode: stateZipMatch && stateZipMatch[2] ? stateZipMatch[2] : '',
+            addressCountry: 'US'
+        };
+    }
+    
+    // Fallback for incomplete addresses
+    return {
+        streetAddress: parts[0] || '',
+        addressLocality: parts[1] || '',
+        addressRegion: parts[2] || '',
+        postalCode: '',
+        addressCountry: 'US'
+    };
+}
+
+Handlebars.registerHelper('encodeURIComponent', (str) => {
+    return encodeURIComponent(str || '');
 });
 
 async function loadPartials() {
@@ -136,6 +189,37 @@ async function loadData() {
             console.log(`  ✅ Loaded ${filename}`);
         } catch (error) {
             console.log(`  ⚠️  Could not load ${filename}: ${error.message}`);
+        }
+    }
+    
+    // Check for YouTube API key and fetch metadata
+    if (data.videos) {
+        try {
+            const { fetchAllVideoMetadata, getApiKey } = require('./fetch-youtube-metadata');
+            const apiKey = getApiKey();
+            
+            if (!apiKey) {
+                console.error('\n❌ ERROR: YOUTUBE_API_KEY is required but not found!');
+                console.error('\n📝 To fix this:');
+                console.error('   1. Copy .env.example to .env if you haven\'t already');
+                console.error('   2. Add your YouTube Data API v3 key to the .env file:');
+                console.error('      YOUTUBE_API_KEY=your_api_key_here');
+                console.error('\n   Get an API key at: https://console.cloud.google.com/apis/credentials');
+                console.error('   Enable YouTube Data API v3 at: https://console.cloud.google.com/apis/library');
+                console.error('\n   For CI/CD, add YOUTUBE_API_KEY to your GitHub Secrets or environment variables.\n');
+                process.exit(1);
+            }
+            
+            console.log('\n📹 Fetching YouTube metadata...');
+            // Pass the videos array directly - it now supports both strings and objects with overrides
+            const videos = data.videos.videos || data.videos;
+            const metadata = await fetchAllVideoMetadata(videos, apiKey);
+            
+            // Replace videos data with fetched metadata
+            data.videos = { videos: metadata };
+        } catch (error) {
+            console.error(`\n❌ Error loading YouTube metadata: ${error.message}`);
+            process.exit(1);
         }
     }
     
@@ -228,25 +312,38 @@ function prepareTemplateData(data) {
         if (data.shows.upcomingShows) {
             data.shows.upcomingShows.forEach(show => {
                 const showDate = new Date(show.date);
+                // Parse the address string into components
+                const parsedAddress = parseAddress(show.address);
+                
                 // Convert simple show format to enhanced format for template
                 const enhancedShow = {
                     ...show,
                     id: show.date + '-' + (show.venue || '').toLowerCase().replace(/\s+/g, '-'),
+                    name: show.name || show.venue, // Use name if provided, otherwise fallback to venue
                     startTime: show.time ? show.time.split(' - ')[0] : '',
                     endTime: show.time ? show.time.split(' - ')[1] : '',
                     venue: {
                         name: show.venue,
                         address: {
-                            city: show.city,
-                            state: show.city ? show.city.split(', ')[1] : ''
+                            streetAddress: parsedAddress.streetAddress,
+                            addressLocality: parsedAddress.addressLocality,
+                            addressRegion: parsedAddress.addressRegion,
+                            postalCode: parsedAddress.postalCode,
+                            addressCountry: parsedAddress.addressCountry,
+                            city: parsedAddress.addressLocality, // For backwards compatibility
+                            state: parsedAddress.addressRegion   // For backwards compatibility
                         }
                     },
                     ticketing: {
                         link: show.link,
                         ticketUrl: show.tickets,
                         admission: show.admission || (show.description && show.description.includes('Free') ? 'Free' : ''),
+                        price: show.price || (show.admission && !show.admission.toLowerCase().includes('free') ? 
+                                (show.admission.match(/\$(\d+)/) ? show.admission.match(/\$(\d+)/)[1] : null) : null),
                         ageRestriction: show.ageRestriction || show.note
                     },
+                    isFree: !show.price && (!show.admission || show.admission.toLowerCase().includes('free') || 
+                            (show.description && show.description.toLowerCase().includes('free'))),
                     specialNotes: show.specialNotes
                 };
                 
@@ -289,15 +386,11 @@ function prepareTemplateData(data) {
         members = data.members.members || data.members;
     }
     
-    // Process videos data - add computed YouTube URLs
+    // Process videos data - already has full metadata from YouTube API
     let videos = [];
     if (data.videos) {
-        videos = (data.videos.videos || data.videos).map(video => ({
-            ...video,
-            thumbnail: `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`,
-            url: `https://www.youtube.com/watch?v=${video.id}`,
-            embedUrl: `https://www.youtube.com/embed/${video.id}`
-        }));
+        videos = data.videos.videos || data.videos;
+        // No need to compute URLs - they're already fetched from YouTube API
     }
     
     // Process tracks data - add full src URLs
@@ -379,8 +472,7 @@ async function buildModularSite() {
     
     {{> components/navigation}}
     
-    <main id="main-content" role="main" itemscope itemtype="https://schema.org/MusicGroup">
-        <meta itemprop="url" content="{{site.url}}">
+    <main id="main-content" role="main">
         
         {{> sections/hero}}
         {{> sections/shows}}

@@ -8,8 +8,8 @@
         
         <div class="bg-gray-900/50 rounded-lg p-8 border border-purple-500/30 mb-8">
             <h3 class="bebas text-3xl text-purple-400 mb-4">Over 25 Years of Funk</h3>
-            <p class="text-lg mb-6" itemprop="foundingDate" content="{{band.foundingYear}}">
-                Formed in the summer of {{band.foundingYear}} by members of the Stanford Band, <span class="font-bold text-purple-400" itemprop="alternateName">Sinister Dexter</span> 
+            <p class="text-lg mb-6">
+                Formed in the summer of {{band.foundingYear}} by members of the Stanford Band, <span class="font-bold text-purple-400">Sinister Dexter</span> 
                 was created to fill the need for a great local party band. Started by horn players, we put together a band that we wanted to go see – 
                 which of course meant a horn-heavy sound and classic funk music inspired by Tower of Power and the Blues Brothers.
             </p>
@@ -24,7 +24,7 @@
                 spanning all the genres we'd explored over the years.
             </p>
             <p class="text-lg mb-6">
-                In mid-2005, lightning struck when we recruited the incredible <span class="font-bold text-amber-400" itemprop="member" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Rebecca Lipon</span></span> 
+                In mid-2005, lightning struck when we recruited the incredible <span class="font-bold text-amber-400">Rebecca Lipon</span> 
                 as our new lead vocalist. A founding member of the jazz quartet Off Beats with over 15 years of opera and musical theater training, 
                 Rebecca forced us to take things to the next level. We refined our sound, trimmed the fat, and got back to our core concept as a funk and soul band.
             </p>
@@ -33,16 +33,6 @@
                 Our high-energy shows have been described as "Tower of Power, Ozomatli, and Joss Stone in a blender" – bringing 
                 <span class="italic text-purple-400">the right to be funky</span> to venues throughout the Bay Area.
             </p>
-            {{#each band.genres}}
-            <meta itemprop="genre" content="{{this}}">
-            {{/each}}
-            <div itemprop="foundingLocation" itemscope itemtype="https://schema.org/Place">
-                <meta itemprop="name" content="San Francisco Bay Area">
-                <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                    <meta itemprop="addressRegion" content="CA">
-                    <meta itemprop="addressCountry" content="US">
-                </div>
-            </div>
         </div>
     </div>
 </section>

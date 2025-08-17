@@ -213,8 +213,8 @@ async function generateImageManifest() {
       manifest[size] = files
         .filter(f => f.endsWith('.jpg'))
         .map(f => ({
-          jpg: path.join('/images', size, f),
-          webp: path.join('/images', size, f.replace('.jpg', '.webp')),
+          jpg: path.join('images', size, f).replace(/\\/g, '/'),  // Use relative path and ensure forward slashes
+          webp: path.join('images', size, f.replace('.jpg', '.webp')).replace(/\\/g, '/'),
           name: path.parse(f).name
         }));
     }

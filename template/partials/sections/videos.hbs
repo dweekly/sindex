@@ -2,14 +2,13 @@
 <!-- VIDEOS SECTION                                -->
 <!-- YouTube performance videos                    -->
 <!-- ============================================= -->
-<section id="videos" aria-labelledby="videos-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black" itemscope itemtype="https://schema.org/ItemList">
+<section id="videos" aria-labelledby="videos-heading" class="py-20 px-6 bg-gradient-to-b from-purple-950/30 to-black">
     <div class="max-w-7xl mx-auto">
         <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="videos-heading">Live Performances</h2>
         
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {{#each videos}}
-            <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30 hover:border-purple-400 transition-all" 
-                 itemprop="itemListElement" itemscope itemtype="https://schema.org/VideoObject">
+            <div class="bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/30 hover:border-purple-400 transition-all">
                 <a href="{{this.url}}" 
                    target="_blank" 
                    rel="noopener noreferrer"
@@ -30,13 +29,8 @@
                     </div>
                 </a>
                 <div class="p-4">
-                    <h3 class="text-lg font-semibold text-purple-400" itemprop="name">{{this.title}}</h3>
-                    <p class="text-sm text-gray-400" itemprop="description">{{this.description}}</p>
-                    <meta itemprop="uploadDate" content="{{this.uploadDate}}">
-                    <meta itemprop="thumbnailUrl" content="{{this.thumbnail}}">
-                    <meta itemprop="contentUrl" content="{{this.url}}">
-                    <meta itemprop="embedUrl" content="{{this.embedUrl}}">
-                    {{#if this.duration}}<meta itemprop="duration" content="{{this.duration}}">{{/if}}
+                    <h3 class="text-lg font-semibold text-purple-400">{{this.title}}</h3>
+                    <p class="text-sm text-gray-400">{{this.description}}</p>
                 </div>
             </div>
             {{/each}}

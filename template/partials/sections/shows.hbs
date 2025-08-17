@@ -2,8 +2,7 @@
 <!-- SHOWS SECTION                                -->
 <!-- Upcoming and past performance dates          -->
 <!-- ============================================= -->
-<section id="shows" aria-labelledby="shows-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30" 
-         itemscope itemtype="https://schema.org/EventSeries">
+<section id="shows" aria-labelledby="shows-heading" class="py-20 px-6 bg-gradient-to-b from-black to-purple-950/30">
     <div class="max-w-7xl mx-auto">
         <h2 class="bebas text-5xl md:text-6xl text-center mb-12 gradient-text" id="shows-heading">Upcoming Shows</h2>
         
@@ -14,64 +13,44 @@
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" id="shows-container">
             {{#if upcomingShows}}
                 {{#each upcomingShows}}
-                <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30{{#if this.featured}} ring-2 ring-purple-500{{/if}} hover:border-purple-400 transition-all"
-                     itemscope 
-                     itemtype="https://schema.org/MusicEvent"
-                     itemprop="event">
+                <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30 hover:border-purple-400 transition-all">
                     
-                    <!-- Event ID -->
-                    <meta itemprop="@id" content="{{../site.url}}#event-{{this.id}}">
-                    
-                    <!-- Featured Badge -->
-                    {{#if this.featured}}
-                    <div class="text-xs text-purple-400 font-bold mb-2">FEATURED</div>
-                    {{/if}}
                     
                     <!-- Date and Time -->
                     <div class="text-amber-500 font-bold mb-2">
-                        <time itemprop="startDate" datetime="{{this.date}}T{{this.startTime}}{{getTimezoneOffset this.timezone}}">
+                        <time datetime="{{this.date}}T{{this.startTime}}{{getTimezoneOffset this.timezone}}">
                             {{this.dayOfWeek}}, {{formatDate this.date "MMM DD"}}
                         </time>
                     </div>
                     
                     <!-- Venue Information -->
-                    <div itemprop="location" itemscope itemtype="https://schema.org/Place">
-                        <h3 class="text-xl font-bold mb-2" itemprop="name">{{this.venue.name}}</h3>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">{{this.venue.name}}</h3>
                         
                         <!-- Address -->
-                        <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                            <p class="text-gray-400 mb-2">
+                        <div>
+                            <a href="https://maps.google.com/?q={{encodeURIComponent this.venue.address.streetAddress}}+{{encodeURIComponent this.venue.address.addressLocality}}+{{encodeURIComponent this.venue.address.addressRegion}}+{{encodeURIComponent this.venue.address.postalCode}}"
+                               target="_blank"
+                               class="text-gray-400 hover:text-purple-400 transition-colors inline-block mb-2">
                                 {{#if this.venue.address.streetAddress}}
-                                <span itemprop="streetAddress">{{this.venue.address.streetAddress}}</span><br>
+                                <span>{{this.venue.address.streetAddress}}</span><br>
                                 {{/if}}
-                                <span itemprop="addressLocality">{{this.venue.address.city}}</span>, 
-                                <span itemprop="addressRegion">{{this.venue.address.state}}</span>
+                                <span>{{this.venue.address.addressLocality}}</span>, 
+                                <span>{{this.venue.address.addressRegion}}</span>
                                 {{#if this.venue.address.postalCode}}
-                                <span itemprop="postalCode">{{this.venue.address.postalCode}}</span>
+                                <span>{{this.venue.address.postalCode}}</span>
                                 {{/if}}
-                                <meta itemprop="addressCountry" content="{{this.venue.address.country}}">
-                            </p>
+                                <i class="fas fa-map-marker-alt ml-1 text-xs"></i>
+                            </a>
                         </div>
                         
-                        <!-- Geo Coordinates -->
-                        {{#if this.venue.geo}}
-                        <div itemprop="geo" itemscope itemtype="https://schema.org/GeoCoordinates" class="hidden">
-                            <meta itemprop="latitude" content="{{this.venue.geo.latitude}}">
-                            <meta itemprop="longitude" content="{{this.venue.geo.longitude}}">
-                        </div>
-                        {{/if}}
-                        
-                        <!-- Accessibility -->
-                        {{#if this.venue.accessibility.wheelchairAccessible}}
-                        <meta itemprop="isAccessibleForFree" content="true">
-                        {{/if}}
                     </div>
                     
                     <!-- Time -->
                     <p class="text-gray-300 mb-4">
                         {{#if this.endTime}}
                         <time datetime="{{this.date}}T{{this.startTime}}">{{formatTime this.startTime}}</time> - 
-                        <time itemprop="endDate" datetime="{{this.date}}T{{this.endTime}}">{{formatTime this.endTime}}</time>
+                        <time datetime="{{this.date}}T{{this.endTime}}">{{formatTime this.endTime}}</time>
                         {{else}}
                         {{this.time}}
                         {{/if}}
@@ -79,39 +58,30 @@
                     
                     <!-- Description -->
                     {{#if this.description}}
-                    <p class="text-sm text-gray-400 mb-4" itemprop="description">{{this.description}}</p>
+                    <p class="text-sm text-gray-400 mb-4">{{this.description}}</p>
                     {{/if}}
                     
-                    <!-- Performer (hidden) -->
-                    <div itemprop="performer" itemscope itemtype="https://schema.org/MusicGroup" class="hidden">
-                        <meta itemprop="name" content="{{../site.title}}">
-                        <link itemprop="url" href="{{../site.url}}">
-                    </div>
                     
-                    <!-- Ticketing Info -->
-                    {{#if this.ticketing}}
-                    <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                        <meta itemprop="price" content="{{extractPrice this.ticketing.admission}}">
-                        <meta itemprop="priceCurrency" content="USD">
-                        <meta itemprop="availability" content="https://schema.org/InStock">
-                        {{#if this.ticketing.ticketUrl}}
-                        <meta itemprop="url" content="{{this.ticketing.ticketUrl}}">
+                    <!-- Age Restriction -->
+                    {{#if this.ticketing.ageRestriction}}
+                    <p class="text-xs text-gray-500 mb-2">{{this.ticketing.ageRestriction}}</p>
+                    {{/if}}
+                    
+                    <!-- Action Links with Price -->
+                    <div class="flex gap-4 items-center">
+                        {{#if this.isFree}}
+                        <span class="text-green-400 font-bold text-sm">FREE</span>
+                        {{else}}
+                        {{#if this.ticketing.admission}}
+                        <span class="text-amber-400 font-bold text-sm">{{this.ticketing.admission}}</span>
+                        {{/if}}
                         {{/if}}
                         
-                        <!-- Age Restriction -->
-                        {{#if this.ticketing.ageRestriction}}
-                        <p class="text-xs text-gray-500 mb-2">{{this.ticketing.ageRestriction}}</p>
-                        {{/if}}
-                    </div>
-                    {{/if}}
-                    
-                    <!-- Action Links -->
-                    <div class="flex gap-4">
                         {{#if this.ticketing.link}}
                         <a href="{{this.ticketing.link}}" 
                            target="_blank" 
                            class="text-purple-400 hover:text-purple-300"
-                           itemprop="url">
+>
                             Learn More →
                         </a>
                         {{/if}}
@@ -129,9 +99,6 @@
                     <p class="text-xs text-gray-500 mt-3 italic">{{this.specialNotes}}</p>
                     {{/if}}
                     
-                    <!-- Event Status (hidden) -->
-                    <meta itemprop="eventStatus" content="https://schema.org/EventScheduled">
-                    <meta itemprop="eventAttendanceMode" content="https://schema.org/OfflineEventAttendanceMode">
                 </div>
                 {{/each}}
             {{else}}
@@ -151,10 +118,9 @@
                 {{#if pastShows}}
                 <div class="space-y-3">
                     {{#each (limit pastShows 3)}}
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0"
-                         itemscope itemtype="https://schema.org/MusicEvent">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
                         <div class="flex-1">
-                            <time itemprop="startDate" datetime="{{this.date}}" class="text-amber-500 text-sm font-semibold">
+                            <time datetime="{{this.date}}" class="text-amber-500 text-sm font-semibold">
                                 {{formatDate this.date "MMM DD, YYYY"}}
                             </time>
                             <span class="text-gray-400 mx-2">•</span>
@@ -162,19 +128,15 @@
                             <a href="{{this.venue.link}}" 
                                target="_blank" 
                                class="text-gray-300 hover:text-purple-400 transition-colors"
-                               itemprop="url">
-                                <span itemprop="name">{{this.venue.name}}</span>
+    >
+                                <span>{{this.venue.name}}</span>
                                 <i class="fas fa-external-link-alt text-xs ml-1"></i>
                             </a>
                             {{else}}
-                            <span class="text-gray-300" itemprop="name">{{this.venue.name}}</span>
+                            <span class="text-gray-300">{{this.venue.name}}</span>
                             {{/if}}
                             <span class="text-gray-500 text-sm ml-2">
-                                <span itemprop="location" itemscope itemtype="https://schema.org/Place">
-                                    <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                                        <span itemprop="addressLocality">{{this.venue.address.city}}</span>
-                                    </span>
-                                </span>
+                                <span>{{this.venue.address.city}}</span>
                             </span>
                             {{#if this.performanceNotes}}
                             <span class="text-purple-400 text-sm ml-2">({{this.performanceNotes}})</span>
@@ -189,10 +151,9 @@
                     <div id="hidden-past-shows" class="hidden space-y-3">
                         {{#each pastShows}}
                         {{#if (gt @index 2)}}
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0"
-                             itemscope itemtype="https://schema.org/MusicEvent">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
                             <div class="flex-1">
-                                <time itemprop="startDate" datetime="{{this.date}}" class="text-amber-500 text-sm font-semibold">
+                                <time datetime="{{this.date}}" class="text-amber-500 text-sm font-semibold">
                                     {{formatDate this.date "MMM DD, YYYY"}}
                                 </time>
                                 <span class="text-gray-400 mx-2">•</span>
@@ -200,19 +161,15 @@
                                 <a href="{{this.venue.link}}" 
                                    target="_blank" 
                                    class="text-gray-300 hover:text-purple-400 transition-colors"
-                                   itemprop="url">
-                                    <span itemprop="name">{{this.venue.name}}</span>
+        >
+                                    <span>{{this.venue.name}}</span>
                                     <i class="fas fa-external-link-alt text-xs ml-1"></i>
                                 </a>
                                 {{else}}
-                                <span class="text-gray-300" itemprop="name">{{this.venue.name}}</span>
+                                <span class="text-gray-300">{{this.venue.name}}</span>
                                 {{/if}}
                                 <span class="text-gray-500 text-sm ml-2">
-                                    <span itemprop="location" itemscope itemtype="https://schema.org/Place">
-                                        <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                                            <span itemprop="addressLocality">{{this.venue.address.city}}</span>
-                                        </span>
-                                    </span>
+                                    <span>{{this.venue.address.city}}</span>
                                 </span>
                             </div>
                             <div class="text-gray-500 text-sm mt-1 sm:mt-0">{{this.time}}</div>
