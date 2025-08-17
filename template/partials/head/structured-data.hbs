@@ -12,7 +12,11 @@
   "name": "{{site.title}}",
   "url": "{{site.url}}",
   "logo": "{{site.url}}/og-image.jpg",
-  "image": "{{site.url}}/images/large/sindex-full.jpg",
+  "image": [
+    {{#each images.large}}
+    "{{../site.url}}/{{this.jpg}}"{{#unless @last}},{{/unless}}
+    {{/each}}
+  ],
   "description": "{{site.metaDescription}}",
   "foundingDate": "{{band.foundingYear}}",
   "foundingLocation": {
@@ -63,79 +67,63 @@
     "@type": "ContactPoint",
     "contactType": "Booking",
     "email": "{{site.bookingEmail}}"
-  }
-}
-</script>
-
-<!-- Upcoming Events Schema -->
-{{#if upcomingShows}}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Upcoming Sinister Dexter Shows",
-  "numberOfItems": {{upcomingShows.length}},
-  "itemListElement": [
+  }{{#if upcomingShows}},
+  "event": [
     {{#each upcomingShows}}
     {
-      "@type": "ListItem",
-      "position": {{math @index "+" 1}},
-      "item": {
-        "@type": "MusicEvent",
-        "@id": "{{../site.url}}#event-{{this.id}}",
-        "name": "{{../site.title}} at {{this.venue.name}}",
-        "description": "{{this.description}}",
-        "startDate": "{{this.date}}T{{this.startTime}}{{#if this.timezone}}-08:00{{/if}}",
-        {{#if this.endTime}}"endDate": "{{this.date}}T{{this.endTime}}-08:00",{{/if}}
-        "location": {
-          "@type": "Place",
-          "name": "{{this.venue.name}}",
-          "address": {
-            "@type": "PostalAddress",
-            {{#if this.venue.address.streetAddress}}"streetAddress": "{{this.venue.address.streetAddress}}",{{/if}}
-            "addressLocality": "{{this.venue.address.city}}",
-            "addressRegion": "{{this.venue.address.state}}",
-            {{#if this.venue.address.postalCode}}"postalCode": "{{this.venue.address.postalCode}}",{{/if}}
-            "addressCountry": "{{this.venue.address.country}}"
-          }{{#if this.venue.geo}},
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": {{this.venue.geo.latitude}},
-            "longitude": {{this.venue.geo.longitude}}
-          }{{/if}}
-        },
-        "performer": {
-          "@type": "MusicGroup",
-          "@id": "{{../site.url}}#band"
-        },
-        {{#if this.isFree}}
-        "isAccessibleForFree": true,
-        {{else if this.ticketing.ticketUrl}}
-        "offers": {
-          "@type": "Offer",
-          "url": "{{this.ticketing.ticketUrl}}",
-          "price": "{{extractPrice this.ticketing.admission}}",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock"
-        },
-        {{else if this.ticketing.admission}}
-        "offers": {
-          "@type": "Offer",
-          "price": "{{extractPrice this.ticketing.admission}}",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock"
-        },
-        {{/if}}
-        "eventStatus": "https://schema.org/EventScheduled",
-        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-        "url": "{{#if this.ticketing.link}}{{this.ticketing.link}}{{else}}{{../site.url}}#shows{{/if}}"
-      }
+      "@type": "MusicEvent",
+      "@id": "{{../site.url}}#event-{{this.id}}",
+      "name": "{{../site.title}} at {{this.venue.name}}",
+      "description": "{{this.description}}",
+      "startDate": "{{this.date}}T{{this.startTime}}{{#if this.timezone}}-08:00{{/if}}",
+      {{#if this.endTime}}"endDate": "{{this.date}}T{{this.endTime}}-08:00",{{/if}}
+      "location": {
+        "@type": "Place",
+        "name": "{{this.venue.name}}",
+        "address": {
+          "@type": "PostalAddress",
+          {{#if this.venue.address.streetAddress}}"streetAddress": "{{this.venue.address.streetAddress}}",{{/if}}
+          "addressLocality": "{{this.venue.address.city}}",
+          "addressRegion": "{{this.venue.address.state}}",
+          {{#if this.venue.address.postalCode}}"postalCode": "{{this.venue.address.postalCode}}",{{/if}}
+          "addressCountry": "{{this.venue.address.country}}"
+        }{{#if this.venue.geo}},
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": {{this.venue.geo.latitude}},
+          "longitude": {{this.venue.geo.longitude}}
+        }{{/if}}
+      },
+      "performer": {
+        "@type": "MusicGroup",
+        "@id": "{{../site.url}}#band"
+      },
+      {{#if this.isFree}}
+      "isAccessibleForFree": true,
+      {{else if this.ticketing.ticketUrl}}
+      "offers": {
+        "@type": "Offer",
+        "url": "{{this.ticketing.ticketUrl}}",
+        "price": "{{extractPrice this.ticketing.admission}}",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      {{else if this.ticketing.admission}}
+      "offers": {
+        "@type": "Offer",
+        "price": "{{extractPrice this.ticketing.admission}}",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      {{/if}}
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "url": "{{#if this.ticketing.link}}{{this.ticketing.link}}{{else}}{{../site.url}}#shows{{/if}}"
     }{{#unless @last}},{{/unless}}
     {{/each}}
-  ]
+  ]{{/if}}
 }
 </script>
-{{/if}}
 
 <!-- Videos Schema -->
 {{#if videos}}
