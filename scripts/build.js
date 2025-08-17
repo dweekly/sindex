@@ -92,6 +92,55 @@ Handlebars.registerHelper('extractPrice', (admission) => {
     return match ? match[1] : null;
 });
 
+// Helper function to parse address string into components
+function parseAddress(addressString) {
+    if (!addressString) {
+        return {
+            streetAddress: '',
+            addressLocality: '',
+            addressRegion: '',
+            postalCode: '',
+            addressCountry: 'US'
+        };
+    }
+    
+    // Handle object addresses (backwards compatibility)
+    if (typeof addressString === 'object') {
+        return {
+            streetAddress: addressString.streetAddress || '',
+            addressLocality: addressString.addressLocality || '',
+            addressRegion: addressString.addressRegion || '',
+            postalCode: addressString.postalCode || '',
+            addressCountry: addressString.addressCountry || 'US'
+        };
+    }
+    
+    // Parse string address format: "123 Main St, City, State ZIP"
+    const parts = addressString.split(',').map(p => p.trim());
+    
+    if (parts.length >= 3) {
+        // Extract state and zip from the last part
+        const stateZipMatch = parts[parts.length - 1].match(/([A-Z]{2})\s*(\d{5})?/);
+        
+        return {
+            streetAddress: parts[0] || '',
+            addressLocality: parts[1] || '',
+            addressRegion: stateZipMatch ? stateZipMatch[1] : parts[2] || '',
+            postalCode: stateZipMatch && stateZipMatch[2] ? stateZipMatch[2] : '',
+            addressCountry: 'US'
+        };
+    }
+    
+    // Fallback for incomplete addresses
+    return {
+        streetAddress: parts[0] || '',
+        addressLocality: parts[1] || '',
+        addressRegion: parts[2] || '',
+        postalCode: '',
+        addressCountry: 'US'
+    };
+}
+
 Handlebars.registerHelper('encodeURIComponent', (str) => {
     return encodeURIComponent(str || '');
 });
@@ -263,20 +312,26 @@ function prepareTemplateData(data) {
         if (data.shows.upcomingShows) {
             data.shows.upcomingShows.forEach(show => {
                 const showDate = new Date(show.date);
+                // Parse the address string into components
+                const parsedAddress = parseAddress(show.address);
+                
                 // Convert simple show format to enhanced format for template
                 const enhancedShow = {
                     ...show,
                     id: show.date + '-' + (show.venue || '').toLowerCase().replace(/\s+/g, '-'),
+                    name: show.name || show.venue, // Use name if provided, otherwise fallback to venue
                     startTime: show.time ? show.time.split(' - ')[0] : '',
                     endTime: show.time ? show.time.split(' - ')[1] : '',
                     venue: {
                         name: show.venue,
-                        address: show.address || {
-                            streetAddress: '',
-                            addressLocality: show.city ? show.city.split(', ')[0] : '',
-                            addressRegion: show.city ? show.city.split(', ')[1] : '',
-                            postalCode: '',
-                            addressCountry: 'US'
+                        address: {
+                            streetAddress: parsedAddress.streetAddress,
+                            addressLocality: parsedAddress.addressLocality,
+                            addressRegion: parsedAddress.addressRegion,
+                            postalCode: parsedAddress.postalCode,
+                            addressCountry: parsedAddress.addressCountry,
+                            city: parsedAddress.addressLocality, // For backwards compatibility
+                            state: parsedAddress.addressRegion   // For backwards compatibility
                         }
                     },
                     ticketing: {

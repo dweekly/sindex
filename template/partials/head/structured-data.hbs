@@ -14,7 +14,7 @@
   "logo": "{{site.url}}/og-image.jpg",
   "image": [
     {{#each images.large}}
-    "{{../site.url}}/{{this.jpg}}"{{#unless @last}},{{/unless}}
+    "{{this.jpg}}"{{#unless @last}},{{/unless}}
     {{/each}}
   ],
   "description": "{{site.metaDescription}}",
@@ -73,7 +73,7 @@
     {
       "@type": "MusicEvent",
       "@id": "{{../site.url}}#event-{{this.id}}",
-      "name": "{{../site.title}} at {{this.venue.name}}",
+      "name": "{{this.name}}",
       "description": "{{this.description}}",
       "startDate": "{{this.date}}T{{this.startTime}}{{#if this.timezone}}-08:00{{/if}}",
       {{#if this.endTime}}"endDate": "{{this.date}}T{{this.endTime}}-08:00",{{/if}}
@@ -83,12 +83,12 @@
         "address": {
           "@type": "PostalAddress",
           {{#if this.venue.address.streetAddress}}"streetAddress": "{{this.venue.address.streetAddress}}",{{/if}}
-          "addressLocality": "{{this.venue.address.city}}",
-          "addressRegion": "{{this.venue.address.state}}",
+          "addressLocality": "{{this.venue.address.addressLocality}}",
+          "addressRegion": "{{this.venue.address.addressRegion}}",
           {{#if this.venue.address.postalCode}}"postalCode": "{{this.venue.address.postalCode}}",{{/if}}
-          "addressCountry": "{{this.venue.address.country}}"
+          "addressCountry": "{{this.venue.address.addressCountry}}"
         }{{#if this.venue.geo}},
-        "geo": {
+        "geo": {`
           "@type": "GeoCoordinates",
           "latitude": {{this.venue.geo.latitude}},
           "longitude": {{this.venue.geo.longitude}}
