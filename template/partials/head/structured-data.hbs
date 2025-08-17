@@ -108,7 +108,9 @@
           "@type": "MusicGroup",
           "@id": "{{../site.url}}#band"
         },
-        {{#if this.ticketing.ticketUrl}}
+        {{#if this.isFree}}
+        "isAccessibleForFree": true,
+        {{else if this.ticketing.ticketUrl}}
         "offers": {
           "@type": "Offer",
           "url": "{{this.ticketing.ticketUrl}}",
@@ -116,10 +118,16 @@
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock"
         },
+        {{else if this.ticketing.admission}}
+        "offers": {
+          "@type": "Offer",
+          "price": "{{extractPrice this.ticketing.admission}}",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
         {{/if}}
         "eventStatus": "https://schema.org/EventScheduled",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-        {{#if this.venue.accessibility.wheelchairAccessible}}"isAccessibleForFree": true,{{/if}}
         "url": "{{#if this.ticketing.link}}{{this.ticketing.link}}{{else}}{{../site.url}}#shows{{/if}}"
       }
     }{{#unless @last}},{{/unless}}
