@@ -35,7 +35,7 @@
                         
                         <!-- Address -->
                         <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                            <a href="https://maps.google.com/?q={{encodeURIComponent this.venue.name}}+{{encodeURIComponent this.venue.address.streetAddress}}+{{encodeURIComponent this.venue.address.addressLocality}}+{{encodeURIComponent this.venue.address.addressRegion}}+{{encodeURIComponent this.venue.address.postalCode}}"
+                            <a href="https://maps.google.com/?q={{encodeURIComponent this.venue.address.streetAddress}}+{{encodeURIComponent this.venue.address.addressLocality}}+{{encodeURIComponent this.venue.address.addressRegion}}+{{encodeURIComponent this.venue.address.postalCode}}"
                                target="_blank"
                                class="text-gray-400 hover:text-purple-400 transition-colors inline-block mb-2">
                                 {{#if this.venue.address.streetAddress}}
