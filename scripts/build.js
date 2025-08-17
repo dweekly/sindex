@@ -86,10 +86,14 @@ Handlebars.registerHelper('getTimezoneOffset', (timezone) => {
 });
 
 Handlebars.registerHelper('extractPrice', (admission) => {
-    if (!admission) return '0';
-    if (admission.toLowerCase() === 'free') return '0';
+    if (!admission) return null;
+    if (admission.toLowerCase() === 'free') return null;
     const match = admission.match(/\$(\d+)/);
-    return match ? match[1] : '0';
+    return match ? match[1] : null;
+});
+
+Handlebars.registerHelper('encodeURIComponent', (str) => {
+    return encodeURIComponent(str || '');
 });
 
 async function loadPartials() {
@@ -267,17 +271,24 @@ function prepareTemplateData(data) {
                     endTime: show.time ? show.time.split(' - ')[1] : '',
                     venue: {
                         name: show.venue,
-                        address: {
-                            city: show.city,
-                            state: show.city ? show.city.split(', ')[1] : ''
+                        address: show.address || {
+                            streetAddress: '',
+                            addressLocality: show.city ? show.city.split(', ')[0] : '',
+                            addressRegion: show.city ? show.city.split(', ')[1] : '',
+                            postalCode: '',
+                            addressCountry: 'US'
                         }
                     },
                     ticketing: {
                         link: show.link,
                         ticketUrl: show.tickets,
                         admission: show.admission || (show.description && show.description.includes('Free') ? 'Free' : ''),
+                        price: show.price || (show.admission && !show.admission.toLowerCase().includes('free') ? 
+                                (show.admission.match(/\$(\d+)/) ? show.admission.match(/\$(\d+)/)[1] : null) : null),
                         ageRestriction: show.ageRestriction || show.note
                     },
+                    isFree: !show.price && (!show.admission || show.admission.toLowerCase().includes('free') || 
+                            (show.description && show.description.toLowerCase().includes('free'))),
                     specialNotes: show.specialNotes
                 };
                 

@@ -108,6 +108,7 @@ async function fetchVideoMetadata(videoId, apiKey) {
       description: snippet.description.split('\n')[0] || snippet.title, // First line of description
       uploadDate: snippet.publishedAt, // Already includes timezone
       duration: parseDuration(contentDetails.duration) || contentDetails.duration,
+      isoDuration: contentDetails.duration, // ISO 8601 format for structured data
       thumbnail: snippet.thumbnails.maxres?.url || 
                  snippet.thumbnails.high?.url || 
                  snippet.thumbnails.medium?.url,

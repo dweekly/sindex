@@ -4,7 +4,13 @@
       "date": "2025-08-20",
       "dayOfWeek": "WED",
       "venue": "Redwood City Music in the Park - Stafford Park",
-      "city": "Redwood City, CA",
+      "address": {
+        "streetAddress": "180 King Street",
+        "addressLocality": "Redwood City",
+        "addressRegion": "CA",
+        "postalCode": "94062",
+        "addressCountry": "US"
+      },
       "time": "5:00 PM - 7:00 PM",
       "link": "https://www.redwoodcity.org/residents/redwood-city-events/music/music-in-the-park",
       "featured": true,
@@ -14,12 +20,19 @@
       "date": "2025-11-14",
       "dayOfWeek": "FRI", 
       "venue": "Club Fox",
-      "city": "Redwood City, CA",
+      "address": {
+        "streetAddress": "2209 Broadway",
+        "addressLocality": "Redwood City",
+        "addressRegion": "CA",
+        "postalCode": "94063",
+        "addressCountry": "US"
+      },
       "time": "6:00 PM - 10:00 PM",
       "link": "https://clubfoxrwc.com/",
       "tickets": "https://www.eventbrite.com/e/sinister-dexter-funk-soul-horns-tickets-1568339939979?aff=ebdssbdestsearch",
       "featured": false,
-      "description": "Friday night funk at the legendary Club Fox venue"
+      "description": "Friday night funk at the legendary Club Fox venue",
+      "admission": "$20"
     }
   ],
   "pastShows": [

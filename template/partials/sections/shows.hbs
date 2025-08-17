@@ -14,18 +14,13 @@
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" id="shows-container">
             {{#if upcomingShows}}
                 {{#each upcomingShows}}
-                <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30{{#if this.featured}} ring-2 ring-purple-500{{/if}} hover:border-purple-400 transition-all"
+                <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30 hover:border-purple-400 transition-all"
                      itemscope 
                      itemtype="https://schema.org/MusicEvent"
                      itemprop="event">
                     
                     <!-- Event ID -->
                     <meta itemprop="@id" content="{{../site.url}}#event-{{this.id}}">
-                    
-                    <!-- Featured Badge -->
-                    {{#if this.featured}}
-                    <div class="text-xs text-purple-400 font-bold mb-2">FEATURED</div>
-                    {{/if}}
                     
                     <!-- Date and Time -->
                     <div class="text-amber-500 font-bold mb-2">
@@ -40,17 +35,20 @@
                         
                         <!-- Address -->
                         <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                            <p class="text-gray-400 mb-2">
+                            <a href="https://maps.google.com/?q={{encodeURIComponent this.venue.name}}+{{encodeURIComponent this.venue.address.streetAddress}}+{{encodeURIComponent this.venue.address.addressLocality}}+{{encodeURIComponent this.venue.address.addressRegion}}+{{encodeURIComponent this.venue.address.postalCode}}"
+                               target="_blank"
+                               class="text-gray-400 hover:text-purple-400 transition-colors inline-block mb-2">
                                 {{#if this.venue.address.streetAddress}}
                                 <span itemprop="streetAddress">{{this.venue.address.streetAddress}}</span><br>
                                 {{/if}}
-                                <span itemprop="addressLocality">{{this.venue.address.city}}</span>, 
-                                <span itemprop="addressRegion">{{this.venue.address.state}}</span>
+                                <span itemprop="addressLocality">{{this.venue.address.addressLocality}}</span>, 
+                                <span itemprop="addressRegion">{{this.venue.address.addressRegion}}</span>
                                 {{#if this.venue.address.postalCode}}
                                 <span itemprop="postalCode">{{this.venue.address.postalCode}}</span>
                                 {{/if}}
-                                <meta itemprop="addressCountry" content="{{this.venue.address.country}}">
-                            </p>
+                                <i class="fas fa-map-marker-alt ml-1 text-xs"></i>
+                            </a>
+                            <meta itemprop="addressCountry" content="{{this.venue.address.addressCountry}}">
                         </div>
                         
                         <!-- Geo Coordinates -->
@@ -91,8 +89,14 @@
                     <!-- Ticketing Info -->
                     {{#if this.ticketing}}
                     <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                        <meta itemprop="price" content="{{extractPrice this.ticketing.admission}}">
+                        {{#if this.isFree}}
+                        <meta itemprop="isAccessibleForFree" content="true">
+                        {{else}}
+                        {{#if this.ticketing.price}}
+                        <meta itemprop="price" content="{{this.ticketing.price}}">
                         <meta itemprop="priceCurrency" content="USD">
+                        {{/if}}
+                        {{/if}}
                         <meta itemprop="availability" content="https://schema.org/InStock">
                         {{#if this.ticketing.ticketUrl}}
                         <meta itemprop="url" content="{{this.ticketing.ticketUrl}}">
@@ -105,8 +109,16 @@
                     </div>
                     {{/if}}
                     
-                    <!-- Action Links -->
-                    <div class="flex gap-4">
+                    <!-- Action Links with Price -->
+                    <div class="flex gap-4 items-center">
+                        {{#if this.isFree}}
+                        <span class="text-green-400 font-bold text-sm">FREE</span>
+                        {{else}}
+                        {{#if this.ticketing.admission}}
+                        <span class="text-amber-400 font-bold text-sm">{{this.ticketing.admission}}</span>
+                        {{/if}}
+                        {{/if}}
+                        
                         {{#if this.ticketing.link}}
                         <a href="{{this.ticketing.link}}" 
                            target="_blank" 
