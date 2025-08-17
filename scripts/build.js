@@ -139,6 +139,37 @@ async function loadData() {
         }
     }
     
+    // Check for YouTube API key and fetch metadata
+    if (data.videos) {
+        try {
+            const { fetchAllVideoMetadata, getApiKey } = require('./fetch-youtube-metadata');
+            const apiKey = getApiKey();
+            
+            if (!apiKey) {
+                console.error('\n❌ ERROR: YOUTUBE_API_KEY is required but not found!');
+                console.error('\n📝 To fix this:');
+                console.error('   1. Copy .env.example to .env if you haven\'t already');
+                console.error('   2. Add your YouTube Data API v3 key to the .env file:');
+                console.error('      YOUTUBE_API_KEY=your_api_key_here');
+                console.error('\n   Get an API key at: https://console.cloud.google.com/apis/credentials');
+                console.error('   Enable YouTube Data API v3 at: https://console.cloud.google.com/apis/library');
+                console.error('\n   For CI/CD, add YOUTUBE_API_KEY to your GitHub Secrets or environment variables.\n');
+                process.exit(1);
+            }
+            
+            console.log('\n📹 Fetching YouTube metadata...');
+            // Pass the videos array directly - it now supports both strings and objects with overrides
+            const videos = data.videos.videos || data.videos;
+            const metadata = await fetchAllVideoMetadata(videos, apiKey);
+            
+            // Replace videos data with fetched metadata
+            data.videos = { videos: metadata };
+        } catch (error) {
+            console.error(`\n❌ Error loading YouTube metadata: ${error.message}`);
+            process.exit(1);
+        }
+    }
+    
     // Load images manifest
     try {
         const manifestPath = path.join(__dirname, '..', 'public', 'images', 'manifest.json');
@@ -289,15 +320,11 @@ function prepareTemplateData(data) {
         members = data.members.members || data.members;
     }
     
-    // Process videos data - add computed YouTube URLs
+    // Process videos data - already has full metadata from YouTube API
     let videos = [];
     if (data.videos) {
-        videos = (data.videos.videos || data.videos).map(video => ({
-            ...video,
-            thumbnail: `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`,
-            url: `https://www.youtube.com/watch?v=${video.id}`,
-            embedUrl: `https://www.youtube.com/embed/${video.id}`
-        }));
+        videos = data.videos.videos || data.videos;
+        // No need to compute URLs - they're already fetched from YouTube API
     }
     
     // Process tracks data - add full src URLs

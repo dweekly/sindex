@@ -1,0 +1,26 @@
+{
+  "_comment": "Example showing all supported formats for videos.json",
+  "videos": [
+    {
+      "_comment": "Full override example - custom title and description",
+      "youtubeId": "D9gIdE7IJsY",
+      "title": "Son of a Preacher Man",
+      "description": "Live at Redwood City Music In The Park, 2022"
+    },
+    {
+      "_comment": "Partial override - only custom title, description from YouTube",
+      "youtubeId": "vWRJUqNdnX0",
+      "title": "I Can't Stand The Rain"
+    },
+    {
+      "_comment": "No overrides - all metadata from YouTube",
+      "youtubeId": "buwFWtEuOyQ"
+    },
+    "_comment_alternative": "You can also use simple strings if you don't need any overrides:",
+    "_example": [
+      "D9gIdE7IJsY",
+      "vWRJUqNdnX0",
+      "buwFWtEuOyQ"
+    ]
+  ]
+}

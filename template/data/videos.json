@@ -1,25 +1,17 @@
 {
+  "_comment": "YouTube video IDs. Metadata is fetched automatically from YouTube API. You can override title and description if needed.",
   "videos": [
     {
-      "id": "D9gIdE7IJsY",
+      "youtubeId": "D9gIdE7IJsY",
       "title": "Son of a Preacher Man",
-      "description": "Redwood City Music In The Park, 2012",
-      "uploadDate": "2012-08-15",
-      "duration": "PT3M30S"
+      "description": "Live at Redwood City Music In The Park, 2022"
     },
     {
-      "id": "vWRJUqNdnX0",
-      "title": "I Can't Stand The Rain",
-      "description": "Redwood City Music In The Park, 2012",
-      "uploadDate": "2012-08-15",
-      "duration": "PT4M15S"
+      "youtubeId": "vWRJUqNdnX0",
+      "title": "I Can't Stand The Rain"
     },
     {
-      "id": "buwFWtEuOyQ",
-      "title": "Broadband Connection",
-      "description": "Redwood City Music In The Park, 2012",
-      "uploadDate": "2012-08-15",
-      "duration": "PT3M01S"
+      "youtubeId": "buwFWtEuOyQ"
     }
   ]
 }
