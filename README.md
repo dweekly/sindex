@@ -69,6 +69,54 @@ A modern, minimalist website for the San Francisco Bay Area funk & soul band Sin
 └── README.md           # This file
 ```
 
+## Contributing Guidelines
+
+**⚠️ IMPORTANT: All changes MUST be made through pull requests. Direct commits to the main branch are not allowed.**
+
+### Making Changes
+
+1. **Create a new branch** from `main`:
+   ```bash
+   git checkout main
+   git pull origin main
+   git checkout -b feature/your-feature-name
+   ```
+
+2. **Make your changes** on the feature branch
+
+3. **Test your changes** locally:
+   ```bash
+   npm run build:test  # Build and run tests
+   npm run dev        # Preview locally
+   ```
+
+4. **Commit and push** your branch:
+   ```bash
+   git add .
+   git commit -m "Descriptive commit message"
+   git push origin feature/your-feature-name
+   ```
+
+5. **Create a Pull Request** on GitHub:
+   - Go to the repository on GitHub
+   - Click "Compare & pull request"
+   - Provide a clear description of your changes
+   - Wait for review and approval
+
+### Pull Request Requirements
+
+- All tests must pass
+- Clear, descriptive commit messages
+- Updated documentation if needed
+- No direct commits to `main` branch
+
+### Automated Deployment
+
+When your PR is merged to `main`, the site will automatically:
+1. Run all tests
+2. Build the production site
+3. Deploy to the live server
+
 ## Quick Start
 
 ```bash
