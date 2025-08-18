@@ -15,12 +15,11 @@
     {
       "date": "2025-09-28",
       "dayOfWeek": "SUN",
-      "name": "Fiesta On The Hill",
+      "name": "Fiesta on the Hill",
       "venue": "Bernal Heights",
       "address": "Courtland Ave",
       "time": "12:00 PM - 2:00 PM",
       "link": "https://www.bernalfiesta.com",
-      "featured": true,
       "description": "Free summer block party in Bernal Heights along Courtland Ave. Kid friendly!",
       "admission": "free"
     },

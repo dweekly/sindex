@@ -21,40 +21,42 @@
                         <time datetime="{{this.date}}T{{this.startTime}}{{getTimezoneOffset this.timezone}}">
                             {{this.dayOfWeek}}, {{formatDate this.date "MMM DD"}}
                         </time>
+                        {{#if this.endTime}}
+                        <span class="text-gray-400 font-light ml-2">{{formatTimeRange this.startTime this.endTime}}</span>
+                        {{else if this.time}}
+                        <span class="text-gray-400 font-light ml-2">{{this.time}}</span>
+                        {{/if}}
                     </div>
+                    
+                    <!-- Event Name (if different from venue) -->
+                    {{#if this.name}}
+                    <h3 class="text-xl font-bold mb-1 text-purple-400">{{this.name}}</h3>
+                    {{/if}}
                     
                     <!-- Venue Information -->
                     <div>
-                        <h3 class="text-xl font-bold mb-2">{{this.venue.name}}</h3>
+                        <h4 class="text-lg font-semibold mb-2">{{this.venue.name}}</h4>
                         
                         <!-- Address -->
+                        {{#if this.venue.address.streetAddress}}
                         <div>
-                            <a href="https://maps.google.com/?q={{encodeURIComponent this.venue.address.streetAddress}}+{{encodeURIComponent this.venue.address.addressLocality}}+{{encodeURIComponent this.venue.address.addressRegion}}+{{encodeURIComponent this.venue.address.postalCode}}"
+                            {{#if this.venue.address.addressLocality}}
+                            <!-- Full address with link -->
+                            <a href="https://maps.google.com/?q={{encodeURIComponent this.venue.address.streetAddress}}+{{encodeURIComponent this.venue.address.addressLocality}}+{{#if this.venue.address.addressRegion}}{{encodeURIComponent this.venue.address.addressRegion}}{{else}}CA{{/if}}{{#if this.venue.address.postalCode}}+{{encodeURIComponent this.venue.address.postalCode}}{{/if}}"
                                target="_blank"
                                class="text-gray-400 hover:text-purple-400 transition-colors inline-block mb-2">
-                                {{#if this.venue.address.streetAddress}}
                                 <span>{{this.venue.address.streetAddress}}</span><br>
-                                {{/if}}
                                 <span>{{this.venue.address.addressLocality}}</span>, 
-                                <span>{{this.venue.address.addressRegion}}</span>
-                                {{#if this.venue.address.postalCode}}
-                                <span>{{this.venue.address.postalCode}}</span>
-                                {{/if}}
-                                <i class="fas fa-map-marker-alt ml-1 text-xs"></i>
+                                <span>{{#if this.venue.address.addressRegion}}{{this.venue.address.addressRegion}}{{else}}CA{{/if}}</span>
                             </a>
+                            {{else}}
+                            <!-- Street only, no link -->
+                            <p class="text-gray-400 mb-2">{{this.venue.address.streetAddress}}</p>
+                            {{/if}}
                         </div>
+                        {{/if}}
                         
                     </div>
-                    
-                    <!-- Time -->
-                    <p class="text-gray-300 mb-4">
-                        {{#if this.endTime}}
-                        <time datetime="{{this.date}}T{{this.startTime}}">{{formatTime this.startTime}}</time> - 
-                        <time datetime="{{this.date}}T{{this.endTime}}">{{formatTime this.endTime}}</time>
-                        {{else}}
-                        {{this.time}}
-                        {{/if}}
-                    </p>
                     
                     <!-- Description -->
                     {{#if this.description}}
@@ -130,7 +132,6 @@
                                class="text-gray-300 hover:text-purple-400 transition-colors"
     >
                                 <span>{{this.venue.name}}</span>
-                                <i class="fas fa-external-link-alt text-xs ml-1"></i>
                             </a>
                             {{else}}
                             <span class="text-gray-300">{{this.venue.name}}</span>
@@ -163,8 +164,7 @@
                                    class="text-gray-300 hover:text-purple-400 transition-colors"
         >
                                     <span>{{this.venue.name}}</span>
-                                    <i class="fas fa-external-link-alt text-xs ml-1"></i>
-                                </a>
+                                    </a>
                                 {{else}}
                                 <span class="text-gray-300">{{this.venue.name}}</span>
                                 {{/if}}
