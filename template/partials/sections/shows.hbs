@@ -33,18 +33,16 @@
                         <h3 class="text-xl font-bold mb-2">{{this.venue.name}}</h3>
                         
                         <!-- Address -->
-                        {{#if this.venue.address}}
+                        {{#if this.venue.address.streetAddress}}
                         <div>
-                            <a href="https://maps.google.com/?q={{encodeURIComponent this.venue.address.streetAddress}}+{{encodeURIComponent this.venue.address.addressLocality}}+{{encodeURIComponent this.venue.address.addressRegion}}+{{encodeURIComponent this.venue.address.postalCode}}"
+                            <a href="https://maps.google.com/?q={{encodeURIComponent this.venue.address.streetAddress}}{{#if this.venue.address.addressLocality}}+{{encodeURIComponent this.venue.address.addressLocality}}{{/if}}{{#if this.venue.address.addressRegion}}+{{encodeURIComponent this.venue.address.addressRegion}}{{/if}}{{#if this.venue.address.postalCode}}+{{encodeURIComponent this.venue.address.postalCode}}{{/if}}"
                                target="_blank"
                                class="text-gray-400 hover:text-purple-400 transition-colors inline-block mb-2">
-                                {{#if this.venue.address.streetAddress}}
-                                <span>{{this.venue.address.streetAddress}}</span><br>
-                                {{/if}}
-                                <span>{{this.venue.address.addressLocality}}</span>, 
-                                <span>{{this.venue.address.addressRegion}}</span>
-                                {{#if this.venue.address.postalCode}}
-                                <span>{{this.venue.address.postalCode}}</span>
+                                <span>{{this.venue.address.streetAddress}}</span>
+                                {{#if this.venue.address.addressLocality}}
+                                <br>
+                                <span>{{this.venue.address.addressLocality}}</span>{{#if this.venue.address.addressRegion}}, <span>{{this.venue.address.addressRegion}}</span>{{/if}}
+                                {{#if this.venue.address.postalCode}} <span>{{this.venue.address.postalCode}}</span>{{/if}}
                                 {{/if}}
                             </a>
                         </div>
