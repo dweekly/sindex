@@ -28,23 +28,31 @@
                         {{/if}}
                     </div>
                     
+                    <!-- Event Name (if different from venue) -->
+                    {{#if this.name}}
+                    <h3 class="text-xl font-bold mb-1 text-purple-400">{{this.name}}</h3>
+                    {{/if}}
+                    
                     <!-- Venue Information -->
                     <div>
-                        <h3 class="text-xl font-bold mb-2">{{this.venue.name}}</h3>
+                        <h4 class="text-lg font-semibold mb-2">{{this.venue.name}}</h4>
                         
                         <!-- Address -->
                         {{#if this.venue.address.streetAddress}}
                         <div>
-                            <a href="https://maps.google.com/?q={{encodeURIComponent this.venue.address.streetAddress}}{{#if this.venue.address.addressLocality}}+{{encodeURIComponent this.venue.address.addressLocality}}{{/if}}{{#if this.venue.address.addressRegion}}+{{encodeURIComponent this.venue.address.addressRegion}}{{/if}}{{#if this.venue.address.postalCode}}+{{encodeURIComponent this.venue.address.postalCode}}{{/if}}"
+                            {{#if this.venue.address.addressLocality}}
+                            <!-- Full address with link -->
+                            <a href="https://maps.google.com/?q={{encodeURIComponent this.venue.address.streetAddress}}+{{encodeURIComponent this.venue.address.addressLocality}}+{{#if this.venue.address.addressRegion}}{{encodeURIComponent this.venue.address.addressRegion}}{{else}}CA{{/if}}{{#if this.venue.address.postalCode}}+{{encodeURIComponent this.venue.address.postalCode}}{{/if}}"
                                target="_blank"
                                class="text-gray-400 hover:text-purple-400 transition-colors inline-block mb-2">
-                                <span>{{this.venue.address.streetAddress}}</span>
-                                {{#if this.venue.address.addressLocality}}
-                                <br>
-                                <span>{{this.venue.address.addressLocality}}</span>{{#if this.venue.address.addressRegion}}, <span>{{this.venue.address.addressRegion}}</span>{{/if}}
-                                {{#if this.venue.address.postalCode}} <span>{{this.venue.address.postalCode}}</span>{{/if}}
-                                {{/if}}
+                                <span>{{this.venue.address.streetAddress}}</span><br>
+                                <span>{{this.venue.address.addressLocality}}</span>, 
+                                <span>{{#if this.venue.address.addressRegion}}{{this.venue.address.addressRegion}}{{else}}CA{{/if}}</span>
                             </a>
+                            {{else}}
+                            <!-- Street only, no link -->
+                            <p class="text-gray-400 mb-2">{{this.venue.address.streetAddress}}</p>
+                            {{/if}}
                         </div>
                         {{/if}}
                         
