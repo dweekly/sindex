@@ -2,7 +2,6 @@
   "upcomingShows": [
     {
       "date": "2025-08-20",
-      "dayOfWeek": "WED",
       "name": "Redwood City Music in the Park",
       "venue": "Stafford Park",
       "address": "70 King Street, Redwood City, CA 94062",
@@ -14,7 +13,6 @@
     },
     {
       "date": "2025-09-28",
-      "dayOfWeek": "SUN",
       "name": "Fiesta on the Hill",
       "venue": "Bernal Heights",
       "address": "Courtland Ave",
@@ -25,7 +23,6 @@
     },
     {
       "date": "2025-11-14",
-      "dayOfWeek": "FRI",
       "name": "Friday Night Funk",
       "venue": "Club Fox",
       "address": "2209 Broadway, Redwood City, CA 94063",

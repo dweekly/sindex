@@ -341,6 +341,27 @@ function prepareTemplateData(data) {
         ]
     };
     
+    /**
+     * Gets the day of the week for a date string in a specific timezone.
+     * @param {string} dateStr - The date in 'YYYY-MM-DD' format.
+     * @param {string} timeZone - An IANA timezone name (e.g., 'America/Los_Angeles').
+     * @returns {string} The three-letter abbreviation of the day (e.g., 'SUN').
+     */
+    function getDayOfWeek(dateStr, timeZone = 'America/Los_Angeles') {
+        // Create a date object from the string. Appending 'T00:00:00' ensures
+        // it's treated as the start of the day in UTC, avoiding timezone shifts on creation.
+        const date = new Date(dateStr + 'T00:00:00');
+
+        // Create a formatter for the desired timezone and format.
+        const formatter = new Intl.DateTimeFormat('en-US', {
+            weekday: 'short', // 'short' gives 'Mon', 'Tue', etc.
+            timeZone: timeZone,
+        });
+
+        // Format the date and return it in uppercase.
+        return formatter.format(date).toUpperCase();
+    }
+    
     // Process shows data
     const now = new Date();
     const twoDaysAgo = new Date(now);
@@ -353,7 +374,8 @@ function prepareTemplateData(data) {
         // Process upcoming shows
         if (data.shows.upcomingShows) {
             data.shows.upcomingShows.forEach(show => {
-                const showDate = new Date(show.date);
+                // Parse date at end of day to ensure shows on current date are still considered upcoming
+                const showDate = new Date(show.date + 'T23:59:59');
                 // Parse the address string into components
                 const parsedAddress = parseAddress(show.address);
                 
@@ -362,6 +384,7 @@ function prepareTemplateData(data) {
                     ...show,
                     id: show.date + '-' + (show.venue || '').toLowerCase().replace(/\s+/g, '-'),
                     name: show.name || show.venue, // Use name if provided, otherwise fallback to venue
+                    dayOfWeek: show.dayOfWeek || getDayOfWeek(show.date), // Calculate if not provided
                     startTime: show.time ? show.time.split(' - ')[0] : '',
                     endTime: show.time ? show.time.split(' - ')[1] : '',
                     venue: {
