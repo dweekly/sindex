@@ -21,6 +21,11 @@
                         <time datetime="{{this.date}}T{{this.startTime}}{{getTimezoneOffset this.timezone}}">
                             {{this.dayOfWeek}}, {{formatDate this.date "MMM DD"}}
                         </time>
+                        {{#if this.endTime}}
+                        <span class="text-gray-400 font-light ml-2">{{formatTimeRange this.startTime this.endTime}}</span>
+                        {{else if this.time}}
+                        <span class="text-gray-400 font-light ml-2">{{this.time}}</span>
+                        {{/if}}
                     </div>
                     
                     <!-- Venue Information -->
@@ -28,6 +33,7 @@
                         <h3 class="text-xl font-bold mb-2">{{this.venue.name}}</h3>
                         
                         <!-- Address -->
+                        {{#if this.venue.address}}
                         <div>
                             <a href="https://maps.google.com/?q={{encodeURIComponent this.venue.address.streetAddress}}+{{encodeURIComponent this.venue.address.addressLocality}}+{{encodeURIComponent this.venue.address.addressRegion}}+{{encodeURIComponent this.venue.address.postalCode}}"
                                target="_blank"
@@ -40,21 +46,11 @@
                                 {{#if this.venue.address.postalCode}}
                                 <span>{{this.venue.address.postalCode}}</span>
                                 {{/if}}
-                                <i class="fas fa-map-marker-alt ml-1 text-xs"></i>
                             </a>
                         </div>
+                        {{/if}}
                         
                     </div>
-                    
-                    <!-- Time -->
-                    <p class="text-gray-300 mb-4">
-                        {{#if this.endTime}}
-                        <time datetime="{{this.date}}T{{this.startTime}}">{{formatTime this.startTime}}</time> - 
-                        <time datetime="{{this.date}}T{{this.endTime}}">{{formatTime this.endTime}}</time>
-                        {{else}}
-                        {{this.time}}
-                        {{/if}}
-                    </p>
                     
                     <!-- Description -->
                     {{#if this.description}}
@@ -130,7 +126,6 @@
                                class="text-gray-300 hover:text-purple-400 transition-colors"
     >
                                 <span>{{this.venue.name}}</span>
-                                <i class="fas fa-external-link-alt text-xs ml-1"></i>
                             </a>
                             {{else}}
                             <span class="text-gray-300">{{this.venue.name}}</span>
@@ -163,8 +158,7 @@
                                    class="text-gray-300 hover:text-purple-400 transition-colors"
         >
                                     <span>{{this.venue.name}}</span>
-                                    <i class="fas fa-external-link-alt text-xs ml-1"></i>
-                                </a>
+                                    </a>
                                 {{else}}
                                 <span class="text-gray-300">{{this.venue.name}}</span>
                                 {{/if}}

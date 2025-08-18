@@ -67,11 +67,53 @@ Handlebars.registerHelper('formatDate', (dateStr, format) => {
 
 Handlebars.registerHelper('formatTime', (timeStr) => {
     if (!timeStr) return '';
+    // If time already has AM/PM, clean it up to be concise
+    if (timeStr.includes('AM') || timeStr.includes('PM')) {
+        // Just return the time as-is for now (will be handled by formatTimeRange)
+        return timeStr;
+    }
+    // Otherwise format it (assuming 24-hour input)
     const [hours, minutes] = timeStr.split(':');
     const hour = parseInt(hours);
     const ampm = hour >= 12 ? 'PM' : 'AM';
     const displayHour = hour % 12 || 12;
     return `${displayHour}:${minutes} ${ampm}`;
+});
+
+Handlebars.registerHelper('formatTimeRange', (startTime, endTime) => {
+    if (!startTime || !endTime) return '';
+    
+    // Extract hours and meridians from both times
+    const extractTime = (timeStr) => {
+        const match = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/i);
+        if (!match) return null;
+        return {
+            hour: parseInt(match[1]),
+            minute: match[2],
+            meridian: match[3].toUpperCase()
+        };
+    };
+    
+    const start = extractTime(startTime);
+    const end = extractTime(endTime);
+    
+    if (!start || !end) return `${startTime} - ${endTime}`;
+    
+    // If both times have the same meridian, combine them
+    if (start.meridian === end.meridian) {
+        // If minutes are :00, just show hours
+        if (start.minute === '00' && end.minute === '00') {
+            return `${start.hour} - ${end.hour}${end.meridian.toLowerCase()}`;
+        }
+        // Otherwise show full times but share meridian
+        return `${start.hour}:${start.minute} - ${end.hour}:${end.minute}${end.meridian.toLowerCase()}`;
+    }
+    
+    // Different meridians - show both but concise
+    if (start.minute === '00' && end.minute === '00') {
+        return `${start.hour}${start.meridian.toLowerCase()} - ${end.hour}${end.meridian.toLowerCase()}`;
+    }
+    return `${start.hour}:${start.minute}${start.meridian.toLowerCase()} - ${end.hour}:${end.minute}${end.meridian.toLowerCase()}`;
 });
 
 Handlebars.registerHelper('getStartYear', (yearsWithBand) => {
