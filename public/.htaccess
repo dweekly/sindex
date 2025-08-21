@@ -69,8 +69,8 @@ ErrorDocument 404 /404.html
     # RewriteCond %{HTTPS} !=on
     # RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
     
-    # Redirect index.php to index.html
-    RewriteRule ^index\.php$ /index.html [L]
+    # Redirect index.php to root
+    RewriteRule ^index\.php$ / [R=301,L]
     
     # Redirect old site URLs to appropriate anchor points
     RewriteRule ^about/?.*$ /#about [R=301,L,NE]
