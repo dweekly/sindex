@@ -1,0 +1,66 @@
+{
+  "comment": "Internal data schema for shows with multimedia content",
+  "schema": {
+    "internalShows": [
+      {
+        "id": "2025-08-20-music-in-the-park",
+        "date": "2025-08-20",
+        "title": "Music in the Park",
+        "venue": "Redwood City Music in the Park - Stafford Park",
+        "city": "Redwood City, CA",
+        "time": "5:00 PM - 7:00 PM",
+        "status": "recorded",
+        "internalNotes": "Great turnout, good sound quality on most tracks",
+        "published": false,
+        "tracks": [
+          {
+            "id": "chasing-the-clouds-away",
+            "title": "Chasing the Clouds Away",
+            "artist": "Original",
+            "duration": "3:46",
+            "files": {
+              "wav": "sinister-dexter-music/unreleased/2025-08-20-Music-In-The-Park/chasing-the-clouds-away.wav",
+              "mp3": "sinister-dexter-music/unreleased/2025-08-20-Music-In-The-Park/chasing-the-clouds-away.mp3"
+            },
+            "internalNotes": "Strong opener, good energy",
+            "published": false
+          }
+        ],
+        "photos": [
+          {
+            "id": "setup-photo-1",
+            "filename": "setup.jpg",
+            "caption": "Setting up at Stafford Park",
+            "path": "sinister-dexter-music/unreleased/2025-08-20-Music-In-The-Park/photos/setup.jpg",
+            "published": false
+          }
+        ],
+        "videos": [
+          {
+            "id": "full-show-video",
+            "filename": "full-show.mp4",
+            "title": "Full Show Recording",
+            "duration": "2:15:00",
+            "path": "sinister-dexter-music/unreleased/2025-08-20-Music-In-The-Park/videos/full-show.mp4",
+            "published": false
+          }
+        ],
+        "setlist": [
+          "chasing-the-clouds-away",
+          "lovely-day-with-aly",
+          "the-letter",
+          "keep-me-in-mind",
+          "i-am-a-good-woman",
+          "come-on-come-over",
+          "dream-come-true",
+          "who-knows-who",
+          "just-dropped-in",
+          "mercy",
+          "como-ves",
+          "knock-yourself-out",
+          "proud-mary-finale"
+        ]
+      }
+    ]
+  }
+}
