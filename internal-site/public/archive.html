@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Band Shak - Archive</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .content-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 1200px;
+        }
+        
+        .header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: -2rem -2rem 2rem -2rem;
+        }
+        
+        .header h1 {
+            color: white;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .logout-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .logout-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-1px);
+        }
+        
+        h1, h2 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .show-header {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .show-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .track-list {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .track-item {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            transition: box-shadow 0.3s;
+        }
+        
+        .track-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .track-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .track-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #333;
+        }
+        
+        .track-duration {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .track-artist {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .track-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .play-button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .play-button:hover {
+            background: #218838;
+        }
+        
+        .download-links {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .download-link {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.25rem 0.5rem;
+            border: 1px solid #667eea;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+        
+        .download-link:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .audio-player {
+            width: 100%;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+        
+        .error {
+            text-align: center;
+            padding: 2rem;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-container">
+        <div class="header">
+            <h1>Band Shak</h1>
+            <a href="/logout" class="logout-btn">Logout</a>
+        </div>
+        
+        <div id="loading" class="loading">
+            Loading archive...
+        </div>
+        
+        <div id="error" class="error" style="display: none;">
+            Failed to load archive. Please refresh the page.
+        </div>
+        
+        <div id="content" style="display: none;">
+            <div class="show-header">
+                <h1>Music in the Park</h1>
+                <div class="show-info">
+                    <div class="info-item">
+                        <span class="info-label">Date:</span>
+                        <span>August 20, 2025</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Venue:</span>
+                        <span>Stafford Park, Redwood City</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Time:</span>
+                        <span>5:00 PM - 7:00 PM</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Status:</span>
+                        <span>Recorded</span>
+                    </div>
+                </div>
+                <p><strong>Notes:</strong> Great outdoor show at Stafford Park. Good crowd response, solid recording quality on individual tracks.</p>
+            </div>
+
+            <h2>Full Show Recording</h2>
+            <div class="track-item" style="margin-bottom: 2rem;">
+                <div class="track-header">
+                    <div class="track-title">Complete Unedited Show</div>
+                    <div class="track-duration">1:01:54</div>
+                </div>
+                <div class="track-artist">Raw recording from DR-100 field recorder</div>
+                <div class="track-controls">
+                    <button class="play-button" onclick="togglePlay('full-show-recording')">Play MP3</button>
+                    <div class="download-links">
+                        <a href="https://cdn.sinister-dexter.com/unreleased/2025-08-20-Music-In-The-Park/full-show-recording.mp3" class="download-link" download>Download MP3</a>
+                        <span class="download-link" style="opacity: 0.6; cursor: not-allowed;">WAV (625MB - contact for access)</span>
+                    </div>
+                </div>
+                <audio class="audio-player" id="audio-full-show-recording" preload="none">
+                    <source src="https://cdn.sinister-dexter.com/unreleased/2025-08-20-Music-In-The-Park/full-show-recording.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+            <h2>Individual Track Recordings</h2>
+            <div class="track-list" id="trackList">
+                <!-- Tracks will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let r2BaseUrl = '';
+
+        async function loadTracks() {
+            try {
+                const response = await fetch('/api/tracks');
+                
+                if (!response.ok) {
+                    if (response.status === 401) {
+                        window.location.href = '/';
+                        return;
+                    }
+                    throw new Error('Failed to load tracks');
+                }
+                
+                const data = await response.json();
+                r2BaseUrl = data.r2BaseUrl;
+                
+                const trackList = document.getElementById('trackList');
+                trackList.innerHTML = '';
+
+                data.tracks.forEach(track => {
+                    const trackElement = document.createElement('div');
+                    trackElement.className = 'track-item';
+                    trackElement.innerHTML = `
+                        <div class="track-header">
+                            <div class="track-title">${track.trackNumber}. ${track.title}</div>
+                            <div class="track-duration">${track.duration}</div>
+                        </div>
+                        <div class="track-artist">${track.artist}</div>
+                        <div class="track-controls">
+                            <button class="play-button" onclick="togglePlay('${track.id}')">Play MP3</button>
+                            <div class="download-links">
+                                <a href="${r2BaseUrl}${track.id}.mp3" class="download-link" download>Download MP3</a>
+                                <a href="${r2BaseUrl}${track.id}.wav" class="download-link" download>Download WAV</a>
+                            </div>
+                        </div>
+                        <audio class="audio-player" id="audio-${track.id}" preload="none">
+                            <source src="${r2BaseUrl}${track.id}.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    `;
+                    trackList.appendChild(trackElement);
+                });
+                
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+                
+            } catch (error) {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').style.display = 'block';
+            }
+        }
+
+        function togglePlay(trackId) {
+            const audio = document.getElementById(`audio-${trackId}`);
+            const button = audio.parentElement.querySelector('.play-button');
+            
+            // Stop all other audio players
+            document.querySelectorAll('audio').forEach(otherAudio => {
+                if (otherAudio.id !== `audio-${trackId}`) {
+                    otherAudio.pause();
+                    otherAudio.currentTime = 0;
+                    otherAudio.style.display = 'none';
+                    otherAudio.parentElement.querySelector('.play-button').textContent = 'Play MP3';
+                }
+            });
+            
+            if (audio.paused) {
+                audio.style.display = 'block';
+                audio.play();
+                button.textContent = 'Pause';
+            } else {
+                audio.pause();
+                button.textContent = 'Play MP3';
+            }
+            
+            audio.addEventListener('ended', () => {
+                button.textContent = 'Play MP3';
+                audio.style.display = 'none';
+            });
+        }
+
+        // Load tracks on page load
+        loadTracks();
+    </script>
+</body>
+</html>

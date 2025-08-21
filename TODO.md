@@ -21,13 +21,27 @@
 - [ ] **Add sitemap.xml generation** - Improve SEO
 - [ ] **Implement search functionality** - Search shows, tracks, etc.
 
+## Band Shak (Internal Site) - COMPLETED ✅
+- [x] **Password-protected internal archive** - ✅ DONE: internal.sinister-dexter.com with server-side auth
+- [x] **WAV/MP3 conversion & upload** - ✅ DONE: Automated scripts with acoustic compression
+- [x] **Audio streaming & downloads** - ✅ DONE: Per-track players with download links  
+- [x] **Crawler blocking** - ✅ DONE: Comprehensive robots.txt blocks all bots
+- [x] **Enterprise security** - ✅ DONE: HMAC-signed tokens, IP binding, secure cookies
+- [x] **Full show recording** - ✅ DONE: 1hr+ complete show with streaming & download
+
+## Band Shak (Internal Site) - FUTURE
+- [ ] **Add KV-based rate limiting** - 5 attempts per IP per 15 minutes to prevent brute force
+- [ ] **UI for managing published tracks** - Web interface to control what gets published to main site
+- [ ] **Web UI for adding/editing upcoming shows** - Lightweight CMS for show management
+- [ ] **Photo/video upload management** - Expand beyond audio to visual content
+- [ ] **Internal notes system** - Per-track and per-show private notes
+
 ## Low Priority (Nice to Have)
 - [ ] **Create MP3 validation system** - Check that all tracks exist in Cloudflare R2 bucket
 - [ ] **Add show filtering** - Filter by date, venue, city
 - [ ] **Add track filtering** - Filter by album, year
 - [ ] **Implement dark/light mode toggle** - User preference for color scheme
 - [ ] **Add animation effects** - Subtle animations for better UX
-- [ ] **Create admin interface** - Web UI for updating JSON data files
 - [ ] **Add RSS feed for shows** - Allow users to subscribe to show updates
 - [ ] **Implement newsletter signup** - Integrate with email service
 - [ ] **Add Instagram feed integration** - Pull latest posts from Instagram

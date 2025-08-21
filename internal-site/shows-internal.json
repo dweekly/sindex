@@ -1,0 +1,206 @@
+{
+  "comment": "Internal shows data with multimedia content",
+  "lastUpdated": "2025-08-20",
+  "internalShows": [
+    {
+      "id": "2025-08-20-music-in-the-park",
+      "date": "2025-08-20",
+      "title": "Music in the Park",
+      "venue": "Redwood City Music in the Park - Stafford Park",
+      "city": "Redwood City, CA",
+      "time": "5:00 PM - 7:00 PM",
+      "status": "recorded",
+      "internalNotes": "Great outdoor show at Stafford Park. Good crowd response, solid recording quality on individual tracks. Large full-set recording available but too big for web streaming.",
+      "published": false,
+      "r2BucketPath": "sinister-dexter-music/unreleased/2025-08-20-Music-In-The-Park/",
+      "tracks": [
+        {
+          "id": "chasing-the-clouds-away",
+          "title": "Chasing the Clouds Away",
+          "artist": "Original",
+          "duration": "3:46",
+          "trackNumber": 1,
+          "files": {
+            "wav": "chasing-the-clouds-away.wav",
+            "mp3": "chasing-the-clouds-away.mp3"
+          },
+          "internalNotes": "Strong opener, great energy from the start",
+          "published": false
+        },
+        {
+          "id": "lovely-day-with-aly",
+          "title": "Lovely Day (with Aly)",
+          "artist": "Bill Withers (cover)",
+          "duration": "3:35",
+          "trackNumber": 2,
+          "files": {
+            "wav": "lovely-day-with-aly.wav",
+            "mp3": "lovely-day-with-aly.mp3"
+          },
+          "internalNotes": "Great vocal performance by Aly",
+          "published": false
+        },
+        {
+          "id": "the-letter",
+          "title": "The Letter",
+          "artist": "The Box Tops (cover)",
+          "duration": "3:35",
+          "trackNumber": 3,
+          "files": {
+            "wav": "the-letter.wav",
+            "mp3": "the-letter.mp3"
+          },
+          "internalNotes": "Classic crowd pleaser",
+          "published": false
+        },
+        {
+          "id": "keep-me-in-mind",
+          "title": "Keep Me in Mind",
+          "artist": "Original",
+          "duration": "3:06",
+          "trackNumber": 4,
+          "files": {
+            "wav": "keep-me-in-mind.wav",
+            "mp3": "keep-me-in-mind.mp3"
+          },
+          "internalNotes": "Tight arrangement",
+          "published": false
+        },
+        {
+          "id": "i-am-a-good-woman",
+          "title": "I Am a Good Woman",
+          "artist": "Original",
+          "duration": "2:55",
+          "trackNumber": 5,
+          "files": {
+            "wav": "i-am-a-good-woman.wav",
+            "mp3": "i-am-a-good-woman.mp3"
+          },
+          "internalNotes": "Powerful vocals",
+          "published": false
+        },
+        {
+          "id": "come-on-come-over",
+          "title": "Come On Come Over",
+          "artist": "Jaco Pastorius (cover)",
+          "duration": "4:34",
+          "trackNumber": 6,
+          "files": {
+            "wav": "come-on-come-over.wav",
+            "mp3": "come-on-come-over.mp3"
+          },
+          "internalNotes": "Funky bass line showcase",
+          "published": false
+        },
+        {
+          "id": "dream-come-true",
+          "title": "Dream Come True",
+          "artist": "Original",
+          "duration": "4:52",
+          "trackNumber": 7,
+          "files": {
+            "wav": "dream-come-true.wav",
+            "mp3": "dream-come-true.mp3"
+          },
+          "internalNotes": "Extended jam section worked well",
+          "published": false
+        },
+        {
+          "id": "who-knows-who",
+          "title": "Who Knows Who",
+          "artist": "Original",
+          "duration": "4:04",
+          "trackNumber": 8,
+          "files": {
+            "wav": "who-knows-who.wav",
+            "mp3": "who-knows-who.mp3"
+          },
+          "internalNotes": "Good horn section feature",
+          "published": false
+        },
+        {
+          "id": "just-dropped-in",
+          "title": "Just Dropped In",
+          "artist": "Kenny Rogers (cover)",
+          "duration": "3:36",
+          "trackNumber": 9,
+          "files": {
+            "wav": "just-dropped-in.wav",
+            "mp3": "just-dropped-in.mp3"
+          },
+          "internalNotes": "Psychedelic funk arrangement",
+          "published": false
+        },
+        {
+          "id": "mercy",
+          "title": "Mercy",
+          "artist": "Original",
+          "duration": "3:03",
+          "trackNumber": 10,
+          "files": {
+            "wav": "mercy.wav",
+            "mp3": "mercy.mp3"
+          },
+          "internalNotes": "Solid mid-set groove",
+          "published": false
+        },
+        {
+          "id": "como-ves",
+          "title": "Como Ves",
+          "artist": "Original",
+          "duration": "4:28",
+          "trackNumber": 11,
+          "files": {
+            "wav": "como-ves.wav",
+            "mp3": "como-ves.mp3"
+          },
+          "internalNotes": "Latin funk fusion",
+          "published": false
+        },
+        {
+          "id": "knock-yourself-out",
+          "title": "Knock Yourself Out",
+          "artist": "Original",
+          "duration": "5:46",
+          "trackNumber": 12,
+          "files": {
+            "wav": "knock-yourself-out.wav",
+            "mp3": "knock-yourself-out.mp3"
+          },
+          "internalNotes": "Longest track, great build-up",
+          "published": false
+        },
+        {
+          "id": "proud-mary-finale",
+          "title": "Proud Mary (Finale)",
+          "artist": "CCR (cover)",
+          "duration": "5:28",
+          "trackNumber": 13,
+          "files": {
+            "wav": "proud-mary-finale.wav",
+            "mp3": "proud-mary-finale.mp3"
+          },
+          "internalNotes": "Perfect closer, crowd loved it",
+          "published": false
+        }
+      ],
+      "photos": [],
+      "videos": [],
+      "setlist": [
+        "chasing-the-clouds-away",
+        "lovely-day-with-aly",
+        "the-letter",
+        "keep-me-in-mind",
+        "i-am-a-good-woman",
+        "come-on-come-over",
+        "dream-come-true",
+        "who-knows-who",
+        "just-dropped-in",
+        "mercy",
+        "como-ves",
+        "knock-yourself-out",
+        "proud-mary-finale"
+      ]
+    }
+  ]
+}

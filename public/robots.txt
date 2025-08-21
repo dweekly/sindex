@@ -12,6 +12,7 @@ Sitemap: https://sinisterdexter.net/sitemap.xml
 # Disallow access to any future admin or private areas
 Disallow: /admin/
 Disallow: /private/
+Disallow: /internal/
 Disallow: /.git/
 Disallow: /node_modules/
 

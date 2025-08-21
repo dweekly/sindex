@@ -1,0 +1,13 @@
+# Cloudflare Pages configuration for internal.sinisterdexter.com
+name = "sinister-dexter-internal"
+compatibility_date = "2024-08-03"
+pages_build_output_dir = "public"
+
+# Environment variables for internal site
+[env.production.vars]
+ENVIRONMENT = "production"
+SITE_TYPE = "internal"
+
+[env.preview.vars]
+ENVIRONMENT = "preview"
+SITE_TYPE = "internal"
