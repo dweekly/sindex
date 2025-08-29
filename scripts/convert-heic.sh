@@ -11,8 +11,13 @@ for file in photos/*.HEIC photos/*.heic; do
         filename=$(basename "$filename" .heic)
         output="photos/${filename}_converted.jpg"
         
-        echo "Converting: $file -> $output"
-        sips -s format jpeg "$file" --out "$output" -s formatOptions 90
+        # Skip if the converted file already exists and is newer than source
+        if [ -f "$output" ] && [ "$output" -nt "$file" ]; then
+            echo "✓ Skipping: $file (already converted)"
+        else
+            echo "Converting: $file -> $output"
+            sips -s format jpeg "$file" --out "$output" -s formatOptions 90
+        fi
     fi
 done
 
