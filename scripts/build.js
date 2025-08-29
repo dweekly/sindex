@@ -458,12 +458,13 @@ function prepareTemplateData(data) {
         // No need to compute URLs - they're already fetched from YouTube API
     }
     
-    // Process tracks data - add full src URLs
+    // Process tracks data - add full src URLs and index numbers
     let tracks = [];
     if (data.tracks) {
         const cdnBaseUrl = data.tracks.cdnBaseUrl || 'https://cdn.sinister-dexter.com/music/';
-        tracks = (data.tracks.tracks || data.tracks).map(track => ({
+        tracks = (data.tracks.tracks || data.tracks).map((track, index) => ({
             ...track,
+            num: index + 1,  // Add 1-based index number
             src: track.src || `${cdnBaseUrl}${track.filename}`
         }));
     }
