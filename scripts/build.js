@@ -4,6 +4,8 @@ const fs = require('fs').promises;
 const path = require('path');
 const Handlebars = require('handlebars');
 const { minify } = require('html-minifier-terser');
+const { format, parseISO, formatISO, parse } = require('date-fns');
+const { toZonedTime, fromZonedTime, formatInTimeZone } = require('date-fns-tz');
 
 // Register Handlebars helpers
 // Helper for current year
@@ -48,18 +50,24 @@ Handlebars.registerHelper('truncate', (str, length) => {
     return str.substring(0, length) + '...';
 });
 
-Handlebars.registerHelper('formatDate', (dateStr, format) => {
-    const date = new Date(dateStr);
+Handlebars.registerHelper('formatDate', (dateStr, formatStr) => {
+    if (!dateStr) return '';
+    
+    // Parse the date string and format it in Pacific timezone
+    const timeZone = 'America/Los_Angeles';
+    
+    // Parse the date string directly (YYYY-MM-DD format)
+    const [year, month, day] = dateStr.split('-').map(Number);
     const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
     const monthsFull = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     
-    switch(format) {
+    switch(formatStr) {
         case 'MMM DD':
-            return `${months[date.getMonth()]} ${date.getDate()}`;
+            return `${months[month - 1]} ${day}`;
         case 'MMM DD, YYYY':
-            return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+            return `${months[month - 1]} ${day}, ${year}`;
         case 'Month DD, YYYY':
-            return `${monthsFull[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+            return `${monthsFull[month - 1]} ${day}, ${year}`;
         default:
             return dateStr;
     }
@@ -185,6 +193,22 @@ function parseAddress(addressString) {
 
 Handlebars.registerHelper('encodeURIComponent', (str) => {
     return encodeURIComponent(str || '');
+});
+
+Handlebars.registerHelper('toISO8601DateTime', (date, timeStr) => {
+    if (!date || !timeStr) return '';
+    
+    const timeZone = 'America/Los_Angeles';
+    
+    // Parse the date and time together
+    // date is like "2025-09-28", timeStr is like "6:00 PM"
+    const dateTime = parse(`${date} ${timeStr}`, 'yyyy-MM-dd h:mm a', new Date());
+    
+    // fromZonedTime converts a date in a specific timezone to UTC
+    const utcDate = fromZonedTime(dateTime, timeZone);
+    
+    // Format as ISO 8601 which includes timezone offset
+    return formatISO(utcDate);
 });
 
 async function loadPartials() {
@@ -347,19 +371,11 @@ function prepareTemplateData(data) {
      * @param {string} timeZone - An IANA timezone name (e.g., 'America/Los_Angeles').
      * @returns {string} The three-letter abbreviation of the day (e.g., 'SUN').
      */
-    function getDayOfWeek(dateStr, timeZone = 'America/Los_Angeles') {
-        // Create a date object from the string. Appending 'T00:00:00' ensures
-        // it's treated as the start of the day in UTC, avoiding timezone shifts on creation.
-        const date = new Date(dateStr + 'T00:00:00');
-
-        // Create a formatter for the desired timezone and format.
-        const formatter = new Intl.DateTimeFormat('en-US', {
-            weekday: 'short', // 'short' gives 'Mon', 'Tue', etc.
-            timeZone: timeZone,
-        });
-
-        // Format the date and return it in uppercase.
-        return formatter.format(date).toUpperCase();
+    function getDayOfWeek(dateStr) {
+        // Parse as UTC to avoid timezone issues
+        const date = new Date(dateStr);
+        const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+        return days[date.getUTCDay()];
     }
     
     // Process shows data
