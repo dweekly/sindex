@@ -74,8 +74,8 @@
       "@id": "{{../site.url}}#event-{{this.id}}",
       "name": "{{this.name}}",
       "description": "{{this.description}}",
-      "startDate": "{{this.date}}T{{this.startTime}}{{#if this.timezone}}-08:00{{/if}}",
-      {{#if this.endTime}}"endDate": "{{this.date}}T{{this.endTime}}-08:00",{{/if}}
+      "startDate": "{{toISO8601DateTime this.date this.startTime}}",
+      {{#if this.endTime}}"endDate": "{{toISO8601DateTime this.date this.endTime}}",{{/if}}
       "location": {
         "@type": "Place",
         "name": "{{this.venue.name}}",
