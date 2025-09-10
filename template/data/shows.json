@@ -25,64 +25,58 @@
   "pastShows": [
     {
       "date": "2025-08-20",
-      "name": "Redwood City Music in the Park",
-      "venue": "Stafford Park",
+      "venue": "Redwood City Music in the Park",
       "city": "Redwood City, CA",
-      "time": "5:00 PM - 7:00 PM",
+      "time": "5:30 PM - 7:30 PM",
       "link": "https://www.redwoodcity.org/residents/redwood-city-events/music/music-in-the-park"
     },
     {
       "date": "2025-07-10",
-      "name": "Los Altos Summer Concert Series",
-      "venue": "Grant Park",
+      "venue": "Los Altos Summer Concert Series",
       "city": "Los Altos, CA",
-      "time": "6:30 PM",
+      "time": "6:30 PM - 8:00 PM",
       "link": "https://www.losaltosca.gov/parksrec/page/summer-concert-series"
     },
     {
       "date": "2025-06-22",
       "venue": "Blue Oak Brewing Company",
       "city": "San Carlos, CA",
-      "time": "3 PM",
+      "time": "3:00 PM - 6:00 PM",
       "link": "https://www.blueoakbrewing.com"
     },
     {
       "date": "2025-05-17",
-      "name": "Fight Fire with Funk: Eaton fire fundraiser"
-      "venue": "Golden Gate Park Bandshell",
+      "venue": "Fight Fire with Funk Fundraiser, Golden Gate Park Bandshell",
       "city": "San Francisco, CA",
-      "time": "4 PM",
+      "time": "4:00 PM - 6:00 PM",
       "link": "https://www.eventbrite.com/e/fight-fire-with-funk-raise-money-for-the-eaton-wildfire-victims-in-la-tickets-1341075184979"
     },
     {
       "date": "2025-05-09",
       "venue": "O'Reilly's Pub",
       "city": "San Francisco, CA",
-      "time": "9 PM",
+      "time": "9:00 PM - 11:00 PM",
       "link": "https://www.eventbrite.com/e/hotkey-above-the-emberssinister-dextertask-force-freedom-tickets-1337294526929"
     },
     {
       "date": "2025-04-05",
-      "name": "Mount Carmel School Annual Festival",
-      "venue": "Mount Carmel School",
+      "venue": "Mount Carmel School Annual Festival",
       "city": "Redwood City, CA",
-      "time": "3 PM",
+      "time": "3:00 PM - 4:30 PM",
       "link": "https://www.school.mountcarmel.org/support-us/festival.cfm"
     },
     {
       "date": "2025-02-15",
-      "name": "Blue Oak Brewing Anniversary Party",
-      "venue": "Blue Oak Brewing Company",
+      "venue": "Blue Oak Brewing Anniversary Party",
       "city": "San Carlos, CA",
-      "time": "3 PM",
+      "time": "3:00 PM - 6:00 PM",
       "link": "https://www.blueoakbrewing.com/events/1gB7Jc961P56yOUACr8EY5"
     },
     {
       "date": "2024-10-19",
-      "name": "TGIFunk Reunion Party",
-      "venue": "Blue Oak Brewing Company",
+      "venue": "TGIFunk Reunion Party at Blue Oak Brewing Company",
       "city": "San Carlos, CA",
-      "time": "3 PM",
+      "time": "3:00 PM - 6:00 PM",
       "link": "https://www.blueoakbrewing.com/"
     },
     {
