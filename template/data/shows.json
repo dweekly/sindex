@@ -11,6 +11,15 @@
       "admission": "free"
     },
     {
+      "date": "2025-10-19",
+      "venue": "Blue Oak Brewing Company",
+      "address": "",
+      "city": "San Carlos, CA",
+      "time": "3:00 PM - 6:00 PM",
+      "description": "Great beer, a food truck, and us! Dog & kid friendly.",
+      "link": "https://www.blueoakbrewing.com"
+    },
+    {
       "date": "2025-11-14",
       "name": "Friday Night Funk",
       "venue": "Club Fox",
