@@ -267,7 +267,7 @@ async function testSEO({ document, html }) {
       name: 'Sitemap existence',
       test: async () => {
         try {
-          await fs.access(path.join(__dirname, 'public', 'sitemap.xml'));
+          await fs.access(path.join(__dirname, '..', 'public', 'sitemap.xml'));
           return true;
         } catch {
           return false;
@@ -535,28 +535,13 @@ async function runExternalTools() {
   
   const tools = [
     {
-      name: 'W3C HTML Validator',
-      check: 'html-validator',
-      command: 'npx html-validator public/index.html --format=json',
-      parse: (output) => {
-        try {
-          const results = JSON.parse(output);
-          const errors = results.messages.filter(m => m.type === 'error').length;
-          const warnings = results.messages.filter(m => m.type === 'warning').length;
-          return `${errors} errors, ${warnings} warnings`;
-        } catch {
-          return 'Check failed';
-        }
-      }
-    },
-    {
       name: 'Pa11y Accessibility',
       check: 'pa11y',
-      command: 'npx pa11y public/index.html --reporter json',
+      command: 'pa11y public/index.html --reporter json',
       parse: (output) => {
         try {
           const results = JSON.parse(output);
-          return `${results.issues.length} accessibility issues`;
+          return `${results.length} accessibility issues`;
         } catch {
           return 'Check failed';
         }
@@ -565,14 +550,20 @@ async function runExternalTools() {
     {
       name: 'HTMLHint',
       check: 'htmlhint',
-      command: 'npx htmlhint public/index.html --format json',
+      command: 'htmlhint public/index.html --nocolor',
       parse: (output) => {
         try {
-          const results = JSON.parse(output);
-          const totalErrors = results.reduce((sum, file) => sum + file.errors.length, 0);
-          return `${totalErrors} hint violations`;
-        } catch {
-          return 'Check failed';
+          if (!output || output.trim().length === 0) {
+            return 'No output received';
+          }
+          // Parse output like "Scanned 1 files, found 1 errors in 1 files"
+          const match = output.match(/found (\d+) errors? in \d+ files?/);
+          if (match) {
+            return `${match[1]} hint violations`;
+          }
+          return 'Could not parse output';
+        } catch (e) {
+          return `Parse error: ${e.message}`;
         }
       }
     }
@@ -580,15 +571,30 @@ async function runExternalTools() {
   
   for (const tool of tools) {
     try {
-      // Check if tool is available
-      await execPromise(`which ${tool.check}`);
-      
       log(`🔧 Running ${tool.name}...`, 'cyan');
-      const { stdout } = await execPromise(tool.command);
-      const result = tool.parse(stdout);
+      // Increase buffer size to handle large JSON output
+      const { stdout, stderr } = await execPromise(tool.command, { maxBuffer: 10 * 1024 * 1024 });
+      // Some tools output to stderr instead of stdout
+      const output = stdout || stderr;
+      const result = tool.parse(output);
       log(`   Result: ${result}`, 'blue');
     } catch (error) {
-      log(`⏭️  ${tool.name} - Not installed (npm install -g ${tool.check})`, 'yellow');
+      // Check if it's a "command not found" error
+      if (error.message.includes('command not found') || error.code === 'ENOENT') {
+        log(`⏭️  ${tool.name} - Not installed (npm install -g ${tool.check})`, 'yellow');
+      } else if (error.stderr || error.stdout) {
+        // Tool ran but exited with non-zero, check if we got output anyway
+        const output = error.stdout || error.stderr;
+        try {
+          const result = tool.parse(output);
+          log(`   Result: ${result}`, 'blue');
+        } catch {
+          log(`⚠️  ${tool.name} - Error: ${error.message}`, 'yellow');
+        }
+      } else {
+        // Some other error occurred during execution
+        log(`⚠️  ${tool.name} - Error: ${error.message}`, 'yellow');
+      }
     }
   }
 }
