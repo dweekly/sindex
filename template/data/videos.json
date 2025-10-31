@@ -3,23 +3,28 @@
   "videos": [
     {
       "youtubeId": "D9gIdE7IJsY",
-      "title": "Son of a Preacher Man",
+      "title": "Son of a Preacher Man (Dusty Springfield)",
       "description": "Live at Redwood City Music In The Park, 2022"
     },
     {
       "youtubeId": "vWRJUqNdnX0",
-      "title": "I Can't Stand The Rain",
+      "title": "I Can't Stand The Rain (Ann Peebles)",
       "description": "Live at Club Fox, 2012"
     },
     {
       "youtubeId": "buwFWtEuOyQ",
-      "title": "Broadband Connection",
+      "title": "Broadband Connection (Sinister Dexter)",
       "description": "Live at Club Fox, 2012"
     },
     {
       "youtubeId": "BREcoO3sjCE",
-      "title": "LA (Original by Couch)",
+      "title": "LA (Couch)",
       "description": "Blue Oak Brewery, 2025"
+    },
+    {
+      "youtubeId": "WHklD2HJ6YU",
+      "title": "Who Knows Who (Orgone)",
+      "description": "Live at Redwood City Music In The Park, 2023"
     }
   ]
 }
