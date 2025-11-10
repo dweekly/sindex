@@ -322,6 +322,9 @@ function prepareTemplateData(data) {
             twitter: 'sindexband',
             facebook: 'SinDex.Band',
             youtube: 'SinDexBand',
+            tiktok: 'sindex_band',
+            bandsintown: '444053',
+            songkick: '463129',
             spotifyId: '06ZpJFLW4Kz4EAlUorzrFu',
             appleMusicId: '30663361'
         }
