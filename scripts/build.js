@@ -333,8 +333,7 @@ function prepareTemplateData(data) {
     // Band information
     const band = {
         foundingYear: '1998',
-        genres: ['Funk', 'Soul', 'R&B', 'Blues'],
-        notableVenues: ['Club Fox', 'Lost & Found Saloon', 'Quarter Note', 'Blue Chalk Cafe']
+        genres: ['Funk', 'Soul', 'R&B', 'Blues']
     };
     
     // Navigation structure
@@ -346,7 +345,6 @@ function prepareTemplateData(data) {
             { label: 'Gallery', anchor: 'gallery' },
             { label: 'About', anchor: 'about' },
             { label: 'Band', anchor: 'band-members' },
-            { label: 'Venues', anchor: 'notable-venues' },
             { label: 'Connect', anchor: 'connect' }
         ]
     };
@@ -567,7 +565,6 @@ async function buildModularSite() {
         {{> sections/about}}
         {{> sections/pull-quote}}
         {{> sections/members}}
-        {{> sections/venues}}
         {{> sections/connect}}
     </main>
     
