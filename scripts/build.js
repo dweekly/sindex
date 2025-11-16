@@ -39,6 +39,13 @@ Handlebars.registerHelper('startsWith', (str, prefix) => {
     return str && typeof str === 'string' && str.startsWith(prefix);
 });
 
+Handlebars.registerHelper('isDifferentYear', (dateStr) => {
+    if (!dateStr) return false;
+    const eventYear = new Date(dateStr).getFullYear();
+    const currentYear = new Date().getFullYear();
+    return eventYear !== currentYear;
+});
+
 // Helper to lookup nested array values
 Handlebars.registerHelper('lookup', (array, index, property) => {
     if (!array || !array[index]) return '';

@@ -19,7 +19,7 @@
                     <!-- Date and Time -->
                     <div class="text-amber-500 font-bold mb-2">
                         <time datetime="{{this.date}}T{{this.startTime}}{{getTimezoneOffset this.timezone}}">
-                            {{this.dayOfWeek}}, {{formatDate this.date "MMM DD"}}
+                            {{this.dayOfWeek}}, {{#if (isDifferentYear this.date)}}{{formatDate this.date "MMM DD, YYYY"}}{{else}}{{formatDate this.date "MMM DD"}}{{/if}}
                         </time>
                         {{#if this.endTime}}
                         <span class="text-gray-400 font-light ml-2">{{formatTimeRange this.startTime this.endTime}}</span>
