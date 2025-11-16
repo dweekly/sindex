@@ -8,6 +8,15 @@
       "time": "",
       "link": "mailto:booking@sinisterdexter.net",
       "description": ""
+    },
+    {
+      "date": "2026-09-02",
+      "name": "City of Albany's Concert in the Park",
+      "venue": "Albany Community Center",
+      "address": "1249 Marin Ave, Albany, CA 94706",
+      "time": "",
+      "link": "https://www.albanyca.gov/City-Calendar/2025/Aug-13-Concert-in-the-Park",
+      "description": "Free outdoor summer concert series in Albany"
     }
   ],
   "pastShows": [
