@@ -57,13 +57,15 @@
                         {{/if}}
                         
                     </div>
-                    
-                    <!-- Description -->
+
+                    <!-- Description (only for public events) -->
+                    {{#unless this.private}}
                     {{#if this.description}}
                     <p class="text-sm text-gray-400 mb-4">{{this.description}}</p>
                     {{/if}}
-                    
-                    
+                    {{/unless}}
+
+
                     <!-- Age Restriction -->
                     {{#if this.ticketing.ageRestriction}}
                     <p class="text-xs text-gray-500 mb-2">{{this.ticketing.ageRestriction}}</p>
