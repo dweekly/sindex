@@ -3,11 +3,12 @@
     {
       "date": "2025-12-05",
       "name": "Corporate Holiday Party",
-      "venue": "Book us for your own!",
-      "address": "",
+      "venue": "The Fillmore",
+      "address": "1805 Geary Blvd, San Francisco, CA 94115",
       "time": "",
       "link": "mailto:booking@sinisterdexter.net",
-      "description": ""
+      "description": "Book us for your own!",
+      "private": true
     },
     {
       "date": "2026-09-02",

@@ -71,6 +71,14 @@
                     
                     <!-- Action Links with Price -->
                     <div class="flex gap-4 items-center">
+                        {{#if this.private}}
+                        <!-- Private Event - Always show booking link -->
+                        <a href="mailto:booking@sinisterdexter.net"
+                           class="text-purple-400 hover:text-purple-300">
+                            Book us for your own event →
+                        </a>
+                        {{else}}
+                        <!-- Public Event - Show normal pricing and links -->
                         {{#if this.isFree}}
                         <span class="text-green-400 font-bold text-sm">FREE</span>
                         {{else}}
@@ -78,21 +86,21 @@
                         <span class="text-amber-400 font-bold text-sm">{{this.ticketing.admission}}</span>
                         {{/if}}
                         {{/if}}
-                        
+
                         {{#if this.ticketing.link}}
-                        <a href="{{this.ticketing.link}}" 
-                           target="_blank" 
-                           class="text-purple-400 hover:text-purple-300"
->
+                        <a href="{{this.ticketing.link}}"
+                           target="_blank"
+                           class="text-purple-400 hover:text-purple-300">
                             Learn More →
                         </a>
                         {{/if}}
                         {{#if this.ticketing.ticketUrl}}
-                        <a href="{{this.ticketing.ticketUrl}}" 
-                           target="_blank" 
+                        <a href="{{this.ticketing.ticketUrl}}"
+                           target="_blank"
                            class="text-purple-400 hover:text-purple-300 font-bold">
                             Buy Tickets →
                         </a>
+                        {{/if}}
                         {{/if}}
                     </div>
                     

@@ -35,6 +35,10 @@ Handlebars.registerHelper('gt', (a, b) => a > b);
 
 Handlebars.registerHelper('eq', (a, b) => a === b);
 
+Handlebars.registerHelper('startsWith', (str, prefix) => {
+    return str && typeof str === 'string' && str.startsWith(prefix);
+});
+
 // Helper to lookup nested array values
 Handlebars.registerHelper('lookup', (array, index, property) => {
     if (!array || !array[index]) return '';
@@ -495,6 +499,9 @@ function prepareTemplateData(data) {
     console.log(`  🎵 ${tracks.length} tracks`);
     console.log(`  🖼️  ${data.images.thumbnail ? data.images.thumbnail.length : 0} gallery images`);
     
+    // Filter out private events for structured data (SEO)
+    const publicShows = upcomingShows.filter(show => !show.private);
+
     return {
         site,
         band,
@@ -502,6 +509,7 @@ function prepareTemplateData(data) {
         hero,
         members,
         upcomingShows,
+        publicShows,
         pastShows,
         videos,
         images: data.images,
