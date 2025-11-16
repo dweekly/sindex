@@ -1,0 +1,27 @@
+{{!--
+  TikTok Video Embed Component
+
+  Usage:
+    {{> components/tiktok-embed videoId="7573064485842242871" username="@sindex_band" caption="Optional caption text"}}
+
+  Parameters:
+    - videoId (required): The TikTok video ID
+    - username (optional): TikTok username (defaults to @sindex_band)
+    - caption (optional): Caption text to display
+    - url (optional): Full TikTok URL (auto-generated if not provided)
+--}}
+<div class="flex justify-center">
+    <blockquote class="tiktok-embed"
+                cite="{{#if url}}{{url}}{{else}}https://www.tiktok.com/{{#if username}}{{username}}{{else}}@sindex_band{{/if}}/video/{{videoId}}{{/if}}"
+                data-video-id="{{videoId}}"
+                style="max-width: 605px; min-width: 325px;">
+        <section>
+            <a target="_blank"
+               title="{{#if username}}{{username}}{{else}}@sindex_band{{/if}}"
+               href="https://www.tiktok.com/{{#if username}}{{username}}{{else}}@sindex_band{{/if}}?refer=embed">
+                {{#if username}}{{username}}{{else}}@sindex_band{{/if}}
+            </a>
+            {{#if caption}}<p>{{caption}}</p>{{/if}}
+        </section>
+    </blockquote>
+</div>

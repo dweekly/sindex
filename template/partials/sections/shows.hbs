@@ -154,14 +154,7 @@
                                 <img src="{{this.url}}" alt="{{this.alt}}" class="w-full h-full object-cover group-hover:scale-105 transition-transform" loading="lazy">
                             </a>
                             {{else if (eq this.type "video-vertical")}}
-                            <div class="flex justify-center">
-                                <blockquote class="tiktok-embed" cite="{{this.url}}" data-video-id="{{this.videoId}}" style="max-width: 605px; min-width: 325px;">
-                                    <section>
-                                        <a target="_blank" title="{{this.username}}" href="https://www.tiktok.com/{{this.username}}?refer=embed">{{this.username}}</a>
-                                        {{#if this.caption}}<p>{{this.caption}}</p>{{/if}}
-                                    </section>
-                                </blockquote>
-                            </div>
+                            {{> components/tiktok-embed videoId=this.videoId username=this.username caption=this.caption url=this.url}}
                             {{else if (eq this.type "video-horizontal")}}
                             <div class="aspect-video">
                                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{this.videoId}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
@@ -209,14 +202,7 @@
                                     <img src="{{this.url}}" alt="{{this.alt}}" class="w-full h-full object-cover group-hover:scale-105 transition-transform" loading="lazy">
                                 </a>
                                 {{else if (eq this.type "video-vertical")}}
-                                <div class="flex justify-center">
-                                    <blockquote class="tiktok-embed" cite="{{this.url}}" data-video-id="{{this.videoId}}" style="max-width: 605px; min-width: 325px;">
-                                        <section>
-                                            <a target="_blank" title="{{this.username}}" href="https://www.tiktok.com/{{this.username}}?refer=embed">{{this.username}}</a>
-                                            {{#if this.caption}}<p>{{this.caption}}</p>{{/if}}
-                                        </section>
-                                    </blockquote>
-                                </div>
+                                {{> components/tiktok-embed videoId=this.videoId username=this.username caption=this.caption url=this.url}}
                                 {{else if (eq this.type "video-horizontal")}}
                                 <div class="aspect-video">
                                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{this.videoId}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>

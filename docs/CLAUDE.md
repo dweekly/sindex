@@ -117,39 +117,48 @@ Past shows can include optional media (pictures, vertical videos, horizontal vid
     {
       "type": "video-vertical",
       "platform": "tiktok",
-      "url": "https://www.tiktok.com/@sindex_band/video/123456789",
-      "thumbnail": "https://p16-sign.tiktokcdn.com/..."
-    },
-    {
-      "type": "video-vertical",
-      "platform": "youtube-short",
-      "url": "https://youtube.com/shorts/abc123",
-      "videoId": "abc123",
-      "thumbnail": "https://img.youtube.com/vi/abc123/maxresdefault.jpg"
+      "videoId": "7573064485842242871",
+      "username": "@sindex_band",
+      "caption": "From our Nov 14, 2025 show at Club Fox!"
     },
     {
       "type": "video-horizontal",
       "platform": "youtube",
-      "url": "https://youtube.com/watch?v=xyz789",
-      "videoId": "xyz789",
-      "thumbnail": "https://img.youtube.com/vi/xyz789/maxresdefault.jpg"
+      "videoId": "xyz789"
     }
   ]
 }
 ```
 **Media Types:**
 - `image` - Photos from the show (displayed as square thumbnails)
-- `video-vertical` - TikTok or YouTube Shorts (9:16 aspect ratio)
-- `video-horizontal` - Standard YouTube videos (16:9 aspect ratio)
+- `video-vertical` - TikTok videos (uses official TikTok embed)
+- `video-horizontal` - YouTube videos (iframe embed)
 
-**Required Fields:**
-- `type` - Media type (image, video-vertical, or video-horizontal)
-- `url` - Link to the media (where users will be taken on click)
-- `thumbnail` - Thumbnail image URL (for videos)
-- `alt` - Alt text (for images, accessibility)
+**Required Fields by Type:**
+
+**Images:**
+- `type`: "image"
+- `url`: Direct image URL
+- `alt`: Alt text for accessibility
+
+**TikTok Videos:**
+- `type`: "video-vertical"
+- `videoId`: TikTok video ID (the numeric ID from the URL)
+- `username`: TikTok username (optional, defaults to @sindex_band)
+- `caption`: Caption text (optional)
+- `url`: Full TikTok URL (optional, auto-generated from videoId)
+
+**YouTube Videos:**
+- `type`: "video-horizontal"
+- `videoId`: YouTube video ID (the part after `v=` or in shorts URL)
 
 3. Run `npm run build:html`
 4. Deploy changes
+
+**Note:** The TikTok embed component is located at `template/partials/components/tiktok-embed.hbs` and can be reused anywhere in templates with:
+```handlebars
+{{> components/tiktok-embed videoId="7573064485842242871" username="@sindex_band" caption="Optional caption"}}
+```
 
 ### 👥 Update Band Members
 1. Edit `public/data/members.json`
