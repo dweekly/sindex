@@ -7,21 +7,42 @@
   class="relative h-screen flex items-center justify-center overflow-hidden"
 >
 
-  <!-- Background Image with WebP fallback -->
-  <picture class="absolute inset-0">
-    <source srcset="images/large/{{hero.image}}.webp" type="image/webp" />
-    <img
-      src="images/large/{{hero.image}}.jpg"
-      alt="{{site.title}} full band"
-      class="w-full h-full object-cover object-center"
+  <!-- Background Video with Image fallback -->
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    class="absolute inset-0 w-full h-full object-cover object-center"
+    poster="images/large/{{hero.image}}.jpg"
+  >
+    <!-- Responsive video sources -->
+    <source
+      src="https://cdn.sinister-dexter.com/video/hero-mobile.mp4"
+      type="video/mp4"
+      media="(max-width: 768px)"
     />
-  </picture>
+    <source
+      src="https://cdn.sinister-dexter.com/video/hero-desktop.mp4"
+      type="video/mp4"
+    />
 
-  <!-- Dark Overlay for text contrast -->
-  <div class="absolute inset-0 bg-black/60"></div>
+    <!-- Fallback for browsers that don't support video -->
+    <picture class="absolute inset-0">
+      <source srcset="images/large/{{hero.image}}.webp" type="image/webp" />
+      <img
+        src="images/large/{{hero.image}}.jpg"
+        alt="{{site.title}} full band"
+        class="w-full h-full object-cover object-center"
+      />
+    </picture>
+  </video>
+
+  <!-- Dark Overlay for text contrast (reduced since video is already darkened) -->
+  <div class="absolute inset-0 bg-black/40"></div>
   <!-- Gradient Overlay for color tint -->
   <div
-    class="absolute inset-0 bg-gradient-to-br from-purple-900/40 to-amber-900/40"
+    class="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-amber-900/30"
   ></div>
   <div class="hero-overlay absolute inset-0"></div>
 

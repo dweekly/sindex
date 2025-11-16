@@ -66,9 +66,9 @@
     "@type": "ContactPoint",
     "contactType": "Booking",
     "email": "{{site.bookingEmail}}"
-  }{{#if upcomingShows}},
+  }{{#if publicShows}},
   "event": [
-    {{#each upcomingShows}}
+    {{#each publicShows}}
     {
       "@type": "MusicEvent",
       "@id": "{{../site.url}}#event-{{this.id}}",

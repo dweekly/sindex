@@ -19,7 +19,7 @@
                     <!-- Date and Time -->
                     <div class="text-amber-500 font-bold mb-2">
                         <time datetime="{{this.date}}T{{this.startTime}}{{getTimezoneOffset this.timezone}}">
-                            {{this.dayOfWeek}}, {{formatDate this.date "MMM DD"}}
+                            {{this.dayOfWeek}}, {{#if (isDifferentYear this.date)}}{{formatDate this.date "MMM DD, YYYY"}}{{else}}{{formatDate this.date "MMM DD"}}{{/if}}
                         </time>
                         {{#if this.endTime}}
                         <span class="text-gray-400 font-light ml-2">{{formatTimeRange this.startTime this.endTime}}</span>
@@ -57,13 +57,15 @@
                         {{/if}}
                         
                     </div>
-                    
-                    <!-- Description -->
+
+                    <!-- Description (only for public events) -->
+                    {{#unless this.private}}
                     {{#if this.description}}
                     <p class="text-sm text-gray-400 mb-4">{{this.description}}</p>
                     {{/if}}
-                    
-                    
+                    {{/unless}}
+
+
                     <!-- Age Restriction -->
                     {{#if this.ticketing.ageRestriction}}
                     <p class="text-xs text-gray-500 mb-2">{{this.ticketing.ageRestriction}}</p>
@@ -71,6 +73,14 @@
                     
                     <!-- Action Links with Price -->
                     <div class="flex gap-4 items-center">
+                        {{#if this.private}}
+                        <!-- Private Event - Always show booking link -->
+                        <a href="mailto:booking@sinisterdexter.net"
+                           class="text-purple-400 hover:text-purple-300">
+                            Book us for your own event →
+                        </a>
+                        {{else}}
+                        <!-- Public Event - Show normal pricing and links -->
                         {{#if this.isFree}}
                         <span class="text-green-400 font-bold text-sm">FREE</span>
                         {{else}}
@@ -78,21 +88,21 @@
                         <span class="text-amber-400 font-bold text-sm">{{this.ticketing.admission}}</span>
                         {{/if}}
                         {{/if}}
-                        
+
                         {{#if this.ticketing.link}}
-                        <a href="{{this.ticketing.link}}" 
-                           target="_blank" 
-                           class="text-purple-400 hover:text-purple-300"
->
+                        <a href="{{this.ticketing.link}}"
+                           target="_blank"
+                           class="text-purple-400 hover:text-purple-300">
                             Learn More →
                         </a>
                         {{/if}}
                         {{#if this.ticketing.ticketUrl}}
-                        <a href="{{this.ticketing.ticketUrl}}" 
-                           target="_blank" 
+                        <a href="{{this.ticketing.ticketUrl}}"
+                           target="_blank"
                            class="text-purple-400 hover:text-purple-300 font-bold">
                             Buy Tickets →
                         </a>
+                        {{/if}}
                         {{/if}}
                     </div>
                     
@@ -120,30 +130,49 @@
                 {{#if pastShows}}
                 <div class="space-y-3">
                     {{#each (limit pastShows 3)}}
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
-                        <div class="flex-1">
-                            <time datetime="{{this.date}}" class="text-amber-500 text-sm font-semibold">
-                                {{formatDate this.date "MMM DD, YYYY"}}
-                            </time>
-                            <span class="text-gray-400 mx-2">•</span>
-                            {{#if this.venue.link}}
-                            <a href="{{this.venue.link}}" 
-                               target="_blank" 
-                               class="text-gray-300 hover:text-purple-400 transition-colors"
-    >
-                                <span>{{this.venue.name}}</span>
-                            </a>
-                            {{else}}
-                            <span class="text-gray-300">{{this.venue.name}}</span>
-                            {{/if}}
-                            <span class="text-gray-500 text-sm ml-2">
-                                <span>{{this.venue.address.city}}</span>
-                            </span>
-                            {{#if this.performanceNotes}}
-                            <span class="text-purple-400 text-sm ml-2">({{this.performanceNotes}})</span>
-                            {{/if}}
+                    <div class="border-b border-gray-800 last:border-0">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2">
+                            <div class="flex-1">
+                                <time datetime="{{this.date}}" class="text-amber-500 text-sm font-semibold">
+                                    {{formatDate this.date "MMM DD, YYYY"}}
+                                </time>
+                                <span class="text-gray-400 mx-2">•</span>
+                                {{#if this.venue.link}}
+                                <a href="{{this.venue.link}}"
+                                   target="_blank"
+                                   class="text-gray-300 hover:text-purple-400 transition-colors"
+        >
+                                    <span>{{this.venue.name}}</span>
+                                </a>
+                                {{else}}
+                                <span class="text-gray-300">{{this.venue.name}}</span>
+                                {{/if}}
+                                <span class="text-gray-500 text-sm ml-2">
+                                    <span>{{this.venue.address.city}}</span>
+                                </span>
+                                {{#if this.performanceNotes}}
+                                <span class="text-purple-400 text-sm ml-2">({{this.performanceNotes}})</span>
+                                {{/if}}
+                            </div>
+                            <div class="text-gray-500 text-sm mt-1 sm:mt-0">{{this.time}}</div>
                         </div>
-                        <div class="text-gray-500 text-sm mt-1 sm:mt-0">{{this.time}}</div>
+                        {{#if this.media}}
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pb-3 pt-2">
+                            {{#each this.media}}
+                            {{#if (eq this.type "image")}}
+                            <a href="{{this.url}}" target="_blank" class="group block aspect-square rounded overflow-hidden">
+                                <img src="{{this.url}}" alt="{{this.alt}}" class="w-full h-full object-cover group-hover:scale-105 transition-transform" loading="lazy">
+                            </a>
+                            {{else if (eq this.type "video-vertical")}}
+                            {{> components/tiktok-embed videoId=this.videoId username=this.username caption=this.caption url=this.url}}
+                            {{else if (eq this.type "video-horizontal")}}
+                            <div class="aspect-video">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{this.videoId}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                            {{/if}}
+                            {{/each}}
+                        </div>
+                        {{/if}}
                     </div>
                     {{/each}}
                     
@@ -152,27 +181,46 @@
                     <div id="hidden-past-shows" class="hidden space-y-3">
                         {{#each pastShows}}
                         {{#if (gt @index 2)}}
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-gray-800 last:border-0">
-                            <div class="flex-1">
-                                <time datetime="{{this.date}}" class="text-amber-500 text-sm font-semibold">
-                                    {{formatDate this.date "MMM DD, YYYY"}}
-                                </time>
-                                <span class="text-gray-400 mx-2">•</span>
-                                {{#if this.venue.link}}
-                                <a href="{{this.venue.link}}" 
-                                   target="_blank" 
-                                   class="text-gray-300 hover:text-purple-400 transition-colors"
-        >
-                                    <span>{{this.venue.name}}</span>
-                                    </a>
-                                {{else}}
-                                <span class="text-gray-300">{{this.venue.name}}</span>
-                                {{/if}}
-                                <span class="text-gray-500 text-sm ml-2">
-                                    <span>{{this.venue.address.city}}</span>
-                                </span>
+                        <div class="border-b border-gray-800 last:border-0">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2">
+                                <div class="flex-1">
+                                    <time datetime="{{this.date}}" class="text-amber-500 text-sm font-semibold">
+                                        {{formatDate this.date "MMM DD, YYYY"}}
+                                    </time>
+                                    <span class="text-gray-400 mx-2">•</span>
+                                    {{#if this.venue.link}}
+                                    <a href="{{this.venue.link}}"
+                                       target="_blank"
+                                       class="text-gray-300 hover:text-purple-400 transition-colors"
+            >
+                                        <span>{{this.venue.name}}</span>
+                                        </a>
+                                    {{else}}
+                                    <span class="text-gray-300">{{this.venue.name}}</span>
+                                    {{/if}}
+                                    <span class="text-gray-500 text-sm ml-2">
+                                        <span>{{this.venue.address.city}}</span>
+                                    </span>
+                                </div>
+                                <div class="text-gray-500 text-sm mt-1 sm:mt-0">{{this.time}}</div>
                             </div>
-                            <div class="text-gray-500 text-sm mt-1 sm:mt-0">{{this.time}}</div>
+                            {{#if this.media}}
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pb-3 pt-2">
+                                {{#each this.media}}
+                                {{#if (eq this.type "image")}}
+                                <a href="{{this.url}}" target="_blank" class="group block aspect-square rounded overflow-hidden">
+                                    <img src="{{this.url}}" alt="{{this.alt}}" class="w-full h-full object-cover group-hover:scale-105 transition-transform" loading="lazy">
+                                </a>
+                                {{else if (eq this.type "video-vertical")}}
+                                {{> components/tiktok-embed videoId=this.videoId username=this.username caption=this.caption url=this.url}}
+                                {{else if (eq this.type "video-horizontal")}}
+                                <div class="aspect-video">
+                                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{this.videoId}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                                </div>
+                                {{/if}}
+                                {{/each}}
+                            </div>
+                            {{/if}}
                         </div>
                         {{/if}}
                         {{/each}}

@@ -105,7 +105,7 @@ git branch -d feature/add-video-background
 ## Common Tasks
 
 ### 📅 Update Shows
-1. Edit `public/data/shows.json`
+1. Edit `template/data/shows.json`
 2. Add show details in this format:
 ```json
 {
@@ -124,6 +124,69 @@ git branch -d feature/add-video-background
 - `tickets` - Ticket purchase page (optional, shows "Buy Tickets" button)
 3. Run `npm run build:html`
 4. Deploy: `./deploy.sh staging` then `./deploy.sh prod`
+
+### 📸 Add Media to Past Shows
+Past shows can include optional media (pictures, vertical videos, horizontal videos):
+1. Edit `template/data/shows.json`
+2. Add a `media` array to any past show:
+```json
+{
+  "date": "2025-11-14",
+  "venue": "Club Fox",
+  "city": "Redwood City, CA",
+  "time": "7:00 PM - 11:00 PM",
+  "link": "https://clubfoxrwc.com/",
+  "media": [
+    {
+      "type": "image",
+      "url": "https://cdn.sinister-dexter.com/photos/show-photo.jpg",
+      "alt": "Band performing at Club Fox"
+    },
+    {
+      "type": "video-vertical",
+      "platform": "tiktok",
+      "videoId": "7573064485842242871",
+      "username": "@sindex_band",
+      "caption": "From our Nov 14, 2025 show at Club Fox!"
+    },
+    {
+      "type": "video-horizontal",
+      "platform": "youtube",
+      "videoId": "xyz789"
+    }
+  ]
+}
+```
+**Media Types:**
+- `image` - Photos from the show (displayed as square thumbnails)
+- `video-vertical` - TikTok videos (uses official TikTok embed)
+- `video-horizontal` - YouTube videos (iframe embed)
+
+**Required Fields by Type:**
+
+**Images:**
+- `type`: "image"
+- `url`: Direct image URL
+- `alt`: Alt text for accessibility
+
+**TikTok Videos:**
+- `type`: "video-vertical"
+- `videoId`: TikTok video ID (the numeric ID from the URL)
+- `username`: TikTok username (optional, defaults to @sindex_band)
+- `caption`: Caption text (optional)
+- `url`: Full TikTok URL (optional, auto-generated from videoId)
+
+**YouTube Videos:**
+- `type`: "video-horizontal"
+- `videoId`: YouTube video ID (the part after `v=` or in shorts URL)
+
+3. Run `npm run build:html`
+4. Deploy changes
+
+**Note:** The TikTok embed component is located at `template/partials/components/tiktok-embed.hbs` and can be reused anywhere in templates with:
+```handlebars
+{{> components/tiktok-embed videoId="7573064485842242871" username="@sindex_band" caption="Optional caption"}}
+```
 
 ### 👥 Update Band Members
 1. Edit `public/data/members.json`

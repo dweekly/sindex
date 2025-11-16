@@ -144,3 +144,45 @@ const tracks = {{{json tracks}}};
     }
 })();
 </script>
+
+<!-- TikTok Embed Script -->
+<script async src="https://www.tiktok.com/embed.js"></script>
+
+<!-- Hero Video Background Handler -->
+<script>
+(function() {
+    const heroVideo = document.querySelector('#hero video');
+    if (!heroVideo) return;
+
+    // Handle responsive video source switching
+    function updateVideoSource() {
+        const isMobile = window.innerWidth <= 768;
+        const currentSrc = heroVideo.querySelector('source[src*="hero-mobile.mp4"]');
+        const desktopSrc = heroVideo.querySelector('source[src*="hero-desktop.mp4"]');
+
+        // Browsers will automatically select the appropriate source based on media queries
+        // But we can force reload if needed on resize
+        heroVideo.load();
+    }
+
+    // Ensure video plays (some browsers block autoplay)
+    heroVideo.play().catch(function(error) {
+        console.log('Video autoplay prevented:', error);
+    });
+
+    // Pause video when tab is not visible (save bandwidth/battery)
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            heroVideo.pause();
+        } else {
+            heroVideo.play().catch(function() {});
+        }
+    });
+
+    // Reduce motion for users who prefer it
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        heroVideo.pause();
+        heroVideo.style.display = 'none';
+    }
+})();
+</script>
