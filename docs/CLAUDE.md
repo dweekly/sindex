@@ -21,6 +21,34 @@ Sinister Dexter band website - A modular, data-driven static site generator for 
 - Leave fields empty, use "TODO" comments, or placeholder text rather than inventing details
 - This especially applies to: band member bios, years with band, venues played, show dates, etc.
 
+⚠️ **NEVER COMMIT DIRECTLY TO MAIN** - All changes must be on a feature branch!
+- Always create a feature branch for your work: `git checkout -b feature/descriptive-name`
+- Make commits on the feature branch, never on `main`
+- Push the feature branch and create a Pull Request for review
+- A pre-commit hook prevents accidental commits to `main`
+- After PR is merged, pull latest main: `git checkout main && git pull`
+
+### Feature Branch Workflow
+```bash
+# Start new feature
+git checkout main
+git pull
+git checkout -b feature/add-video-background
+
+# Make changes and commit
+git add .
+git commit -m "Add video background to hero"
+
+# Push and create PR
+git push -u origin feature/add-video-background
+gh pr create --title "Add video background" --body "Description..."
+
+# After merge, update main
+git checkout main
+git pull
+git branch -d feature/add-video-background
+```
+
 ## Project Structure
 ```
 /
