@@ -33,6 +33,8 @@ Handlebars.registerHelper('slice', (array, start, end) => {
 
 Handlebars.registerHelper('gt', (a, b) => a > b);
 
+Handlebars.registerHelper('eq', (a, b) => a === b);
+
 // Helper to lookup nested array values
 Handlebars.registerHelper('lookup', (array, index, property) => {
     if (!array || !array[index]) return '';

@@ -1,18 +1,35 @@
 {
   "upcomingShows": [
     {
+      "date": "2025-12-05",
+      "name": "Corporate Holiday Party",
+      "venue": "Book us for your own!",
+      "address": "",
+      "time": "",
+      "link": "mailto:booking@sinisterdexter.net",
+      "description": ""
+    }
+  ],
+  "pastShows": [
+    {
       "date": "2025-11-14",
       "name": "Friday Night Funk",
       "venue": "Club Fox",
       "address": "2209 Broadway, Redwood City, CA 94063",
+      "city": "Redwood City, CA",
       "time": "7:00 PM - 11:00 PM",
       "link": "https://clubfoxrwc.com/",
-      "tickets": "https://www.eventbrite.com/e/sinister-dexter-funk-soul-horns-tickets-1568339939979?aff=ebdssbdestsearch",
-      "description": "Friday night funk at the legendary Club Fox venue",
-      "admission": "$20"
-    }
-  ],
-  "pastShows": [
+      "media": [
+        {
+          "type": "video-vertical",
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@sindex_band/video/7573064485842242871",
+          "videoId": "7573064485842242871",
+          "username": "@sindex_band",
+          "caption": "From our Nov 14, 2025 show at Club Fox!"
+        }
+      ]
+    },
     {
       "date": "2025-10-19",
       "venue": "Blue Oak Brewing Company",

@@ -77,7 +77,7 @@ Sinister Dexter band website - A modular, data-driven static site generator for 
 ## Common Tasks
 
 ### 📅 Update Shows
-1. Edit `public/data/shows.json`
+1. Edit `template/data/shows.json`
 2. Add show details in this format:
 ```json
 {
@@ -96,6 +96,60 @@ Sinister Dexter band website - A modular, data-driven static site generator for 
 - `tickets` - Ticket purchase page (optional, shows "Buy Tickets" button)
 3. Run `npm run build:html`
 4. Deploy: `./deploy.sh staging` then `./deploy.sh prod`
+
+### 📸 Add Media to Past Shows
+Past shows can include optional media (pictures, vertical videos, horizontal videos):
+1. Edit `template/data/shows.json`
+2. Add a `media` array to any past show:
+```json
+{
+  "date": "2025-11-14",
+  "venue": "Club Fox",
+  "city": "Redwood City, CA",
+  "time": "7:00 PM - 11:00 PM",
+  "link": "https://clubfoxrwc.com/",
+  "media": [
+    {
+      "type": "image",
+      "url": "https://cdn.sinister-dexter.com/photos/show-photo.jpg",
+      "alt": "Band performing at Club Fox"
+    },
+    {
+      "type": "video-vertical",
+      "platform": "tiktok",
+      "url": "https://www.tiktok.com/@sindex_band/video/123456789",
+      "thumbnail": "https://p16-sign.tiktokcdn.com/..."
+    },
+    {
+      "type": "video-vertical",
+      "platform": "youtube-short",
+      "url": "https://youtube.com/shorts/abc123",
+      "videoId": "abc123",
+      "thumbnail": "https://img.youtube.com/vi/abc123/maxresdefault.jpg"
+    },
+    {
+      "type": "video-horizontal",
+      "platform": "youtube",
+      "url": "https://youtube.com/watch?v=xyz789",
+      "videoId": "xyz789",
+      "thumbnail": "https://img.youtube.com/vi/xyz789/maxresdefault.jpg"
+    }
+  ]
+}
+```
+**Media Types:**
+- `image` - Photos from the show (displayed as square thumbnails)
+- `video-vertical` - TikTok or YouTube Shorts (9:16 aspect ratio)
+- `video-horizontal` - Standard YouTube videos (16:9 aspect ratio)
+
+**Required Fields:**
+- `type` - Media type (image, video-vertical, or video-horizontal)
+- `url` - Link to the media (where users will be taken on click)
+- `thumbnail` - Thumbnail image URL (for videos)
+- `alt` - Alt text (for images, accessibility)
+
+3. Run `npm run build:html`
+4. Deploy changes
 
 ### 👥 Update Band Members
 1. Edit `public/data/members.json`
