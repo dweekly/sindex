@@ -11,6 +11,16 @@
       "private": true
     },
     {
+      "date": "2026-06-05",
+      "name": "Private Event",
+      "venue": "Sound Union",
+      "address": "2625 Broadway, Redwood City, CA 94063",
+      "time": "5:00 PM",
+      "link": "mailto:booking@sinisterdexter.net",
+      "description": "Book us for your own!",
+      "private": true
+    },
+    {
       "date": "2026-09-02",
       "name": "City of Albany's Concert in the Park",
       "venue": "Albany Community Center",
