@@ -51,27 +51,33 @@
       "media": [
         {
           "type": "image",
-          "filename": "blue-oak-2025-10-19-1_converted"
+          "url": "images/medium/blue-oak-2025-10-19-1_converted.jpg",
+          "alt": "Blue Oak Brewing Company show, Oct 19, 2025"
         },
         {
           "type": "image",
-          "filename": "blue-oak-2025-10-19-2_converted"
+          "url": "images/medium/blue-oak-2025-10-19-2_converted.jpg",
+          "alt": "Blue Oak Brewing Company show, Oct 19, 2025"
         },
         {
           "type": "image",
-          "filename": "blue-oak-2025-10-19-3_converted"
+          "url": "images/medium/blue-oak-2025-10-19-3_converted.jpg",
+          "alt": "Blue Oak Brewing Company show, Oct 19, 2025"
         },
         {
           "type": "image",
-          "filename": "blue-oak-2025-10-19-4_converted"
+          "url": "images/medium/blue-oak-2025-10-19-4_converted.jpg",
+          "alt": "Blue Oak Brewing Company show, Oct 19, 2025"
         },
         {
           "type": "image",
-          "filename": "blue-oak-2025-10-19-5_converted"
+          "url": "images/medium/blue-oak-2025-10-19-5_converted.jpg",
+          "alt": "Blue Oak Brewing Company show, Oct 19, 2025"
         },
         {
           "type": "image",
-          "filename": "blue-oak-2025-10-19-6_converted"
+          "url": "images/medium/blue-oak-2025-10-19-6_converted.jpg",
+          "alt": "Blue Oak Brewing Company show, Oct 19, 2025"
         }
       ]
     },
