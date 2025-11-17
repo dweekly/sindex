@@ -47,7 +47,39 @@
       "city": "San Carlos, CA",
       "time": "3:00 PM - 6:00 PM",
       "description": "Great beer, a food truck, and us! Dog & kid friendly.",
-      "link": "https://www.blueoakbrewing.com"
+      "link": "https://www.blueoakbrewing.com",
+      "media": [
+        {
+          "type": "image",
+          "url": "images/medium/blue-oak-2025-10-19-1_converted.jpg",
+          "alt": "Blue Oak Brewing Company show, Oct 19, 2025"
+        },
+        {
+          "type": "image",
+          "url": "images/medium/blue-oak-2025-10-19-2_converted.jpg",
+          "alt": "Blue Oak Brewing Company show, Oct 19, 2025"
+        },
+        {
+          "type": "image",
+          "url": "images/medium/blue-oak-2025-10-19-3_converted.jpg",
+          "alt": "Blue Oak Brewing Company show, Oct 19, 2025"
+        },
+        {
+          "type": "image",
+          "url": "images/medium/blue-oak-2025-10-19-4_converted.jpg",
+          "alt": "Blue Oak Brewing Company show, Oct 19, 2025"
+        },
+        {
+          "type": "image",
+          "url": "images/medium/blue-oak-2025-10-19-5_converted.jpg",
+          "alt": "Blue Oak Brewing Company show, Oct 19, 2025"
+        },
+        {
+          "type": "image",
+          "url": "images/medium/blue-oak-2025-10-19-6_converted.jpg",
+          "alt": "Blue Oak Brewing Company show, Oct 19, 2025"
+        }
+      ]
     },
     {
       "date": "2025-09-28",
