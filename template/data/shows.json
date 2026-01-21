@@ -1,14 +1,15 @@
 {
   "upcomingShows": [
     {
-      "date": "2025-12-05",
-      "name": "Corporate Holiday Party",
-      "venue": "The Fillmore",
-      "address": "1805 Geary Blvd, San Francisco, CA 94115",
-      "time": "",
-      "link": "mailto:booking@sinisterdexter.net",
-      "description": "Book us for your own!",
-      "private": true
+      "date": "2026-05-08",
+      "name": "SF Funk/Blues/Soul Fest",
+      "venue": "O'Reilly's Pub",
+      "address": "1840 Haight St, San Francisco, CA 94117",
+      "time": "9:00 PM - 11:00 PM",
+      "link": "",
+      "description": "Friday night and we're feelin' all right!",
+      "ageRestriction": "21+",
+      "admission": "$10 advance, $15 day of show (link coming soon!)"
     },
     {
       "date": "2026-06-05",
@@ -31,6 +32,17 @@
     }
   ],
   "pastShows": [
+    {
+      "date": "2025-12-05",
+      "name": "Corporate Holiday Party",
+      "venue": "The Fillmore",
+      "address": "1805 Geary Blvd",
+      "city": "San Francisco, CA",
+      "time": "7:00 PM - 10:00 PM",
+      "link": "https://www.thefillmore.com/",
+      "description": "Private Party (you can book us too!)",
+      "private": true
+    },
     {
       "date": "2025-11-14",
       "name": "Friday Night Funk",
