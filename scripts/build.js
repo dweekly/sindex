@@ -120,21 +120,7 @@ Handlebars.registerHelper('formatTimeRange', (startTime, endTime) => {
     
     if (!start || !end) return `${startTime} - ${endTime}`;
     
-    // If both times have the same meridian, combine them
-    if (start.meridian === end.meridian) {
-        // If minutes are :00, just show hours
-        if (start.minute === '00' && end.minute === '00') {
-            return `${start.hour} - ${end.hour}${end.meridian.toLowerCase()}`;
-        }
-        // Otherwise show full times but share meridian
-        return `${start.hour}:${start.minute} - ${end.hour}:${end.minute}${end.meridian.toLowerCase()}`;
-    }
-    
-    // Different meridians - show both but concise
-    if (start.minute === '00' && end.minute === '00') {
-        return `${start.hour}${start.meridian.toLowerCase()} - ${end.hour}${end.meridian.toLowerCase()}`;
-    }
-    return `${start.hour}:${start.minute}${start.meridian.toLowerCase()} - ${end.hour}:${end.minute}${end.meridian.toLowerCase()}`;
+    return `${start.hour}:${start.minute} ${start.meridian.toUpperCase()} - ${end.hour}:${end.minute} ${end.meridian.toUpperCase()}`;
 });
 
 Handlebars.registerHelper('getStartYear', (yearsWithBand) => {
